@@ -1,0 +1,46 @@
+{
+    "data" : {
+        "id": 10294,
+        "accountIdentifier": "21",
+        "realmIdentifier": "Demo",
+        "accountTypeId": 37,
+        "name": "My Creditcard",
+        "balance": 4500,
+        "limit": 2000,
+        "accountClass": "euro",
+        "organizationName": null,
+        "organizationIdentifier": "meniisre",
+        "realmCredentialsId": 2416,
+        "accountAuthorizationType": 0,
+        "orderId": 0,
+        "isImportAccount": false,
+        "lastUpdate": "2016-03-08T13:27:02.85",
+        "personId": 2499,
+        "userEmail": "mathieu@meniga.is",
+        "createDate": "2016-03-08T13:26:55.817",
+        "accountType": "Credit",
+        "emergencyFundBalanceLimit": null,
+        "inactive": false,
+        "attachedToUserDate": "1970-01-01T00:00:01.000",
+        "synchronizationIsPaused": false,
+        "hasInactiveBudget": false,
+        "hasInactiveTransactions": false,
+        "isHidden": false,
+        "isDisabled": false,
+        "currencyCode": null,
+        "metadata": [
+                     {
+                     "name": "Card holder",
+                     "value": "John Bob"
+                     },
+                     {
+                     "name": "Card number",
+                     "value": "1234 XXXX XXXX 5432"
+                     },
+                     {
+                     "name": "Valid to",
+                     "value": "12/2026"
+                     }
+                     ]
+    }
+}

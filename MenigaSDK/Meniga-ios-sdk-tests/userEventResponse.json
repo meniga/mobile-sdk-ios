@@ -1,0 +1,14 @@
+{
+    "Id":10,
+    "ParentTypeIdentifier":"ptidentifier",
+    "MessageBody":"msgbody",
+    "MessageTitle":"msgtitle",
+    "UserActionText":"uatext",
+    "MessageData":"msgdata",
+    "DisplayIconIdentifier":"diidentifier",
+    "DisplayColor":"dispcolor",
+    "TopicIds":[
+        2,
+        42
+    ]
+}

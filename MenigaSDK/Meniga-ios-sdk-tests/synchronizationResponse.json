@@ -1,0 +1,50 @@
+{
+    "data": {
+        "syncHistoryId": 885,
+        "isSyncDone": true,
+        "syncSessionStartTime": "2016-04-06T14:46:41.103",
+        "realmSyncResponses": [
+                               {
+                               "realmCredentialsId": 593,
+                               "realmCredentialsDisplayName": "haukur@meniga.is",
+                               "organizationId": 1,
+                               "organizationName": "Meniga",
+                               "organizationBankCode": "MENIISRE",
+                               "accountSyncStatuses": [
+                                                       {
+                                                       "accountId": 2525,
+                                                       "balance": -960,
+                                                       "limit": 2000,
+                                                       "transactionsProcessed": 0,
+                                                       "totalTransactions": 0,
+                                                       "startDate": "2016-04-06T14:46:41.0917258",
+                                                       "endDate": "2016-04-06T14:46:41.1073257",
+                                                       "accountStatus": null
+                                                       },
+                                                       {
+                                                       "accountId": 2526,
+                                                       "balance": 459,
+                                                       "limit": 1000,
+                                                       "transactionsProcessed": 0,
+                                                       "totalTransactions": 0,
+                                                       "startDate": "2016-04-06T14:46:41.1073257",
+                                                       "endDate": "2016-04-06T14:46:41.1229256",
+                                                       "accountStatus": null
+                                                       },
+                                                       {
+                                                       "accountId": 2527,
+                                                       "balance": 1246,
+                                                       "limit": 0,
+                                                       "transactionsProcessed": 0,
+                                                       "totalTransactions": null,
+                                                       "startDate": "2016-04-06T14:46:41.1229256",
+                                                       "endDate": "2016-04-06T14:46:41.1229256",
+                                                       "accountStatus": null
+                                                       }
+                                                       ],
+                               "authenticationChallenge": null,
+                               "isSyncDone": false
+                               }
+                               ]
+    }
+}

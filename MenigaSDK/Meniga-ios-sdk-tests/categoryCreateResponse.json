@@ -1,0 +1,17 @@
+{
+    "data": {
+        "id": 810,
+        "name": "Some Category Name",
+        "otherCategoryName": null,
+        "parentCategoryId": null,
+        "isPublic": false,
+        "isFixedExpenses": false,
+        "categoryType": "Expenses",
+        "categoryRank": "NotUseful",
+        "budgetGenerationType": 12,
+        "children": [],
+        "categoryContextId": null,
+        "orderId": 0,
+        "displayData": "e636"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "data": {
+        "id": 13,
+        "value": 100,
+        "isUpperLimit": true,
+        "accountSetId": 13,
+        "accountIds": [
+                       1355
+                       ]
+    }
+}

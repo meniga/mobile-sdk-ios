@@ -1,0 +1,14 @@
+{
+	"TRANSACTIONID" : 2,
+	"TRANSACTIONINFO" : "Some info",
+	"COMMENT" : {
+		"COMMENTID" : 3,
+		"COMMENTTITLE" : "Some title"
+    },
+    "ALLCOMMENTS" : [
+                     { "COMMENTID" : 5,
+                     "COMMENTTITLE" : "Another title" },
+                     { "COMMENTID" : 6,
+                     "COMMENTTITLE" : "Swag title" }
+    ]
+}

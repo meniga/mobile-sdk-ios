@@ -1,0 +1,25 @@
+#!/bin/sh
+
+echo "Configuring pre-commit hook..."
+BASEDIR=$(dirname $0)
+PARENTDIR="$(dirname "$BASEDIR")"
+
+#Test for the hooks directory. If it does not exists, create it.
+echo "Testing for hooks directory"
+if [ -d ${PARENTDIR}/.git/hooks]
+then
+    echo "Directory ${PARENTDIR}/.git/hooks exists."
+else
+    echo "Directory ${PARENTDIR}/.git/hooks does not exists. Creating it."
+    mkdir ${PARENTDIR}/.git/hooks
+fi
+
+# make a symbolic link with the pre-commit hook
+if [ ! -f ./git/hooks/pre-commit ]; then
+  ln ${BASEDIR}/git-hooks/pre-commit.sh ${PARENTDIR}/.git/hooks/pre-commit
+  echo "Done"
+else
+  cat <<EOF
+A pre-commit hook exists already.
+EOF
+fi

@@ -1,0 +1,126 @@
+{
+    "data": [
+             {
+             "timeResolution": "Month",
+             "statistics": {
+             "currentMonthTotal": 0,
+             "total": 0,
+             "average": 0
+             },
+             "values": [
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2015-10-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2015-11-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2015-12-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2016-01-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2016-02-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2016-03-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2016-04-01T00:00:00",
+                        "transactionIds": []
+                        }
+                        ],
+             "transactions": [],
+             "transactionIds": []
+             },
+             {
+             "timeResolution": "Month",
+             "statistics": {
+             "currentMonthTotal": 0,
+             "total": 0,
+             "average": 0
+             },
+             "values": [
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2015-10-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2015-11-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2015-12-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2016-01-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2016-02-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2016-03-01T00:00:00",
+                        "transactionIds": []
+                        },
+                        {
+                        "nettoAmount": 0,
+                        "totalPositive": 0,
+                        "totalNegative": 0,
+                        "date": "2016-04-01T00:00:00",
+                        "transactionIds": []
+                        }
+                        ],
+             "transactions": [],
+             "transactionIds": []
+             }
+             ]
+}

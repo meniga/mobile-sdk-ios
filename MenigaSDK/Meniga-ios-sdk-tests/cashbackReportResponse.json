@@ -1,0 +1,24 @@
+{
+    "TotalCashback":0.0,
+    "TotalForPayout":0.0,
+    "AcceptedOffers":0,
+    "RedeemedOffers":0,
+    "Revenue":0.0,
+    "OffersSent":0,
+    "OffersSeen":0,
+    "UniqueImpressions":0,
+    "UniqueClicks":0,
+    "CashbackActive":0,
+    "CashbackActiveStatusLastSet":"/Date(1441104123903+0000)/",
+    "HasAcceptedTAndC":1,
+    "OffersNotSeen":0,
+    "ScheduledRepayments":[
+        {
+            "Date":"/Date(1441104123903+0000)/",
+            "Account":"testAccount",
+            "Amount":1000
+        }
+    ],
+    "HasInvalidRepaymentAccount":0,
+    "Redemptions":[]
+}

@@ -1,0 +1,9 @@
+//
+//  SDKConfigDebug.xcconfig
+//  Meniga-ios-sdk
+//
+//  Created by Aske Bendtsen on 13/09/16.
+//  Copyright © 2016 Meniga. All rights reserved.
+//
+
+#include "SDKConfigShared.xcconfig"

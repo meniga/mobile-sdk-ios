@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# uniquify and sort the Xcode projct files
+BASEDIR=$(dirname $0)
+python -mxUnique -v -u -s "${BASEDIR}/Meniga-ios-sdk.xcodeproj/project.pbxproj"

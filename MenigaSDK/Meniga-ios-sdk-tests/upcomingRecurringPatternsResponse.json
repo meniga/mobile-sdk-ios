@@ -1,0 +1,25 @@
+ [
+  {
+  "id": 46,
+  "text": "Upcoming 1",
+  "amountInCurrency": 100,
+  "currencyCode": "ISK",
+  "categoryId": 81,
+  "accountId": 1355,
+  "pattern": {
+  "dayOfMonth": null,
+  "dayOfMonthInterval": null,
+  "month": null,
+  "monthInterval": null,
+  "dayOfWeek": null,
+  "dayOfWeekInterval": null,
+  "weekOfYear": null,
+  "weekInterval": null
+  },
+  "repeatUntil": "2016-12-03T12:11:13.753",
+  "isWatched": false,
+  "isFlagged": false,
+  "type": "Manual",
+  "status": "Accepted"
+  }
+  ]

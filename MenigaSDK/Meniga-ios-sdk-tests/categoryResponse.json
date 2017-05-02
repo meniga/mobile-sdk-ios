@@ -1,0 +1,17 @@
+{
+    "data": {
+        "id": 81,
+        "name": "Alcohol",
+        "otherCategoryName": null,
+        "parentCategoryId": 70,
+        "isPublic": true,
+        "isFixedExpenses": false,
+        "categoryType": "Expenses",
+        "categoryRank": "NotUseful",
+        "budgetGenerationType": 12,
+        "children": [],
+        "categoryContextId": null,
+        "orderId": 0,
+        "displayData": "e636"
+    }
+}

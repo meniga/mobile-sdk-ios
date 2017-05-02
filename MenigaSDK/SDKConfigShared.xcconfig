@@ -1,0 +1,10 @@
+//
+//  versionConfig.xcconfig
+//  Meniga-ios-sdk
+//
+//  Created by Aske Bendtsen on 13/09/16.
+//  Copyright © 2016 Meniga. All rights reserved.
+//
+
+MNF_SDK_VERSION=0.9.17
+MNF_SDK_NAME=MenigaSDK
