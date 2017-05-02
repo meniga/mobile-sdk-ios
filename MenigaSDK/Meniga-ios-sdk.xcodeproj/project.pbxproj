@@ -121,9 +121,9 @@
 		2F9502C5AE28BEEC45B03FA43FF324B1 /* MNFTransactionRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C53EF4EB5047276B1058B632DBA035E /* MNFTransactionRule.m */; };
 		307058F2D9700D5005092E9968591BF2 /* MNFGlobalChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B5374500FE15AD46EFA82EE806542A /* MNFGlobalChallenge.m */; };
 		30B935D763775EF7BFF0C97BD85E876E /* MNFJob.h in Headers */ = {isa = PBXBuildFile; fileRef = BD36BB35EE4A9D0A6983804655630A82 /* MNFJob.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		31F266941EB8BC56003BFB5F /* MNFTransactionSeriesStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 31F266901EB8BC56003BFB5F /* MNFTransactionSeriesStatistics.h */; };
+		31F266941EB8BC56003BFB5F /* MNFTransactionSeriesStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 31F266901EB8BC56003BFB5F /* MNFTransactionSeriesStatistics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31F266951EB8BC56003BFB5F /* MNFTransactionSeriesStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F266911EB8BC56003BFB5F /* MNFTransactionSeriesStatistics.m */; };
-		31F266961EB8BC56003BFB5F /* MNFTransactionSeriesValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 31F266921EB8BC56003BFB5F /* MNFTransactionSeriesValue.h */; };
+		31F266961EB8BC56003BFB5F /* MNFTransactionSeriesValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 31F266921EB8BC56003BFB5F /* MNFTransactionSeriesValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31F266971EB8BC56003BFB5F /* MNFTransactionSeriesValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F266931EB8BC56003BFB5F /* MNFTransactionSeriesValue.m */; };
 		34F9D23DDA0DF3C904BCE87F52C16738 /* MNFAccountAuthorizationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 959B36C7454CAF6CA71449E7238DBA43 /* MNFAccountAuthorizationType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3501B284AD17F01BEBC4BC255D2C76DA /* MNFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A11DFD42418C6E80B7C443021042530 /* MNFSettings.m */; };
