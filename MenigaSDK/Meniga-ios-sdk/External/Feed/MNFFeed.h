@@ -8,6 +8,12 @@
 
 #import "MNFObject.h"
 
+#import "MNFFeedItem.h"
+#import "MNFFeedItemGroup.h"
+#import "MNFScheduledEvent.h"
+#import "MNFTransactionDayOverview.h"
+#import "MNFUserEvent.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**

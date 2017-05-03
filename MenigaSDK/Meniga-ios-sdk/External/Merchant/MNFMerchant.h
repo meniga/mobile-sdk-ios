@@ -8,6 +8,10 @@
 
 #import "MNFObject.h"
 
+#import "MNFMerchantAddress.h"
+#import "MNFMerchantSeries.h"
+#import "MNFMerchantSeriesOptions.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class MNFMerchantAddress,MNFCategoryScore;

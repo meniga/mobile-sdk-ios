@@ -8,6 +8,9 @@
 
 #import "MNFObject.h"
 
+#import "MNFCategoryType.h"
+#import "MNFCategoryScore.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {

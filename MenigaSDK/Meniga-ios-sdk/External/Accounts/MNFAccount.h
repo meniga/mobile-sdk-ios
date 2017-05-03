@@ -8,6 +8,11 @@
 
 #import "MNFObject.h"
 
+#import "MNFAccountAuthorizationType.h"
+#import "MNFAccountCategory.h"
+#import "MNFAccountHistoryEntry.h"
+#import "MNFAccountType.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**

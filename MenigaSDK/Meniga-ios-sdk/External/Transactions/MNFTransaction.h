@@ -8,6 +8,17 @@
 
 #import "MNFObject.h"
 
+#import "MNFComment.h"
+#import "MNFTransactionFilter.h"
+#import "MNFTransactionGroup.h"
+#import "MNFTransactionPage.h"
+#import "MNFTransactionRule.h"
+#import "MNFTransactionSeries.h"
+#import "MNFTransactionSeriesFilter.h"
+#import "MNFTransactionSeriesStatistics.h"
+#import "MNFTransactionSeriesValue.h"
+#import "MNFTransactionSplitAction.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class MNFTransactionFilter;

@@ -58,7 +58,7 @@
     filter.offerIds = nil;
     filter.offerStates = nil;
     
-    [MNFOffer fetchOffersWithFilter: filter take:@100 skip:@0 completion:^(NSArray <MNFOffer *> *offers, NSError *error){
+    [MNFOffer fetchOffersWithFilter: filter take:@100 skip:@0 completion:^(NSArray <MNFOffer *> *offers, NSDictionary *metaData, NSError *error){
        
         XCTAssertNotNil(offers);
         XCTAssertTrue(offers.count != 0);
@@ -74,7 +74,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription: NSStringFromSelector(_cmd)];
     
-    [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSError *error) {
+    [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSDictionary *metaData, NSError *error) {
         
         XCTAssertNotNil( offers );
         XCTAssertTrue( offers.count > 0 );
@@ -92,7 +92,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription: NSStringFromSelector(_cmd)];
     
-    [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSError *error) {
+    [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSDictionary *metaData, NSError *error) {
         
         MNFOffer *firstOffer = [offers firstObject];
         
@@ -147,7 +147,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription: NSStringFromSelector(_cmd)];
     
-    [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSError *error) {
+    [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSDictionary *metaData, NSError *error) {
         
         MNFOffer *firstOffer = [offers firstObject];
         
@@ -240,7 +240,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription: NSStringFromSelector(_cmd)];
     
-    [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSError *error) {
+    [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSDictionary *metaData, NSError *error) {
         
         MNFOffer *firstOffer = [offers firstObject];
         
@@ -265,7 +265,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription: NSStringFromSelector(_cmd)];
     
-    [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSError *error) {
+    [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSDictionary *metaData, NSError *error) {
         
         MNFOffer *firstOffer = [offers firstObject];
         
@@ -288,7 +288,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription: NSStringFromSelector(_cmd)];
     
-    [MNFOffer fetchOffersWithFilter:nil take: nil skip: nil completion: ^(NSArray <MNFOffer *> *offers, NSError *error) {
+    [MNFOffer fetchOffersWithFilter:nil take: nil skip: nil completion: ^(NSArray <MNFOffer *> *offers, NSDictionary *metaData, NSError *error) {
        
         MNFOffer *firstOffer = [offers firstObject];
         

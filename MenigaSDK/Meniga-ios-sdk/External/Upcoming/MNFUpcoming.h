@@ -8,6 +8,17 @@
 
 #import "MNFObject.h"
 
+#import "MNFUpcomingBalance.h"
+#import "MNFUpcomingBalanceDate.h"
+#import "MNFUpcomingComment.h"
+#import "MNFUpcomingDetails.h"
+#import "MNFUpcomingInvoice.h"
+#import "MNFUpcomingPattern.h"
+#import "MNFUpcomingReconcileScore.h"
+#import "MNFUpcomingRecurringPattern.h"
+#import "MNFUpcomingScheduledPayment.h"
+#import "MNFUpcomingThreshold.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {

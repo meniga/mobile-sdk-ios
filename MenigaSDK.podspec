@@ -7,7 +7,7 @@ The Meniga mobile sdk for Objective-C provides a convenient way to interact with
                        DESC
 
   s.homepage         = 'https://www.meniga.com'
-  s.license          = { :type => 'Copyright', :file => 'LICENSE' }
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Meniga' => 'meniga@meniga.is' }
   s.source           = { :git => "https://github.com/meniga/mobile-sdk-ios.git", :tag => s.version }
   s.social_media_url = 'https://twitter.com/meniga'

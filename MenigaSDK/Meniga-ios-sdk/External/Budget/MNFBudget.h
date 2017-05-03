@@ -8,6 +8,8 @@
 
 #import "MNFObject.h"
 
+#import "MNFBudgetFilter.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class MNFBudgetFilter;

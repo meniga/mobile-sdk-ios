@@ -8,7 +8,7 @@
 
 #import "MNFObject.h"
 
-@interface MNFOfferFilter : NSObject
+@interface MNFOfferFilter : MNFObject
 
 /**
  @abstract List of offer states to filer on. Expected values: all, activated, available, declined and expired. By default nil.

@@ -7,9 +7,8 @@
 //
 
 #import "MNFObject.h"
-#import "MNFNetworthBalanceHistory.h"
-#import "MNFAccountCategory.h"
 
+#import "MNFNetworthBalanceHistory.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**

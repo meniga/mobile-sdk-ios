@@ -10,11 +10,11 @@
 #define MenigaDocs_h
 
 #import <Foundation/Foundation.h>
-#import "Utilities/MNFJob.h"
-#import "Object/MNFObject.h"
-#import "Constants/MNFConstants.h"
+#import "Core/Utilities/MNFJob.h"
+#import "Core/Object/MNFObject.h"
+#import "Core/Constants/MNFConstants.h"
 #import "Accounts/MNFAccount.h"
-#import "Protocols/MNFAuthenticationProviderProtocol.h"
+#import "Core/Protocols/MNFAuthenticationProviderProtocol.h"
 #import "Categories/MNFCategory.h"
 #import "Transactions/MNFComment.h"
 #import "Transactions/MNFTransaction.h"

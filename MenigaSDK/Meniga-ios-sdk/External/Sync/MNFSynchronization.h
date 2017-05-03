@@ -8,6 +8,11 @@
 
 #import "MNFObject.h"
 
+#import "MNFAccountSyncStatus.h"
+#import "MNFRealmSyncResponse.h"
+#import "MNFSyncAuthRequiredParameter.h"
+#import "MNFSyncAuthenticationChallenge.h"
+
 @class MNFRealmSyncResponse;
 
 NS_ASSUME_NONNULL_BEGIN

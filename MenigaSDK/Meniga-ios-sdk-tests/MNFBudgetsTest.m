@@ -123,7 +123,7 @@
     
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
-    [MNFBudget recalculateWithFilter:nil completion:^(NSArray<MNFBudget *> * _Nullable budgets, NSError * _Nullable error) {
+    [MNFBudget recalculateWithFilter:[MNFBudgetFilter new] completion:^(NSArray<MNFBudget *> * _Nullable budgets, NSError * _Nullable error) {
         
         XCTAssertNil(error);
         XCTAssertNotNil(budgets);

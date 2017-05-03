@@ -8,6 +8,9 @@
 
 #import "MNFObject.h"
 
+#import "MNFCurrency.h"
+#import "MNFPostalCode.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 ///******************************

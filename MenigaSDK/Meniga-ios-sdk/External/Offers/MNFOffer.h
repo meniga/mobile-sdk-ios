@@ -7,9 +7,14 @@
 //
 
 #import "MNFObject.h"
+
 #import "MNFOfferFilter.h"
 #import "MNFOfferRelevanceHook.h"
 #import "MNFMerchantLocation.h"
+#import "MNFOfferTransaction.h"
+#import "MNFRedemptions.h"
+#import "MNFReimbursementAccount.h"
+#import "MNFSimilarBrand.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -222,14 +227,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(MNFJob*)activateOfferWithToken:(NSString *)theToken completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
-
-/**
- @abstract Fetch nearby merchant locations for offer.
- 
- 
- */
-+(MNFJob *)fetchMerchantLocationsWithOfferId:(NSNumber *)offerId latitude:(NSNumber *)latitude longitude:(NSNumber *)longitude radiusKm:(NSNumber *)radiusKm limitLocations:(NSNumber *)limitLocations;
-
 /**
  @abstract Activates or de-activates offers component for the user.
  
@@ -269,7 +266,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an array of offer transactions or an error.
  */
--(MNFJob*)fetchRedeemedTransactionsWithCompletion:(MNFMultipleOfferTransactionsCompletionHandler)completion;
+-(MNFJob*)fetchRedeemedTransactionsWithCompletion:(nullable MNFMultipleOfferTransactionsCompletionHandler)completion;
 
 /**
  @abstract Used to activate/accept or de-activate/decline the offer.
@@ -279,12 +276,12 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)activateOffer:(BOOL)activate completion:(MNFErrorOnlyCompletionHandler)completion;
+-(MNFJob*)activateOffer:(BOOL)activate completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Mark the offer as seen for analytics on the backend. This method is not used for local or backend state. As prior stated this is purely for analytics.
  */
--(MNFJob *)markAsSeenWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
+-(MNFJob *)markAsSeenWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 
 @end

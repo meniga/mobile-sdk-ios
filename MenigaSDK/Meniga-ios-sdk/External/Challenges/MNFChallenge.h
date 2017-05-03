@@ -8,6 +8,10 @@
 
 #import "MNFObject.h"
 
+#import "MNFCustomChallenge.h"
+#import "MNFGlobalChallenge.h"
+#import "MNFSpendingChallenge.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
