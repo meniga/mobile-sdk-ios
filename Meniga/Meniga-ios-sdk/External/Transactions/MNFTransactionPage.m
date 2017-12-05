@@ -12,6 +12,7 @@
 #import "MNFTransactionFilter.h"
 #import "MNFTransactionGroup.h"
 #import "MNFComment.h"
+#import "MNFComment_Private.h"
 #import "MNFLogger.h"
 
 @interface MNFTransactionPage () <MNFJsonAdapterDelegate>
@@ -56,7 +57,7 @@
     NSNumber *skip = [NSNumber numberWithInt:[transactionsPerPage intValue]*([page intValue]-1)];
     [filterDict setObject:skip forKey:@"skip"];
     
-    NSLog(@"Filter dictionary: %@",filterDict);
+//    NSLog(@"Filter dictionary: %@",filterDict);
     
     __block MNFJob *job = [self apiRequestWithPath:kMNFApiPathTransactions pathQuery:[filterDict copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameTransactions completion:^(MNFResponse * _Nullable response) {
         
@@ -67,6 +68,14 @@
             if ([response.result isKindOfClass:[NSArray class]]) {
             
                 NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
+                
+                for (MNFTransaction *transaction in transactions) {
+                    
+                    for (MNFComment *comment in transaction.comments) {
+                        comment.transactionId = transaction.identifier;
+                    }
+                    
+                }
                 
                 if (transactions == nil) {
                     
@@ -145,6 +154,14 @@
                 
                 NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
                 
+                for (MNFTransaction *transaction in transactions) {
+                    
+                    for (MNFComment *comment in transaction.comments) {
+                        comment.transactionId = transaction.identifier;
+                    }
+                    
+                }
+                
                 self.transactions = [self.transactions arrayByAddingObjectsFromArray:transactions];
                 self.pageNumber = [NSNumber numberWithInt:[_pageNumber intValue]+1];
                 
@@ -190,6 +207,14 @@
             if ([response.result isKindOfClass:[NSArray class]]) {
             
                 NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
+                
+                for (MNFTransaction *transaction in transactions) {
+                    
+                    for (MNFComment *comment in transaction.comments) {
+                        comment.transactionId = transaction.identifier;
+                    }
+                    
+                }
                 
                 _pageNumber = @([self.pageNumber intValue]+1);
                 _transactions = transactions;
@@ -239,6 +264,15 @@
         if ([response.result isKindOfClass:[NSArray class]]) {
         
             NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
+            
+            for (MNFTransaction *transaction in transactions) {
+                
+                for (MNFComment *comment in transaction.comments) {
+                    comment.transactionId = transaction.identifier;
+                }
+                
+            }
+            
             self.transactions = transactions;
             
         }

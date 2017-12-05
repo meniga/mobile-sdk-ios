@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MNFObject()<MNFJsonAdapterDelegate>
 
 +(MNFJob *)apiRequestWithPath:(NSString *)path pathQuery:(nullable NSDictionary*)pathQuery jsonBody:(nullable NSData*)postData HTTPMethod:(NSString*)httpMethod service:(MNFServiceName)service completion:(MNFCompletionHandler)completion;
++(MNFJob *)apiRequestWithPath:(NSString *)path pathQuery:(nullable NSDictionary*)pathQuery jsonBody:(nullable NSData*)postData HTTPMethod:(NSString*)httpMethod service:(MNFServiceName)service percentageEncode:(BOOL)percentageEncode completion:(MNFCompletionHandler)completion;
 
 +(void)executeOnMainThreadWithCompletion:(void (^)(id))completion withParameter:(nullable id)parameter;
 +(void)executeOnMainThreadWithCompletion:(void (^)(id,id))completion withParameters:(nullable id)firstParameter and:(nullable id)secondParameter;

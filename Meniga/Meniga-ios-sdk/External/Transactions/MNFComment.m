@@ -11,6 +11,7 @@
 #import "MNFInternalImports.h"
 
 @interface MNFComment () <MNFJsonAdapterDelegate>
+
 @end
 
 @implementation MNFComment

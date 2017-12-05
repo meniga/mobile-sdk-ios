@@ -46,11 +46,15 @@
     return job;
 }
 
-+(MNFJob *)fetchAccountsWithCompletion:(MNFMultipleAccountsCompletionHandler)completion {
++(MNFJob *)fetchAccountsWithFilter:(MNFAccountFilter *)filter completion:(MNFMultipleAccountsCompletionHandler)completion {
     
     [completion copy];
     
-    __block MNFJob *job = [self apiRequestWithPath:kMNFAPIPathAccounts pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameAccounts completion:^(MNFResponse*  _Nullable response) {
+    NSDictionary *query = [MNFJsonAdapter JSONDictFromObject: filter option: 0 error: nil];
+    
+    MNFLogDebug(@"Account query dict: %@", query);
+    
+    __block MNFJob *job = [self apiRequestWithPath:kMNFAPIPathAccounts pathQuery: query jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameAccounts completion:^(MNFResponse*  _Nullable response) {
         
         kObjectBlockDataDebugLog;
         

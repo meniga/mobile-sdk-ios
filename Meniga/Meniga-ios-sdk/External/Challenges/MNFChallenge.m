@@ -93,7 +93,7 @@
 +(MNFJob*)fetchChallengeWithId:(NSNumber *)identifier completion:(MNFChallengesCompletionHandler)completion {
     [completion copy];
     
-    NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFApiPathChallenges,[identifier stringValue]];
+    NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFApiPathChallenges,identifier];
     
     __block MNFJob *job= [self apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameChallenges completion:^(MNFResponse * _Nullable response) {
         
@@ -133,13 +133,14 @@
     return job;
 }
 
-+(MNFJob*)fetchChallengesWithIncludeExpired:(NSNumber *)includeExpired excludeSuggested:(nullable NSNumber *)excludeSuggested excludeAccepted:(nullable NSNumber *)excludeAccepted completion:(MNFMultipleChallengesCompletionHandler)completion {
++(MNFJob*)fetchChallengesWithIncludeExpired:(NSNumber *)includeExpired excludeSuggested:(nullable NSNumber *)excludeSuggested excludeAccepted:(nullable NSNumber *)excludeAccepted includeDisable:(nullable NSNumber*)includeDisabled completion:(MNFMultipleChallengesCompletionHandler)completion {
     [completion copy];
     
     NSMutableDictionary *jsonQuery = [NSMutableDictionary dictionary];
     jsonQuery[@"includeExpired"] = [[MNFNumberToBoolValueTransformer transformer] reverseTransformedValue:includeExpired];
     jsonQuery[@"excludeSuggested"] = [[MNFNumberToBoolValueTransformer transformer] reverseTransformedValue:excludeSuggested];
     jsonQuery[@"excludeAccepted"] = [[MNFNumberToBoolValueTransformer transformer] reverseTransformedValue:excludeAccepted];
+    jsonQuery[@"includeDisabled"] = [[MNFNumberToBoolValueTransformer transformer] reverseTransformedValue:includeDisabled];
     
     __block MNFJob *job = [self apiRequestWithPath:kMNFApiPathChallenges pathQuery:[jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameChallenges completion:^(MNFResponse * _Nullable response) {
         
@@ -183,17 +184,17 @@
     return job;
 }
 
--(MNFJob*)acceptChallengeWithTargetAmount:(NSNumber *)targetAmount completion:(MNFErrorOnlyCompletionHandler)completion {
+-(MNFJob*)acceptChallengeWithTargetAmount:(NSNumber *)targetAmount waitTime:(nullable NSNumber *)waitTime completion:(MNFErrorOnlyCompletionHandler)completion {
     [completion copy];
     
     NSString *path = [NSString stringWithFormat:kMNFChallengesAcceptWithId,self.challengeId];
     
-    NSMutableDictionary *jsonQuery;
-    if (targetAmount != nil) {
-        jsonQuery[@"targetAmount"] = targetAmount;
-    }
+    NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
+    jsonDict[@"targetAmount"] = targetAmount;
+    jsonDict[@"waitForCompleteMilliseconds"] = waitTime;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDict copy] options:0 error:nil];
     
-    __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:jsonQuery jsonBody:nil HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameChallenges completion:^(MNFResponse * _Nullable response) {
+    __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameChallenges completion:^(MNFResponse * _Nullable response) {
         
         kObjectBlockDataDebugLog;
         
@@ -274,6 +275,94 @@
     NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFApiPathChallenges,self.challengeId];
     
     __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameChallenges completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                [MNFJsonAdapter refreshObject:self withJsonDict:response.result option:kMNFAdapterOptionNoOption error:nil];
+                if ([self.type isEqualToString:@"SuggestedSpending"]) {
+                    MNFSpendingChallenge *spending = [MNFSpendingChallenge initWithServerResult:response.result[@"typeData"]];
+                    self.challengeModel = spending;
+                }
+                else if ([self.type isEqualToString:@"GlobalSpending"]) {
+                    MNFGlobalChallenge *global = [MNFGlobalChallenge initWithServerResult:response.result[@"typeData"]];
+                    self.challengeModel = global;
+                }
+                else if ([self.type isEqualToString:@"CustomSpending"]) {
+                    MNFCustomChallenge *custom = [MNFCustomChallenge initWithServerResult:response.result[@"typeData"]];
+                    self.challengeModel = custom;
+                }
+                [MNFObject executeOnMainThreadWithJob:job completion:completion error: nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
+                
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion error: response.error];
+            
+        }
+    }];
+    
+    return job;
+}
+
+-(MNFJob*)enableWithCompletion:(MNFErrorOnlyCompletionHandler)completion {
+    
+    NSString *path = [NSString stringWithFormat:kMNFChallengesEnable,self.challengeId];
+    
+    __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameChallenges completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                [MNFJsonAdapter refreshObject:self withJsonDict:response.result option:kMNFAdapterOptionNoOption error:nil];
+                if ([self.type isEqualToString:@"SuggestedSpending"]) {
+                    MNFSpendingChallenge *spending = [MNFSpendingChallenge initWithServerResult:response.result[@"typeData"]];
+                    self.challengeModel = spending;
+                }
+                else if ([self.type isEqualToString:@"GlobalSpending"]) {
+                    MNFGlobalChallenge *global = [MNFGlobalChallenge initWithServerResult:response.result[@"typeData"]];
+                    self.challengeModel = global;
+                }
+                else if ([self.type isEqualToString:@"CustomSpending"]) {
+                    MNFCustomChallenge *custom = [MNFCustomChallenge initWithServerResult:response.result[@"typeData"]];
+                    self.challengeModel = custom;
+                }
+                [MNFObject executeOnMainThreadWithJob:job completion:completion error: nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
+                
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion error: response.error];
+            
+        }
+    }];
+    
+    return job;
+}
+
+-(MNFJob*)disableWithCompletion:(MNFErrorOnlyCompletionHandler)completion {
+    
+    NSString *path = [NSString stringWithFormat:kMNFChallengesDisable,self.challengeId];
+    
+    __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameChallenges completion:^(MNFResponse * _Nullable response) {
         
         kObjectBlockDataDebugLog;
         
@@ -428,7 +517,8 @@
 }
 
 -(NSDictionary *)propertyKeysMapToJson {
-    return @{@"challengeId":@"id"};
+    return @{@"challengeId":@"id",
+             @"challengeDescription":@"description"};
 }
 
 -(NSDictionary*)propertyValueTransformers {

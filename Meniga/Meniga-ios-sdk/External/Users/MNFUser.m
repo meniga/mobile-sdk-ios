@@ -13,6 +13,45 @@
 
 #pragma mark - class methods
 
++ (MNFJob*)registerUserWithEmail:(NSString *)email password:(NSString *)password culture:(NSString *)culture completion:(MNFUserCompletionHandler)completion {
+    
+    [completion copy];
+    
+    NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
+    jsonDict[@"email"] = email;
+    jsonDict[@"password"] = password;
+    jsonDict[@"culture"] = culture;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDict copy] options:0 error:nil];
+    
+    __block MNFJob *job = [self apiRequestWithPath:kMNFUserRegister pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameUsers completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                MNFUser *user = [MNFUser initWithServerResult:response.result];
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:user error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
+                
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:response.error];
+            
+        }
+    }];
+    
+    return job;
+}
+
 +(MNFJob *)fetchUsersWithCompletion:(MNFMultipleUsersCompletionHandler)completion {
     
     [completion copy];

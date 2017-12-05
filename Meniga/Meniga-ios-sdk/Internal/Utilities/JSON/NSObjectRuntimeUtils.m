@@ -59,6 +59,7 @@
         
         class = [class superclass];
         
+        free(properties);
     }
 }
 

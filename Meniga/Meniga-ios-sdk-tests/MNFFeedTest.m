@@ -253,14 +253,14 @@
     
     [MNFFeed fetchFromDate:[NSDate date] toDate:[NSDate date] skip:nil take:nil withCompletion:^(MNFFeed * _Nullable feed, NSError * _Nullable error) {
         [feed groupByDate];
-        NSLog(@"Feed items %@",feed.feedItems);
+//        NSLog(@"Feed items %@",feed.feedItems);
         XCTAssertNotNil(feed.feedItems);
         XCTAssertEqual(feed.feedItems.count, 9);
         for (int i=0;i<feed.feedItems.count;i++) {
             XCTAssertEqual([[feed.feedItems objectAtIndex:i] class], [MNFFeedItemGroup class]);
         }
         [feed ungroup];
-        NSLog(@"Feed items %@",feed.feedItems);
+//        NSLog(@"Feed items %@",feed.feedItems);
         XCTAssertEqual(feed.feedItems.count, 10);
         for (int i=0;i<feed.feedItems.count;i++) {
             XCTAssertEqual([[feed.feedItems objectAtIndex:i] class], [MNFFeedItem class]);

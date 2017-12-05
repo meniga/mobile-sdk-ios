@@ -28,7 +28,7 @@
     
     [MENIGAAuthentication loginWithUsername:@"ue@meniga.is" password:@"123456" withCompletion:^(NSDictionary *tokenDict, NSError *error) {
         
-        NSLog(@"token dict is: %@", tokenDict);
+//        NSLog(@"token dict is: %@", tokenDict);
         [MNFDemoUser setTokenDict: [tokenDict objectForKey:@"data"] ];
         [Meniga setAuthenticationProvider: [[MNFIntegrationAuthProvider alloc] init] ];
         
@@ -57,7 +57,7 @@
     
     [MNFFeed fetchFromDate: [NSDate dateWithTimeIntervalSinceNow:- 30 * 24 * 60 * 60] toDate: [NSDate date] skip:@0 take:@0 withCompletion:^(MNFFeed *feed, NSError *error) {
        
-        NSLog(@"the feed is: %@", feed);
+//        NSLog(@"the feed is: %@", feed);
         [expecation fulfill];
     }];
     

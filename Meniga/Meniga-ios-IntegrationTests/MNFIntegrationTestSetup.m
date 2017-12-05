@@ -37,7 +37,7 @@
         
         [Meniga setAuthenticationProvider:[[MNFIntegrationAuthProvider alloc] init]];
         
-        NSLog(@"setup error is: %@", error);
+//        NSLog(@"setup error is: %@", error);
         
         dispatch_semaphore_signal(semaphore);
     }];
@@ -54,7 +54,7 @@
 
     
     [MNFDemoUser deleteUserWithCompletion:^(NSError *error) {
-        NSLog(@"Deleted user");
+//        NSLog(@"Deleted user");
         dispatch_semaphore_signal(semaphore);
         
     }];

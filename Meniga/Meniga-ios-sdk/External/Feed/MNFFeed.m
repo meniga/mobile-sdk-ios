@@ -15,6 +15,9 @@
 #import "MNFScheduledEvent.h"
 #import "MNFObject_Private.h"
 #import "MNFConstants.h"
+#import "MNFOffer.h"
+#import "MNFComment.h"
+#import "MNFComment_Private.h"
 
 @interface MNFFeed () <MNFJsonAdapterDelegate>
 @property (nonatomic,strong,readwrite) NSArray *feedItems;
@@ -47,7 +50,7 @@
         [jsonQuery setObject:take forKey:@"take"];
     }
     
-    NSLog(@"json query: %@", jsonQuery);
+//    NSLog(@"json query: %@", jsonQuery);
     
     __block MNFJob *job = [self apiRequestWithPath:kMNFApiPathFeed pathQuery:[jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameFeed completion:^(MNFResponse * _Nullable response) {
         
@@ -67,6 +70,9 @@
                     if ( [feedItem.typeName isEqualToString:@"TransactionFeedItemModel"] == YES) {
                     
                         MNFTransaction *transaction = [MNFTransaction initWithServerResult:dict];
+                        for (MNFComment *comment in transaction.comments) {
+                            comment.transactionId = transaction.identifier;
+                        }
                         feedItem.model = transaction;
                     
                     }
@@ -80,6 +86,13 @@
                         
                         MNFScheduledEvent *scheduledEvent = [MNFScheduledEvent initWithServerResult:dict];
                         feedItem.model = scheduledEvent;
+                        
+                    }
+                    else if([feedItem.typeName isEqualToString: @"OfferFeedItem"] == YES) {
+                        NSMutableDictionary *mutableDict = [dict mutableCopy];
+                        [mutableDict setObject: feedItem.topicId forKey: @"id"];
+                        MNFOffer *offer = [MNFOffer initWithServerResult: mutableDict];
+                        feedItem.model = offer;
                         
                     }
                     
@@ -141,6 +154,9 @@
                     if ([feedItem.typeName isEqualToString:@"TransactionFeedItemModel"] == YES) {
                     
                         MNFTransaction *transaction = [MNFTransaction initWithServerResult:dict];
+                        for (MNFComment *comment in transaction.comments) {
+                            comment.transactionId = transaction.identifier;
+                        }
                         feedItem.model = transaction;
                     
                     }

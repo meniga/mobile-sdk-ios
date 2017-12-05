@@ -44,7 +44,6 @@
 //                                 };
 //    
 //    NSHTTPCookie *cookieToEncrypt = [NSHTTPCookie cookieWithProperties:cookieDict];
-//    NSLog(@"Cookie to encrypt: %@",cookieToEncrypt);
 //    
 //    NSDictionary *encryptedCookie = [MNFCryptor encryptCookie:cookieToEncrypt];
 //    

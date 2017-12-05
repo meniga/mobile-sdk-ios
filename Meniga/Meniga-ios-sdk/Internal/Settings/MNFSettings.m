@@ -20,6 +20,7 @@
         self.authenticationProvidersForClasses = [NSMutableDictionary dictionary];
         self.notificationCenterForStatusCode = [NSMutableDictionary dictionary];
         self.notificationNameForStatusCode = [NSMutableDictionary dictionary];
+        self.culture = nil;
     }
     return self;
 }

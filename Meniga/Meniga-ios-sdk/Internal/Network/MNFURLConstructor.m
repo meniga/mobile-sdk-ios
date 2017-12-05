@@ -45,6 +45,13 @@
     return urlComponents.URL;
 }
 
++(NSURL *)URLFromBaseUrl:(NSString *)baseURL path:(NSString *)path pathQuery:(NSDictionary *)pathQuery percentageEncoded:(BOOL)percentageEncoded {
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseURL, path]];
+    
+    return url;
+}
+
 +(NSURL *)URLFromBaseUrl:(NSString *)baseURL path:(NSString *)path {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseURL, path]];
     return url;

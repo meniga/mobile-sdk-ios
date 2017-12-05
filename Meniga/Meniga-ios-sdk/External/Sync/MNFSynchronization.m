@@ -9,6 +9,8 @@
 #import "MNFSynchronization.h"
 #import "MNFInternalImports.h"
 #import "MNFRealmSyncResponse.h"
+#import "MNFRealmAccount.h"
+#import "MNFSyncAuthenticationChallenge.h"
 
 @interface MNFSynchronization ()
 @property (nonatomic,strong) NSNumber *isSyncNeeded;
@@ -36,6 +38,32 @@
             }];
         }
 
+    }];
+    
+    return job;
+}
+
++(MNFJob*)synchronizeRealmUserWithId:(NSNumber *)realmUserId timeout:(NSNumber *)timeout interval:(NSNumber *)interval completin:(MNFErrorOnlyCompletionHandler)completion {
+    
+    [completion copy];
+    
+    NSDate *syncStart = [NSDate date];
+    
+    __block MNFJob *job;
+    
+    MNFJob *startJob = [self startSynchronizationForRealmUserWithId:realmUserId waitTime:timeout completion:nil];
+    [startJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
+        
+        if (error != nil) {
+            [self executeOnMainThreadWithJob:job completion:completion error:error];
+        }
+        else{
+            MNFSynchronization *synchronization = (MNFSynchronization*)result;
+            [self p_querySynchronizationWithSync:synchronization start:syncStart timeout:timeout interval:interval completion:^(NSError *error) {
+                [self executeOnMainThreadWithJob:job completion:completion error:error];
+            }];
+        }
+        
     }];
     
     return job;
@@ -94,6 +122,43 @@
                 
                 [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
 
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:response.error];
+            
+        }
+        
+    }];
+    
+    return job;
+}
+
++(MNFJob*)startSynchronizationForRealmUserWithId:(NSNumber *)realmUserId waitTime:(NSNumber *)waitTime completion:(MNFSynchronizationCompletionHandler)completion {
+    
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFSynchronizationRealm,[realmUserId stringValue]];
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:@{@"waitForCompleteMilliseconds":waitTime} options:0 error:nil];
+    
+    __block MNFJob *job = [self apiRequestWithPath:path pathQuery:nil jsonBody:data HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameSync completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                MNFSynchronization *sync = [self initWithServerResult:response.result];
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:sync error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
+                
             }
         }
         else {
@@ -197,6 +262,144 @@
     else {
         return [self.isSyncNeeded boolValue];
     }
+}
+
++ (MNFJob*)fetchRealmAuthenticationChallengeWithRealmId:(NSNumber *)realmId completion:(MNFSyncAuthenticationCompletionHandler)completion {
+    
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@/auth",kMNFSynchronizationRealm,[realmId stringValue]];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"parameters":@[],@"saveDetails":@"true",@"realmUserIdentifier":@""} options:0 error:nil];
+    
+    __block MNFJob *job = [self apiRequestWithPath:path pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameSync completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                MNFSyncAuthenticationChallenge *authChallenge = [MNFSyncAuthenticationChallenge initWithServerResult:response.result];
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:authChallenge error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
+                
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: response.error];
+            
+        }
+    }];
+    
+    return job;
+}
+
++ (MNFJob*)authenticateToRealmWithId:(NSNumber *)realmId withParameters:(NSArray *)parameters sessionToken:(NSString *)sessionToken saveDetails:(NSNumber *)saveDetails realmUserIdentifier:(NSString *)realmUserIdentifier completion:(MNFSyncAuthenticationCompletionHandler)completion {
+    
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@/auth",kMNFSynchronizationRealm,[realmId stringValue]];
+    
+    NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
+    jsonDict[@"parameters"] = parameters;
+    NSString *saveDetailsString = [[MNFNumberToBoolValueTransformer transformer] reverseTransformedValue:saveDetails];
+    jsonDict[@"saveDetails"] = saveDetailsString;
+    jsonDict[@"realmUserIdentifier"] = realmUserIdentifier;
+    if (sessionToken != nil) {
+        jsonDict[@"sessionToken"] = sessionToken;
+    }
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDict copy] options:0 error:nil];
+    
+    __block MNFJob *job = [self apiRequestWithPath:path pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameSync completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                MNFSyncAuthenticationChallenge *authChallenge = [MNFSyncAuthenticationChallenge initWithServerResult:response.result];
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:authChallenge error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
+                
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: response.error];
+            
+        }
+    }];
+    
+    return job;
+}
+
++ (MNFJob*)fetchAvailableRealmAccountsWithRealmUserId:(NSNumber *)realmUserId sessionToken:(NSString *)sessionToken completion:(MNFMultipleRealmAccountCompletionHandler)completion {
+    
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@?sessionToken=%@",kMNFSynchronizationAccounts,[realmUserId stringValue], sessionToken];
+        
+    __block MNFJob *job = [self apiRequestWithPath: path pathQuery: nil jsonBody: nil HTTPMethod: kMNFHTTPMethodGET service: MNFServiceNameSync percentageEncode: YES completion:^(MNFResponse *response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSArray class]]) {
+                
+                NSArray *realmAccounts = [MNFRealmAccount initWithServerResults:response.result];
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:realmAccounts error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]] ];
+                
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: response.error];
+            
+        }
+        
+    }];
+    
+    return job;
+}
+
++ (MNFJob*)authorizeRealmAccounts:(NSArray<MNFRealmAccount *> *)realmAccounts realmUserId:(NSNumber *)realmUserId sessionToken:(NSString *)sessionToken completion:(MNFErrorOnlyCompletionHandler)completion {
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@/authorize?sessionToken=%@",kMNFSynchronizationAccounts,[realmUserId stringValue], sessionToken];
+    
+    NSArray *jsonArray = [MNFJsonAdapter JSONArrayFromArray:realmAccounts option:kMNFAdapterOptionNoOption error:nil];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonArray options:0 error:nil];
+    
+    
+    __block MNFJob *job = [self apiRequestWithPath: path pathQuery: nil jsonBody: jsonData HTTPMethod: kMNFHTTPMethodPOST service: MNFServiceNameSync percentageEncode: YES completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        [MNFObject executeOnMainThreadWithJob: job completion: completion error: response.error];
+        
+    }];
+    
+    return job;
 }
 
 #pragma mark - Description

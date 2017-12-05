@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSURL *)URLFromBaseUrl:(NSString *)baseURL path:(NSString *)path pathQuery:(nullable NSDictionary *)pathQuery;
 
++(NSURL *)URLFromBaseUrl:(NSString *)baseURL path:(NSString *)path pathQuery:(NSDictionary *)pathQuery percentageEncoded:(BOOL)percentageEncoded;
+
 +(NSURL *)URLFromBaseUrl:(NSString *)baseURL path:(NSString *)path;
 
 @end

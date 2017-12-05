@@ -84,12 +84,12 @@ static NSURLSession *session = nil;
             NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             MNFLogInfo(@"Response received from URL: %@",urlResponse.URL);
             if (string == nil || string.length == 0) {
-                MNFLogDebug(@"Empty response received from URL: %@, status code: %@, header fields: %@",urlResponse.URL,@(statusCode),[(NSHTTPURLResponse*)urlResponse allHeaderFields]);
+                MNFLogDebug(@"Empty response received from URL: %@, status code: %@, header fields: %@, error: %@",urlResponse.URL,@(statusCode),[(NSHTTPURLResponse*)urlResponse allHeaderFields], error);
             }
             else {
-                MNFLogDebug(@"Response received from URL: %@, status code: %@, header fields: %@",urlResponse.URL,@(statusCode),[(NSHTTPURLResponse*)urlResponse allHeaderFields]);
+                MNFLogDebug(@"Response received from URL: %@, status code: %@, header fields: %@, error: %@",urlResponse.URL,@(statusCode),[(NSHTTPURLResponse*)urlResponse allHeaderFields], error);
             }
-            MNFLogVerbose(@"Response received from URL: %@, status code: %@, header fields: %@, result: %@",urlResponse.URL,@(statusCode),[(NSHTTPURLResponse*)urlResponse allHeaderFields],string);
+            MNFLogVerbose(@"Response received from URL: %@, status code: %@, header fields: %@, result: %@, error: %@",urlResponse.URL,@(statusCode),[(NSHTTPURLResponse*)urlResponse allHeaderFields],string, error);
             MNFResponse *response = [MNFResponse responseWithData:data error:error statusCode:statusCode headerFields:[(NSHTTPURLResponse*)urlResponse allHeaderFields]];
             
             block(response);

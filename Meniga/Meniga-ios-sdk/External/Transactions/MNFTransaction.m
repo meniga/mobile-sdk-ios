@@ -152,7 +152,7 @@
     
     NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFApiPathTransactions,[self.identifier stringValue]];
     NSDictionary *updateDict = [MNFJsonAdapter JSONDictFromObject:self option:kMNFAdapterOptionNoOption error:nil];
-    NSLog(@"Update dictionary: %@",updateDict);
+//    NSLog(@"Update dictionary: %@",updateDict);
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:updateDict options:0 error:nil];
     
     

@@ -12,6 +12,8 @@
 #import "MNFTransactionSeriesStatistics.h"
 #import "MNFTransactionSeriesValue.h"
 #import "MNFTransactionSeriesFilter.h"
+#import "MNFComment.h"
+#import "MNFComment_Private.h"
 
 @implementation MNFTransactionSeries
 
@@ -50,6 +52,16 @@
             if ([response.result isKindOfClass:[NSArray class]]) {
         
                 NSArray *transactionSeries = [self initWithServerResults:response.result];
+                
+                for (MNFTransactionSeries *series in transactionSeries) {
+                    
+                    for (MNFTransaction *transaction in series.transactions) {
+                        
+                        for (MNFComment *comment in transaction.comments) {
+                            comment.transactionId = transaction.identifier;
+                        }
+                    }
+                }
                 [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:transactionSeries error:nil];
             
             }

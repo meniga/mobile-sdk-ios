@@ -7,6 +7,7 @@
 //
 
 #import "MNFSpendingChallenge.h"
+#import "MNFInternalImports.h"
 
 @implementation MNFSpendingChallenge
 

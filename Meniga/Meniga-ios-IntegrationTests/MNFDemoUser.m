@@ -29,7 +29,7 @@ static NSString *s_apiUrl;
 
 +(NSDictionary *)tokenDictionary {
     
-    NSLog(@"s_tokens are: %@", s_tokens);
+//    NSLog(@"s_tokens are: %@", s_tokens);
     return s_tokens;
 }
 
@@ -112,7 +112,7 @@ static NSString *s_apiUrl;
         dict[@"culture"] = @"en-GB";
     }
     
-    NSLog(@"dict is: %@", dict);
+//    NSLog(@"dict is: %@", dict);
     
     [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:dict options:0 error:nil]];
     
@@ -126,7 +126,7 @@ static NSString *s_apiUrl;
             string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             
-            NSLog(@"string is: %@, dictionary: %@", string, dictionary);
+//            NSLog(@"string is: %@, dictionary: %@", string, dictionary);
         
         }
         
@@ -144,7 +144,7 @@ static NSString *s_apiUrl;
         if (profileIds != nil && profileIds.count != 0 && error == nil && [profileIds isKindOfClass:[NSArray class]]) {
             NSDictionary *profile = [profileIds firstObject];
             NSNumber *profileId = [profile objectForKey:@"Id"];
-            NSLog(@"the profile id: %@", profileId);
+//            NSLog(@"the profile id: %@", profileId);
             
             [self createDemoUserWithEmail:nil password:nil culture:nil demoProfileId:profileId completion:completion];
             
@@ -163,11 +163,11 @@ static NSString *s_apiUrl;
     [self createRandomDemoUserWithCompletion:^(NSError *error) {
        
         if (error == nil) {
-            NSLog(@"email is: %@, password is: %@", s_email, s_password);
+//            NSLog(@"email is: %@, password is: %@", s_email, s_password);
             [MENIGAAuthentication loginWithUsername:s_email password:s_password withCompletion:^(NSDictionary *tokenDictionary, NSError *error) {
                
                 if (error == nil) {
-                    NSLog(@"token dictionary is: %@", tokenDictionary);
+//                    NSLog(@"token dictionary is: %@", tokenDictionary);
                     s_tokens = [tokenDictionary objectForKey:@"data"];
                     completion(nil);
                 }

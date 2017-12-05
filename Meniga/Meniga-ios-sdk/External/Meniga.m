@@ -12,13 +12,15 @@
 #import "MNFLogger.h"
 #import "MNFInternalImports.h"
 
+#define MNF_SDK_VERSION @"0.9.19"
+
 @implementation Meniga
 
 static MNFSettings *s_settings = nil;
 
 +(NSString*)sdkVersion{
 
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"MNF_SDK_VERSION"];
+    return MNF_SDK_VERSION;
 }
 
 
@@ -34,12 +36,12 @@ static MNFSettings *s_settings = nil;
 }
 
 +(void)setAuthenticationProvider:(NSObject<MNFAuthenticationProviderProtocol> *)authenticationProvider forService:(MNFServiceName)service {
-    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%ld",service];
+    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@",@(service)];
     [[self p_settings].authenticationProvidersForClasses setObject:authenticationProvider forKey:key];
 }
 +(NSObject <MNFAuthenticationProviderProtocol> *)authenticationProviderForService:(MNFServiceName)service {
     
-    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%ld",service];
+    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@",@(service)];
     NSObject <MNFAuthenticationProviderProtocol> *authenticationProvider = [[self p_settings].authenticationProvidersForClasses objectForKey:key];
     if (authenticationProvider == nil) {
         authenticationProvider = [self p_settings].authenticationProvider;
@@ -66,18 +68,29 @@ static MNFSettings *s_settings = nil;
 }
 
 +(void)setApiURL:(NSString *)apiURL forService:(MNFServiceName)service {
-    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%ld",service];
+    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@",@(service)];
     [[self p_settings].apiURLsForClasses setObject:apiURL forKey:key];
 }
 
 +(NSString*)apiURLForService:(MNFServiceName)service {
-    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%ld",service];
+    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@",@(service)];
     NSString *url = [[self p_settings].apiURLsForClasses objectForKey:key];
     
     if (url == nil) {
         url = [self p_settings].apiURL;
     }
     return url;
+}
+
++(NSString *)apiCulture {
+    
+    return [self p_settings].culture;
+}
+
++(void)setApiCulture:(NSString *)culture {
+    
+    [self p_settings].culture = culture;
+    
 }
 
 +(void)setLogLevel:(MNFLogLevel)logLevel {

@@ -41,7 +41,7 @@
     MNFJob *job = [self sendRequest:request];
     [job cancelWithCompletion:^{
         [MNFNetwork getAllTasks:^(NSArray<NSURLSessionDataTask *> * _Nonnull tasks) {
-            NSLog(@"All tasks: %@",tasks);
+//            NSLog(@"All tasks: %@",tasks);
         }];
         XCTAssertTrue([job isCancelled]);
         [expectation fulfill];
@@ -58,7 +58,7 @@
     MNFJob *job = [self sendRequest:request];
     [job pauseWithCompletion:^{
         [MNFNetwork getAllTasks:^(NSArray<NSURLSessionDataTask *> * _Nonnull tasks) {
-            NSLog(@"All tasks: %@",tasks);
+//            NSLog(@"All tasks: %@",tasks);
         }];
         XCTAssertTrue([job isPaused]);
         [job resumeWithCompletion:^{
@@ -73,16 +73,16 @@
     [MNFNetwork sendRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
         if (![job isCancelled]) {
             if (response.error == nil){
-                NSLog(@"No error");
+//                NSLog(@"No error");
                 [job setResult:response.result];
             }
             else {
-                NSLog(@"Totally error: %@",response.error);
+//                NSLog(@"Totally error: %@",response.error);
                 [job setError:response.error];
             }
         }
         else {
-            NSLog(@"The job was cancelled");
+//            NSLog(@"The job was cancelled");
         }
     }];
     

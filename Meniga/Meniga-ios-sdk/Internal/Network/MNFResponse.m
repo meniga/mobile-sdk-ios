@@ -10,6 +10,7 @@
 #import "MNFConstants.h"
 #import "MNFErrorUtils.h"
 #import "Meniga.h"
+#import "MNFLogger.h"
 
 @implementation MNFResponse
 
@@ -102,6 +103,8 @@
         
     }
     else {
+        
+        MNFLogDebug(@"Unknown error format, %@", theErrorDict);
         
         return [MNFErrorUtils errorWithCode: kMNFErrorInvalidResponse message: @"An unknown error occured"];
     }

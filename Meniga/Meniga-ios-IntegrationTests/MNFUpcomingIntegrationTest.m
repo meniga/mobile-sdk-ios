@@ -174,7 +174,8 @@
 -(void)testDefaultAccountIds {
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
-    [MNFAccount fetchAccountsWithCompletion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
+    
+    [MNFAccount fetchAccountsWithFilter: [[MNFAccountFilter alloc] init] completion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
         MNFJob *job = [MNFUpcoming setDefaultAccountId:[accounts firstObject].identifier withCompletion:^(NSError * _Nullable error) {
             XCTAssertNil(error);
             MNFJob *secondJob = [MNFUpcoming fetchDefaultAccountIdWithCompletion:^(NSNumber * _Nullable accountId, NSError * _Nullable error) {
@@ -199,7 +200,7 @@
 -(void)testIncludedAccountIds {
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
-    [MNFAccount fetchAccountsWithCompletion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
+    [MNFAccount fetchAccountsWithFilter: [[MNFAccountFilter alloc] init] completion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
         MNFJob *job = [MNFUpcoming setIncludedAccountIds:[NSString stringWithFormat:@"%@",[accounts firstObject].identifier] withCompletion:^(NSError * _Nullable error) {
             XCTAssertNil(error);
             MNFJob *secondJob = [MNFUpcoming fetchIncludedAccountIdsWithCompletion:^(NSArray<NSNumber *> * _Nullable accountIds, NSError * _Nullable error) {

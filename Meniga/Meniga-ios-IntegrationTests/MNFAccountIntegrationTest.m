@@ -28,6 +28,10 @@
     
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
+    [MNFAccount fetchAccountsWithFilter: [[MNFAccountFilter alloc] init] completion:^(NSArray *accounts, NSError *error) {
+        
+    }];
+    /*
     MNFJob *job = [MNFAccount fetchAccountsWithCompletion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
         XCTAssertNotNil(accounts);
         XCTAssertNil(error);
@@ -39,10 +43,11 @@
         XCTAssertNil(metaData);
         XCTAssertNil(error);
     }];
-    
+    */
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 
+/*
 -(void)testFetchAccountWithId {
     
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
@@ -289,5 +294,6 @@
     
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
+*/
 
 @end

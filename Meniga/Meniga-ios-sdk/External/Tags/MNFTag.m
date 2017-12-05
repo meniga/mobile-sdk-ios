@@ -58,7 +58,7 @@
             if ([response.result isKindOfClass:[NSArray class]]) {
             
                 NSArray *tags = [self initWithServerResults:response.result];
-                NSLog(@"tags are: %@", tags);
+//                NSLog(@"tags are: %@", tags);
                 [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:tags error:nil];
             
             }

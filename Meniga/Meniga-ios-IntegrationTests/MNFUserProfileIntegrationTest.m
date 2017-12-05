@@ -30,7 +30,7 @@
     // MARK: NOTE User profile sends back empty dictionary
     MNFJob *job = [MNFUserProfile fetchWithCompletion:^(MNFUserProfile * _Nullable userProfile, NSError * _Nullable error) {
         
-        NSLog(@"user profile is: %@", userProfile);
+//        NSLog(@"user profile is: %@", userProfile);
         
         XCTAssertNotNil(userProfile);
         XCTAssertNotNil(userProfile.personId);

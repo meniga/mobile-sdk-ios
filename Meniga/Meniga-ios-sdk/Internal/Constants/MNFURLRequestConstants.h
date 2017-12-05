@@ -43,6 +43,9 @@
 #pragma mark - Synchronization
 
 #define kMNFApiPathSynchronization @"/sync"
+#define kMNFSynchronizationSkip kMNFApiPathSynchronization @"/skip"
+#define kMNFSynchronizationRealm kMNFApiPathSynchronization @"/realm"
+#define kMNFSynchronizationAccounts kMNFApiPathSynchronization @"/accounts"
 
 #pragma mark - User
 #define kMNFApiPathUser @"/me"
@@ -52,6 +55,7 @@
 #define kMNFUserMetaData kMNFApiPathUser @"/metadata"
 #define kMNFUserProfile kMNFApiPathUser @"/profile"
 #define kMNFRealmUsers kMNFApiPathUser @"/realmusers"
+#define kMNFUserRegister kMNFApiPathUser @"/register"
 
 #pragma mark - Merchant
 
@@ -69,7 +73,7 @@
 #pragma mark - Offers
 #define kMNFApiPathOffers @"/offers"
 #define kMNFApiPathRedemptions @"/redemptions"
-#define kMNFApiPathReimbursementAccounts @"/redemptionAccounts"
+#define kMNFApiPathReimbursementAccounts @"/reimbursementAccounts"
 
 #pragma mark - Feed
 #define kMNFApiPathFeed @"/feed"
@@ -89,6 +93,8 @@
 #define kMNFChallengesAcceptWithId kMNFApiPathChallenges @"/%@/accept"
 #define kMNFChallengesCustom kMNFApiPathChallenges @"/custom"
 #define kMNFChallengesIcons kMNFApiPathChallenges @"/icons"
+#define kMNFChallengesEnable kMNFApiPathChallenges @"/%@/enable"
+#define kMNFChallengesDisable kMNFApiPathChallenges @"/%@/disable"
 
 #pragma mark - Budget
 #define kMNFApiPathBudget @"/budget"
@@ -96,10 +102,30 @@
 #define kMNFBudgetRecurring kMNFApiPathBudget @"/recurring"
 #define kMNFBudgetRecalculate kMNFApiPathBudget @"/recalculate"
 
+#pragma mark - Terms
+#define kMNFApiPathTerms @"/terms"
+#define kMNFTermTypes kMNFApiPathTerms @"/types"
+#define kMNFAcceptTerms kMNFApiPathTerms @"/%@/accept"
+#define kMNFDeclineTerms kMNFApiPathTerms @"/%@/decline"
+
 #pragma mark - Public
 #define kMNFApiPathPublic @"/public"
 #define kMNFPublicSettings kMNFApiPathPublic @"/settings"
 #define kMNFPublicPostalCodes kMNFApiPathPublic @"/postalcodes"
+
+#pragma mark - Organizations
+#define kMNFApiPathOrganizations @"/organizations"
+
+#pragma mark - Authentication
+#define kMNFApiPathAuthentication @"/authentication"
+#define kMNFAuthenticationRefresh kMNFApiPathAuthentication @"/refresh"
+#define kMNFAuthenticationSSO kMNFApiPathAuthentication @"/sso/%@"
+
+#pragma mark - User Events
+#define kMNFApiPathUserEvents @"/userevents"
+#define kMNFUserEventsSubscription kMNFApiPathUserEvents @"/subscription"
+#define kMNFUserEventsSubscriptionDetails kMNFUserEventsSubscription @"/details"
+#define kMNFUserEventTypes @"/eventtypes"
 
 
 //*********************************

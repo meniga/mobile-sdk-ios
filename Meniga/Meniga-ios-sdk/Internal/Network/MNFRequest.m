@@ -10,6 +10,7 @@
 #import "MNFNetwork.h"
 #import "Meniga.h"
 
+
 @implementation MNFRequest
 
 + (NSURLRequest *)urlRequestWithURL:(NSURL *)url httpMethod:(NSString *)httpMethod httpHeaders:(nullable NSDictionary <NSString *,NSString *> *)httpHeaders parameters:(nullable NSData *)postdata {
@@ -20,6 +21,9 @@
     NSMutableDictionary *postHeaders = [NSMutableDictionary dictionaryWithDictionary:httpHeaders];
     [postHeaders addEntriesFromDictionary:@{@"Accept":@"application/json"}];
     [postHeaders addEntriesFromDictionary:@{@"X-XSRF-Header":@"true"}];
+    
+    
+    
     [request setAllHTTPHeaderFields:postHeaders];
     
     return [request copy];

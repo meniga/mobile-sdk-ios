@@ -116,7 +116,7 @@
     
     bodyDict[@"splitActions"] = serializedSplitActions;
     
-    NSLog(@"body dict: %@", bodyDict);
+//    NSLog(@"body dict: %@", bodyDict);
     
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:bodyDict options:0 error:nil];
     
@@ -189,7 +189,7 @@
     [jsonQuery setObject:[[MNFNumberToBoolValueTransformer transformer] reverseTransformedValue: applyOnExisting] forKey:@"applyOnExisting"];
     
     NSDictionary *jsonDict = [MNFJsonAdapter JSONDictFromObject:self option:0 error:nil];
-    NSLog(@"the json dict is: %@", jsonDict);
+//    NSLog(@"the json dict is: %@", jsonDict);
     
     NSData *jsonData = [MNFJsonAdapter JSONDataFromObject:self option:kMNFAdapterOptionNoOption error:nil];
     

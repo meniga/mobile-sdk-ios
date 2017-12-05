@@ -65,6 +65,11 @@ typedef NS_ENUM(NSUInteger,MNFCachePolicy) {
 @property (nonatomic,strong) NSString *apiURL;
 
 /**
+ @abstract Culture to provide to the Accept-Language.
+ */
+@property (nonatomic, strong) NSString *culture;
+
+/**
  @abstract The log level for the Meniga framework
  
  @discussion The Meniga framework comes with a custom logger for debugging. Set your preferred log level before initialization. The log levels are as follows:

@@ -14,7 +14,7 @@
 +(MNFJob*)fetchPostalCode:(NSString *)postalCode withCompletion:(MNFPostalCodeCompletionHandler)completion {
     [completion copy];
     
-    NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFPublicPostalCodes,postalCode];
+    NSString *path = [NSString stringWithFormat:@"%q/%@",kMNFPublicPostalCodes,postalCode];
     
     __block MNFJob *job = [self apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNamePublic completion:^(MNFResponse * _Nullable response) {
         

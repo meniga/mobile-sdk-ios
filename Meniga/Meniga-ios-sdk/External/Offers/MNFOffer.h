@@ -2,288 +2,361 @@
 //  MNFOffer.h
 //  Meniga-ios-sdk
 //
-//  Created by Mathieu Grettir Skulason on 4/27/16.
-//  Copyright © 2016 Meniga. All rights reserved.
+//  Created by Haukur Ísfeld on 23/10/15.
+//  Copyright © 2015 Meniga. All rights reserved.
 //
 
 #import "MNFObject.h"
 
-#import "MNFOfferFilter.h"
-#import "MNFOfferRelevanceHook.h"
-#import "MNFMerchantLocation.h"
-#import "MNFOfferTransaction.h"
-#import "MNFRedemptions.h"
-#import "MNFReimbursementAccount.h"
-#import "MNFSimilarBrand.h"
-
-NS_ASSUME_NONNULL_BEGIN
-
+/**
+ The MNFOffer class encapsulates offer json data form the server in an object.
+ 
+ An offer should not be directly initialized but instead should be constructed with data from the server.
+ The response from the server will be automatically converted to an MNFOffer object.
+ */
 @interface MNFOffer : MNFObject
 
+
 /**
- @abstract The title of the offer
+ @abstract The server identifier of the offer.
  */
-@property (nonatomic, copy, readonly) NSString *title;
+@property (nonatomic,strong,readonly) NSNumber *offerId;
 
 /**
- @abstract A description of the offer for the user.
+ @abstract The title of the offer.
  */
-@property (nonatomic, copy, readonly) NSString *offerDescription;
-
+@property (nonatomic,strong,readonly) NSString *title;
 
 /**
- @abstract An identifier for the brand the offer is promoting for.
+ @abstract The description of the offer.
  */
-@property (nonatomic, copy, readonly) NSNumber *brandId;
+@property (nonatomic,strong,readonly) NSString *offerDescription;
 
 /**
- @abstract The name of the brand the offer is promoting for.
+ @abstract The validation token of the offer.
  */
-@property (nonatomic, copy, readonly) NSString *brandName;
+@property (nonatomic,strong,readonly) NSString *validationToken;
 
 /**
- @abstract Offer validation token that can be used to fetch and activate offers without being logged in (email etc.)
+ @abstract The display state of the offer.
  */
-@property (nonatomic, copy, readonly) NSString *validationToken;
+@property (nonatomic,strong,readonly) NSNumber *displayState;
 
 /**
- @abstract The state of the offer. The offer can have four different states: activated, available, declined and expired.
-*/
-@property (nonatomic, copy, readonly) NSString *state;
-
-/**
- @abstract The reward type can be of type percentage or fixed amount.
+ @abstract The starting time of the offer.
  */
-@property (nonatomic, copy, readonly) NSString *rewardType;
+@property (nonatomic,strong,readonly) NSDate *validFrom;
 
 /**
- @abstract The reward amount, if the reward type is percentage it returns the percentage of the reward.
+ @abstract The category of the offer.
  */
-@property (nonatomic, strong, readonly) NSNumber *reward;
+@property (nonatomic,strong,readonly) NSString *offerCategory;
 
 /**
- @abstract Total amount redeemed when using the offer.
+ @abstract The merchant offering the offer.
  */
-@property (nonatomic, strong, readonly) NSNumber *totalRedeemedAmount;
+@property (nonatomic,strong,readonly) NSString *merchant;
 
 /**
- @abstract Minimum amount which you have to purchase for in order to receive cashback for the offer.
+ @abstract The icon code for the offer's category.
  */
-@property (nonatomic, strong, readonly) NSNumber *minimumPurchaseAmount;
+@property (nonatomic,strong,readonly) NSString *categoryDisplay;
 
 /**
- @abstract Maximum Redemption possible on the offer.
+ @abstract Transactions related to the offer.
  */
-@property (nonatomic, strong, readonly) NSNumber *maximumRedemptionPerOffer;
+@property (nonatomic,strong,readonly) NSArray *transactionContainer;
 
 /**
- @abstract Maximum redemption per purchase for the offer.
+ @abstract The last cashback payment made to the user.
  */
-@property (nonatomic, strong, readonly) NSNumber *maximumRedemptionPerPurchase;
+@property (nonatomic,strong,readonly) NSNumber *lastPayment;
 
 /**
- @abstract Minimum amount to be accumulated to receive cashback.
+ @abstract The date for the last payment.
  */
-@property (nonatomic, strong, readonly) NSNumber *minimumAccumulatedAmount;
+@property (nonatomic,strong,readonly) NSDate *lastPaymentDate;
 
 /**
- @abstract Maximum purchase amount eligable for cashback.
+ @abstract The date for the next payment.
  */
-@property (nonatomic, strong, readonly) NSNumber *maximumPurchase;
+@property (nonatomic,strong,readonly) NSDate *nextPaymentDate;
 
 /**
- @abstract The last amount payed out of the cashback earned of the offer to the user.
+ @abstract The amount of the next payment.
  */
-@property (nonatomic, strong, readonly) NSNumber *lastReimbursementAmount;
+@property (nonatomic,strong,readonly) NSNumber *nextPaymentScheduledAmount;
 
 /**
- @abstract Last time the user got payed out of the cashback earned of the offer.
+ @abstract The filename of the partner's image.
  */
-@property (nonatomic, strong, readonly) NSDate *lastReimbursementDate;
+@property (nonatomic,strong,readonly) NSString *partnerImageFilename;
 
 /**
- @abstract Amount of casbhack to be paid to the user on next payout.
+ @abstract The Id of the merchant.
  */
-@property (nonatomic, strong, readonly) NSNumber *scheduledReimbursementAmount;
+@property (nonatomic,strong,readonly) NSNumber *merchantId;
 
 /**
- @abstract The date for the next payout.
+ @abstract The end time of the offer.
  */
-@property (nonatomic, strong, readonly) NSDate *scheduledReimbursementDate;
+@property (nonatomic,strong,readonly) NSDate *validTo;
 
 /**
- @abstract The days left of the offer.
+ @abstract The reward type of the offer.
  */
-@property (nonatomic, strong, readonly) NSNumber *daysLeft;
+@property (nonatomic,strong,readonly) NSNumber *rewardType;
 
 /**
- @abstract The date the offer became available to the user.
+ @abstract The reward amount of the offer.
  */
-@property (nonatomic, strong, readonly) NSDate *validFrom;
+@property (nonatomic,strong,readonly) NSNumber *reward;
 
 /**
- @abstract The date the offer expired.
+ @abstract The minimum purchase amount.
  */
-@property (nonatomic, strong, readonly) NSDate *validTo;
+@property (nonatomic,strong,readonly) NSNumber *minimumPurchaseAmount;
 
 /**
- @abstract The date the offer was accepted by the user.
+ @abstract The maximum number of purchases that can be redeemed.
  */
-@property (nonatomic, strong, readonly) NSDate *activatedDate;
+@property (nonatomic,strong,readonly) NSNumber *maximumPurchaseEvents;
 
 /**
- @abstract The date the offer was declined by the user.
+ @abstract The maximum cashback per purchase.
  */
-@property (nonatomic, strong, readonly) NSDate *declineDate;
+@property (nonatomic,strong,readonly) NSNumber *maximumCashbackPerPurchase;
 
 /**
- @abstract Id of the merchant.
+ @abstract The maximum cashback per offer.
  */
-@property (nonatomic, strong, readonly) NSNumber *merchantId;
+@property (nonatomic,strong,readonly) NSNumber *maximumCashbackPerOffer;
 
 /**
- @abstract Name of the merchant.
+ @abstract The minimum accumulated amount to redeemable.
  */
-@property (nonatomic, copy, readonly) NSString *merchantName;
+@property (nonatomic,strong,readonly) NSNumber *minimumAccumulatedAmount;
 
 /**
- @abstract Merchant declined
+ @abstract The total redeemed amount.
  */
-@property (nonatomic, strong, readonly) NSNumber *merchantDeclined;
+@property (nonatomic,strong,readonly) NSNumber *totalRedeemedAmount;
 
 /**
- @abstract Whether the offer activates automatically when the user has made his first purchase at the store.
+ @abstract The total repayed amount.
  */
-@property (nonatomic, strong, readonly) NSNumber *activateOfferOnFirstPurchase;
+@property (nonatomic,strong,readonly) NSNumber *totalRepayedAmount;
 
-
-// MARK: Need to investigate the format of the relevance hook
 /**
- @abstract The reason why you got this offer.
+ @abstract The number of days left of the offer.
  */
-@property (nonatomic, copy, readonly) MNFOfferRelevanceHook *relevanceHook;
+@property (nonatomic,strong,readonly) NSNumber *daysleft;
 
 /**
- @abstract Total amount spent on similar brands.
+ @abstract The offer goal (onboarding, uplift, loyalty, rescue).
  */
-@property (nonatomic, strong, readonly) NSNumber *totalSpendingAtSimilarBrands;
+@property (nonatomic,strong,readonly) NSNumber *offerGoal;
 
 /**
- @abstract The total amount spent on the offer.
+ @abstract The reason for the offer.
  */
-@property (nonatomic, strong, readonly) NSNumber *totalSpendingOnOffer;
+@property (nonatomic,strong,readonly) NSString *offerReason;
 
 /**
- @abstract The ratio between total spending on offer as compared to everthing spent on the offer and at similar brands.
+ @abstract The date the offer was accepted.
  */
-@property (nonatomic, strong, readonly) NSNumber *offerSimilarBrandsSpendingRatio;
-
+@property (nonatomic,strong,readonly) NSDate *acceptanceDate;
 
 /**
- @abstract The location of the merchant
+ @abstract The date the offer was available to the user.
  */
-@property (nonatomic, strong, readonly) NSArray <MNFMerchantLocation *> *merchantLocations;
-
+@property (nonatomic,strong,readonly) NSDate *availableFrom;
 
 /**
- @abstract Fetches an object with a given identifier from the server.
+ @abstract The cashback prediction of the offer.
+ */
+@property (nonatomic,strong,readonly) NSDictionary *cashbackPrediction;
+
+/**
+ @abstract The date the offer was declined.
+ */
+@property (nonatomic,strong,readonly) NSDate *declineDate;
+
+/**
+ @abstract Whether the offer was declined because the merchant declined.
+ */
+@property (nonatomic,strong,readonly) NSNumber *merchantDeclined;
+
+/**
+ @abstract The offer's category Id.
+ */
+@property (nonatomic,strong,readonly) NSNumber *offerCategoryId;
+
+/**
+ @abstract The offer's repayment records.
+ */
+@property (nonatomic,strong,readonly) NSArray *repaymentRecords;
+
+/**
+ @abstract The website of the merchant behind the offer.s
+ */
+@property (nonatomic,strong,readonly) NSString *merchantWebsite;
+
+/**
+ @description Fetches an offer with a given identifier from the server
  
- @param identifier The server identifier for the offer.
- @param completion A completion block returns an instance of MNFOffer or an error.
+ @param identifier The identifier of the offer
  
- @return MNFJob A job containing an MNFOffer and error.
+ @return The completion block returns an MNFOffer and an error.
  */
-+(MNFJob*)fetchWithId:(NSNumber *)identifier completion:(nullable MNFOfferCompletionHandler)completion;
++(void)fetchWithId:(NSNumber *)identifier completion:(MNFFetchOfferCompletionHandler)completion;
+
++(MNFJob*)fetchWithId:(NSNumber *)identifier;
 
 /**
- @bastract Fetches an offer based on the token.
+ @description Fetches all offers available to the user.
  
- @param theToken Token of the offer to fetch.
- @param completion A completion block returning the offer from the token or an error.
- 
- @return A MNFJob containing the offer as a result or an error if applicable.
+ @return The completion block returns an array of offers and an error.
  */
-+(MNFJob*)fetchWithToken:(NSString *)theToken completion:(nullable MNFOfferCompletionHandler)completion;
++(void)fetchOffersWithCompletion:(MNFCompletionHandler)completion;
 
 /**
- @abstract Fetch Offers with a filter where you can skip a certain amount and take a certain amount for every request to the server.
- 
- @param offerFilter The filter for the offers. If nil no filter is used.
- @param skip Defines the number of records to skip in the request. If nil no records are skipped.
- @param take Defines the number of records to fetch in the request. If nil only 20 offers are fetched.
- @param completion A completion block returning an array of offers or an error.
+ @description Fetches all offers available to the user.
  
  @return MNFJob A job containing an array of offers or an error.
  */
-+(MNFJob*)fetchOffersWithFilter:(nullable MNFOfferFilter *)offerFilter take:(nullable NSNumber *)take skip:(nullable NSNumber *)skip completion:(nullable MNFMultipleOffersCompletionHandler)completion;
++(MNFJob*)fetchOffers;
 
 /**
- @abstract Activate an offer with a token.
+ @description Creates a repayment account that receives cashback from offers.
  
- @param theToken The token of the offer that is going to be activated.
- @param completion A completion block returning an error.
+ @param displayName The display name of the repayment account
+ @param repaymentType The repayment type of the account.
+ @param accountInfo The account information such as bank number, social security number etc.
+ 
+ @return The completion block returns the server result and an error.
+ */
++(void)createRepaymentAccountWithDisplayName:(NSString*)displayName repaymentType:(NSString*)repaymentType accountInfo:(NSString*)accountInfo completion:(MNFCompletionHandler)completion;
+
+/**
+ @description Creates a repayment account that receives cashback from offers.
+ 
+ @param displayName The display name of the repayment account
+ @param repaymentType The repayment type of the account.
+ @param accountInfo The account information such as bank number, social security number etc.
+ 
+ @return MNFJob A job containing the server result or an error.
+ */
++(MNFJob*)createRepaymentAccountWithDisplayName:(NSString*)displayName repaymentType:(NSString*)repaymentType accountInfo:(NSString*)accountInfo;
+
+/**
+ @description Deletes a repayment account with a given identifier.
+ 
+ @param accountId The identifier for the account
+ 
+ @return The completion block returns the server result and an error.
+ */
++(void)deleteRepaymentAccountWithId:(NSString*)accountId completion:(MNFCompletionHandler)completion;
+
+/**
+ @description Deletes a repayment account with a given identifier.
+ 
+ @param accountId The identifier for the account
+ 
+ @return MNFJob A job containing the server result or an error.
+ */
++(MNFJob*)deleteRepaymentAccountWithId:(NSString*)accountId;
+
+/**
+ @description Updates a repayment account with given parameters.
+ 
+ @param accountId The identifier for the account to be updated.
+ @param displayName The new display name.
+ @param accountInfo The new account information.
+ 
+ @return The completion block returns the server result and an error.
+ */
++(void)updateRepaymentAccountWithId:(NSString*)accountId displayName:(NSString*)displayName accountInfo:(NSString*)accountInfo completion:(MNFCompletionHandler)completion;
+
+/**
+ @description Updates a repayment account with given parameters.
+ 
+ @param accountId The identifier for the account to be updated.
+ @param displayName The new display name.
+ @param accountInfo The new account information.
+ 
+ @return MNFJob A job containing the server result and an error.
+ */
++(MNFJob*)updateRepaymentAccountWithId:(NSString*)accountId displayName:(NSString*)displayName accountInfo:(NSString*)accountInfo;
+
+/**
+ @description Fetches the terms and conditions for cashback offers.
+ 
+ @return The completion block returns the server result and an error.
+ */
++(void)getTermsAndConditionsWithCompletion:(MNFCompletionHandler)completion;
+
+/**
+ @description Fetches the terms and conditions for cashback offers.
+ 
+ @return MNFJob A job containing the server result and an error.s
+ */
++(MNFJob*)getTermsAndConditions;
+
+/**
+ @description Accepts the terms and conditions for cashback offers.
+ 
+ @return The completion block returns the server result and an error.
+ */
++(void)acceptTermsAndConditionsWithCompletion:(MNFCompletionHandler)completion;
+
+/**
+ @description Accepts the terms and conditions for cashback offers.
+ 
+ @return MNFJob A job containing the server result and an error.
+ */
++(MNFJob*)acceptTermsAndConditions;
+
+/**
+ @description Accepts the offer.
+ 
+ @return The completion block returns the server result and an error.
+ */
+-(void)acceptOfferWithCompletion:(MNFCompletionHandler)completion;
+
+/**
+ @description Accepts the offer.
+ 
+ @return MNFJob A job containing the server result and an error.
+ */
+-(MNFJob*)acceptOffer;
+
+/**
+ @description Declines the offer.
+ 
+ @return The completion block returns the server result and an error.
+ */
+-(void)declineOfferWithCompletion:(MNFCompletionHandler)completion;
+
+/**
+ @description Declines the offer.
+ 
+ @return MNFJob A job containing the server result and an error.
+ */
+-(MNFJob*)declineOffer;
+
+/**
+ @description Refreshes the offer with data from the server.
+ 
+ @return The completion block returns an error.
+ */
+-(void)refreshWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
+
+/**
+ @description Refreshes the offer with data from the server.
  
  @return MNFJob A job containing an error.
  */
-+(MNFJob*)activateOfferWithToken:(NSString *)theToken completion:(nullable MNFErrorOnlyCompletionHandler)completion;
-
-/**
- @abstract Activates or de-activates offers component for the user.
- 
- @param enable Used to indicate whether you want activate or de-activate the offers component.
- @param completion A completion block returning an error.
- 
- @return MNFJob A job containing an error.
- */
-+(MNFJob*)enableOffers:(BOOL)enable completion:(nullable MNFErrorOnlyCompletionHandler)completion;
-
-/**
- @abstract Method used to accept the terms and conditions for the offer component.
- 
- @param completion A completion block returning an error.
- 
- @return MNFJob A job containing an error.
- */
-+(MNFJob*)acceptOffersTermsAndConditionsWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
-
-
-//MARK: Instance Methods
-
-/**
- @abstract Fetches similar brands the user has done some business for the given offer. It gives you a list of brand names, their ids and the amount spent at the brand.
- 
- @param theOfferId The id of the offer.
- @param completion A completion block returning an array of similar brands, similar brand metadata or an error.
- 
- @return MNFJob A job containing an array of similar brands or an error.
- */
--(MNFJob*)fetchSimilarBrandSpendingWithCompletion:(nullable MNFOfferSimilarBrandSpendingCompletionHandler)completion;
-
-/**
- @abstract Fetches all the transactions that have been redeemed for the given offer.
- 
- @param completion A completion block returning an array of offer transactions or an error.
- 
- @return MNFJob A job containing an array of offer transactions or an error.
- */
--(MNFJob*)fetchRedeemedTransactionsWithCompletion:(nullable MNFMultipleOfferTransactionsCompletionHandler)completion;
-
-/**
- @abstract Used to activate/accept or de-activate/decline the offer.
- 
- @param activate Used to activate or de-activate the offer.
- @param completion A completion block returning an error.
- 
- @return MNFJob A job containing an error.
- */
--(MNFJob*)activateOffer:(BOOL)activate completion:(nullable MNFErrorOnlyCompletionHandler)completion;
-
-/**
- @abstract Mark the offer as seen for analytics on the backend. This method is not used for local or backend state. As prior stated this is purely for analytics.
- */
--(MNFJob *)markAsSeenWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
-
+-(MNFJob*)refresh;
 
 @end
-
-NS_ASSUME_NONNULL_END

@@ -370,7 +370,7 @@ static BOOL is_leap_year(NSUInteger year);
 								} else {
 									//Get month and/or date.
 									segment = read_segment_4digits(ch, &ch, &num_digits);
-									NSLog(@"(%@) parsing month; segment is %lu and ch is %@", string, (unsigned long)segment, [NSString stringWithCString:(const char *)ch encoding:NSUnicodeStringEncoding]);
+//									NSLog(@"(%@) parsing month; segment is %lu and ch is %@", string, (unsigned long)segment, [NSString stringWithCString:(const char *)ch encoding:NSUnicodeStringEncoding]);
 									switch(num_digits) {
 										case 4: //YY-MMDD
 											day = segment % 100U;
@@ -427,7 +427,7 @@ static BOOL is_leap_year(NSUInteger year);
 							break;
 
 						case 1:; //-YY; -YY-MM (implicit century)
-							NSLog(@"(%@) found %lu digits and one hyphen, so this is either -YY or -YY-MM; segment (year) is %lu", string, (unsigned long)num_digits, (unsigned long)segment);
+//							NSLog(@"(%@) found %lu digits and one hyphen, so this is either -YY or -YY-MM; segment (year) is %lu", string, (unsigned long)num_digits, (unsigned long)segment);
 							NSUInteger current_year = nowComponents.year;
 							NSUInteger current_century = (current_year % 100U);
 							year = segment + (current_year - current_century);
@@ -437,7 +437,7 @@ static BOOL is_leap_year(NSUInteger year);
 							if (*ch == '-') {
 								++ch;
 								month_or_week = read_segment_2digits(ch, &ch);
-								NSLog(@"(%@) month is %lu", string, (unsigned long)month_or_week);
+//								NSLog(@"(%@) month is %lu", string, (unsigned long)month_or_week);
 							}
 
 							day = 1U;
@@ -764,7 +764,7 @@ static BOOL is_leap_year(NSUInteger year);
 
 - (NSString *) stringForObjectValue:(id)value {
 	if ( ! [value isKindOfClass:[NSDate class]]) {
-		NSLog(@"%s: Can only format NSDate objects, not objects like %@", __func__, value);
+//		NSLog(@"%s: Can only format NSDate objects, not objects like %@", __func__, value);
 		return nil;
 	}
 

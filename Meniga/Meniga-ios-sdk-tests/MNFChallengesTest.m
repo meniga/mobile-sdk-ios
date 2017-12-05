@@ -76,7 +76,7 @@
     
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
-    [_sut acceptChallengeWithTargetAmount:nil completion:^(NSError * _Nullable error) {
+    [_sut acceptChallengeWithTargetAmount:nil waitTime:nil completion:^(NSError * _Nullable error) {
         XCTAssertNil(error);
         XCTAssertNotNil(_sut.challengeId);
         XCTAssertNotNil(_sut.accepted);
