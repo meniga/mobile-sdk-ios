@@ -39,6 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,copy) NSString *_Nullable metaData;
 
+/**
+ The interval with which this challenge repeates.
+ */
+@property (nonatomic,strong,readonly) NSString *_Nullable recurringInterval;
+
 @end
 
 NS_ASSUME_NONNULL_END

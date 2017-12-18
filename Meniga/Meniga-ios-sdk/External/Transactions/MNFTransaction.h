@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class MNFTransactionFilter;
+@class MNFTransactionFilter, MNFComment;
 
 /**
  The MNFTransaction class encapsulates transaction json data from the server in an object.
@@ -196,7 +196,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The comment in the transaction.
  */
-@property(nonatomic, copy)NSArray *comments;
+@property(nonatomic, copy)NSArray <MNFComment*> *comments;
 
 /**
  @abstract The date of the transaction.
@@ -282,6 +282,19 @@ NS_ASSUME_NONNULL_BEGIN
  @warning Remember to deallocate objects that have been deleted from the server.
  */
 -(MNFJob*)deleteTransactionWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+
+/**
+ @abstract Deletes comment from transaction and removes it from the comments array.
+ 
+ @param commentIdex Index of the comment in the transaction comment array.
+ 
+ @param completion A completion block returning an error.
+ 
+ @return MNFJob A job containing an error.
+ 
+ @warning Remember to deallocate objects that have been deleted from the server.
+ */
+-(MNFJob*)deleteCommentAtIndex:(NSInteger)commentIndex withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Deletes a list of transactions.

@@ -158,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The custom meta data of the account.
  */
-@property (nonatomic,copy,readonly) NSDictionary *metaData;
+@property (nonatomic,copy,readonly) NSDictionary *metadata;
 
 ///******************************
 /// @name Mutable properties

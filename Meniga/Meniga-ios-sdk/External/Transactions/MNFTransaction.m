@@ -124,6 +124,15 @@
             if ([response.result isKindOfClass:[NSArray class]]) {
             
                 NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
+                
+                for (MNFTransaction *transaction in transactions) {
+                    
+                    for (MNFComment *comment in transaction.comments) {
+                        comment.transactionId = transaction.identifier;
+                    }
+                    
+                }
+                
                 [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:transactions error:nil];
                 
             
@@ -329,6 +338,21 @@
     
     
     return job;
+}
+
+-(MNFJob*)deleteCommentAtIndex:(NSInteger)commentIndex withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion{
+    [completion copy];
+    return [self.comments[commentIndex] deleteCommentWithCompletion:^(NSError * _Nullable error) {
+       
+        if (error == nil) {
+            NSMutableArray *mutableComments = [_comments mutableCopy];
+            [mutableComments removeObject:self.comments[commentIndex]];
+            _comments = [mutableComments copy];
+        }
+        
+        completion(error);
+    }];
+    
 }
 
 +(MNFJob *)deleteTransactions:(NSArray <MNFTransaction *> *)transactions withCompletion:(MNFErrorOnlyCompletionHandler)completion {

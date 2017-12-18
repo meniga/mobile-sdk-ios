@@ -22,7 +22,7 @@
     
     [completion copy];
     
-    NSString *path = [NSString stringWithFormat:@"%@/%@/%@/%@",kMNFApiPathTransactions,[self.transactionId stringValue],kMNFTransactionsComments,[self.identifier stringValue]];
+    NSString *path = [NSString stringWithFormat:@"%@/%@%@/%@",kMNFApiPathTransactions,[self.transactionId stringValue],kMNFTransactionsComments,[self.identifier stringValue]];
         
     NSDictionary *jsonBody = @{@"comment":self.comment};
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonBody options:0 error:nil];
@@ -42,7 +42,7 @@
 
 -(MNFJob *)deleteCommentWithCompletion:(MNFErrorOnlyCompletionHandler)completion {
     
-    NSString *path = [NSString stringWithFormat:@"%@/%@/%@/%@",kMNFApiPathTransactions,[self.transactionId stringValue],kMNFTransactionsComments,[self.identifier stringValue]];
+    NSString *path = [NSString stringWithFormat:@"%@/%@%@/%@",kMNFApiPathTransactions,[self.transactionId stringValue],kMNFTransactionsComments,[self.identifier stringValue]];
     
     __block MNFJob *job = [self deleteWithApiPath:path pathQuery:nil jsonBody:nil service:MNFServiceNameTransactions completion:^(MNFResponse * _Nullable response) {
         
