@@ -50,8 +50,6 @@
         [jsonQuery setObject:take forKey:@"take"];
     }
     
-//    NSLog(@"json query: %@", jsonQuery);
-    
     __block MNFJob *job = [self apiRequestWithPath:kMNFApiPathFeed pathQuery:[jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameFeed completion:^(MNFResponse * _Nullable response) {
         
         kObjectBlockDataDebugLog;
@@ -65,36 +63,7 @@
                 
                 for (NSDictionary *dict in response.result) {
                 
-                    MNFFeedItem *feedItem = [MNFFeedItem initWithServerResult:dict];
-                    
-                    if ( [feedItem.typeName isEqualToString:@"TransactionFeedItemModel"] == YES) {
-                    
-                        MNFTransaction *transaction = [MNFTransaction initWithServerResult:dict];
-                        for (MNFComment *comment in transaction.comments) {
-                            comment.transactionId = transaction.identifier;
-                        }
-                        feedItem.model = transaction;
-                    
-                    }
-                    else if ( [feedItem.typeName isEqualToString:@"UserEventFeedItemModel"] == YES) {
-                    
-                        MNFUserEvent *userEvent = [MNFUserEvent initWithServerResult:dict];
-                        feedItem.model = userEvent;
-                    
-                    }
-                    else if ([feedItem.typeName isEqualToString:@"ScheduledFeedItemModel"] == YES) {
-                        
-                        MNFScheduledEvent *scheduledEvent = [MNFScheduledEvent initWithServerResult:dict];
-                        feedItem.model = scheduledEvent;
-                        
-                    }
-                    else if([feedItem.typeName isEqualToString: @"OfferFeedItem"] == YES) {
-                        NSMutableDictionary *mutableDict = [dict mutableCopy];
-                        [mutableDict setObject: feedItem.topicId forKey: @"id"];
-                        MNFOffer *offer = [MNFOffer initWithServerResult: mutableDict];
-                        feedItem.model = offer;
-                        
-                    }
+                    MNFFeedItem *feedItem = [self p_createFeedItemWithModelFromData:dict];
                     
                     [array addObject:feedItem];
                 
@@ -149,29 +118,7 @@
                 
                 for (NSDictionary *dict in response.result) {
                 
-                    MNFFeedItem *feedItem = [MNFFeedItem initWithServerResult:dict];
-                    
-                    if ([feedItem.typeName isEqualToString:@"TransactionFeedItemModel"] == YES) {
-                    
-                        MNFTransaction *transaction = [MNFTransaction initWithServerResult:dict];
-                        for (MNFComment *comment in transaction.comments) {
-                            comment.transactionId = transaction.identifier;
-                        }
-                        feedItem.model = transaction;
-                    
-                    }
-                    else if ([feedItem.typeName isEqualToString:@"UserEventFeedItemModel"] == YES) {
-                    
-                        MNFUserEvent *userEvent = [MNFUserEvent initWithServerResult:dict];
-                        feedItem.model = userEvent;
-                    
-                    }
-                    else if([feedItem.typeName isEqualToString:@"ScheduledFeedItemModel"] == YES) {
-                        
-                        MNFScheduledEvent *scheduledEvent = [MNFScheduledEvent initWithServerResult:dict];
-                        feedItem.model = scheduledEvent;
-                        
-                    }
+                    MNFFeedItem *feedItem = [[self class] p_createFeedItemWithModelFromData:dict];
                     
                     [newItems addObject:feedItem];
                 
@@ -374,6 +321,42 @@
     }];
     
     return job;
+}
+
++(MNFJob*)fetchFeedItemWithFeedType:(NSString*)type identifier:(NSNumber*)identifier withCompletion:(nullable MNFSingleFeedItemCompletionHandler)completion{
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@/%@", kMNFApiPathFeed, type, identifier];
+    
+    __block MNFJob *job = [self apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameFeed completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                MNFFeedItem *feedItem = [self p_createFeedItemWithModelFromData:response.result];
+                
+                [MNFObject executeOnMainThreadWithJob: job completion: completion parameter: feedItem error: nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob: job completion: completion parameter: response.result error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
+                
+            }
+            
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob: job completion: completion parameter: nil error: response.error];
+            
+        }
+    }];
+    
+    return job;
+    
 }
 
 
@@ -602,6 +585,43 @@
 }
 
 #pragma mark - helpers
+
++(MNFFeedItem*)p_createFeedItemWithModelFromData:(NSDictionary*)dict{
+    
+    MNFFeedItem *feedItem = [MNFFeedItem initWithServerResult:dict];
+    
+    if ([feedItem.typeName isEqualToString:@"TransactionFeedItemModel"] == YES) {
+        
+        MNFTransaction *transaction = [MNFTransaction initWithServerResult:dict];
+        for (MNFComment *comment in transaction.comments) {
+            comment.transactionId = transaction.identifier;
+        }
+        feedItem.model = transaction;
+        
+    }
+    else if ([feedItem.typeName isEqualToString:@"UserEventFeedItemModel"] == YES) {
+        
+        MNFUserEvent *userEvent = [MNFUserEvent initWithServerResult:dict];
+        feedItem.model = userEvent;
+        
+    }
+    else if([feedItem.typeName isEqualToString:@"ScheduledFeedItemModel"] == YES) {
+        
+        MNFScheduledEvent *scheduledEvent = [MNFScheduledEvent initWithServerResult:dict];
+        feedItem.model = scheduledEvent;
+        
+    }
+    else if([feedItem.typeName isEqualToString: @"OfferFeedItem"] == YES) {
+        
+        NSMutableDictionary *mutableDict = [dict mutableCopy];
+        [mutableDict setObject: feedItem.topicId forKey: @"id"];
+        MNFOffer *offer = [MNFOffer initWithServerResult: mutableDict];
+        feedItem.model = offer;
+        
+    }
+    
+    return feedItem;
+}
 
 +(void)p_updateMetaDataInFeed:(MNFFeed*)feed withResponse:(MNFResponse*)response{
 
