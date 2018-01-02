@@ -258,7 +258,6 @@
 		B7445AE2228031897E3CB085158D99C8 /* MNFKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = A030EC4329B3619C9F894C50B95582B4 /* MNFKeychain.h */; };
 		B7A59FA975F7B5775B08C7624D3C098F /* MNFNetworthAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 09848251370E364283C1FDCF491DD077 /* MNFNetworthAccount.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B85E46A82A1516AF43893DB68772C415 /* MNFFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 816DCAF8CA142C1EF90E9ECA7FF1BF6F /* MNFFeedItem.m */; };
-		B88B995EFAED4D057F3018F53C0062FB /* MNFMerchantLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BABA85AB5EAA5F96C75A1ABC77F7554 /* MNFMerchantLocation.m */; };
 		B8C04F461A5AE60D03BFBF92CA9193E5 /* MNFAuthentication.h in Headers */ = {isa = PBXBuildFile; fileRef = CF946A437A3B2F88DE1024762A244330 /* MNFAuthentication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAE8C17FC6940345F744C8B63C691B7F /* MNFBasicDateValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D4526F2C981FF563367DF28DB8AC027 /* MNFBasicDateValueTransformer.h */; };
 		BCCD8F589186C450FEE69A1F43D1544A /* MNFAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = CD03DF56737E41D84ECEA4872E9538E6 /* MNFAccount.m */; };
@@ -2283,7 +2282,6 @@
 				5274D5F56D13572A54BCB55B9BDC5CBF /* MNFMainAdapterDelegateFirstUppercaseTestObj.m in Sources */,
 				5E8D664456AD68BE450D2822254FF939 /* MNFMainAdapterDelegateTestObj.m in Sources */,
 				5CAC7ED38B60437305C968ACAE1770F9 /* MNFMainAdapterDelegateUppercaseTestObj.m in Sources */,
-				B88B995EFAED4D057F3018F53C0062FB /* MNFMerchantLocation.m in Sources */,
 				026CF44AC1E7ED9E2883B1BB6FCD7422 /* MNFNetworkTest.m in Sources */,
 				E49F50F437BDE671C00AA602763A4141 /* MNFObjectTest.m in Sources */,
 				8C3E1279D153C8F75B42389B37F99743 /* MNFRequestTest.m in Sources */,
