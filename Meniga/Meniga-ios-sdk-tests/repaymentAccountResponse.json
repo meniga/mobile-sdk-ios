@@ -1,8 +1,0 @@
- [
-  {
-  "Id": 19,
-  "DisplayName": "Kjördæmareikningur",
-  "AccountInfoJson": "{\"bankAccountNumber\":\"123456\",\"ledger\":\"13\",\"socialSecurityNumber\":\"2610862937\",\"bankNumber\":\"1234\"}",
-  "RepaymentTypeTemplateJson": null
-  }
-  ]
