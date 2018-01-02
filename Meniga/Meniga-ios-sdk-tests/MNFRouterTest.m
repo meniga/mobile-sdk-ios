@@ -30,32 +30,4 @@
     [super tearDown];
 }
 
-//-(void)testRouteRequestWithCompletion {
-//    [MNFNetworkProtocolForTesting setObjectType:MNFNetworkObject];
-//    XCTestExpectation *expectation = [self expectationWithDescription:@"RouterTest"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"www.example.com/api/GetTransactions"]];
-//    [MNFRouter routeRequest:request withCompletion:^(MNFResponse *  _Nullable result) {
-//        XCTAssertNotNil(result);
-//        XCTAssertNil(result.error);
-//        [expectation fulfill];
-//    }];
-//    
-//    [self waitForExpectationsWithTimeout:10.0 handler:nil];
-//}
-//-(void)testRouteRequest {
-//    [MNFNetworkProtocolForTesting setObjectType:MNFNetworkObject];
-//    XCTestExpectation *expectation = [self expectationWithDescription:@"RouterTest"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"www.example.com/api/GetTransactions"]];
-//    MNFJob *task = [MNFRouter routeRequest:request];
-//    XCTAssertNotNil(task);
-//    [task.task continueWithSuccessBlock:^id(MNF_BFTask *task) {
-//        XCTAssertNotNil(task.result);
-//        XCTAssertNil(task.error);
-//        [expectation fulfill];
-//        return nil;
-//    }];
-//    
-//    [self waitForExpectationsWithTimeout:10.0 handler:nil];
-//}
-
 @end
