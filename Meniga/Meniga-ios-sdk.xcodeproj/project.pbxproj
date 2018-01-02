@@ -114,7 +114,6 @@
 		2CEC9165AD216B5D5E228911281B2345 /* upcomingDefaultAccountResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A67AA4C7031EF3E3C69266070EABD705 /* upcomingDefaultAccountResponse.json */; };
 		2D10908D6AF5001BB9BBF18F2BE55D32 /* MNFObjectTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 8879CB2F8B7245C3FCB4D158AF825FD5 /* MNFObjectTypes.h */; };
 		2DB66831A0AC97968266C3FB3F41C3BD /* budgetResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B84D0D931ED75DF9CAADDB5A8F136F72 /* budgetResponse.json */; };
-		2E553A478149F09343AACF5ACEAB8648 /* MNFOfferTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1252D28C93B32112A6D6CB5A6538F1 /* MNFOfferTests.m */; };
 		2F1B29CD2B1730EA200E1236D94CD3F5 /* MNFTransactionSplitAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 52171459AA8554D6BCD0180CE04F189A /* MNFTransactionSplitAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F7CD42B949544E20942AC5844EC11F8 /* MNFJob_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D34F2BAC73E3D92CF396CA17E6E8565 /* MNFJob_Private.h */; };
 		2F9502C5AE28BEEC45B03FA43FF324B1 /* MNFTransactionRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C53EF4EB5047276B1058B632DBA035E /* MNFTransactionRule.m */; };
@@ -212,7 +211,6 @@
 		6E3E0CC04D87B78282B930F260989AA5 /* MNFRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BFFE37509A2897312308F7F47B6C2A /* MNFRouter.m */; };
 		6E404B03E07564721F07D4C55B50A9EA /* MNFCryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = A13D5A4CF97C39BF2362152513B49880 /* MNFCryptor.h */; };
 		6ECE91475F534E9E62D3262EE103D372 /* MNFAccountAuthorizationType.m in Sources */ = {isa = PBXBuildFile; fileRef = C85C717BDA0FE84CDE0059737D9502D5 /* MNFAccountAuthorizationType.m */; };
-		6FA423BC0CE2A1664B1E47EDB836D859 /* MNFMerchantLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BABA85AB5EAA5F96C75A1ABC77F7554 /* MNFMerchantLocation.m */; };
 		71150A2ABB6C375861DA1C7E173893EB /* MNFRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E254E9FB13BD9A816F747DF71A7FD7E /* MNFRouter.h */; };
 		7151286B8614492F82BE7B896ED8FA60 /* transactionSplitResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 60921B159305C072FBA9B8BCD0AC840D /* transactionSplitResponse.json */; };
 		715DC2563E7FE90A4AD1C47C92595462 /* MNFNetworthAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E11517152BD75EDF299A71F3F334F84 /* MNFNetworthAccountTests.m */; };
@@ -634,7 +632,6 @@
 		5CC6297E88F7660900077A32887ADDB9 /* MNFTermsAndConditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFTermsAndConditions.m; sourceTree = "<group>"; };
 		5CD74AC499EE07410696650EA039CF12 /* MNFMainAdapterDelegateTestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFMainAdapterDelegateTestObj.h; sourceTree = "<group>"; };
 		5D77A2570A59F97313303F43B51461BD /* MNFSeparateFirstUppercaseOptionDelegateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFSeparateFirstUppercaseOptionDelegateObject.h; sourceTree = "<group>"; };
-		5F1252D28C93B32112A6D6CB5A6538F1 /* MNFOfferTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFOfferTests.m; sourceTree = "<group>"; };
 		5F12FCA6E3FD9E14C14D866F184D4D95 /* upcomingRecurringPatternsResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = upcomingRecurringPatternsResponse.json; sourceTree = "<group>"; };
 		60111ED6EB73BA29FEE4D605F733F5F9 /* MNFAdapterSubDelegateFirstUppercaseTestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAdapterSubDelegateFirstUppercaseTestObj.m; sourceTree = "<group>"; };
 		6087F0B3E9EF2FD99886AF15CD7024A2 /* MNFChallenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFChallenge.m; path = Challenges/MNFChallenge.m; sourceTree = "<group>"; };
@@ -1038,14 +1035,6 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
-		28EF906CF6873A8E4982D07C29C3B154 /* Offer tests */ = {
-			isa = PBXGroup;
-			children = (
-				5F1252D28C93B32112A6D6CB5A6538F1 /* MNFOfferTests.m */,
-			);
-			name = "Offer tests";
-			sourceTree = "<group>";
-		};
 		2EDD40233B38FB08651A23F96990A6C3 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1231,7 +1220,6 @@
 			children = (
 				B8E146E6BCFB47848568EC4A596D59AA /* Category Tests */,
 				F6CA4315D0039962C17D1CC4E798F6E6 /* JSON test data */,
-				28EF906CF6873A8E4982D07C29C3B154 /* Offer tests */,
 				C08BFE6C1834A6E8BD3FC41D37A3BB6E /* MNFAccountTest.m */,
 				73EDD0CAF740DA21807269C275FFCA8C /* MNFBudgetsTest.m */,
 				030F97AE70D5163CFBAC56A7BBE48BD5 /* MNFChallengesTest.m */,
@@ -2575,7 +2563,6 @@
 				2863C117C3AF4B6A9D5E3807BB208021 /* MNFIntegrationAuthProvider.m in Sources */,
 				DE41717E264ED7E711C3A622F783E23C /* MNFIntegrationTestSetup.m in Sources */,
 				94833A49A7AD677199317F10216AB0D5 /* MNFMerchantIntegrationTest.m in Sources */,
-				6FA423BC0CE2A1664B1E47EDB836D859 /* MNFMerchantLocation.m in Sources */,
 				9809DBDFD2A56262B5165C6E3634BB47 /* MNFNetworthIntegrationTest.m in Sources */,
 				EC27C223ADEDD3201BF6650414C11BD3 /* MNFOfferIntegrationTests.m in Sources */,
 				452CB90879EC20C0563DBF112231767A /* MNFRealmUserIntegrationTest.m in Sources */,
@@ -2759,7 +2746,6 @@
 				026CF44AC1E7ED9E2883B1BB6FCD7422 /* MNFNetworkTest.m in Sources */,
 				715DC2563E7FE90A4AD1C47C92595462 /* MNFNetworthAccountTests.m in Sources */,
 				E49F50F437BDE671C00AA602763A4141 /* MNFObjectTest.m in Sources */,
-				2E553A478149F09343AACF5ACEAB8648 /* MNFOfferTests.m in Sources */,
 				E5A684E1487E7D2D230B8D4A644DA3CF /* MNFRealmUserTest.m in Sources */,
 				8C3E1279D153C8F75B42389B37F99743 /* MNFRequestTest.m in Sources */,
 				78AA9ECF37FB195384571EF5F732544C /* MNFResponseTest.m in Sources */,
@@ -2865,7 +2851,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -2927,7 +2913,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2994,7 +2980,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "Meniga-ios-IntegrationTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "MENIGA.Meniga-ios-IntegrationTests";
@@ -3008,7 +2994,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "Meniga-ios-IntegrationTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "MENIGA.Meniga-ios-IntegrationTests";
