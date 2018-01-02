@@ -79,7 +79,6 @@
 		19EF0A2CAB9852958BC538D41FA4C479 /* jsonSingleAdapterTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 489DD351C02C6BFD61AE91366767F7C7 /* jsonSingleAdapterTest.json */; };
 		1A8F3EA495BD7622B861DFBD14A152DC /* MNFUpcomingReconcileScore.h in Headers */ = {isa = PBXBuildFile; fileRef = BD1D663BD144772267F9DC71E1B0E3D7 /* MNFUpcomingReconcileScore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D7744F23EB7AC57507CEDC5C50B708F /* MNFTransactionGroupTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BFED64DF018A8C48706015CC1294DE35 /* MNFTransactionGroupTest.m */; };
-		1D88D6F554B3549E902A4AA00E882FDF /* MNFCategoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CB149317BDB6E33EF7C1088D8DD30F87 /* MNFCategoryTest.m */; };
 		1E77F30399B7A5BE05ADA019AF1CC086 /* MNFNetworkProtocolForTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E0B394F5E235ADEE64E9ABD18BE3DF /* MNFNetworkProtocolForTesting.m */; };
 		1E7A19F1281BBF35C130CA27EB0A565C /* MNFMerchantLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = F70FF0FF2AC0C34A9D9F5B173824AB8A /* MNFMerchantLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E7A9C048B43301EB683FA09F3ED57E4 /* MNFUpcomingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C7067E3638A89C5E1BCD6E3897BC5C12 /* MNFUpcomingTest.m */; };
@@ -105,7 +104,6 @@
 		2875CC5898C28DABCD05730722A42919 /* MNFUserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A354220B1048F87B149CD3D4D2EAC67 /* MNFUserTest.m */; };
 		28F20AF0A7449D63CDBB08851AD6E59F /* MNFFeedItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 659AAA2B88AE8AAA296B9BF6DE076259 /* MNFFeedItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		299704E0A3A82F28D78E21164632015C /* MNFMerchantSeriesOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF477B17872D73F8919A1C57144A4DB /* MNFMerchantSeriesOptions.m */; };
-		2A5F1924431D0D11FAF59CBB1093AB16 /* categoryTreeResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A836DE32075903DF0D9B9A925D77BD2D /* categoryTreeResponse.json */; };
 		2A7EB3C38722FAF51341C4CCEB2C84A9 /* MNFConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = F24F0FADBD694DEF1FA62424EF3C07B1 /* MNFConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A818149FCDC928686253B466E46BBFE /* MNFCurrency.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5AADF6A6B007502F5D810ECE8A70D6 /* MNFCurrency.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B155EDE7E1C860DC73B145A28C87D21 /* MNFCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC416AFDF79AC93BDBAB64974BA11A /* MNFCategory.m */; };
@@ -154,7 +152,6 @@
 		4ABDCE89AFE117B824135CDFD3A30857 /* transactionRuleResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F6FE5989D066699CEAE800CE256A722A /* transactionRuleResponse.json */; };
 		4B3093BF75061B813947F4C9A755730E /* MNFAccountFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA68796B3469B8E1B8545ADCB686DA /* MNFAccountFilter.m */; };
 		4C49F06BC3C9FFA2F6D962BE00727873 /* MNFCustomChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FD8F1ADEB2E660390753431FE4EF4A /* MNFCustomChallenge.m */; };
-		4C7F2ABEBDEDF8B5A062A387A3BA8218 /* categoriesPublicWithChildCreationResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 50B8086466CD096CC28A21A1CF8F139E /* categoriesPublicWithChildCreationResponse.json */; };
 		4CB2F759567EA5F43E188DE0C3058244 /* MNFJsonAdapterValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E57F95495E36CAED4EB4A000AC5FC04 /* MNFJsonAdapterValueTransformer.m */; };
 		4D39C278227DA115171304C4C3811E02 /* upcomingSetIncludedAccountsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 35F0C20AC48DE7BE08E99E2DF9F14967 /* upcomingSetIncludedAccountsResponse.json */; };
 		4D510D2C1405BC0C71532422507B43BB /* NSObjectRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDF4FE992054D4F058BD8965DDDEF7D /* NSObjectRuntimeUtils.m */; };
@@ -196,7 +193,6 @@
 		5FD8AA0C945B2C0E3CFE5ACB99CC8A85 /* MNFRedemptions.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D05E71FC64C85DF88B93FD4C2EF330 /* MNFRedemptions.m */; };
 		60D092DFC644B8D9B6059C6CA8DF353C /* MenigaAdapterSubObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E1CCF3C569347742859B57E8DF5FFB /* MenigaAdapterSubObjectTests.m */; };
 		6152A3F7EC6CE46FCB933F08AE2A956F /* MNFSyncAuthRequiredParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 19ED77300D4B6F3027D7A76F1F7B87AB /* MNFSyncAuthRequiredParameter.m */; };
-		620B6790DC2F2C0DBC93E4735DFF33E6 /* categorySecondResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 034D8AFB72C33398D64837ECFEC3568F /* categorySecondResponse.json */; };
 		668F4FB02349B690C07A75955938E9F1 /* upcomingThresholdsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = EF3F73C7AF99E644F741660EF14DCAF9 /* upcomingThresholdsResponse.json */; };
 		66B6859E014258F36EA1D205CF8BB5FC /* MNFUpcomingDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 74203BEB5510D9C574ABCBC2F076BB4A /* MNFUpcomingDetails.m */; };
 		67166599CC89E455EF7E55B660789935 /* MNFNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 2969AA6F8C0E1D734375B31574558A35 /* MNFNetwork.h */; };
@@ -236,7 +232,6 @@
 		835E64EDC6EE960820591D8ABFAA0E1A /* realmAccountTypesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = CF099BA90DF0F7247677E744FFD9A621 /* realmAccountTypesResponse.json */; };
 		847EF087992FFDA571A8892094C991FF /* MNFUserEventSubscriptionDetail.h in Headers */ = {isa = PBXBuildFile; fileRef = 12307494AB9DBE81DB67CC682225692F /* MNFUserEventSubscriptionDetail.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84E329FA385AA7C4C68016FFBA5CCB06 /* MNFAPIRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = EF3EBFFEE141C3B23615C13C6D7F24C4 /* MNFAPIRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8630BDE1A691FFAC80EC7ECC0FE98A58 /* categoryResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = DD21B1A34675A955BDAF7F820567C818 /* categoryResponse.json */; };
 		866B000B8E72E3E6D1D5FEB65CD61B04 /* MNFRealmAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 745270B3FB01DC2A70557EEBE7729140 /* MNFRealmAccount.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		869BD8E73C1A06A5B595861EDCB2116D /* jsonAdapterSingleTestUppercase.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F6EE9C72C8DFB15F21AF752F386BC34 /* jsonAdapterSingleTestUppercase.json */; };
 		86B2FCA18CA1DFBD7DDB28DCB2DB9A71 /* MNFUserProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = E96D7BBDC8DA60B9028CB00E65BE66CF /* MNFUserProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -258,7 +253,6 @@
 		91D776B68D7D6B1F2A9993F7F949F051 /* jsonAdapaterSingleTestLowercase.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EADDC48657B13F28073A4FAAB292E5F /* jsonAdapaterSingleTestLowercase.json */; };
 		925CAEC9E860C52D2E7F2B6455AD5D73 /* MNFObject.h in Headers */ = {isa = PBXBuildFile; fileRef = BEDFF063255EE92DB3C900965C9E29FB /* MNFObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		935B23F5A17FAB4B138B7ACF271A3146 /* testJsonWithoutDataParameter.json in Resources */ = {isa = PBXBuildFile; fileRef = D09FCD6337E253B5D773F6F2004E47E5 /* testJsonWithoutDataParameter.json */; };
-		93CE5E6C99DE4520520CE56350C37E73 /* categoryTypesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 8ED7F0B602E86082F9FF8727F18E8003 /* categoryTypesResponse.json */; };
 		941C3B2F37850DAEDBB82A3AEA74FBDE /* budgetsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325C6B3240414210B6339FDC408DF628 /* budgetsResponse.json */; };
 		946838251A8BD80F03EB19EF3542BC54 /* upcomingsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F0777D2665D17E2D9387328F8A5895D8 /* upcomingsResponse.json */; };
 		94833A49A7AD677199317F10216AB0D5 /* MNFMerchantIntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BCCACE9EBF98102A80C03D4AA7F4BB /* MNFMerchantIntegrationTest.m */; };
@@ -347,7 +341,6 @@
 		CC9226A9C63E2FA6F4A192B5872300A7 /* MNFAdapterMainTestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F91625C5A9373F3DD57D1A07B4F561 /* MNFAdapterMainTestObject.m */; };
 		CCBAE6E8D22CD2036652EEC926BFF414 /* MNFLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB33B5478300AFFE9E1CAABF3815E6 /* MNFLogger.m */; };
 		CD04C87A8B6737F11C8DB869A5A3749F /* MNFJSONStringToDictionaryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F1474253BD8473F09989ECEAF2ED0D8A /* MNFJSONStringToDictionaryValueTransformer.m */; };
-		CE92D9D2F93CBBB6536C9A44DE6E5EA0 /* categoryCreateResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A14B84D685D45FEABD82E7FDC2DA3920 /* categoryCreateResponse.json */; };
 		CEE535E8C1B0190A9C09FC00B36D92F2 /* MNFJsonAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = BC8301ECA033AB03ECAF386D3F587D3E /* MNFJsonAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF20E76AF60623B2E8387E1367D454BD /* MNFAccountType.h in Headers */ = {isa = PBXBuildFile; fileRef = C248ED51D2A5757EDBDBFD1C3B6C9452 /* MNFAccountType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF9C52E8EE860A21A455AAF27891FF28 /* MNFAccountFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = B9844C819A11FA77331B79FB98513AD9 /* MNFAccountFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -398,7 +391,6 @@
 		E70BD10CEBBAA56D9239926B4D172D51 /* MNFObjectUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8005B6043A785F5CF3046E1498F673 /* MNFObjectUpdater.m */; };
 		E97AE44565AA57ED9FDF44444956FCB8 /* MNFMerchant.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F5635527293CDE18B028FBF20043123 /* MNFMerchant.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E980D7EBE5C876D373D5C6DC8922C0FF /* MNFReimbursementAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD39866D1154AD1E3BDBDA535AB73E0 /* MNFReimbursementAccount.m */; };
-		E98DEF492E5346390234A1A4A6EFFFAC /* categoriesPublicResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = AA946C4707EA39921934533D2538A8EF /* categoriesPublicResponse.json */; };
 		E9ADB052ECAA3534BD80EE8F3E0FEB42 /* jsonAdapterSingleTestFirstUppercase.json in Resources */ = {isa = PBXBuildFile; fileRef = E946AE56EBEAB17E9644BD2B1F0CB89C /* jsonAdapterSingleTestFirstUppercase.json */; };
 		E9E4DA14197B17AA5C12659674658361 /* MNFHTTPMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = 20952C8D80D2393996E5EDE981481BBA /* MNFHTTPMethods.h */; };
 		EA4BCA41C8C796D2220114ED086FF715 /* MNFMerchantLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BABA85AB5EAA5F96C75A1ABC77F7554 /* MNFMerchantLocation.m */; };
@@ -481,7 +473,6 @@
 		0273CA9826FC05021A0544BE93A19C57 /* MNFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFObject.m; sourceTree = "<group>"; };
 		0309790BF9556087A9D932A7A81A0128 /* MNFTransactionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFTransactionGroup.h; sourceTree = "<group>"; };
 		030F97AE70D5163CFBAC56A7BBE48BD5 /* MNFChallengesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFChallengesTest.m; sourceTree = "<group>"; };
-		034D8AFB72C33398D64837ECFEC3568F /* categorySecondResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categorySecondResponse.json; sourceTree = "<group>"; };
 		06430D2D06F1CCD64DB0EF01F27D14DF /* MNFRealmUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFRealmUser.m; sourceTree = "<group>"; };
 		065E2C460A7E40A43719AB26A4569184 /* cashbackReportResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cashbackReportResponse.json; sourceTree = "<group>"; };
 		0661C03C2B5386D9E0BDA0E4AD36E487 /* MNFSeparateFirstUppercaseOptionDelegateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFSeparateFirstUppercaseOptionDelegateObject.m; sourceTree = "<group>"; };
@@ -614,7 +605,6 @@
 		4F1225EA22C965FD5E173EA5B34E3D7B /* MNFJsonAdapterTestUppercaseValueTransformerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFJsonAdapterTestUppercaseValueTransformerDelegate.h; sourceTree = "<group>"; };
 		500637E335AD599093FEC47BB5F50440 /* MNFFeedTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFFeedTest.m; sourceTree = "<group>"; };
 		503E26E5FF765C9B283023D1279D93B8 /* MNFNumberToBoolValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFNumberToBoolValueTransformer.h; sourceTree = "<group>"; };
-		50B8086466CD096CC28A21A1CF8F139E /* categoriesPublicWithChildCreationResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categoriesPublicWithChildCreationResponse.json; sourceTree = "<group>"; };
 		52171459AA8554D6BCD0180CE04F189A /* MNFTransactionSplitAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFTransactionSplitAction.h; sourceTree = "<group>"; };
 		54802B198631E62CDCC3910AF259F404 /* Meniga.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meniga.m; sourceTree = "<group>"; };
 		55B31E254A78ABF79E6C2F295659A82F /* MNFCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFCategory.h; sourceTree = "<group>"; };
@@ -715,7 +705,6 @@
 		8D34F2BAC73E3D92CF396CA17E6E8565 /* MNFJob_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFJob_Private.h; sourceTree = "<group>"; };
 		8DE67FA62780BBF931608981A68D1F38 /* MNFBudget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFBudget.h; path = Budget/MNFBudget.h; sourceTree = "<group>"; };
 		8E7318B030A30AE831CAA9A2E2EB8EFA /* MNFMerchantAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFMerchantAddress.h; path = Merchant/MNFMerchantAddress.h; sourceTree = "<group>"; };
-		8ED7F0B602E86082F9FF8727F18E8003 /* categoryTypesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categoryTypesResponse.json; sourceTree = "<group>"; };
 		8F5635527293CDE18B028FBF20043123 /* MNFMerchant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFMerchant.h; path = Merchant/MNFMerchant.h; sourceTree = "<group>"; };
 		8FD39866D1154AD1E3BDBDA535AB73E0 /* MNFReimbursementAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFReimbursementAccount.m; sourceTree = "<group>"; };
 		918B637EA375D44BFDE239A145C55163 /* MNFTransactionPageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFTransactionPageTest.m; sourceTree = "<group>"; };
@@ -752,7 +741,6 @@
 		A074BF395C747B372088822E6DFFB0B4 /* MNFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFUser.h; sourceTree = "<group>"; };
 		A0D58C84B25418380729A427B52B36FA /* MNFPublic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFPublic.h; path = Public/MNFPublic.h; sourceTree = "<group>"; };
 		A13D5A4CF97C39BF2362152513B49880 /* MNFCryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFCryptor.h; sourceTree = "<group>"; };
-		A14B84D685D45FEABD82E7FDC2DA3920 /* categoryCreateResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categoryCreateResponse.json; sourceTree = "<group>"; };
 		A21EAC85D368D1442AD5740490C536CD /* MNFOffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFOffer.h; sourceTree = "<group>"; };
 		A26EA28B5D10D1E0F80AFB9EED4EF605 /* MNFTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFTransaction.m; sourceTree = "<group>"; };
 		A2CD84EDC4944D446C157B44372A3D0F /* MNFFeedItemGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFFeedItemGroup.h; sourceTree = "<group>"; };
@@ -762,10 +750,8 @@
 		A6A892E76822C071795787A897D1CA30 /* MNFUpcomingInvoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFUpcomingInvoice.m; path = Upcoming/MNFUpcomingInvoice.m; sourceTree = "<group>"; };
 		A7BCCACE9EBF98102A80C03D4AA7F4BB /* MNFMerchantIntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFMerchantIntegrationTest.m; sourceTree = "<group>"; };
 		A7F673A67A7EEA9CD365D8901ED34ACA /* MNFConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFConstants.m; sourceTree = "<group>"; };
-		A836DE32075903DF0D9B9A925D77BD2D /* categoryTreeResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categoryTreeResponse.json; sourceTree = "<group>"; };
 		A937207871485277AF87A4D4BD3545F6 /* MNFAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAPIRequest.m; sourceTree = "<group>"; };
 		A9699F11BE3BD3F73ABFEB6776BB023E /* MenigaDocs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenigaDocs.h; sourceTree = "<group>"; };
-		AA946C4707EA39921934533D2538A8EF /* categoriesPublicResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categoriesPublicResponse.json; sourceTree = "<group>"; };
 		AB63A34AC679A6A31D2E51111B8AEC3E /* MNFSeparateFirstUppercaseOptionUpdateDelegateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFSeparateFirstUppercaseOptionUpdateDelegateObject.h; sourceTree = "<group>"; };
 		ACD748EF4F19E7A9B0A44C3D1BCE24FC /* transactionSeriesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactionSeriesResponse.json; sourceTree = "<group>"; };
 		ADC9FF961F87D6E080930E58A9C0C5C9 /* MNFErrorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFErrorUtils.m; path = ../Error/MNFErrorUtils.m; sourceTree = "<group>"; };
@@ -822,7 +808,6 @@
 		C9B605F19C2ACBD72A12EE17D52C7FA5 /* SDKConfigLib.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SDKConfigLib.xcconfig; sourceTree = "<group>"; };
 		CAA416405A2F9D55808D2B6D66A83C86 /* MNFJobTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFJobTest.m; sourceTree = "<group>"; };
 		CAFDE166B7F197CC5B621FA9166E6A62 /* MNFJsonAdapterTestObjectsDelegateSpecificProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFJsonAdapterTestObjectsDelegateSpecificProperties.m; sourceTree = "<group>"; };
-		CB149317BDB6E33EF7C1088D8DD30F87 /* MNFCategoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFCategoryTest.m; sourceTree = "<group>"; };
 		CB4045FF24E91D2920ADDD29EC800A9F /* MNFAdapterSubPropertyMappingDelegateFirstUppercaseDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAdapterSubPropertyMappingDelegateFirstUppercaseDelegate.m; sourceTree = "<group>"; };
 		CB646DEBC4C865E3A8BC162171094A54 /* MNFScheduledEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFScheduledEvent.h; sourceTree = "<group>"; };
 		CBACD28D74AE38E809F23D694BBCB05B /* challengesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = challengesResponse.json; sourceTree = "<group>"; };
@@ -853,7 +838,6 @@
 		DB1FD0F5E1564876515E89D82020FD8B /* MNFOfferFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFOfferFilter.h; sourceTree = "<group>"; };
 		DB5671C714245222D879DD954E068E3A /* MNFTransactionRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFTransactionRule.h; sourceTree = "<group>"; };
 		DB9B8E11271E6111ED8FAB5490A2F281 /* MNFAuthenticationProviderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFAuthenticationProviderProtocol.h; sourceTree = "<group>"; };
-		DD21B1A34675A955BDAF7F820567C818 /* categoryResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categoryResponse.json; sourceTree = "<group>"; };
 		DF1E67674ABA1C0E804D9CABCBAA09EE /* MNFOfferRelevanceHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFOfferRelevanceHook.h; sourceTree = "<group>"; };
 		E037F37AE51379BF7F8139453192B2CA /* MNFSyncAuthenticationChallenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFSyncAuthenticationChallenge.h; sourceTree = "<group>"; };
 		E0B9594A1E8BD79E39D49B7FBF4DF004 /* offerResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = offerResponse.json; sourceTree = "<group>"; };
@@ -1218,7 +1202,6 @@
 		53CBCB8765868B36253DF7BEBAD9E3C9 /* Model object tests */ = {
 			isa = PBXGroup;
 			children = (
-				B8E146E6BCFB47848568EC4A596D59AA /* Category Tests */,
 				F6CA4315D0039962C17D1CC4E798F6E6 /* JSON test data */,
 				C08BFE6C1834A6E8BD3FC41D37A3BB6E /* MNFAccountTest.m */,
 				73EDD0CAF740DA21807269C275FFCA8C /* MNFBudgetsTest.m */,
@@ -1604,20 +1587,6 @@
 			name = "Network test";
 			sourceTree = "<group>";
 		};
-		927B4F5F373E0D69EB109980C5E2BA4A /* Json Data */ = {
-			isa = PBXGroup;
-			children = (
-				AA946C4707EA39921934533D2538A8EF /* categoriesPublicResponse.json */,
-				50B8086466CD096CC28A21A1CF8F139E /* categoriesPublicWithChildCreationResponse.json */,
-				A14B84D685D45FEABD82E7FDC2DA3920 /* categoryCreateResponse.json */,
-				DD21B1A34675A955BDAF7F820567C818 /* categoryResponse.json */,
-				034D8AFB72C33398D64837ECFEC3568F /* categorySecondResponse.json */,
-				A836DE32075903DF0D9B9A925D77BD2D /* categoryTreeResponse.json */,
-				8ED7F0B602E86082F9FF8727F18E8003 /* categoryTypesResponse.json */,
-			);
-			name = "Json Data";
-			sourceTree = "<group>";
-		};
 		95948122D74427576EB79680D40311D8 /* Merchants */ = {
 			isa = PBXGroup;
 			children = (
@@ -1859,15 +1828,6 @@
 				39186154622F05FDC1ABBF63A4C36CAC /* userEventResponse.json */,
 			);
 			name = "User Events";
-			sourceTree = "<group>";
-		};
-		B8E146E6BCFB47848568EC4A596D59AA /* Category Tests */ = {
-			isa = PBXGroup;
-			children = (
-				927B4F5F373E0D69EB109980C5E2BA4A /* Json Data */,
-				CB149317BDB6E33EF7C1088D8DD30F87 /* MNFCategoryTest.m */,
-			);
-			name = "Category Tests";
 			sourceTree = "<group>";
 		};
 		C1BA71B2EEF94048561F371E85B89A2D /* Constants */ = {
@@ -2433,13 +2393,6 @@
 				2DB66831A0AC97968266C3FB3F41C3BD /* budgetResponse.json in Resources */,
 				941C3B2F37850DAEDBB82A3AEA74FBDE /* budgetsResponse.json in Resources */,
 				AB0EEB7C79E07670E60FBAD3059C28B1 /* cashbackReportResponse.json in Resources */,
-				E98DEF492E5346390234A1A4A6EFFFAC /* categoriesPublicResponse.json in Resources */,
-				4C7F2ABEBDEDF8B5A062A387A3BA8218 /* categoriesPublicWithChildCreationResponse.json in Resources */,
-				CE92D9D2F93CBBB6536C9A44DE6E5EA0 /* categoryCreateResponse.json in Resources */,
-				8630BDE1A691FFAC80EC7ECC0FE98A58 /* categoryResponse.json in Resources */,
-				620B6790DC2F2C0DBC93E4735DFF33E6 /* categorySecondResponse.json in Resources */,
-				2A5F1924431D0D11FAF59CBB1093AB16 /* categoryTreeResponse.json in Resources */,
-				93CE5E6C99DE4520520CE56350C37E73 /* categoryTypesResponse.json in Resources */,
 				23C2239203642EFA99E33ACC203EEC12 /* challengeResponse.json in Resources */,
 				4F0FA69D2D409C9C9532F06BEA8F711D /* challengesResponse.json in Resources */,
 				0F9F0F65EB7C57F0695D0F3CB6F3031C /* commentResponse.json in Resources */,
@@ -2715,7 +2668,6 @@
 				58A6310AEEAF881F256992EDDA326212 /* MNFAdapterSubTestObject.m in Sources */,
 				5438463E363EE7AFA52983A53913FD4A /* MNFAdapterSubUppercaseTestObject.m in Sources */,
 				F84B2A0E893CF8D0C306E050126B56E9 /* MNFBudgetsTest.m in Sources */,
-				1D88D6F554B3549E902A4AA00E882FDF /* MNFCategoryTest.m in Sources */,
 				C6626D5DE66D9BB4A87CB34F24BD46DB /* MNFChallengesTest.m in Sources */,
 				BA97995F1484A599FD28B692ACD186BA /* MNFCommentTest.m in Sources */,
 				150383234E454F01414F009AC97AF643 /* MNFCryptorTest.m in Sources */,
