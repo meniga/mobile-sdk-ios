@@ -52,8 +52,6 @@
         
         XCTAssertTrue(transPage.transactions.count == 10);
         XCTAssertEqualObjects(transPage.pageNumber, @1);
-        //No way of knowing the number of pages beforehand
-//        XCTAssertEqualObjects(transPage.numberOfPages, @87);
         XCTAssertEqualObjects(transPage.transactionsPerPage, @10);
         
         
@@ -70,7 +68,9 @@
         XCTAssertEqualObjects(transPage.pageNumber, @1);
         XCTAssertEqualObjects(transPage.transactionsPerPage, @10);
         
-        XCTAssertNil(metaData);
+        XCTAssertNotNil(metaData);
+        XCTAssertTrue([metaData objectForKey:@"totalCount"]);
+        
         XCTAssertNil(error);
     }];
     
@@ -86,7 +86,6 @@
         XCTAssertTrue(page.transactions.count == 20);
         XCTAssertEqualObjects(page.pageNumber, @2);
         XCTAssertEqualObjects(page.transactionsPerPage, @20);
-//        XCTAssertEqualObjects(page.numberOfPages, @44);
         
         XCTAssertNil(error);
         
@@ -99,7 +98,9 @@
         XCTAssertEqualObjects(page.pageNumber, @2);
         XCTAssertEqualObjects(page.transactionsPerPage, @20);
         
-        XCTAssertNil(metaData);
+        XCTAssertNotNil(metaData);
+        XCTAssertTrue([metaData objectForKey:@"totalCount"]);
+        
         XCTAssertNil(error);
     }];
     
@@ -115,7 +116,6 @@
         XCTAssertTrue(page.transactions.count == 10);
         XCTAssertEqualObjects(page.pageNumber, @1);
         XCTAssertEqualObjects(page.transactionsPerPage, @10);
-//        XCTAssertEqualObjects(page.numberOfPages, @87);
         
         XCTAssertNil(error);
         
@@ -138,7 +138,9 @@
             XCTAssertEqualObjects(page.pageNumber, @2);
             XCTAssertEqualObjects(page.transactionsPerPage, @10);
             
-            XCTAssertNil(metadata);
+            XCTAssertNotNil(metadata);
+            XCTAssertTrue([metadata objectForKey:@"totalCount"]);
+            
             XCTAssertNil(error);
             
         }];
@@ -152,7 +154,9 @@
         XCTAssertEqualObjects(page.pageNumber, @1);
         XCTAssertEqualObjects(page.transactionsPerPage, @10);
         
-        XCTAssertNil(metaData);
+        XCTAssertNotNil(metaData);
+        XCTAssertTrue([metaData objectForKey:@"totalCount"]);
+        
         XCTAssertNil(error);
     }];
     
@@ -188,7 +192,9 @@
             XCTAssertEqualObjects(page.pageNumber, @2);
             XCTAssertEqualObjects(page.transactionsPerPage, @10);
             
-            XCTAssertNil(metadata);
+            XCTAssertNotNil(metadata);
+            XCTAssertTrue([metadata objectForKey:@"totalCount"]);
+
             XCTAssertNil(error);
             
         }];
@@ -201,7 +207,7 @@
         XCTAssertEqualObjects(page.pageNumber, @1);
         XCTAssertEqualObjects(page.transactionsPerPage, @10);
         
-        XCTAssertNil(metaData);
+        XCTAssertNotNil(metaData);
         XCTAssertNil(error);
     }];
     
@@ -238,7 +244,9 @@
             XCTAssertEqualObjects(page.pageNumber, @1);
             XCTAssertEqualObjects(page.transactionsPerPage, @30);
             
-            XCTAssertNil(metadata);
+            XCTAssertNotNil(metadata);
+            XCTAssertTrue([metadata objectForKey:@"totalCount"]);
+
             XCTAssertNil(error);
             
         }];
@@ -251,7 +259,9 @@
         XCTAssertEqualObjects(page.pageNumber, @1);
         XCTAssertEqualObjects(page.transactionsPerPage, @30);
         
-        XCTAssertNil(metaData);
+        XCTAssertNotNil(metaData);
+        XCTAssertTrue([metaData objectForKey:@"totalCount"]);
+        
         XCTAssertNil(error);
     }];
     
