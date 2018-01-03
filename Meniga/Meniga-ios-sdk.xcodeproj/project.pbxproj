@@ -130,6 +130,7 @@
 		4C49F06BC3C9FFA2F6D962BE00727873 /* MNFCustomChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FD8F1ADEB2E660390753431FE4EF4A /* MNFCustomChallenge.m */; };
 		4CB2F759567EA5F43E188DE0C3058244 /* MNFJsonAdapterValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E57F95495E36CAED4EB4A000AC5FC04 /* MNFJsonAdapterValueTransformer.m */; };
 		4D510D2C1405BC0C71532422507B43BB /* NSObjectRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDF4FE992054D4F058BD8965DDDEF7D /* NSObjectRuntimeUtils.m */; };
+		4E260FD41FFD1801007C5CCE /* transactionResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E260FD31FFD1801007C5CCE /* transactionResponse.json */; };
 		4E55D253D6DC58AE5A310E0DFAD7830A /* MNFTransactionPageIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1889A1AF6EB32E914807A010A489FDAE /* MNFTransactionPageIntegrationTests.m */; };
 		4E634BAA0A61FF344E6601060A02E149 /* MNFTransactionSeriesStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BD86D9725462FD58F13AF6A34CEF88C /* MNFTransactionSeriesStatistics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EC82061FADA81E568DFB20F8CA97339 /* MNFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 624A21159A18E702DBF2E5217946D90C /* MNFRequest.m */; };
@@ -501,6 +502,7 @@
 		4C7FC604A13D08158CBCB410F96B6998 /* MNFUpcomingBalanceDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFUpcomingBalanceDate.h; path = Upcoming/MNFUpcomingBalanceDate.h; sourceTree = "<group>"; };
 		4C856F3D1DA3B24D454622C2FA152B4D /* MNFUpcomingComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFUpcomingComment.m; path = Upcoming/MNFUpcomingComment.m; sourceTree = "<group>"; };
 		4DBCB89A91BC669B974A755EC350BEB5 /* MNFRealmSyncResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFRealmSyncResponse.m; sourceTree = "<group>"; };
+		4E260FD31FFD1801007C5CCE /* transactionResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactionResponse.json; sourceTree = "<group>"; };
 		4EADDC48657B13F28073A4FAAB292E5F /* jsonAdapaterSingleTestLowercase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonAdapaterSingleTestLowercase.json; sourceTree = "<group>"; };
 		4F1225EA22C965FD5E173EA5B34E3D7B /* MNFJsonAdapterTestUppercaseValueTransformerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFJsonAdapterTestUppercaseValueTransformerDelegate.h; sourceTree = "<group>"; };
 		503E26E5FF765C9B283023D1279D93B8 /* MNFNumberToBoolValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFNumberToBoolValueTransformer.h; sourceTree = "<group>"; };
@@ -1004,6 +1006,7 @@
 			children = (
 				F6CA4315D0039962C17D1CC4E798F6E6 /* JSON test data */,
 				61AB201B0F01519A801F44A64ADE046B /* MNFObjectTest.m */,
+				4E260FD31FFD1801007C5CCE /* transactionResponse.json */,
 			);
 			name = "Model object tests";
 			sourceTree = "<group>";
@@ -2040,6 +2043,7 @@
 				DCEB2898043EAFA7FE445502987A8E57 /* jsonAdapterTestValueTransformer.json in Resources */,
 				D31491C68B4F25FB22841D60FB5E266E /* jsonArrayAdapterTest.json in Resources */,
 				19EF0A2CAB9852958BC538D41FA4C479 /* jsonSingleAdapterTest.json in Resources */,
+				4E260FD41FFD1801007C5CCE /* transactionResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

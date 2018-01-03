@@ -1,0 +1,50 @@
+{
+    "data": {
+        "parentIdentifier": "9f57208e-db32-44b5-9e66-67df6f9be55f",
+        "id": 237893,
+        "amount": -8,
+        "tags": [],
+        "comments": [],
+        "categoryId": 75,
+        "date": "2016-04-01T00:00:00",
+        "text": "Gate Cinema",
+        "originalDate": "2016-04-01T00:00:00",
+        "data": "",
+        "originalText": "Gate Cinema",
+        "originalAmount": -20,
+        "isRead": false,
+        "isFlagged": null,
+        "hasUncertainCategorization": false,
+        "accountId": 2525,
+        "mcc": 7832,
+        "detectedCategories": [
+                               {
+                               "categoryId": 75,
+                               "score": 1
+                               }
+                               ],
+        "currency": null,
+        "amountInCurrency": null,
+        "dataFormat": 7,
+        "merchantId": null,
+        "parsedData": [],
+        "accuracy": 1,
+        "bankId": "7222",
+        "insertTime": "2016-04-01T11:04:32.1",
+        "hasUserClearedCategoryUncertainty": null,
+        "isMerchant": true,
+        "isOwnAccountTransfer": null,
+        "isUncleared": false,
+        "isSplitChild": null,
+        "balance": null,
+        "categoryChangedTime": null,
+        "changedByRule": null,
+        "changedByRuleTime": null,
+        "counterpartyAccountIdentifier": null,
+        "dueDate": null,
+        "lastModifiedTime": null,
+        "timestamp": null,
+        "metaData": [],
+        "userData": null
+    }
+}
