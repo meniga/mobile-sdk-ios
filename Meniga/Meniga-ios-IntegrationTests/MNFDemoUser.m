@@ -52,7 +52,7 @@ static NSString *s_apiUrl;
     NSString *path;
     
     if (s_apiUrl != nil) {
-        path = [NSString stringWithFormat:@"%@/DemoAdmin.svc/GetDemoProfiles", s_apiUrl];
+        path = [NSString stringWithFormat:@"%@DemoAdmin.svc/GetDemoProfiles", s_apiUrl];
     }
     else {
         path = [NSString stringWithFormat:@"http://api.umw.test.meniga.net/DemoAdmin.svc/GetDemoProfiles"];
@@ -125,9 +125,7 @@ static NSString *s_apiUrl;
         
             string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            
-//            NSLog(@"string is: %@, dictionary: %@", string, dictionary);
-        
+                    
         }
         
         completion(error);
@@ -144,7 +142,6 @@ static NSString *s_apiUrl;
         if (profileIds != nil && profileIds.count != 0 && error == nil && [profileIds isKindOfClass:[NSArray class]]) {
             NSDictionary *profile = [profileIds firstObject];
             NSNumber *profileId = [profile objectForKey:@"Id"];
-//            NSLog(@"the profile id: %@", profileId);
             
             [self createDemoUserWithEmail:nil password:nil culture:nil demoProfileId:profileId completion:completion];
             
