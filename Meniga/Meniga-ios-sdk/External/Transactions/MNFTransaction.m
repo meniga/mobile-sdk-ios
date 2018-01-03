@@ -439,7 +439,7 @@
         return [MNFJob jobWithError: [MNFErrorUtils errorForDeletedObject:self] ];
     }
     
-    NSString *path = [NSString stringWithFormat:@"%@/%@/%@",kMNFApiPathTransactions,[self.identifier stringValue],kMNFTransactionsComments];
+    NSString *path = [NSString stringWithFormat:@"%@/%@%@",kMNFApiPathTransactions,[self.identifier stringValue],kMNFTransactionsComments];
     NSDictionary *jsonDict = @{@"comment":comment};
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:nil];
     
