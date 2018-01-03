@@ -132,7 +132,6 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
             propertyKeys = [self p_mapPropertyDictionaryKeys:propertyKeys mapDictionary:[theDelegate jsonKeysMapToProperties] error:theError];
         }
     }
-    
     propertyKeys = [self p_updateOnlyDictionaryKeys:propertyKeys option:theOption];
     
     return propertyKeys;
@@ -155,8 +154,6 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
 }
 
 -(id)p_createInstanceFromClass:(Class <MNFJsonAdapterDelegate>)theClass delegate:(id <MNFJsonAdapterDelegate>)theDelegate jsonDict:(NSDictionary *)theJsonDict propertyKeys:(NSDictionary *)thePropertyKeys option:(MNFAdapterOption)theOption {
-    
-    //id <MNFJsonAdapterDelegate> delegate = [[theClass alloc] init];
     
     NSArray *array = [[self class] p_createModelDictionaryWithDelegate:theDelegate jsonDict:theJsonDict propertyKeys:thePropertyKeys option:theOption];
     
@@ -525,6 +522,7 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
                 // set its value to the property key value so we know which property the json key
                 // corresponds to
                 [dictionaryToReturn setObject:propertyKey forKey:theMapDictionary[mapPropertyKey]];
+                [dictionaryToReturn removeObjectForKey: propertyKey];
                 if (theMapDictionary[propertyKey] == nil) {
                     [dictionaryToReturn removeObjectForKey:propertyKey];
                 }
