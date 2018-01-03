@@ -97,7 +97,7 @@
 #define kMNFChallengesDisable kMNFApiPathChallenges @"/%@/disable"
 
 #pragma mark - Budget
-#define kMNFApiPathBudget @"/budget"
+#define kMNFApiPathBudget @"/budgets"
 #define kMNFBudgetTransactions kMNFApiPathBudget @"/%@/transactions"
 #define kMNFBudgetRecurring kMNFApiPathBudget @"/recurring"
 #define kMNFBudgetRecalculate kMNFApiPathBudget @"/recalculate"
