@@ -27,7 +27,7 @@
     
 
     [Meniga setApiURL:@"http://api.umw.meniga.net/user/v1"];
-    [Meniga setApiURL:@"http://api.cashback.umw.meniga.net/user/v1" forService:MNFServiceNameOffers];
+    [Meniga setApiURL:@"http://cashbackapi.umw.meniga.net/user/v1" forService:MNFServiceNameOffers];
     [Meniga setLogLevel:kMNFLogLevelDebug];
     [MNFDemoUser setCreateDemoUrl:@"http://api.umw.meniga.net/"];
     
