@@ -25,10 +25,13 @@
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
     
+    [super setUp];
+    
+    /*
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
-    [Meniga setApiURL:@"http://api.umw.test.meniga.net/user/v1"];
-    [Meniga setApiURL:@"http://api.cashback.umw.test.meniga.net/user/v1" forService:MNFServiceNameOffers];
+    [Meniga setApiURL:@"http://api.umw.meniga.net/user/v1"];
+    [Meniga setApiURL:@"http://cashbackapi.umw.meniga.net/user/v1" forService:MNFServiceNameOffers];
     [Meniga setLogLevel:kMNFLogLevelDebug];
     
     [MENIGAAuthentication loginWithUsername:@"staticuser@meniga.is" password:@"123456" withCompletion:^(NSDictionary *tokenDict, NSError *error) {
@@ -40,6 +43,7 @@
     }];
     
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+     */
 }
 
 - (void)tearDown {
@@ -54,7 +58,7 @@
     XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
     MNFOfferFilter *filter = [[MNFOfferFilter alloc] init];
-    filter.expiredWithCashbackOnly = @0;
+    filter.expiredWithCashbackOnly = @1;
     filter.offerIds = nil;
     filter.offerStates = nil;
     
@@ -95,6 +99,7 @@
     [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSDictionary *metadata, NSError *error) {
         
         MNFOffer *firstOffer = [offers firstObject];
+        XCTAssertTrue(firstOffer != nil);
         
         [MNFOffer fetchWithId: firstOffer.identifier completion:^(MNFOffer *fetchedOffer, NSError *error) {
             
@@ -150,6 +155,7 @@
     [MNFOffer fetchOffersWithFilter: nil take:@100 skip:@0 completion:^(NSArray  <MNFOffer *> *offers, NSDictionary *metadata, NSError *error) {
         
         MNFOffer *firstOffer = [offers firstObject];
+        XCTAssertTrue(firstOffer != nil);
         
         [MNFOffer fetchWithToken: firstOffer.validationToken completion:^(MNFOffer *fetchedOffer, NSError *error) {
             
