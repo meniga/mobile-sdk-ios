@@ -121,8 +121,8 @@
 		2FDA47832F5BC8431A55370B2600CC34 /* MNFUserEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4291DDE46B757606AA0F3DA62F77D3C1 /* MNFUserEvent.m */; };
 		307058F2D9700D5005092E9968591BF2 /* MNFGlobalChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B5374500FE15AD46EFA82EE806542A /* MNFGlobalChallenge.m */; };
 		30B935D763775EF7BFF0C97BD85E876E /* MNFJob.h in Headers */ = {isa = PBXBuildFile; fileRef = BD36BB35EE4A9D0A6983804655630A82 /* MNFJob.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		31456D8A2003859400D39D90 /* MNFBudgetEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 31456D882003859300D39D90 /* MNFBudgetEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		31456D8B2003859400D39D90 /* MNFBudgetEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 31456D892003859400D39D90 /* MNFBudgetEntry.m */; };
+		31456D8E2003A24A00D39D90 /* MNFBudgetEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 31456D8C2003A24A00D39D90 /* MNFBudgetEntry.h */; };
+		31456D8F2003A24A00D39D90 /* MNFBudgetEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 31456D8D2003A24A00D39D90 /* MNFBudgetEntry.m */; };
 		34F9D23DDA0DF3C904BCE87F52C16738 /* MNFAccountAuthorizationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 959B36C7454CAF6CA71449E7238DBA43 /* MNFAccountAuthorizationType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3501B284AD17F01BEBC4BC255D2C76DA /* MNFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A11DFD42418C6E80B7C443021042530 /* MNFSettings.m */; };
 		35ACBB2B95D2223CA2E2BE18F8A43639 /* MNFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F673A67A7EEA9CD365D8901ED34ACA /* MNFConstants.m */; };
@@ -558,8 +558,8 @@
 		2EDED8416CBCE2D0D61D646FAEC48A99 /* MNFOrganizationRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFOrganizationRealm.h; sourceTree = "<group>"; };
 		2FCA68796B3469B8E1B8545ADCB686DA /* MNFAccountFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAccountFilter.m; sourceTree = "<group>"; };
 		302D9D88B8C65661F1FA21815D4A4153 /* MNFUpcomingBalanceDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFUpcomingBalanceDate.m; path = Upcoming/MNFUpcomingBalanceDate.m; sourceTree = "<group>"; };
-		31456D882003859300D39D90 /* MNFBudgetEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFBudgetEntry.h; path = Budget/MNFBudgetEntry.h; sourceTree = "<group>"; };
-		31456D892003859400D39D90 /* MNFBudgetEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFBudgetEntry.m; path = Budget/MNFBudgetEntry.m; sourceTree = "<group>"; };
+		31456D8C2003A24A00D39D90 /* MNFBudgetEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFBudgetEntry.h; path = Budget/MNFBudgetEntry.h; sourceTree = "<group>"; };
+		31456D8D2003A24A00D39D90 /* MNFBudgetEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFBudgetEntry.m; path = Budget/MNFBudgetEntry.m; sourceTree = "<group>"; };
 		31679050F356BED007632DFBFDE65F25 /* MNFTransactionSeriesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFTransactionSeriesTest.m; sourceTree = "<group>"; };
 		319DAEA4B6150AB2A487A95E9429C78C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		31B6C209169056246B2B30F6D1A38387 /* MNFMerchantSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFMerchantSeries.h; path = Merchant/MNFMerchantSeries.h; sourceTree = "<group>"; };
@@ -1389,8 +1389,8 @@
 		7078F69CE8051DEFD201449E1340119D /* Budget */ = {
 			isa = PBXGroup;
 			children = (
-				31456D882003859300D39D90 /* MNFBudgetEntry.h */,
-				31456D892003859400D39D90 /* MNFBudgetEntry.m */,
+				31456D8C2003A24A00D39D90 /* MNFBudgetEntry.h */,
+				31456D8D2003A24A00D39D90 /* MNFBudgetEntry.m */,
 				8DE67FA62780BBF931608981A68D1F38 /* MNFBudget.h */,
 				ED5EFF4ED40ECA4A4237C2266F8DE86A /* MNFBudget.m */,
 				8457C9851728350A99655927F685A936 /* MNFBudgetFilter.h */,
@@ -2317,7 +2317,7 @@
 				B0B3601A7CDBBCEA88B8DC4F19EB4E87 /* MNFUpcomingRecurringPattern.h in Headers */,
 				7D897B9E59C8E007CB6A7106B83F44D3 /* MNFUpcomingScheduledPayment.h in Headers */,
 				05DB18542C109A0A7753B8E33DDBB647 /* MNFUpcomingThreshold.h in Headers */,
-				31456D8A2003859400D39D90 /* MNFBudgetEntry.h in Headers */,
+				31456D8E2003A24A00D39D90 /* MNFBudgetEntry.h in Headers */,
 				254E1882F3A3ED8B16209371C46A06F1 /* MNFUser.h in Headers */,
 				EC8E2AB952179B8B6A4261CF24DD8480 /* MNFUserEvent.h in Headers */,
 				D5F1817F207FEBCDB8C9CBCD8D184FB4 /* MNFUserEventSubscription.h in Headers */,
@@ -2659,7 +2659,7 @@
 				BFE7E8912208077D702F769AC878244B /* MNFOfferTransaction.m in Sources */,
 				C6B48340439A4C83666B86E41D788688 /* MNFOrganization.m in Sources */,
 				503D5E84C51B2EC0EB3AAC3C6663CCA6 /* MNFOrganizationRealm.m in Sources */,
-				31456D8B2003859400D39D90 /* MNFBudgetEntry.m in Sources */,
+				31456D8F2003A24A00D39D90 /* MNFBudgetEntry.m in Sources */,
 				F413D22EA8C83E5A3CE15B85C5492F4B /* MNFPostalCode.m in Sources */,
 				3E41733B4593AE6659961D1D9606DB93 /* MNFPredicateExpression.m in Sources */,
 				B4887AA0429BC26EABDE666378CF438A /* MNFPublic.m in Sources */,

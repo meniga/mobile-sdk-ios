@@ -250,6 +250,34 @@
     return job;
 }
 
+-(MNFJob*)createBudgetEntries:(NSArray<MNFBudgetEntry *> *)entries completion:(MNFMultipleBudgetEntriesCompletionHandler)completion {
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@/entries",kMNFApiPathBudget,self.identifier];
+    
+    NSArray *jsonArray = [MNFJsonAdapter JSONArrayFromArray:entries option:kMNFAdapterOptionNoOption error:nil];
+    NSDictionary *jsonDict = @{@"entries":jsonArray};
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:nil];
+    
+    __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameBudget completion:^(MNFResponse * _Nullable response) {
+        
+        if ([response.result isKindOfClass:[NSArray class]]) {
+            
+            NSArray *budgetEntries = [MNFBudgetEntry initWithServerResults:response.result];
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:budgetEntries error:nil];
+            
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]] ];
+            
+        }
+    }];
+    
+    return job;
+}
+
 -(MNFJob*)resetWithCompletion:(MNFErrorOnlyCompletionHandler)completion {
     [completion copy];
     NSString *path = [NSString stringWithFormat:@"%@/%@/reset",kMNFApiPathBudget,self.identifier];

@@ -169,6 +169,22 @@ NS_ASSUME_NONNULL_BEGIN
 -(MNFJob*)fetchBudgetEntriesWithFilter:(nullable MNFBudgetFilter*)filter completion:(nullable MNFMultipleBudgetEntriesCompletionHandler)completion;
 
 ///******************************
+/// @name Creating entries
+///******************************
+
+/**
+ Creates budget entries in the budget.
+ 
+ @warning The instances passed to the method as the entries to create are not the same instances returned in the completion block or job.
+ 
+ @param entries A list of budget entries to create.
+ @param completion A completion block returning a budget entries and an error.
+ 
+ @return MNFJob A job containing a list of entries and an error.
+ */
+-(MNFJob*)createBudgetEntries:(NSArray<MNFBudgetEntry*>*)entries completion:(nullable MNFMultipleBudgetEntriesCompletionHandler)completion;
+
+///******************************
 /// @name Resetting
 ///******************************
 
