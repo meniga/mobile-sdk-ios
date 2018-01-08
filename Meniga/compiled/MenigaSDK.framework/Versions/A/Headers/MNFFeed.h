@@ -144,6 +144,23 @@ NS_ASSUME_NONNULL_BEGIN
 +(MNFJob*)fetchFeedTypesWithCompletion:(nullable MNFFeedTypesCompletionHandler)completion;
 
 ///******************************
+/// @name Fetch feed types by id
+///******************************
+
+/**
+ @abstract Fetches a specific feeditem with type and identifier.
+ 
+ @param Feedtype. The feed type of the feeditem
+ 
+ @param identifier. The identifier of the feeditem
+ 
+ @param completion A completion block returning an array of strings and an error.
+ 
+ @return An MNFJob containing an array of strings and an error.
+ */
++(MNFJob*)fetchFeedItemWithFeedType:(NSString*)type identifier:(NSNumber*)identifier withCompletion:(nullable MNFSingleFeedItemCompletionHandler)completion;
+
+///******************************
 /// @name Grouping
 ///******************************
 

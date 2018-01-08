@@ -151,6 +151,7 @@ typedef void (^MNFFeedCompletionHandler)(MNFFeed *_Nullable feed, NSError *_Null
 typedef void (^MNFFeedItemsCompletionHandler)(NSArray <MNFFeedItem *> * _Nullable feedItems, NSError * _Nullable error);
 typedef void (^MNFFeedTypesCompletionHandler)(NSArray <NSString *> *_Nullable feedTypes, NSError *_Nullable error);
 typedef void (^MNFScheduledEventCompletionHandler)(MNFScheduledEvent *_Nullable scheduledEvent, NSError *_Nullable error);
+typedef void (^MNFSingleFeedItemCompletionHandler)(MNFFeedItem *_Nullable feedItem, NSError * _Nullable error);
 
 //Upcoming
 typedef void (^MNFUpcomingCompletionHandler)(MNFUpcoming *_Nullable upcoming, NSError *_Nullable error);
