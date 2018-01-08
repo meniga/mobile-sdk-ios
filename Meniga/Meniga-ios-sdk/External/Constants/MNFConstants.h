@@ -39,6 +39,7 @@
 @class MNFUpcomingThreshold;
 @class MNFChallenge;
 @class MNFBudget;
+@class MNFBudgetEntry;
 @class MNFScheduledEvent;
 @class MNFMerchantSeries;
 @class MNFPublic;
@@ -173,6 +174,7 @@ typedef void (^MNFChallengeIconImageDataCompletionHandler)(NSData *_Nullable ima
 //Budget
 typedef void (^MNFBudgetCompletionHandler)(MNFBudget *_Nullable budget, NSError *_Nullable error);
 typedef void (^MNFMultipleBudgetCompletionHandler)(NSArray <MNFBudget *> *_Nullable budgets, NSError *_Nullable error);
+typedef void (^MNFMultipleBudgetEntriesCompletionHandler)(NSArray <MNFBudgetEntry *> *_Nullable budgetEntries, NSError *_Nullable error);
 
 // Terms and Conditions
 typedef void (^MNFTermsAndConditionsCompletionHandler)(MNFTermsAndConditions * _Nullable termsAndConditions, NSError * _Nullable error);

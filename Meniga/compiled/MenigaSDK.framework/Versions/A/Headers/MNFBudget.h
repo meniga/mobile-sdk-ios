@@ -7,10 +7,10 @@
 //
 
 #import "MNFObject.h"
+#import "MNFBudgetEntry.h"
+#import "MNFBudgetFilter.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@class MNFBudgetFilter;
 
 /**
  The MNFBudget class represents a budget object with serialized json data from the server and methods to interact with the budget api.
@@ -18,44 +18,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MNFBudget : MNFObject
 
 /**
+ The type of the budget. 'Planning' or 'Budget'.
+*/
+@property (nonatomic,copy) NSString * _Nullable type;
+
+/**
  The name of the budget.
  */
 @property (nonatomic,copy) NSString * _Nullable name;
 
 /**
- The target spending amount of the budget.
- */
-@property (nonatomic,strong) NSNumber * _Nullable targetAmount;
-
-/**
- The current spent amount of the budget.
- */
-@property (nonatomic,strong,readonly) NSNumber * _Nullable spentAmount;
-
-/**
- The date the budget is valid from.
- */
-@property (nonatomic,strong) NSDate * _Nullable validFrom;
-
-/**
- The date the budget is valid to.
- */
-@property (nonatomic,strong) NSDate * _Nullable validTo;
-
-/**
- The date the budget was updated. Nil if the budget has never been updated.
- */
-@property (nonatomic,strong,readonly) NSDate * _Nullable updatedAt;
-
-/**
  The text description of the budget.
  */
-@property (nonatomic,strong) NSString * _Nullable budgetDescription;
-
-/**
- The category ids of the categories for the budget.
- */
-@property (nonatomic,copy) NSArray * _Nullable categoryIds;
+@property (nonatomic,copy) NSString * _Nullable budgetDescription;
 
 /**
  The account ids of the accounts for the budget.
@@ -63,115 +38,66 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSArray * _Nullable accountIds;
 
 /**
- The id of the parent of the budget.
+ The period for the budget if the budget is a planning budget. 'Month.
  */
-@property (nonatomic,strong,readonly) NSNumber * _Nullable parentId;
+@property (nonatomic,copy) NSString * _Nullable period;
+
+/**
+ The offset of the budget if the budget is a planning budget.
+ */
+@property (nonatomic,copy) NSString * _Nullable offset;
+
+/**
+ The creation date of the budget.
+ */
+@property (nonatomic,strong) NSDate * _Nullable created;
+
+/**
+ The budget entries.
+ */
+@property (nonatomic,copy) NSArray <MNFBudgetEntry*> * _Nullable entries;
 
 /**
  Fetches a list of budget with a filter.
  
- @param filter An MNFBudgetFilter object used to filter budgets.
+ @param ids The ids of the budgets to return in a comma separated string.
+ @param accountIds The account ids to filter budgets by in a comma separated string.
+ @param type The type of budget to return in the list.
  @param completion A completion block returning a list of budgets and an error.
  
  @return MNFJob A job containing a list of budgets and an error.
  */
-+(MNFJob*)fetchBudgetsWithFilter:(nullable MNFBudgetFilter*)filter completion:(nullable MNFMultipleBudgetCompletionHandler)completion;
++(MNFJob*)fetchBudgetsWithIds:(nullable NSString *)ids accountIds:(nullable NSString *)accountIds type:(nullable NSString*)type completion:(nullable MNFMultipleBudgetCompletionHandler)completion;
 
 /**
  Fetches a single budget with a given identifier.
  
  @param identifier The identifiter of the budget to fetch.
+ @param filter A filter object to filter by the budget entries.
  @param completion A completion block returning a budget and an error.
  
  @return MNFJob A job containing a budget and an error.
  */
-+(MNFJob*)fetchBudgetWithId:(NSNumber*)identifier completion:(nullable MNFBudgetCompletionHandler)completion;
++(MNFJob*)fetchBudgetWithId:(NSNumber*)identifier filter:(nullable MNFBudgetFilter*)filter completion:(nullable MNFBudgetCompletionHandler)completion;
 
 /**
  Creates a budget with the given parameters.
  
  @param name The name of the budget.
- @param targetAmount The target spending amount of the budget.
- @param validFrom The date the budget is valid from.
- @param validTo The date the budget is valid to.
+ @param type The budget type. 'Budget' or 'Planning'.
  @param budgetDescription The text description of the budget.
- @param allCategoriesOfType The category type for the budget. 'Expenses', 'Income', 'Savings', 'Excldued'. If set will override the category ids parameter.
- @param categoryIds The ids of the categories for the budget.
  @param accountIds The ids of the accounts for the budget.
  @param completion A completion block returning a budget and an error.
  
  @return MNFJob A job containing a budget and an error.
  */
 +(MNFJob*)budgetWithName:(nullable NSString*)name
-            targetAmount:(nullable NSNumber*)targetAmount
-               validFrom:(nullable NSDate*)validFrom
-                 validTo:(nullable NSDate*)validTo
+                    type:(nullable NSString*)type
              description:(nullable NSString*)budgetDescription
-     allCategoriesOfType:(nullable NSString*)allCategoriesType
-             categoryIds:(nullable NSArray*)categoryIds
               accountIds:(nullable NSArray*)accountIds
+                  period:(nullable NSString*)period
+                  offset:(nullable NSNumber*)offset
               completion:(nullable MNFBudgetCompletionHandler)completion;
-
-/**
- Recalculates the spent amount in all the budgets that match a given filter.
- 
- @param filter An MNFBudgetFilter object to filter by.
- @param completion A completion block returning a list of budgets and an error.
- 
- @return MNFJob A job containing a list of budgets and an error.
- */
-+(MNFJob*)recalculateWithFilter:(MNFBudgetFilter*)filter completion:(nullable MNFMultipleBudgetCompletionHandler)completion;
-
-/**
- Deletes a list of budgets.
- 
- @param budgets The budgets to delete.
- @param completion A completion block returning an error.
- 
- @return MNFJob A job containing an error.
- */
-+(MNFJob*)deleteBudgets:(NSArray <MNFBudget*> *)budgets withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
-
-/**
- Deletes all budgets with a parent id.
- 
- @param parentId The parend id of the budgets to delete.
- @param completion A completion block returning an error.
- 
- @return MNFJob A job containing an error.
- */
-+(MNFJob*)deleteWithParentId:(NSNumber *)parentId completion:(nullable MNFErrorOnlyCompletionHandler)completion;
-
-/**
- Creates a budget that repeats at a specified interval.
- 
- @param name The name of the budget.
- @param targetAmount The target spending amount of the budget.
- @param validFrom The date the budget is valid from.
- @param validTo The date the budget is valid to.
- @param budgetDescription The text description of the budget.
- @param allCategoriesOfType The category type for the budget. 'Expenses', 'Income', 'Savings', 'Excldued'. If set will override the category ids parameter.
- @param categoryIds The ids of the categories for the budget.
- @param accountIds The ids of the accounts for the budget.
- @param numberOfRecurrences How often the budget should repeat.
- @param interval A number describing how many interval types should be between recurrences.
- @param intervalType The interval type. 'Day', 'Week' or 'Month'.
- @param completion A completion block returning a list of budgets and an error.
- 
- @return MNFJob A job containing a list of budgets and an error.
- */
-+(MNFJob*)recurringBudgetWithName:(nullable NSString*)name
-                     targetAmount:(nullable NSNumber*)targetAmount
-                        validFrom:(nullable NSDate*)validFrom
-                          validTo:(nullable NSDate*)validTo
-                      description:(nullable NSString*)budgetDescription
-              allCategoriesOfType:(nullable NSString*)allCategoriesType
-                      categoryIds:(nullable NSArray*)categoryIds
-                       accountIds:(nullable NSArray*)accountIds
-              numberOfRecurrences:(NSNumber*)numberOfRecurrences
-                         interval:(NSNumber*)interval
-                     intervalType:(NSString*)intervalType
-                       completion:(nullable MNFMultipleBudgetCompletionHandler)completion;
 
 /**
  Saves changes to a budget.
@@ -200,14 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
-/**
- Fetches a list of transactions the budget is calculated from.
- 
- @param completion A completion block returning a list of transactions and an error.
- 
- @return MNFJob A job containing a list of transactions and an error.
- */
--(MNFJob*)fetchTransactionsWithCompletion:(nullable MNFMultipleTransactionsCompletionHandler)completion;
+-(MNFJob*)fetchBudgetEntriesWithFilter:(nullable MNFBudgetFilter*)filter completion:(nullable MNFMultipleBudgetEntriesCompletionHandler)completion;
 
 @end
 
