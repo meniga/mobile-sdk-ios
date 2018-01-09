@@ -113,7 +113,7 @@
         }];
     }];
     
-    [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
+    [self waitForExpectationsWithTimeout:60 handler:nil];
 }
 
 @end
