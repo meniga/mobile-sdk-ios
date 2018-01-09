@@ -25,7 +25,9 @@
     
 
     __block MNFJob *job = [self apiRequestWithPath:kMNFAPIPathNetworth pathQuery:queryDict jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameNetWorth completion:^(MNFResponse * _Nullable response) {
+        
         kObjectBlockDataDebugLog;
+        
         if (response.error == nil) {
             if ([response.result isKindOfClass:[NSArray class]]) {
                 
@@ -216,10 +218,14 @@
     
     NSString *path = [NSString stringWithFormat:@"%@/%@%@", kMNFNetworthAccounts, self.accountId, kMNFNetworthBalanceHistoryExtension];
     
+    NSLog(@"path is: %@", path);
+    
     NSData *jsonBody = [MNFJsonAdapter JSONDataFromObject:balanceHistory option:kMNFAdapterOptionNoOption error:nil];
     
     __block MNFJob *job = [self updateWithApiPath:path pathQuery:nil jsonBody:jsonBody httpMethod:kMNFHTTPMethodPOST service:MNFServiceNameNetWorth completion:^(MNFResponse * _Nullable response) {
+        
         kObjectBlockDataDebugLog;
+        
         if (response.error == nil) {
             if ([response.result isKindOfClass:[NSDictionary class]]) {
                 [MNFJsonAdapter refreshObject:balanceHistory withJsonDict:response.result option:kMNFAdapterOptionNoOption error:nil];
