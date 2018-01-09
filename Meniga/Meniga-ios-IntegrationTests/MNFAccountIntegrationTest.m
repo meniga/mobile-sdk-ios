@@ -31,8 +31,8 @@
     [MNFAccount fetchAccountsWithFilter: [[MNFAccountFilter alloc] init] completion:^(NSArray *accounts, NSError *error) {
         
     }];
-    /*
-    MNFJob *job = [MNFAccount fetchAccountsWithCompletion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
+    
+    MNFJob *job = [MNFAccount fetchAccountsWithFilter: nil completion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
         XCTAssertNotNil(accounts);
         XCTAssertNil(error);
         [expectation fulfill];
@@ -43,16 +43,16 @@
         XCTAssertNil(metaData);
         XCTAssertNil(error);
     }];
-    */
+    
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 
-/*
+
 -(void)testFetchAccountWithId {
     
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
-    [MNFAccount fetchAccountsWithCompletion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
+    [MNFAccount fetchAccountsWithFilter: nil completion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
         
         MNFJob *job = [MNFAccount fetchWithId:[accounts firstObject].identifier completion:^(MNFAccount * _Nullable account, NSError * _Nullable error) {
             
@@ -83,14 +83,16 @@
     
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
-    [MNFAccount fetchAccountsWithCompletion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
+    [MNFAccount fetchAccountsWithFilter: nil completion: ^(NSArray <MNFAccount *> *accounts, NSError *error) {
+        
+        XCTAssertTrue(accounts.count != 0);
         
         MNFAccount *account = [accounts firstObject];
         account.name = @"newName";
         account.orderId = @1;
         account.emergencyFundBalanceLimit = @100;
         account.isHidden = @YES;
-
+        
         MNFJob *job = [account saveWithCompletion:^(NSError * _Nullable error) {
             
             XCTAssertNil(error);
@@ -98,12 +100,12 @@
             XCTAssertTrue([account.orderId isEqualToNumber:@1]);
             XCTAssertTrue([account.emergencyFundBalanceLimit isEqualToNumber:@100]);
             XCTAssertTrue([account.isHidden boolValue]);
-
+            
             [expectation fulfill];
         }];
         
         [job handleCompletion:^(id result, NSDictionary *metadata, NSError *error) {
-           
+            
             XCTAssertNil(error);
             XCTAssertTrue([account.name isEqualToString:@"newName"]);
             XCTAssertTrue([account.orderId isEqualToNumber:@1]);
@@ -114,7 +116,6 @@
         
     }];
     
-    
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 
@@ -122,7 +123,7 @@
     
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
-   [MNFAccount fetchAccountsWithCompletion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
+    [MNFAccount fetchAccountsWithFilter: nil completion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
         
         MNFAccount *account = [accounts lastObject];
         
@@ -148,25 +149,28 @@
     
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
-    [MNFAccount fetchAccountsWithCompletion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
+    [MNFAccount fetchAccountsWithFilter: nil completion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
         
-        MNFAccount *account = [accounts firstObject];
+        __weak MNFAccount *account = [accounts firstObject];
+        if ([account.accountCategory isEqualToString: @"Wallet"]) {
+            account = [accounts objectAtIndex: 2];
+        }
         
         XCTAssertNotNil(account);
         XCTAssertTrue(accounts.count != 0);
         XCTAssertNil(error);
         
-        MNFJob *job = [[accounts firstObject] setMetadataValue:@"metadataValue" forKey:@"metadataKey" completion:^(NSError * _Nullable error) {
+        MNFJob *job = [account setMetadataValue:@"metadataValue" forKey:@"metadataKey" completion:^(NSError * _Nullable error) {
             
             XCTAssertNil(error);
             
-            MNFJob *secondJob = [[accounts firstObject] fetchMetadataForKey:@"metadataKey" withCompletion:^(NSString * _Nullable metadataValue, NSError * _Nullable error) {
+            MNFJob *secondJob = [account fetchMetadataForKey:@"metadataKey" withCompletion:^(NSString * _Nullable metadataValue, NSError * _Nullable error) {
                 
                 XCTAssertNil(error);
                 XCTAssertEqualObjects(metadataValue, @"metadataValue");
                 XCTAssertNotNil(metadataValue);
                 
-                [[accounts firstObject] fetchMetadataWithCompletion:^(NSArray<NSDictionary *> * _Nullable metadatas, NSError * _Nullable error) {
+                [account fetchMetadataWithCompletion:^(NSArray<NSDictionary *> * _Nullable metadatas, NSError * _Nullable error) {
                     
                     XCTAssertNil(error);
                     XCTAssertNotNil(metadatas);
@@ -201,7 +205,7 @@
     
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     
-    [MNFAccount fetchAccountsWithCompletion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
+    [MNFAccount fetchAccountsWithFilter: nil completion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
         
         MNFAccount *account = [accounts firstObject];
         
@@ -294,6 +298,6 @@
     
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
-*/
+
 
 @end
