@@ -26,7 +26,7 @@
     
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [MNFDemoUser startSynchronizationWithWaitTime:@1000 completion:^(MNFSynchronization * _Nullable synchronization, NSError * _Nullable error) {
-        //dispatch_semaphore_signal(semaphore);
+
     }];
     
     dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 5.0 * NSEC_PER_SEC));

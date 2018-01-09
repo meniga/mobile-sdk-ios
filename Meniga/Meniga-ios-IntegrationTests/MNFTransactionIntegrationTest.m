@@ -27,8 +27,8 @@
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     // MARK: Do not dispatch the semaphore, as fetch with transaction filter takes a heavy load on the test server this will overload it and it will simply send an empty response for some odd reason???
     [MNFDemoUser startSynchronizationWithWaitTime:@1000 completion:^(MNFSynchronization * _Nullable synchronization, NSError * _Nullable error) {
-        //dispatch_semaphore_signal(semaphore);
 
+        
     }];
     
     dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, kMNFIntegrationTestWaitTime*NSEC_PER_SEC));
