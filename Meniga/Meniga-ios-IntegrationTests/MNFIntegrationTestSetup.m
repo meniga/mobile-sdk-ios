@@ -26,18 +26,16 @@
     
     
 
-    [Meniga setApiURL:@"http://api.umw.test.meniga.net/user/v1"];
-    [Meniga setApiURL:@"http://api.cashback.umw.test.meniga.net/user/v1" forService:MNFServiceNameOffers];
+    [Meniga setApiURL:@"http://api.umw.meniga.net/user/v1"];
+    [Meniga setApiURL:@"http://cashbackapi.umw.meniga.net/user/v1" forService:MNFServiceNameOffers];
     [Meniga setLogLevel:kMNFLogLevelDebug];
-    [MNFDemoUser setCreateDemoUrl:@"http://api.umw.test.meniga.net/"];
+    [MNFDemoUser setCreateDemoUrl:@"http://api.umw.meniga.net/"];
     
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
     [MNFDemoUser createRandomUserAndLoginWithCompletion:^(NSError *error) {
         
         [Meniga setAuthenticationProvider:[[MNFIntegrationAuthProvider alloc] init]];
-        
-//        NSLog(@"setup error is: %@", error);
         
         dispatch_semaphore_signal(semaphore);
     }];
@@ -54,7 +52,7 @@
 
     
     [MNFDemoUser deleteUserWithCompletion:^(NSError *error) {
-//        NSLog(@"Deleted user");
+
         dispatch_semaphore_signal(semaphore);
         
     }];

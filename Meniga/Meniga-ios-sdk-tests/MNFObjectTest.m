@@ -43,19 +43,6 @@
     XCTAssertTrue([[MNFObject alloc] init].isNew == YES);
     XCTAssertTrue([[MNFObject alloc] initNeutral].isNew == NO);
 }
--(void)testFetchWithCompletion {
-    
-    [MNFNetworkProtocolForTesting setResponseData:[self transactionResponse]];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Description"];
-    
-    [MNFObject apiRequestWithPath:kMNFGetTransactions pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameNone completion:^(MNFResponse *response) {
-        XCTAssertNotNil(response);
-        XCTAssertNil(response.error);
-        [expectation fulfill];
-    }];
-    
-    [self waitForExpectationsWithTimeout:10 handler:nil];
-}
 
 - (void)testStateUpdatesOnChange {
     

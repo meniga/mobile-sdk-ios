@@ -327,9 +327,7 @@
     XCTAssertTrue(dateComponents.hour == 13);
     XCTAssertTrue(dateComponents.minute == 27);
     XCTAssertTrue(dateComponents.second = 2);
-//    NSLog(@"Nanoseconds: %ld",dateComponents.nanosecond);
     XCTAssertTrue(dateComponents.nanosecond/100000000 == 8);
-//    XCTAssertTrue(dateComponents.nanosecond == 799999952);
     
 }
 
@@ -352,7 +350,6 @@
     XCTAssertTrue(dateComponents.minute == 27);
     XCTAssertTrue(dateComponents.second = 2);
     XCTAssertTrue(dateComponents.nanosecond/10000000 == 33);
-//    XCTAssertTrue(dateComponents.nanosecond == 339999914);
     
 }
 
@@ -374,7 +371,6 @@
     XCTAssertTrue(dateComponents.minute == 27);
     XCTAssertTrue(dateComponents.second = 2);
     XCTAssertTrue(dateComponents.nanosecond/1000000 == 347);
-//    XCTAssertTrue(dateComponents.nanosecond == 346999883);
 }
 
 

@@ -37,7 +37,7 @@
 }
 -(void)testSendRequest {
     [MNFNetworkProtocolForTesting removeDelay];
-    [MNFNetworkProtocolForTesting setResponseData:nil];
+    [MNFNetworkProtocolForTesting setResponseData: [NSJSONSerialization dataWithJSONObject: @{ @"TestResponse" : @"NetworkTest", @"TestNumber" : @10 } options: 0 error: nil] ];
     [MNFNetworkProtocolForTesting setObjectType:MNFNetworkObject];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Description"];
     NSURL *url = [MNFURLConstructor URLFromBaseUrl:@"http://www.menigais.test.meniga.net" path:kMNFGetUserProfile];

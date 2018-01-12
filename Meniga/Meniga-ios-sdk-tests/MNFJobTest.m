@@ -48,6 +48,7 @@
     }];
     [self waitForExpectationsWithTimeout:10 handler:nil];
 }
+
 -(void)testPauseAndResume {
     [MNFNetworkProtocolForTesting setDelay];
     [MNFNetworkProtocolForTesting setObjectType:MNFNetworkObject];
@@ -57,33 +58,39 @@
     NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:@"POST" httpHeaders:nil parameters:nil];
     MNFJob *job = [self sendRequest:request];
     [job pauseWithCompletion:^{
+        
         [MNFNetwork getAllTasks:^(NSArray<NSURLSessionDataTask *> * _Nonnull tasks) {
-//            NSLog(@"All tasks: %@",tasks);
+
         }];
+        
         XCTAssertTrue([job isPaused]);
+        
         [job resumeWithCompletion:^{
             XCTAssertTrue(job.isResumed);
             [expectation fulfill];
         }];
+        
     }];
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }
+
 -(MNFJob*)sendRequest:(NSURLRequest*)request {
     MNFJob *job = [MNFJob jobWithRequest:request];
     [MNFNetwork sendRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
+        
         if (![job isCancelled]) {
+
             if (response.error == nil){
-//                NSLog(@"No error");
                 [job setResult:response.result];
             }
             else {
-//                NSLog(@"Totally error: %@",response.error);
                 [job setError:response.error];
             }
         }
         else {
-//            NSLog(@"The job was cancelled");
+
         }
+        
     }];
     
     return job;

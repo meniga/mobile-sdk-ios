@@ -20,6 +20,7 @@
 }
 
 -(void)testURLConstructor {
+    
     NSURL *testURL = [NSURL URLWithString:[NSString stringWithFormat:@"www.menigatest.is/api/someapicall/"]];
     NSURL *url = [MNFURLConstructor URLFromBaseUrl:@"www.menigatest.is" path:@"/api/someapicall/"]; 
     
@@ -29,6 +30,7 @@
     XCTAssertNotNil(url);
     XCTAssertEqualObjects(url, testURL);
     XCTAssertEqualObjects(testURLstring, urlString);
+    
 }
 
 @end

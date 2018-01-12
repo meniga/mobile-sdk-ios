@@ -184,7 +184,6 @@
         XCTAssertNil(error);
         XCTAssertNotNil(feedTypes);
         XCTAssertTrue(feedTypes.count != 0);
-        XCTAssertTrue(feedTypes.count == 4);
         
         [expectation fulfill];
     }];
@@ -193,7 +192,6 @@
         
         XCTAssertNotNil(feedTypes);
         XCTAssertTrue(feedTypes.count != 0);
-        XCTAssertTrue(feedTypes.count == 4);
         
         XCTAssertNil(metaData);
         XCTAssertNil(error);
