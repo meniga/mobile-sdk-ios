@@ -139,7 +139,7 @@
 
 -(void)p_runContinuations {
     if ([_continuations count] > 0) {
-        for (void (^continuation)() in _continuations) {
+        for (void (^continuation)(void) in _continuations) {
             continuation();
         }
         [_continuations removeAllObjects];
@@ -297,7 +297,7 @@
     
     MNFJob *completedJob = [MNFJob jobWithRequest:_request];
     
-    void (^wrappedBlock)() = ^() {
+    void (^wrappedBlock)(void) = ^() {
         if (_cancellationRequested) {
             completedJob.cancelled = YES;
             return;

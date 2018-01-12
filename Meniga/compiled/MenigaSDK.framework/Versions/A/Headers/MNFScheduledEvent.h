@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MNFObject.h"
 
+NS_ASSUME_NONNULL_BEGIN;
+
 @class MNFTransactionDayOverview;
 
 typedef NS_ENUM(NSInteger, MNFScheduleInterval) {
@@ -103,3 +105,5 @@ typedef NS_ENUM(NSInteger, MNFScheduleInterval) {
 - (MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
+
+NS_ASSUME_NONNULL_END;

@@ -187,10 +187,7 @@
     
     
     [jsonQuery setObject:[[MNFNumberToBoolValueTransformer transformer] reverseTransformedValue: applyOnExisting] forKey:@"applyOnExisting"];
-    
-    NSDictionary *jsonDict = [MNFJsonAdapter JSONDictFromObject:self option:0 error:nil];
-//    NSLog(@"the json dict is: %@", jsonDict);
-    
+        
     NSData *jsonData = [MNFJsonAdapter JSONDataFromObject:self option:kMNFAdapterOptionNoOption error:nil];
     
     NSString *path = [kMNFTransactionsRule stringByAppendingString:[NSString stringWithFormat:@"/%@",[self.identifier stringValue]]];
