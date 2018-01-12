@@ -134,6 +134,7 @@
 		4E55D253D6DC58AE5A310E0DFAD7830A /* MNFTransactionPageIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1889A1AF6EB32E914807A010A489FDAE /* MNFTransactionPageIntegrationTests.m */; };
 		4E634BAA0A61FF344E6601060A02E149 /* MNFTransactionSeriesStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BD86D9725462FD58F13AF6A34CEF88C /* MNFTransactionSeriesStatistics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EC82061FADA81E568DFB20F8CA97339 /* MNFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 624A21159A18E702DBF2E5217946D90C /* MNFRequest.m */; };
+		4EE607DD20091411005F1811 /* MenigaDocs.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EE607DC20091411005F1811 /* MenigaDocs.h */; };
 		4F4A433E279F4B208DFDAD0F0CC8C345 /* MNFTermsAndConditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 91F3DE80E49B15394EBF2DC9578BEECF /* MNFTermsAndConditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		503D5E84C51B2EC0EB3AAC3C6663CCA6 /* MNFOrganizationRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5C0B281769835324D5E0C33EC12D8C /* MNFOrganizationRealm.m */; };
 		5274D5F56D13572A54BCB55B9BDC5CBF /* MNFMainAdapterDelegateFirstUppercaseTestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EF92A8733FC61DE5EC59C25CBE013E /* MNFMainAdapterDelegateFirstUppercaseTestObj.m */; };
@@ -504,6 +505,7 @@
 		4EE607D92008F0B9005F1811 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
 		4EE607DA2008F0B9005F1811 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		4EE607DB2008F0B9005F1811 /* MenigaSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = MenigaSDK.podspec; path = ../../MenigaSDK.podspec; sourceTree = "<group>"; };
+		4EE607DC20091411005F1811 /* MenigaDocs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenigaDocs.h; sourceTree = SOURCE_ROOT; };
 		4F1225EA22C965FD5E173EA5B34E3D7B /* MNFJsonAdapterTestUppercaseValueTransformerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFJsonAdapterTestUppercaseValueTransformerDelegate.h; sourceTree = "<group>"; };
 		503E26E5FF765C9B283023D1279D93B8 /* MNFNumberToBoolValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFNumberToBoolValueTransformer.h; sourceTree = "<group>"; };
 		52171459AA8554D6BCD0180CE04F189A /* MNFTransactionSplitAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFTransactionSplitAction.h; sourceTree = "<group>"; };
@@ -633,7 +635,6 @@
 		A7BCCACE9EBF98102A80C03D4AA7F4BB /* MNFMerchantIntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFMerchantIntegrationTest.m; sourceTree = "<group>"; };
 		A7F673A67A7EEA9CD365D8901ED34ACA /* MNFConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFConstants.m; sourceTree = "<group>"; };
 		A937207871485277AF87A4D4BD3545F6 /* MNFAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAPIRequest.m; sourceTree = "<group>"; };
-		A9699F11BE3BD3F73ABFEB6776BB023E /* MenigaDocs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenigaDocs.h; sourceTree = "<group>"; };
 		AB63A34AC679A6A31D2E51111B8AEC3E /* MNFSeparateFirstUppercaseOptionUpdateDelegateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFSeparateFirstUppercaseOptionUpdateDelegateObject.h; sourceTree = "<group>"; };
 		ADC9FF961F87D6E080930E58A9C0C5C9 /* MNFErrorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFErrorUtils.m; path = ../Error/MNFErrorUtils.m; sourceTree = "<group>"; };
 		ADE51E48965F658369F414027944C935 /* MNFAdapterSubDelegateUppercaseTestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAdapterSubDelegateUppercaseTestObj.m; sourceTree = "<group>"; };
@@ -1300,7 +1301,7 @@
 				B6ED3293A907A6EAD2E5E2EDAF19ADAB /* MNFObjectUpdater.m */,
 				A436588B0167D4F9774162C92D195F05 /* Meniga.h */,
 				54802B198631E62CDCC3910AF259F404 /* Meniga.m */,
-				A9699F11BE3BD3F73ABFEB6776BB023E /* MenigaDocs.h */,
+				4EE607DC20091411005F1811 /* MenigaDocs.h */,
 			);
 			path = External;
 			sourceTree = "<group>";
@@ -1851,6 +1852,7 @@
 				B7445AE2228031897E3CB085158D99C8 /* MNFKeychain.h in Headers */,
 				FC82CD52E13BD10E45EDCEF49B290494 /* MNFLogger.h in Headers */,
 				E97AE44565AA57ED9FDF44444956FCB8 /* MNFMerchant.h in Headers */,
+				4EE607DD20091411005F1811 /* MenigaDocs.h in Headers */,
 				9717FCC9B675B45000B08C0D11A994EF /* MNFMerchantAddress.h in Headers */,
 				1E7A19F1281BBF35C130CA27EB0A565C /* MNFMerchantLocation.h in Headers */,
 				971CCEA393AEC0A80EA0FA0CD350585A /* MNFMerchantSeries.h in Headers */,
