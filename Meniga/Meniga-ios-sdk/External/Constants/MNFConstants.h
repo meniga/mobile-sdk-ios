@@ -15,14 +15,12 @@
 @class MNFSimilarBrand;
 @class MNFSimilarBrandMetaData;
 @class MNFCategory;
-@class MNFCashbackReport;
 @class MNFFeed;
 @class MNFFeedItem;
 @class MNFTag;
 @class MNFUser;
 @class MNFUserProfile;
 @class MNFTransactionPage;
-@class MNFRepaymentAccount;
 @class MNFSynchronization;
 @class MNFResponse;
 @class MNFTransactionSeries;

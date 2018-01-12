@@ -10,7 +10,6 @@
 #import "MNFNetworkProtocolForTesting.h"
 #import "Meniga.h"
 #import "MNFKeychain.h"
-#import "MNFCryptor.h"
 #import "MNFURLRequestConstants.h"
 #import "MNFErrorUtils.h"
 #import "MNFLogger.h"
