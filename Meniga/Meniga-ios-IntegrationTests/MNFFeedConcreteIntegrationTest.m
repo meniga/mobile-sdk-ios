@@ -28,7 +28,6 @@
     
     [MENIGAAuthentication loginWithUsername:@"ue@meniga.is" password:@"123456" withCompletion:^(NSDictionary *tokenDict, NSError *error) {
         
-//        NSLog(@"token dict is: %@", tokenDict);
         [MNFDemoUser setTokenDict: [tokenDict objectForKey:@"data"] ];
         [Meniga setAuthenticationProvider: [[MNFIntegrationAuthProvider alloc] init] ];
         

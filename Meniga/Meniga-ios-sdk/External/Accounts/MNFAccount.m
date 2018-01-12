@@ -213,9 +213,11 @@
         
         if (response.error == nil) {
             
-            if ([response.result isKindOfClass:[NSString class]]) {
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
 
-                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:response.result error:nil];
+                NSString *value = [(NSDictionary *)response.result objectForKey: @"value"];
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter: value error:nil];
                 
             }
             else {
@@ -242,7 +244,7 @@
     
     NSDictionary *json = @{@"name":aKey,@"value":value};
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:0 error:nil];
-    
+        
     __block MNFJob *job = [[self class] apiRequestWithPath:path pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPUT service:MNFServiceNameAccounts completion:^(MNFResponse * _Nullable response) {
         
         kObjectBlockDataDebugLog;

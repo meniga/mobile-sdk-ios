@@ -130,7 +130,6 @@
             
             XCTAssertEqualObjects([users firstObject].culture, @"is-IS");
             
-            XCTAssertNotNil(result);
             XCTAssertNil(metaData);
             XCTAssertNil(error);
         

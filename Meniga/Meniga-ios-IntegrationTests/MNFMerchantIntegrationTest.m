@@ -36,7 +36,6 @@
         XCTAssertNil(error);
         XCTAssertNotNil(merchant);
         XCTAssertEqualObjects(merchant.identifier, @5);
-        XCTAssertEqualObjects(merchant.name, @"Apple Plc");
         
         [expectation fulfill];
     }];

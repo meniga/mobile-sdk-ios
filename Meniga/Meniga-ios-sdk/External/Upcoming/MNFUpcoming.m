@@ -299,12 +299,11 @@
         kObjectBlockDataDebugLog;
         
         if (response.error == nil) {
-            if ([response.result isKindOfClass:[NSArray class]]) {
-                NSMutableArray *accountIds = [NSMutableArray array];
-                for (NSDictionary *dict in response.result) {
-                    NSNumber *number = [dict objectForKey:@"accountId"];
-                    [accountIds addObject:number];
-                }
+
+            NSArray *accountIds = [response.result objectForKey:@"accountIds"];
+            
+            if ([accountIds isKindOfClass:[NSArray class]]) {
+                
                 [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:[accountIds copy] error:nil];
                 
             }

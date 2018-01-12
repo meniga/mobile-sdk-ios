@@ -23,6 +23,7 @@
 }
 
 -(void)testUrlRequestWithURL {
+    
     NSURL *url = [MNFURLConstructor URLFromBaseUrl:@"www.menigatest.is" path:kMNFHTTPMethodGET];
     NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"X-XSRF-Header",nil];
     NSData *postdata = [NSJSONSerialization dataWithJSONObject:@{@"id":@"1"} options:0 error:nil];

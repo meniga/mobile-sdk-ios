@@ -224,39 +224,4 @@
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 
-//Server bug, create does not return an object.
-//-(void)testRecurringPatterns {
-//    __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
-//    
-//    MNFUpcomingPattern *pattern = [[MNFUpcomingPattern alloc] init];
-//    pattern.dayOfMonth = @"1";
-//    pattern.month = @"1";
-//    pattern.dayOfWeek = @"Sunday";
-//    
-//    MNFUpcomingRecurringPattern *recurrPattern = [[MNFUpcomingRecurringPattern alloc] init];
-//    recurrPattern.repeatUntil = [NSDate dateWithTimeIntervalSinceNow:60*24*60*60];
-//    recurrPattern.pattern = pattern;
-//    
-//    [MNFUpcoming createUpcomingWithText:@"Upcoming text" amountInCurrency:@100 currencyCode:@"GBP" date:[NSDate date] accountId:nil categoryId:nil isFlagged:nil isWatched:nil recurringPattern:recurrPattern completion:^(NSArray<MNFUpcoming *> * _Nullable upcomings, NSError * _Nullable error) {
-//        MNFJob *job = [MNFUpcomingRecurringPattern fetchWithId:[upcomings firstObject].recurringPattern.identifier completion:^(MNFUpcomingRecurringPattern * _Nullable recurringPattern, NSError * _Nullable error) {
-//            XCTAssertNil(error);
-//            XCTAssertNotNil(recurringPattern);
-//            MNFJob *secondJob = [recurringPattern deleteRecurringPatternWithCompletion:^(NSError * _Nullable error) {
-//                XCTAssertNil(error);
-//                [expectation fulfill];
-//            }];
-//            
-//            [secondJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-//                XCTAssertNil(error);
-//            }];
-//        }];
-//        
-//        [job handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-//            XCTAssertNil(error);
-//        }];
-//    }];
-//    
-//    [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
-//}
-
 @end
