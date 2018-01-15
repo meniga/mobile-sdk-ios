@@ -14,6 +14,7 @@
 #pragma mark - Json Adapter Delegate
 -(NSDictionary*)propertyValueTransformers {
     return @{@"allowOverlappingDates" : [MNFNumberToBoolValueTransformer transformer],
+             @"includeOptionalHistoricalData" : [MNFNumberToBoolValueTransformer transformer],
              @"startDate" : [MNFBasicDateValueTransformer transformer],
              @"endDate" : [MNFBasicDateValueTransformer transformer]
              };

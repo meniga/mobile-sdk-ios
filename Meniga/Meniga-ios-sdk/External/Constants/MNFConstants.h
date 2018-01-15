@@ -175,7 +175,7 @@ typedef void (^MNFChallengeIconImageDataCompletionHandler)(NSData *_Nullable ima
 typedef void (^MNFBudgetCompletionHandler)(MNFBudget *_Nullable budget, NSError *_Nullable error);
 typedef void (^MNFMultipleBudgetCompletionHandler)(NSArray <MNFBudget *> *_Nullable budgets, NSError *_Nullable error);
 typedef void (^MNFMultipleBudgetEntriesCompletionHandler)(NSArray <MNFBudgetEntry *> *_Nullable budgetEntries, NSError *_Nullable error);
-typdefe void (^MNFBudgetEntryCompletionHandler)(MNFBudgetEntry *_Nullable budgetEntry, NSError *_Nullable error);
+typedef void (^MNFBudgetEntryCompletionHandler)(MNFBudgetEntry *_Nullable budgetEntry, NSError *_Nullable error);
 
 // Terms and Conditions
 typedef void (^MNFTermsAndConditionsCompletionHandler)(MNFTermsAndConditions * _Nullable termsAndConditions, NSError * _Nullable error);
