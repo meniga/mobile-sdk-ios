@@ -12,7 +12,6 @@
 #import "MNFJob.h"
 #import "MNFJob_Private.h"
 #import "MNFErrorUtils.h"
-#import "MNFCryptor.h"
 #import "MNFLogger.h"
 
 @implementation MNFRouter

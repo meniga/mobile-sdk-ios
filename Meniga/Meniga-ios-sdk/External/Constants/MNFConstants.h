@@ -15,14 +15,12 @@
 @class MNFSimilarBrand;
 @class MNFSimilarBrandMetaData;
 @class MNFCategory;
-@class MNFCashbackReport;
 @class MNFFeed;
 @class MNFFeedItem;
 @class MNFTag;
 @class MNFUser;
 @class MNFUserProfile;
 @class MNFTransactionPage;
-@class MNFRepaymentAccount;
 @class MNFSynchronization;
 @class MNFResponse;
 @class MNFTransactionSeries;
@@ -53,6 +51,7 @@
 @class MNFSyncAuthenticationChallenge;
 @class MNFRealmAccount;
 @class MNFUserEventSubscriptionDetail;
+@class MNFMerchantLocation;
 
 // MNFAccount
 @class MNFAccount;
@@ -145,6 +144,7 @@ typedef void (^MNFRedemptionsCompletionHandler)(NSArray <MNFOfferTransaction *> 
 typedef void (^MNFMultipleReimbursementAccountsCompletionHandler)(NSArray <MNFReimbursementAccount *> * _Nullable reimbursementAccounts, NSError * _Nullable error);
 typedef void (^MNFRemibursementAccountCompletionHandler)(MNFReimbursementAccount * _Nullable account, NSError * _Nullable error);
 typedef void (^MNFMultipleReimbursementAccountTypesCompletionHandler)(NSArray <MNFReimbursementAccountType *> * _Nullable accountType, NSError * _Nullable error);
+typedef void (^MNFMultipleMerchantLocationsCompletionHandler)(NSArray <MNFMerchantLocation *> * _Nullable locations, NSError * _Nullable error);
 
 
 //Feed

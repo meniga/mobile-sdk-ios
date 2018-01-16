@@ -146,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @warning You need to set the api url to be able to use the Meniga sdk.
  
- @param apiUrl the url to the server. Example format: wwww.urlofservices.net
+ @param apiURL the url to the server. Example format: wwww.urlofservices.net
  */
 +(void)setApiURL:(NSString*)apiURL;
 
