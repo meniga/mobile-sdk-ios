@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param validFrom The date the budget is valid from.
  @param validTo The date the budget is valid to.
  @param budgetDescription The text description of the budget.
- @param allCategoriesOfType The category type for the budget. 'Expenses', 'Income', 'Savings', 'Excldued'. If set will override the category ids parameter.
+ @param allCategoriesType The category type for the budget. 'Expenses', 'Income', 'Savings', 'Excldued'. If set will override the category ids parameter.
  @param categoryIds The ids of the categories for the budget.
  @param accountIds The ids of the accounts for the budget.
  @param completion A completion block returning a budget and an error.
@@ -150,7 +150,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param validFrom The date the budget is valid from.
  @param validTo The date the budget is valid to.
  @param budgetDescription The text description of the budget.
- @param allCategoriesOfType The category type for the budget. 'Expenses', 'Income', 'Savings', 'Excldued'. If set will override the category ids parameter.
+ @param allCategoriesType The category type for the budget. 'Expenses', 'Income', 'Savings', 'Excldued'. If set will override the category ids parameter.
  @param categoryIds The ids of the categories for the budget.
  @param accountIds The ids of the accounts for the budget.
  @param numberOfRecurrences How often the budget should repeat.

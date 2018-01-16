@@ -264,7 +264,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Fetches similar brands the user has done some business for the given offer. It gives you a list of brand names, their ids and the amount spent at the brand.
  
- @param theOfferId The id of the offer.
  @param completion A completion block returning an array of similar brands, similar brand metadata or an error.
  
  @return MNFJob A job containing an array of similar brands or an error.

@@ -107,7 +107,6 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return A boolean indicating whether synchronization is needed.
  
- @warning
  */
 -(BOOL)isSynchronizationNeeded;
 
