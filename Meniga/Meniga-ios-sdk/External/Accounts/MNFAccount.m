@@ -50,7 +50,10 @@
     
     [completion copy];
     
-    NSDictionary *query = [MNFJsonAdapter JSONDictFromObject: filter option: 0 error: nil];
+    NSDictionary *query = nil;
+    if (filter != nil) {
+        query = [MNFJsonAdapter JSONDictFromObject: (id <MNFJsonAdapterDelegate>)filter option: 0 error: nil];
+    }
     
     MNFLogDebug(@"Account query dict: %@", query);
     
