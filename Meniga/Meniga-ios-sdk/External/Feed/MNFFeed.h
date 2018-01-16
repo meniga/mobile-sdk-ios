@@ -150,9 +150,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Fetches a specific feeditem with type and identifier.
  
- @param Feedtype. The feed type of the feeditem
+ @param type The feed type of the feeditem
  
- @param identifier. The identifier of the feeditem
+ @param identifier The identifier of the feeditem
  
  @param completion A completion block returning an array of strings and an error.
  

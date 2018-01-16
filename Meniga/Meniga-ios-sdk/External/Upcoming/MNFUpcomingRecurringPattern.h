@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
  Fetches a recurring pattern with a given identifier.
  
  @param identifier The id of the recurring pattern.
- @param completin A completion block returning a recurring pattern and an error.
+ @param completion A completion block returning a recurring pattern and an error.
  
  @return MNFJob A job containing a recurring pattern and an error.
  */

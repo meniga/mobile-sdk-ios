@@ -67,7 +67,7 @@ typedef NS_ENUM(NSUInteger,MNFCachePolicy) {
 /**
  @abstract Culture to provide to the Accept-Language.
  */
-@property (nonatomic, strong) NSString *culture;
+@property (nonatomic, strong, nullable) NSString *culture;
 
 /**
  @abstract The log level for the Meniga framework

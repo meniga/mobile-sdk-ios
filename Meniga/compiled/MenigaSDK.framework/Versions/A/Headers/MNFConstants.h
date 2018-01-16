@@ -15,7 +15,6 @@
 @class MNFSimilarBrand;
 @class MNFSimilarBrandMetaData;
 @class MNFCategory;
-@class MNFCashbackReport;
 @class MNFFeed;
 @class MNFFeedItem;
 @class MNFTag;

@@ -34,7 +34,7 @@ static NSDateFormatter *menigaDateFormatter;
 
 +(BOOL)isDate:(NSDate*)firstDate equalToDayMonthAndYear:(NSDate *)secondDate {
     
-    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components: NSMonthCalendarUnit | NSYearCalendarUnit | NSDayCalendarUnit fromDate:firstDate toDate:secondDate options:0 ];
+    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components: NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitDay fromDate:firstDate toDate:secondDate options:0 ];
     
     if (dateComponents.year == 0 && dateComponents.month == 0 && dateComponents.day == 0) {
         return YES;
