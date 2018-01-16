@@ -460,6 +460,9 @@
 		2EDED8416CBCE2D0D61D646FAEC48A99 /* MNFOrganizationRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFOrganizationRealm.h; sourceTree = "<group>"; };
 		2FCA68796B3469B8E1B8545ADCB686DA /* MNFAccountFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAccountFilter.m; sourceTree = "<group>"; };
 		302D9D88B8C65661F1FA21815D4A4153 /* MNFUpcomingBalanceDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFUpcomingBalanceDate.m; path = Upcoming/MNFUpcomingBalanceDate.m; sourceTree = "<group>"; };
+		316F5593200E63300033BC38 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
+		316F5594200E63300033BC38 /* MenigaSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MenigaSDK.podspec; path = ../../MenigaSDK.podspec; sourceTree = "<group>"; };
+		316F5595200E63300033BC38 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		319DAEA4B6150AB2A487A95E9429C78C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		31B6C209169056246B2B30F6D1A38387 /* MNFMerchantSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFMerchantSeries.h; path = Merchant/MNFMerchantSeries.h; sourceTree = "<group>"; };
 		31BDD8A22008F6B20089E314 /* MNFBudgetEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFBudgetEntry.h; path = Budget/MNFBudgetEntry.h; sourceTree = "<group>"; };
@@ -506,9 +509,6 @@
 		4DBCB89A91BC669B974A755EC350BEB5 /* MNFRealmSyncResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFRealmSyncResponse.m; sourceTree = "<group>"; };
 		4E260FD31FFD1801007C5CCE /* transactionResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactionResponse.json; sourceTree = "<group>"; };
 		4EADDC48657B13F28073A4FAAB292E5F /* jsonAdapaterSingleTestLowercase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonAdapaterSingleTestLowercase.json; sourceTree = "<group>"; };
-		4EE607D92008F0B9005F1811 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
-		4EE607DA2008F0B9005F1811 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		4EE607DB2008F0B9005F1811 /* MenigaSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = MenigaSDK.podspec; path = ../../MenigaSDK.podspec; sourceTree = "<group>"; };
 		4EE607DC20091411005F1811 /* MenigaDocs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenigaDocs.h; sourceTree = SOURCE_ROOT; };
 		4F1225EA22C965FD5E173EA5B34E3D7B /* MNFJsonAdapterTestUppercaseValueTransformerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFJsonAdapterTestUppercaseValueTransformerDelegate.h; sourceTree = "<group>"; };
 		503E26E5FF765C9B283023D1279D93B8 /* MNFNumberToBoolValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFNumberToBoolValueTransformer.h; sourceTree = "<group>"; };
@@ -882,6 +882,16 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		316F5592200E630B0033BC38 /* Podspec metadata */ = {
+			isa = PBXGroup;
+			children = (
+				316F5593200E63300033BC38 /* LICENSE */,
+				316F5594200E63300033BC38 /* MenigaSDK.podspec */,
+				316F5595200E63300033BC38 /* README.md */,
+			);
+			path = "Podspec metadata";
+			sourceTree = "<group>";
+		};
 		32CB53C6290297462DA1E506AD398F51 /* Normal */ = {
 			isa = PBXGroup;
 			children = (
@@ -972,16 +982,6 @@
 				6A9F966422676CC0AA36F517A7030B17 /* MNFAdapterSubPropertyUppercaseOptionDelegate.m */,
 			);
 			name = "Without property mapping delegation";
-			sourceTree = "<group>";
-		};
-		4EE607D82008F087005F1811 /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				4EE607D92008F0B9005F1811 /* LICENSE */,
-				4EE607DB2008F0B9005F1811 /* MenigaSDK.podspec */,
-				4EE607DA2008F0B9005F1811 /* README.md */,
-			);
-			path = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 		504567A0F3C052B82C4AB21BC586BF74 /* json sources */ = {
@@ -1392,8 +1392,8 @@
 		9F7FB9B18DF8AD8445AF68065AE15C39 = {
 			isa = PBXGroup;
 			children = (
+				316F5592200E630B0033BC38 /* Podspec metadata */,
 				E0649AF4FAB4DB24DBF10B0B6FE5F050 /* Config */,
-				4EE607D82008F087005F1811 /* Podspec Metadata */,
 				1A86E43D3B8A7C01932B797DAEB74B45 /* Frameworks */,
 				04B5CEA6A28A1C118B713437AFEB15EB /* Meniga-ios-IntegrationTests */,
 				0CAC126B3DE7537F008AA5796FC9175F /* Meniga-ios-sdk */,
