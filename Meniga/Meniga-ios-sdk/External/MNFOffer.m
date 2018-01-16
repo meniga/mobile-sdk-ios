@@ -88,7 +88,7 @@
     NSMutableDictionary *queryDict = [NSMutableDictionary dictionary];
     
     if (offerFilter != nil) {
-        NSDictionary *filterDict = [MNFJsonAdapter JSONDictFromObject: offerFilter option:0 error:nil];
+        NSDictionary *filterDict = [MNFJsonAdapter JSONDictFromObject: (id <MNFJsonAdapterDelegate>)offerFilter option:0 error:nil];
         if (filterDict != nil) {
             [queryDict setDictionary:filterDict];
         }
@@ -194,6 +194,49 @@
         
         [MNFObject executeOnMainThreadWithJob:job completion:completion error:response.error];
     
+    }];
+    
+    return job;
+}
+
++(MNFJob *)fetchMerchantLocationsWithOfferId:(NSNumber *)offerId latitude:(NSNumber *)latitude longitude:(NSNumber *)longitude radiusKm:(NSNumber *)radiusKm limitLocations:(NSNumber *)limitLocations completion:(nullable MNFMultipleMerchantLocationsCompletionHandler)completion {
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@/merchantLocations", kMNFApiPathOffers, offerId];
+    
+    NSMutableDictionary *query = [NSMutableDictionary dictionary];
+    
+    if (latitude != nil) {
+        [query setObject: latitude forKey: @"latitude"];
+    }
+    if (longitude != nil) {
+        [query setObject: longitude forKey: @"longitude"];
+    }
+    if (radiusKm != nil) {
+        [query setObject: radiusKm forKey: @"radiusKm"];
+    }
+    if (limitLocations != nil) {
+        [query setObject: limitLocations forKey: @"limitLocations"];
+    }
+    
+    __block MNFJob *job = [MNFObject apiRequestWithPath: path pathQuery: query jsonBody: nil HTTPMethod: kMNFHTTPMethodGET service: MNFServiceNameOffers completion:^(MNFResponse *response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass: [NSArray class]]) {
+                NSArray <MNFMerchantLocation *> *merchantLocations = [MNFJsonAdapter objectsOfClass: [MNFMerchantLocation class] jsonArray: response.result option: kMNFAdapterOptionNoOption error: nil];
+                [MNFObject executeOnMainThreadWithJob: job completion: completion parameter: merchantLocations error: nil];
+            }
+            else {
+                [MNFObject executeOnMainThreadWithJob: job completion: completion parameter: nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]]];
+            }
+            
+        }
+        else {
+             [MNFObject executeOnMainThreadWithJob: job completion: completion parameter: nil error: response.error];
+        }
+        
     }];
     
     return job;
@@ -332,6 +375,8 @@
     
     return job;
 }
+
+
 
 #pragma mark - Json Adapter Delegate
 

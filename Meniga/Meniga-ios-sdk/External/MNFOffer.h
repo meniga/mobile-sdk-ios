@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  
  */
-+(MNFJob *)fetchMerchantLocationsWithOfferId:(NSNumber *)offerId latitude:(NSNumber *)latitude longitude:(NSNumber *)longitude radiusKm:(NSNumber *)radiusKm limitLocations:(NSNumber *)limitLocations;
++(MNFJob *)fetchMerchantLocationsWithOfferId:(NSNumber *)offerId latitude:(NSNumber *)latitude longitude:(NSNumber *)longitude radiusKm:(NSNumber *)radiusKm limitLocations:(NSNumber *)limitLocations completion:(nullable MNFMultipleMerchantLocationsCompletionHandler)completion;
 
 /**
  @abstract Activates or de-activates offers component for the user.
