@@ -109,8 +109,6 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @param theAdapterOption An option to change the keys in the dictionaries if the json dictionary has different key formatting than the properties on the object.
  @param theError An error the user can send by reference if something goes wrong in the deserialization. Currently not used.
  
- @return void
- 
  */
 +(void)refreshObject:(NSObject <MNFJsonAdapterDelegate> *)theModel withJsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
 
@@ -124,9 +122,7 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @param theJsonDict The dictionary whose values will replace the objects property values matching it's keys.
  @param theAdapterOption An option to change the keys in the dictionaries if the json dictionary has different key formatting than the properties on the object.
  @param theError An error the user can send by reference if something goes wrong in the deserialization. Currently not used.
- 
- @return void
- 
+  
  */
 +(void)refreshObject:(NSObject *)theModel delegate:(id <MNFJsonAdapterDelegate>)theDelegate jsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
 

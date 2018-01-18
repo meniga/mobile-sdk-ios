@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
                  description:(nullable NSString*)description
                    startDate:(nullable NSDate*)startDate
                      endDate:(nullable NSDate*)endDate
-                     iconUrl:(nullable NSString*)string
+                     iconUrl:(nullable NSString*)iconUrl
                     typeData:(nullable NSDictionary*)typeData
                   completion:(nullable MNFChallengesCompletionHandler)completion;
 

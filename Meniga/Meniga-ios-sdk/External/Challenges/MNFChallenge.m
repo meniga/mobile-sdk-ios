@@ -499,7 +499,7 @@
     
     NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFChallengesIcons,iconIdentifier];
     
-    __block MNFJob *job = [self apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameChallenges completion:^(MNFResponse * _Nullable response) {
+    __block MNFJob *job = [self resourceRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameChallenges completion:^(MNFResponse * _Nullable response) {
         
         kObjectBlockDataDebugLog;
         
