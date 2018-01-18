@@ -98,6 +98,8 @@
 		2FDA47832F5BC8431A55370B2600CC34 /* MNFUserEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4291DDE46B757606AA0F3DA62F77D3C1 /* MNFUserEvent.m */; };
 		307058F2D9700D5005092E9968591BF2 /* MNFGlobalChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B5374500FE15AD46EFA82EE806542A /* MNFGlobalChallenge.m */; };
 		30B935D763775EF7BFF0C97BD85E876E /* MNFJob.h in Headers */ = {isa = PBXBuildFile; fileRef = BD36BB35EE4A9D0A6983804655630A82 /* MNFJob.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31BDD8A42008F6B20089E314 /* MNFBudgetEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 31BDD8A22008F6B20089E314 /* MNFBudgetEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31BDD8A52008F6B20089E314 /* MNFBudgetEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD8A32008F6B20089E314 /* MNFBudgetEntry.m */; };
 		34F9D23DDA0DF3C904BCE87F52C16738 /* MNFAccountAuthorizationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 959B36C7454CAF6CA71449E7238DBA43 /* MNFAccountAuthorizationType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3501B284AD17F01BEBC4BC255D2C76DA /* MNFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A11DFD42418C6E80B7C443021042530 /* MNFSettings.m */; };
 		35ACBB2B95D2223CA2E2BE18F8A43639 /* MNFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F673A67A7EEA9CD365D8901ED34ACA /* MNFConstants.m */; };
@@ -458,8 +460,13 @@
 		2EDED8416CBCE2D0D61D646FAEC48A99 /* MNFOrganizationRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFOrganizationRealm.h; sourceTree = "<group>"; };
 		2FCA68796B3469B8E1B8545ADCB686DA /* MNFAccountFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAccountFilter.m; sourceTree = "<group>"; };
 		302D9D88B8C65661F1FA21815D4A4153 /* MNFUpcomingBalanceDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFUpcomingBalanceDate.m; path = Upcoming/MNFUpcomingBalanceDate.m; sourceTree = "<group>"; };
+		316F5593200E63300033BC38 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
+		316F5594200E63300033BC38 /* MenigaSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MenigaSDK.podspec; path = ../../MenigaSDK.podspec; sourceTree = "<group>"; };
+		316F5595200E63300033BC38 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		319DAEA4B6150AB2A487A95E9429C78C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		31B6C209169056246B2B30F6D1A38387 /* MNFMerchantSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFMerchantSeries.h; path = Merchant/MNFMerchantSeries.h; sourceTree = "<group>"; };
+		31BDD8A22008F6B20089E314 /* MNFBudgetEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFBudgetEntry.h; path = Budget/MNFBudgetEntry.h; sourceTree = "<group>"; };
+		31BDD8A32008F6B20089E314 /* MNFBudgetEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFBudgetEntry.m; path = Budget/MNFBudgetEntry.m; sourceTree = "<group>"; };
 		3252CF1DC471A44C4C9F1611DD94E184 /* MNFJsonAdapterKeyAndProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFJsonAdapterKeyAndProperty.m; sourceTree = "<group>"; };
 		3285909FF86EE4FB44F29DCB0A99F198 /* MNFUpcoming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFUpcoming.h; path = Upcoming/MNFUpcoming.h; sourceTree = "<group>"; };
 		3336621ED4093E3401303D325CCC25CE /* MNFJsonAdapterKeyAndProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFJsonAdapterKeyAndProperty.h; sourceTree = "<group>"; };
@@ -502,9 +509,6 @@
 		4DBCB89A91BC669B974A755EC350BEB5 /* MNFRealmSyncResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFRealmSyncResponse.m; sourceTree = "<group>"; };
 		4E260FD31FFD1801007C5CCE /* transactionResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactionResponse.json; sourceTree = "<group>"; };
 		4EADDC48657B13F28073A4FAAB292E5F /* jsonAdapaterSingleTestLowercase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonAdapaterSingleTestLowercase.json; sourceTree = "<group>"; };
-		4EE607D92008F0B9005F1811 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
-		4EE607DA2008F0B9005F1811 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		4EE607DB2008F0B9005F1811 /* MenigaSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = MenigaSDK.podspec; path = ../../MenigaSDK.podspec; sourceTree = "<group>"; };
 		4EE607DC20091411005F1811 /* MenigaDocs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenigaDocs.h; sourceTree = SOURCE_ROOT; };
 		4F1225EA22C965FD5E173EA5B34E3D7B /* MNFJsonAdapterTestUppercaseValueTransformerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFJsonAdapterTestUppercaseValueTransformerDelegate.h; sourceTree = "<group>"; };
 		503E26E5FF765C9B283023D1279D93B8 /* MNFNumberToBoolValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFNumberToBoolValueTransformer.h; sourceTree = "<group>"; };
@@ -878,6 +882,16 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		316F5592200E630B0033BC38 /* Podspec metadata */ = {
+			isa = PBXGroup;
+			children = (
+				316F5593200E63300033BC38 /* LICENSE */,
+				316F5594200E63300033BC38 /* MenigaSDK.podspec */,
+				316F5595200E63300033BC38 /* README.md */,
+			);
+			path = "Podspec metadata";
+			sourceTree = "<group>";
+		};
 		32CB53C6290297462DA1E506AD398F51 /* Normal */ = {
 			isa = PBXGroup;
 			children = (
@@ -968,16 +982,6 @@
 				6A9F966422676CC0AA36F517A7030B17 /* MNFAdapterSubPropertyUppercaseOptionDelegate.m */,
 			);
 			name = "Without property mapping delegation";
-			sourceTree = "<group>";
-		};
-		4EE607D82008F087005F1811 /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				4EE607D92008F0B9005F1811 /* LICENSE */,
-				4EE607DB2008F0B9005F1811 /* MenigaSDK.podspec */,
-				4EE607DA2008F0B9005F1811 /* README.md */,
-			);
-			path = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 		504567A0F3C052B82C4AB21BC586BF74 /* json sources */ = {
@@ -1135,6 +1139,8 @@
 		7078F69CE8051DEFD201449E1340119D /* Budget */ = {
 			isa = PBXGroup;
 			children = (
+				31BDD8A22008F6B20089E314 /* MNFBudgetEntry.h */,
+				31BDD8A32008F6B20089E314 /* MNFBudgetEntry.m */,
 				8DE67FA62780BBF931608981A68D1F38 /* MNFBudget.h */,
 				ED5EFF4ED40ECA4A4237C2266F8DE86A /* MNFBudget.m */,
 				8457C9851728350A99655927F685A936 /* MNFBudgetFilter.h */,
@@ -1386,8 +1392,8 @@
 		9F7FB9B18DF8AD8445AF68065AE15C39 = {
 			isa = PBXGroup;
 			children = (
+				316F5592200E630B0033BC38 /* Podspec metadata */,
 				E0649AF4FAB4DB24DBF10B0B6FE5F050 /* Config */,
-				4EE607D82008F087005F1811 /* Podspec Metadata */,
 				1A86E43D3B8A7C01932B797DAEB74B45 /* Frameworks */,
 				04B5CEA6A28A1C118B713437AFEB15EB /* Meniga-ios-IntegrationTests */,
 				0CAC126B3DE7537F008AA5796FC9175F /* Meniga-ios-sdk */,
@@ -1918,6 +1924,7 @@
 				B0B3601A7CDBBCEA88B8DC4F19EB4E87 /* MNFUpcomingRecurringPattern.h in Headers */,
 				7D897B9E59C8E007CB6A7106B83F44D3 /* MNFUpcomingScheduledPayment.h in Headers */,
 				05DB18542C109A0A7753B8E33DDBB647 /* MNFUpcomingThreshold.h in Headers */,
+				31BDD8A42008F6B20089E314 /* MNFBudgetEntry.h in Headers */,
 				254E1882F3A3ED8B16209371C46A06F1 /* MNFUser.h in Headers */,
 				EC8E2AB952179B8B6A4261CF24DD8480 /* MNFUserEvent.h in Headers */,
 				D5F1817F207FEBCDB8C9CBCD8D184FB4 /* MNFUserEventSubscription.h in Headers */,
@@ -2200,6 +2207,7 @@
 				BFE7E8912208077D702F769AC878244B /* MNFOfferTransaction.m in Sources */,
 				C6B48340439A4C83666B86E41D788688 /* MNFOrganization.m in Sources */,
 				503D5E84C51B2EC0EB3AAC3C6663CCA6 /* MNFOrganizationRealm.m in Sources */,
+				31BDD8A52008F6B20089E314 /* MNFBudgetEntry.m in Sources */,
 				F413D22EA8C83E5A3CE15B85C5492F4B /* MNFPostalCode.m in Sources */,
 				3E41733B4593AE6659961D1D9606DB93 /* MNFPredicateExpression.m in Sources */,
 				B4887AA0429BC26EABDE666378CF438A /* MNFPublic.m in Sources */,
