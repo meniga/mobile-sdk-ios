@@ -135,7 +135,7 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  @description Fetches all categories both system and user categories.
  
  @param theCulture you can explicitly state the culture you want for the categories you are fetching. If nil is passed it uses the default culture of the user which can be set in MNFUser.
- @param A completion block returning an NSArray of MNFCategories or an error.
+ @param completion a completion block returning an NSArray of MNFCategories or an error.
  
  @return MNFJob containing the results as an NSArray of MNFCategories or an error if applicable.
  */
@@ -145,7 +145,7 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  @description Fetches all categories and creates the tree structure for the categories
  
  @param theCulture you can explicitly state the culture you want for the categories you are fetching. If nil is passed it uses the default culture of the user which can be set in MNFUser.
- @param A completion block returning an NSArray of MNFCategories in a tree structure or an error.
+ @param completion a block returning an NSArray of MNFCategories in a tree structure or an error.
  
  @return MNFJob containing the results as an NSArray of MNFCategories or an error if applicable
  */
@@ -166,7 +166,6 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  @param theName The name of the category to be created.
  @param isFixedExpense A boolean variable wrapped in an NSNumber to indicate whether the category is a fixed expense or not. If nil is passed then by default it is not a fixed expense.
  @param theCategoryType An integer variable wrapped in an NSNumber to indicate the type of cateogry.
- @param theParentCategoryId The id of the parent of the userCategory. Pass nil if you want the category to be a parent category.
  @param completion An MNFCategory sent in the completion block or an error if one occurred.
  
  @return An MNFCategory sent in the completion block or an error if one occurred.
@@ -174,6 +173,15 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
 +(MNFJob*)createUserParentCategoryWithName:(NSString *)theName isFixedExpense:(nullable NSNumber*)isFixedExpense categoryType:(MNFCategoryTypeId)theCategoryType completion:(nullable MNFCategoryCompletionHandler)completion;
 
 /**
+ @description Creates a user category and returns it with a completion block. User categories can be distinguished by system categories using the isSystemCategory parameter.
+ 
+ @param theName The name of the category to be created.
+ @param isFixedExpense A boolean variable wrapped in an NSNumber to indicate whether the category is a fixed expense or not. If nil is passed then by default it is not a fixed expense.
+ @param theParentCategoryType An integer variable wrapped in an NSNumber to indicate the type of cateogry.
+ @param theParentCategoryId The id of the parent of the userCategory. Pass nil if you want the category to be a parent category.
+ @param completion An MNFCategory sent in the completion block or an error if one occurred.
+ 
+ @return An MNFCategory sent in the completion block or an error if one occurred.
  */
 +(MNFJob*)createUserChildCategoryWithName:(NSString *)theName isFixedExpense:(nullable NSNumber *)isFixedExpense parentCategoryType:(MNFCategoryTypeId)theParentCategoryType parentCategoryId:(NSNumber *)theParentCategoryId completion:(nullable MNFCategoryCompletionHandler)completion;
 

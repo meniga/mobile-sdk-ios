@@ -18,13 +18,8 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = httpMethod;
     request.HTTPBody = postdata;
-    NSMutableDictionary *postHeaders = [NSMutableDictionary dictionaryWithDictionary:httpHeaders];
-    [postHeaders addEntriesFromDictionary:@{@"Accept":@"application/json"}];
-    [postHeaders addEntriesFromDictionary:@{@"X-XSRF-Header":@"true"}];
     
-    
-    
-    [request setAllHTTPHeaderFields:postHeaders];
+    [request setAllHTTPHeaderFields:httpHeaders];
     
     return [request copy];
 }

@@ -23,6 +23,7 @@ typedef void (^MenigaResponseBlock)(MNFResponse *response);
 +(void)sendRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block;
 +(void)sendRequest:(NSURLRequest *)request overwrite:(BOOL *)overwrite withCompletion:(MenigaResponseBlock)block;
 +(void)sendPriorityRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block;
++(void)sendDownloadRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block;
 
 +(void)cancelRequest:(NSURLRequest *)request;
 +(void)cancelRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler;

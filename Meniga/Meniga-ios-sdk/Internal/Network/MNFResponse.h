@@ -40,6 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readonly) NSDictionary *allHeaderFields;
 
 + (instancetype)responseWithData:(nullable NSData *)data error:(nullable NSError *)error statusCode:(NSInteger)statusCode headerFields:(nullable NSDictionary*)allHeaderFields;
++ (instancetype)downloadResponseWithRawData:(nullable NSData*)rawData error:(nullable NSError*)error statusCode:(NSInteger)statusCode headerFields:(nullable NSDictionary*)allHeaderFields;
 
 @end
 
