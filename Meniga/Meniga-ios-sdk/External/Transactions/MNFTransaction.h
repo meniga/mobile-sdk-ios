@@ -398,7 +398,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Updates a list of transactions with the specified parameters. The fields of the transactions passed in this method will be updated.
  
- @param amount The amount to update to. If null, it will not be updated.
+ @param amount The amount to update to. If null, it will not be updated. Will only affect user created transactions.
  @param categoryId The categoryId to update to. If null, it will not be updated.
  @param uncertainCategorization The uncertainCategorization to update to.
  @param useSubTextInCategorization True if automatic categorization should be matched against subtext otherwise it will by default be matched against text
