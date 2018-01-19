@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Fetches a tag with a given identifier.
  
- @param identifier The identifier of the tag being fetched.
+ @param tagId The identifier of the tag being fetched.
  @param completion A completion block returning a tag and an error.
  
  @return An MNFJob containing an MNFTag and an error.

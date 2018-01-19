@@ -103,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract Fetches a list of networth accounts and balance history.
  @param startDate The minimum date of the balance history
  @param endDate The maximum date of the balance history
- @param interPolation If true, the API will return estimated values for months with no imported or manually added values.
+ @param useInterpolation If true, the API will return estimated values for months with no imported or manually added values.
  @param completion completion executing with an error or result
  @return An MNFJob containing an array of networth accounts or an error.
  @discussion Unknown account types are ignored

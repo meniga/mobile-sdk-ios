@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly, nullable) NSData *rawData;
 
 /**
- @abstract
+ @abstract all header fields received by the response.
  */
 @property (nonatomic,strong,readonly) NSDictionary *allHeaderFields;
 
