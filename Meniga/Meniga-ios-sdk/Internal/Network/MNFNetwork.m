@@ -120,6 +120,21 @@ static NSURLSession *session = nil;
     }];
 }
 
++(void)sendDownloadRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block {
+    [block copy];
+    
+    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable urlResponse, NSError * _Nullable error) {
+        
+        NSInteger statusCode = [(NSHTTPURLResponse*)urlResponse statusCode];
+        NSData *data = [NSData dataWithContentsOfURL:location];
+        MNFLogVerbose(@"Response received from URL: %@, status code: %@, header fields: %@, result: %@, error: %@, location: %@",urlResponse.URL,@(statusCode),[(NSHTTPURLResponse*)urlResponse allHeaderFields],data, error,location.absoluteString);
+        MNFResponse *response = [MNFResponse downloadResponseWithRawData:data error:error statusCode:statusCode headerFields:[(NSHTTPURLResponse*)urlResponse allHeaderFields]];
+        block(response);
+    }];
+    
+    [downloadTask resume];
+}
+
 +(void)cancelRequest:(NSURLRequest *) request {
     
     [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){

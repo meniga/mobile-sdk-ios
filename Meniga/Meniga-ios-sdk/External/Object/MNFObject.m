@@ -95,7 +95,13 @@
     NSMutableDictionary *mutableHeaders = [[NSMutableDictionary alloc] initWithDictionary: [self p_authenticationProviderForService:service]];
     if ([Meniga apiCulture] != nil) {
         [mutableHeaders setObject: [Meniga apiCulture] forKey: @"Accept-Language"];
+        
     }
+    
+    mutableHeaders[@"Accept"] = @"application/json";
+    mutableHeaders[@"Content-type"] = @"application/json";
+    mutableHeaders[@"X-XSRF-Header"] = @"true";
+    
     NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:httpMethod httpHeaders: mutableHeaders parameters:postData];
     MNFLogDebug(@"request: %@", request);
     
@@ -115,12 +121,47 @@
         [mutableHeaders setObject: [Meniga apiCulture] forKey: @"Accept-Language"];
     }
     
+    mutableHeaders[@"Accept"] = @"application/json";
+    mutableHeaders[@"Content-type"] = @"application/json";
+    mutableHeaders[@"X-XSRF-Header"] = @"true";
+    
     NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:httpMethod httpHeaders: mutableHeaders parameters:postData];
     
     MNFLogDebug(@"request: %@", request);
     
     return [MNFRouter routeRequest:request withCompletion:completion];
     
+}
+
++(MNFJob*)resourceRequestWithPath:(NSString *)path pathQuery:(nullable NSDictionary*)pathQuery jsonBody:(nullable NSData*)postData HTTPMethod:(NSString *)httpMethod service:(MNFServiceName)service completion:(MNFCompletionHandler)completion {
+    
+    NSString *baseURL = [Meniga apiURLForService: service];
+    
+    NSURL *url = [MNFURLConstructor URLFromBaseUrl:baseURL path:path pathQuery:pathQuery];
+    
+    NSMutableDictionary *mutableHeaders = [[NSMutableDictionary alloc] initWithDictionary: [self p_authenticationProviderForService:service]];
+    if ([Meniga apiCulture] != nil) {
+        [mutableHeaders setObject: [Meniga apiCulture] forKey: @"Accept-Language"];
+    }
+    
+    mutableHeaders[@"Accept"] = @"image/png";
+    mutableHeaders[@"Content-type"] = @"image/png";
+    mutableHeaders[@"X-XSRF-Header"] = @"true";
+    
+    NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:httpMethod httpHeaders: mutableHeaders parameters:postData];
+    MNFLogDebug(@"request: %@", request);
+    
+    __block MNFJob *job = [MNFJob jobWithRequest:request];
+    
+    [MNFNetwork sendDownloadRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
+        [job setResponse:response];
+        
+        if (completion != nil) {
+            completion(response);
+        }
+    }];
+    
+    return job;
 }
 
 

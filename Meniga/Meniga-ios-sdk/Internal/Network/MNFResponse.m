@@ -22,6 +22,18 @@
     }
     return self;
 }
+- (instancetype)initWithRawData:(NSData*)rawData error:(NSError *)error statusCode:(NSInteger)statusCode headerFields:(NSDictionary*)allHeaderFields {
+    
+    self = [super init];
+    if (self) {
+        _rawData = rawData;
+        _error = error;
+        _statusCode = statusCode;
+        _allHeaderFields = allHeaderFields;
+    }
+    
+    return self;
+}
 -(id)initWithData:(NSData *)data error:(NSError *)error statusCode:(NSInteger)statusCode headerFields:(NSDictionary *)allHeaderFields {
     self = [super init];
     if (self) {
@@ -73,6 +85,10 @@
 }
 +(instancetype)responseWithData:(nullable NSData *)data error:(nullable NSError *)error statusCode:(NSInteger)statusCode headerFields:(nullable NSDictionary *)allHeaderFields {
     return [[[self class] alloc] initWithData:data error:error statusCode:statusCode headerFields:allHeaderFields];
+}
+
++(instancetype)downloadResponseWithRawData:(NSData *)rawData error:(NSError *)error statusCode:(NSInteger)statusCode headerFields:(NSDictionary *)allHeaderFields {
+    return [[[self class] alloc] initWithRawData:rawData error:error statusCode:statusCode headerFields:allHeaderFields];
 }
 
 -(BOOL)p_isValidStatusCodeForEmptyResult:(NSInteger)statusCode{
