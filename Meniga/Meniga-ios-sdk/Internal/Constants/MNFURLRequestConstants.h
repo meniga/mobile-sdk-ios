@@ -95,6 +95,7 @@
 #define kMNFChallengesIcons kMNFApiPathChallenges @"/icons"
 #define kMNFChallengesEnable kMNFApiPathChallenges @"/%@/enable"
 #define kMNFChallengesDisable kMNFApiPathChallenges @"/%@/disable"
+#define kMNFChallengesHistory kMNFApiPathChallenges @"/%@/history"
 
 #pragma mark - Budget
 #define kMNFApiPathBudget @"/budgets"

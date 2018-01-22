@@ -108,6 +108,17 @@ NS_ASSUME_NONNULL_BEGIN
 +(MNFJob*)fetchChallengesWithIncludeExpired:(nullable NSNumber*)includeExpired excludeSuggested:(nullable NSNumber*)excludeSuggested excludeAccepted:(nullable NSNumber*)excludeAccepted includeDisable:(nullable NSNumber*)includeDisabled completion:(nullable MNFMultipleChallengesCompletionHandler)completion;
 
 /**
+ Fetches a list of previously completed recurring system challenges. When a recurring suggested challenge is accepted a copy of it is created in the system. When fetching challenges you will only see the current recurring challenge. In order to see previously accepted and completed copies of that challenge you should use this method to retrieve them.
+ 
+ @param skip The number of items to skip. Defaults to zero.
+ @param take The number of items to fetch. Defaults to all items.
+ @param completion A completion block returning a list of challenges and an error.
+ 
+ @return MNFJob A job containing a list of challenges and an error.
+ */
+-(MNFJob*)fetchChallengeHistoryWithSkip:(nullable NSNumber*)skip take:(nullable NSNumber*)take completion:(nullable MNFMultipleChallengesCompletionHandler)completion;
+
+/**
  Accepts a challenge.
  
  @param targetAmount The target amount for the challenge.
@@ -147,7 +158,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
+/**
+ Resumes a previously enabled challenge.
+ 
+ @param completion A completion block returning an error.
+ 
+ @return MNFJob A job containing an error.
+ */
 -(MNFJob*)enableWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+
+/**
+ Pauses a previously accepted challenge. For suggested challenges not accepted yet an acceptance is made but in disabled state. Disabled challenges can be re-enabled by using the enable endpoint.
+ 
+ @param completion A completion block returning an error.
+ 
+ @return MNFJob A job containing an error.
+ */
 -(MNFJob*)disableWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
@@ -182,7 +208,12 @@ NS_ASSUME_NONNULL_BEGIN
 +(MNFJob*)fetchIconIdentifiersWithFormat:(nullable NSString*)format completion:(nullable MNFChallengeIconIdentifiersCompletionHandler)completion;
 
 /**
- Fetch a
+ Fetch a challenge icon resource with a give identifier.
+ 
+ @param iconIdentifier The identifier of the icon to fetch.
+ @param completion A completion block returning image data and an error.
+ 
+ @return MNFJob A job containing image data and an error.
  */
 +(MNFJob*)fetchIconWithIdentifier:(NSString *)iconIdentifier completion:(nullable MNFChallengeIconImageDataCompletionHandler)completion;
 
