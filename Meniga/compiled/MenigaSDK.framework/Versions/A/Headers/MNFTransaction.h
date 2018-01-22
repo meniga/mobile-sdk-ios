@@ -394,6 +394,20 @@ NS_ASSUME_NONNULL_BEGIN
                   categoryId:(nullable NSNumber*)categoryId
                   completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
+
+
++(MNFJob*)updateTransactions:(NSArray<MNFTransaction*>*)transactions
+                  withAmount:(NSNumber*)amount
+                  categoryId:(NSNumber*)categoryId
+     uncertainCategorization:(BOOL)uncertainCategorization
+useSubtextInRecategorization:(BOOL)useSubText
+                        text:(NSString*)text
+                        date:(NSDate*)date
+                      isRead:(BOOL)isRead
+                   isFlagged:(BOOL)isFlagged
+                    userData:(NSString*)userData
+                  completion:(MNFErrorOnlyCompletionHandler)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

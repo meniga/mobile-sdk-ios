@@ -394,6 +394,35 @@ NS_ASSUME_NONNULL_BEGIN
                   categoryId:(nullable NSNumber*)categoryId
                   completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
+
+/**
+ @abstract Updates a list of transactions with the specified parameters. The fields of the transactions passed in this method will be updated.
+ 
+ @param amount The amount to update to. If null, it will not be updated. Will only affect user created transactions.
+ @param categoryId The categoryId to update to. If null, it will not be updated.
+ @param uncertainCategorization The uncertainCategorization to update to.
+ @param useSubTextInCategorization True if automatic categorization should be matched against subtext otherwise it will by default be matched against text
+ @param text The text to update to. If null, it will not be updated.
+ @param date The date to update to. If null, it will not be updated.
+ @param isRead The isRead status to update to.
+ @param isFlagged The flagged state to update to.
+ @param userData The userData to update to. If null, it will not be updated.
+ @param completion A completion block returning an error.
+ 
+ @return An MNFJob containing an error.
+ */
++(MNFJob*)updateTransactions:(NSArray<MNFTransaction*>*)transactions
+                  withAmount:(nullable NSNumber*)amount
+                  categoryId:(nullable NSNumber*)categoryId
+     uncertainCategorization:(BOOL)uncertainCategorization
+useSubtextInRecategorization:(BOOL)useSubText
+                        text:(nullable NSString*)text
+                        date:(nullable NSDate*)date
+                      isRead:(BOOL)isRead
+                   isFlagged:(BOOL)isFlagged
+                    userData:(nullable NSString*)userData
+                  completion:(MNFErrorOnlyCompletionHandler)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END
