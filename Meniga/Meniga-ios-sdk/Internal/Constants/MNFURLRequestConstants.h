@@ -120,6 +120,7 @@
 #define kMNFApiPathAuthentication @"/authentication"
 #define kMNFAuthenticationRefresh kMNFApiPathAuthentication @"/refresh"
 #define kMNFAuthenticationSSO kMNFApiPathAuthentication @"/sso/%@"
+#define kMNFAuthenticationAfter kMNFApiPathAuthentication @"/after"
 
 #pragma mark - User Events
 #define kMNFApiPathUserEvents @"/userevents"

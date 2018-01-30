@@ -13,10 +13,19 @@
 
 + (MNFJob *)authenticateWithEmail:(NSString *)email password:(NSString *)password completion:(MNFAuthenticationCompletionHandler)completion {
     
+    return [self authenticateWithEmail:email password:password clientId:nil clientSecret:nil completion:completion];
+}
+
++ (MNFJob*)authenticateWithEmail:(NSString *)email password:(NSString *)password clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret completion:(MNFAuthenticationCompletionHandler)completion {
+    
     [completion copy];
     
-    NSDictionary *jsonDictionary = @{@"email":email, @"password":password};
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:0 error:nil];
+    NSMutableDictionary *jsonDictionary = [NSMutableDictionary dictionary];
+    jsonDictionary[@"email"] = email;
+    jsonDictionary[@"password"] = password;
+    jsonDictionary[@"clientId"] = clientId;
+    jsonDictionary[@"clientSecret"] = clientSecret;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDictionary copy] options:0 error:nil];
     
     __block MNFJob *job = [self apiRequestWithPath:kMNFApiPathAuthentication pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameAuthentication completion:^(MNFResponse*  _Nullable response) {
         
@@ -38,6 +47,25 @@
         else {
             [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:response.error];
         }
+    }];
+    
+    return job;
+}
+
++ (MNFJob*)authenticateAfterWithUserIdentifier:(NSString *)userIdentifier realmIdentifier:(NSString *)realmIdentifier parameters:(NSDictionary *)parameters completion:(MNFErrorOnlyCompletionHandler)completion {
+    [completion copy];
+    
+    NSMutableDictionary *jsonDictionary = [NSMutableDictionary dictionary];
+    jsonDictionary[@"userIdentifier"] = userIdentifier;
+    jsonDictionary[@"realmIdentifier"] = realmIdentifier;
+    jsonDictionary[@"parameters"] = parameters;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDictionary copy] options:0 error:nil];
+    
+    __block MNFJob *job = [self apiRequestWithPath:kMNFAuthenticationAfter pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameAuthentication completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        [MNFObject executeOnMainThreadWithJob:job completion:completion error:response.error];
     }];
     
     return job;
@@ -77,10 +105,19 @@
 
 + (MNFJob *)refreshTokensWithRefreshToken:(NSString *)refreshToken completion:(MNFAuthenticationCompletionHandler)completion {
     
+    return [self refreshTokensWithRefreshToken:refreshToken clientId:nil clientSecret:nil subject:nil completion:completion];
+}
+
++ (MNFJob*)refreshTokensWithRefreshToken:(NSString *)refreshToken clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret subject:(NSString *)subject completion:(MNFAuthenticationCompletionHandler)completion {
+    
     [completion copy];
     
-    NSDictionary *jsonDictionary = @{@"refreshToken":refreshToken};
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:0 error:nil];
+    NSMutableDictionary *jsonDictionary = [NSMutableDictionary dictionary];
+    jsonDictionary[@"refreshToken"] = refreshToken;
+    jsonDictionary[@"clientId"] = clientId;
+    jsonDictionary[@"clientSecret"] = clientSecret;
+    jsonDictionary[@"subject"] = subject;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDictionary copy] options:0 error:nil];
     
     __block MNFJob *job = [self apiRequestWithPath:kMNFAuthenticationRefresh pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameAuthentication completion:^(MNFResponse*  _Nullable response) {
         
