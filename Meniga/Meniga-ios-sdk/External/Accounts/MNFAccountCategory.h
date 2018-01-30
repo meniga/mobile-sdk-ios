@@ -26,6 +26,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy, readonly) NSString *name;
 
+/**
+ The id of the parent of the account type category.
+ */
+@property (nonatomic,strong,readonly) NSNumber *parentId;
+
+/**
+ The name of the parent type category.
+ */
+@property (nonatomic,copy,readonly) NSString *parentName;
+
 @end
 
 NS_ASSUME_NONNULL_END

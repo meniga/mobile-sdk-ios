@@ -7,8 +7,77 @@
 //
 
 #import "MNFAccountType.h"
+#import "MNFInternalImports.h"
+#import "MNFImportAccountConfiguration.h"
 
 @implementation MNFAccountType
+
++ (MNFJob*)fetchAccountTypesWithOrganizationId:(NSNumber *)organizationId completion:(MNFMultipleAccountTypesCompletionHandler)completion {
+    [completion copy];
+    
+    NSMutableDictionary *jsonQuery = [NSMutableDictionary dictionary];
+    jsonQuery[@"organizationId"] = organizationId;
+    
+    __block MNFJob *job = [self apiRequestWithPath:kMNFAccountTypes pathQuery:[jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameAccounts completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSArray class]]) {
+                
+                NSArray *accountTypes = [MNFAccountType initWithServerResults:response.result];
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:accountTypes error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]] ];
+                
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: response.error];
+            
+        }
+    }];
+    
+    return job;
+}
+
++ (MNFJob*)fetchAccountTypeWithId:(NSNumber *)identifier completion:(MNFAccountTypeCompletionHandler)completion {
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFAccountTypes,identifier];
+    
+    __block MNFJob *job = [self apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameAccounts completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                MNFAccountType *accountType = [MNFAccountType initWithServerResult:response.result];
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:accountType error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
+                
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: response.error];
+            
+        }
+    }];
+    
+    return job;
+}
 
 #pragma mark - json adapter delegates
 -(NSDictionary*)jsonKeysMapToProperties {

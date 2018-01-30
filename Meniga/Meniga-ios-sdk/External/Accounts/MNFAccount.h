@@ -284,7 +284,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of realm account types and an error.
  */
-+(MNFJob*)fetchAccountTypesWithCompletion:(nullable MNFMultipleAccountTypesCompletionHandler)completion;
++(MNFJob*)fetchAccountTypesWithCompletion:(nullable MNFMultipleAccountTypesCompletionHandler)completion DEPRECATED_ATTRIBUTE;
 
 ///******************************
 /// @name Metadata
