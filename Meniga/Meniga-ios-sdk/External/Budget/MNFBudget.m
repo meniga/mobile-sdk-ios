@@ -250,6 +250,41 @@
     return job;
 }
 
+- (MNFJob*)fetchBudgetEntryWithId:(NSNumber *)identifier completion:(MNFBudgetEntryCompletionHandler)completion {
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@/entries/%@",kMNFApiPathBudget,self.identifier,identifier];
+    
+    __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameBudget completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                MNFBudgetEntry *budgetEntry = [MNFBudgetEntry initWithServerResult:response.result];
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:budgetEntry error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
+                
+            }
+            
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithCompletion:completion withParameters:nil and:response.error];
+            
+        }
+    }];
+    
+    return job;
+}
+
 -(MNFJob*)createBudgetEntries:(NSArray<MNFBudgetEntry *> *)entries completion:(MNFMultipleBudgetEntriesCompletionHandler)completion {
     [completion copy];
     
