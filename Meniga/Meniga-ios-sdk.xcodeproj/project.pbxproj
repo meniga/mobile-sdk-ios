@@ -460,8 +460,8 @@
 		2EDED8416CBCE2D0D61D646FAEC48A99 /* MNFOrganizationRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFOrganizationRealm.h; sourceTree = "<group>"; };
 		2FCA68796B3469B8E1B8545ADCB686DA /* MNFAccountFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAccountFilter.m; sourceTree = "<group>"; };
 		302D9D88B8C65661F1FA21815D4A4153 /* MNFUpcomingBalanceDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFUpcomingBalanceDate.m; path = Upcoming/MNFUpcomingBalanceDate.m; sourceTree = "<group>"; };
-		316F5593200E63300033BC38 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
-		316F5594200E63300033BC38 /* MenigaSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MenigaSDK.podspec; path = ../../MenigaSDK.podspec; sourceTree = "<group>"; };
+		316F5593200E63300033BC38 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		316F5594200E63300033BC38 /* MenigaSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = MenigaSDK.podspec; path = ../MenigaSDK.podspec; sourceTree = "<group>"; };
 		316F5595200E63300033BC38 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		319DAEA4B6150AB2A487A95E9429C78C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		31B6C209169056246B2B30F6D1A38387 /* MNFMerchantSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFMerchantSeries.h; path = Merchant/MNFMerchantSeries.h; sourceTree = "<group>"; };
