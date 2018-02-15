@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 The Meniga mobile sdk for Objective-C provides a convenient way to interact with the Meniga REST API. Perform api requests through deserialized json objects for easy interaction with the api. Works with swift through the use of a bridging header (see SDK documentation).
                        DESC
 
-    s.homepage          = 'https://github.com/meniga/mobile-sdk-ios'
+    s.homepage          = 'https://cocoapods.org/pods/MenigaSDK'
     s.license           = { :type => 'MIT', :file => 'LICENSE' }
     s.authors           = { 'Meniga' => 'meniga@meniga.is' }
     s.source            = { :git => "https://github.com/meniga/mobile-sdk-ios.git", :tag => s.version }
