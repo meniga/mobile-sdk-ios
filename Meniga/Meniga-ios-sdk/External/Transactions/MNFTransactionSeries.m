@@ -14,6 +14,8 @@
 #import "MNFTransactionSeriesFilter.h"
 #import "MNFComment.h"
 #import "MNFComment_Private.h"
+#import "MNFAccount.h"
+#import "MNFMerchant.h"
 
 @implementation MNFTransactionSeries
 
@@ -53,9 +55,15 @@
         
                 NSArray *transactionSeries = [self initWithServerResults:response.result];
                 
+                NSArray<MNFMerchant*> *includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
+                NSArray<MNFAccount*> *includedAccounts = [MNFJsonAdapter  objectOfClass:[MNFAccount class] jsonDict:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+                
                 for (MNFTransactionSeries *series in transactionSeries) {
                     
                     for (MNFTransaction *transaction in series.transactions) {
+                        
+                        transaction.merchant = [[includedMerchants filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.identifier == %@", transaction.merchantId]] firstObject];
+                        transaction.account = [[includedAccounts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.identifier == %@", transaction.accountId]] firstObject];
                         
                         for (MNFComment *comment in transaction.comments) {
                             comment.transactionId = transaction.identifier;

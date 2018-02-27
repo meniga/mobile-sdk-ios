@@ -13,6 +13,8 @@
 #import "MNFComment_Private.h"
 #import "MNFNumberToBoolValueTransformer.h"
 #import "MNFTag.h"
+#import "MNFMerchant.h"
+#import "MNFAccount.h"
 
 @interface MNFTransaction ()
 
@@ -39,6 +41,12 @@
                 NSMutableDictionary *dict = [response.result mutableCopy];
                 
                 MNFTransaction *transaction = [self initWithServerResult:[dict copy]];
+                
+                MNFMerchant *includedMerchant = [MNFJsonAdapter  objectOfClass:[MNFMerchant class] jsonDict:[response.includedObjects objectForKey:@"merchant"] option:0 error:nil];
+                MNFAccount *includedAccount = [MNFJsonAdapter  objectOfClass:[MNFAccount class] jsonDict:[response.includedObjects objectForKey:@"account"] option:0 error:nil];
+                
+                transaction.merchant = includedMerchant;
+                transaction.account = includedAccount;
                 
                 for (MNFComment *comment in transaction.comments) {
                     comment.transactionId = transaction.identifier;
@@ -79,11 +87,20 @@
                 
                 NSArray *transactions = [self initWithServerResults:response.result];
                 
+                NSArray<MNFMerchant*> *includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
+                NSArray<MNFAccount*> *includedAccounts = [MNFJsonAdapter  objectOfClass:[MNFAccount class] jsonDict:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+                
+                
+                
                 for (MNFTransaction *transaction in transactions) {
+                    
+                    transaction.merchant = [[includedMerchants filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.identifier == %@", transaction.merchantId]] firstObject];
+                    transaction.account = [[includedAccounts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.identifier == %@", transaction.accountId]] firstObject];
                     
                     for (MNFComment *comment in transaction.comments) {
                         comment.transactionId = transaction.identifier;
                     }
+                    
                     
                 }
                 

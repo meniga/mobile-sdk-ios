@@ -30,6 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, readonly)NSNumber *accountId;
 
 /**
+ @abstract The account of the transaction. Parsed from the 'includes' field in the JSON.
+ */
+@property(nonatomic, strong)MNFAccount *account;
+
+/**
  @abstract The amount of the transaction
  */
 @property(nonatomic, strong, readonly)NSNumber *amount;
@@ -113,6 +118,11 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract Whether the transaction is associated with a merchant.
  */
 @property(nonatomic, strong, readonly)NSNumber *isMerchant;
+
+/**
+ @abstract The merchant of the transaction. Parsed from the 'includes' field in the JSON.
+ */
+@property(nonatomic, strong)MNFMerchant *merchant;
 
 /**
  @abstract Whether the transaction is an account transfer to own account.

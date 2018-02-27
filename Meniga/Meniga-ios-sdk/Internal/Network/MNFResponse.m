@@ -57,10 +57,12 @@
             else {
                 id requestResult;
                 id metaDataResult;
+                NSDictionary *includedData;
                 
                 if ([JSONData isKindOfClass:[NSDictionary class]]) {
                     requestResult = [JSONData objectForKey:@"data"];
                     metaDataResult = [JSONData objectForKey:@"meta"];
+                    includedData = [JSONData objectForKey:@"included"];
                     if (requestResult == nil) {
                         _result = JSONData;
                     }
@@ -68,6 +70,7 @@
                         _result = requestResult;
                     }
                     _metaData = metaDataResult;
+                    _includedObjects = includedData;
                 }
                 else {
                     _result = JSONData;
