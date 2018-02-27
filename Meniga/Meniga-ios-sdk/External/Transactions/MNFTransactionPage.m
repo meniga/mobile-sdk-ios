@@ -71,8 +71,16 @@
             
                 NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
                 
-                NSArray<MNFMerchant*> *includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
-                NSArray<MNFAccount*> *includedAccounts = [MNFJsonAdapter  objectOfClass:[MNFAccount class] jsonDict:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+                NSArray<MNFMerchant*> *includedMerchants;
+                NSArray<MNFAccount*> *includedAccounts;
+                
+                if ([[response.includedObjects objectForKey:@"merchants"] isKindOfClass:[NSArray class]]) {
+                    includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
+                }
+                
+                if ([[response.includedObjects objectForKey:@"accounts"] isKindOfClass:[NSArray class]]) {
+                    includedAccounts = [MNFJsonAdapter  objectsOfClass:[MNFAccount class] jsonArray:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+                }
                 
                 
                 for (MNFTransaction *transaction in transactions) {
@@ -163,8 +171,16 @@
                 
                 NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
                 
-                NSArray<MNFMerchant*> *includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
-                NSArray<MNFAccount*> *includedAccounts = [MNFJsonAdapter  objectOfClass:[MNFAccount class] jsonDict:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+                NSArray<MNFMerchant*> *includedMerchants;
+                NSArray<MNFAccount*> *includedAccounts;
+                
+                if ([[response.includedObjects objectForKey:@"merchants"] isKindOfClass:[NSArray class]]) {
+                    includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
+                }
+                
+                if ([[response.includedObjects objectForKey:@"accounts"] isKindOfClass:[NSArray class]]) {
+                    includedAccounts = [MNFJsonAdapter  objectsOfClass:[MNFAccount class] jsonArray:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+                }
                 
                 
                 for (MNFTransaction *transaction in transactions) {
@@ -224,8 +240,16 @@
             
                 NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
                 
-                NSArray<MNFMerchant*> *includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
-                NSArray<MNFAccount*> *includedAccounts = [MNFJsonAdapter  objectOfClass:[MNFAccount class] jsonDict:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+                NSArray<MNFMerchant*> *includedMerchants;
+                NSArray<MNFAccount*> *includedAccounts;
+                
+                if ([[response.includedObjects objectForKey:@"merchants"] isKindOfClass:[NSArray class]]) {
+                    includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
+                }
+                
+                if ([[response.includedObjects objectForKey:@"accounts"] isKindOfClass:[NSArray class]]) {
+                    includedAccounts = [MNFJsonAdapter  objectsOfClass:[MNFAccount class] jsonArray:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+                }
 
                 
                 for (MNFTransaction *transaction in transactions) {
@@ -288,8 +312,16 @@
         
             NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
             
-            NSArray<MNFMerchant*> *includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
-            NSArray<MNFAccount*> *includedAccounts = [MNFJsonAdapter  objectOfClass:[MNFAccount class] jsonDict:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+            NSArray<MNFMerchant*> *includedMerchants;
+            NSArray<MNFAccount*> *includedAccounts;
+            
+            if ([[response.includedObjects objectForKey:@"merchants"] isKindOfClass:[NSArray class]]) {
+                includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
+            }
+            
+            if ([[response.includedObjects objectForKey:@"accounts"] isKindOfClass:[NSArray class]]) {
+                includedAccounts = [MNFJsonAdapter  objectsOfClass:[MNFAccount class] jsonArray:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+            }
 
             
             for (MNFTransaction *transaction in transactions) {
