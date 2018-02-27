@@ -50,6 +50,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy,readonly) NSString *errorMessage;
 
 /**
+ @abstract The code for the error message
+ */
+@property (nonatomic, copy, readonly) NSString *errorMessageCode;
+
+/**
  @abstract Identifier of the end user in the current realm's namespace.
  */
 @property (nonatomic,copy,readonly) NSString *userIdentifier;
@@ -58,6 +63,11 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract The realm user id.
  */
 @property (nonatomic,strong,readonly) NSNumber *realmUserId;
+
+/**
+ @abstract The email associated with the reaml user id.
+ */
+@property (nonatomic, copy, readonly) NSString *realmUserPersonEmail;
 
 /**
  @abstract Whether parameters can be saved by the system.

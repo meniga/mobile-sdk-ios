@@ -523,6 +523,83 @@
     return job;
 }
 
+#pragma mark - update multiple
+
++(MNFJob*)updateTransactions:(NSArray<MNFTransaction*>*)transactions
+                             withAmount:(NSNumber*)amount
+                         categoryId:(NSNumber*)categoryId
+            uncertainCategorization:(BOOL)uncertainCategorization
+       useSubtextInRecategorization:(BOOL)useSubText
+                               text:(NSString*)text
+                               date:(NSDate*)date
+                             isRead:(BOOL)isRead
+                          isFlagged:(BOOL)isFlagged
+                           userData:(NSString*)userData
+                         completion:(MNFErrorOnlyCompletionHandler)completion{
+    
+    [completion copy];
+    
+    NSMutableDictionary *jsonBody = [NSMutableDictionary new];
+    jsonBody[@"amount"] = amount;
+    jsonBody[@"categoryId"] = categoryId;
+    jsonBody[@"hasUncertainCategorization"] = @(uncertainCategorization);
+    jsonBody[@"useSubTextInRecat"] = @(useSubText);
+    jsonBody[@"text"] = text;
+    jsonBody[@"date"] = date;
+    jsonBody[@"isRead"] = @(isRead);
+    jsonBody[@"isFlagged"] = @(isFlagged);
+    jsonBody[@"userData"] = userData;
+    
+    NSData *jsonData = [MNFJsonAdapter JSONDataFromDictionary:jsonBody];
+    
+    __block MNFJob *job = [self apiRequestWithPath:kMNFApiPathTransactions pathQuery:@{@"transactionIds":[transactions valueForKeyPath:@"@distinctUnionOfObjects.identifier"]} jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPUT service:MNFServiceNameTransactions completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSArray class]]) {
+                
+                for (NSDictionary *transactionData in response.result) {
+                    
+                    for (MNFTransaction *transaction in transactions) {
+                        if ([transaction.identifier isEqualToNumber:transactionData[@"id"]]) {
+                            [MNFJsonAdapter refreshObject:transaction withJsonDict:transactionData option:kMNFAdapterOptionNoOption error:nil];
+                        }
+                    }
+                    
+                }
+                
+                for (MNFTransaction *transaction in transactions) {
+                    
+                    for (MNFComment *comment in transaction.comments) {
+                        comment.transactionId = transaction.identifier;
+                    }
+                    
+                }
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]]];
+                
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion error:response.error];
+            
+        }
+        
+        
+    }];
+    
+    return job;
+    
+}
+
 #pragma mark - Description
 
 -(NSString*)description {
