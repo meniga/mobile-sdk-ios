@@ -184,6 +184,56 @@
     return job;
 }
 
+-(MNFJob*)fetchChallengeHistoryWithSkip:(NSNumber *)skip take:(NSNumber *)take completion:(MNFMultipleChallengesCompletionHandler)completion {
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:kMNFChallengesHistory,self.challengeId];
+    NSMutableDictionary *jsonQuery = [NSMutableDictionary dictionary];
+    jsonQuery[@"skip"] = skip;
+    jsonQuery[@"take"] = take;
+    
+    __block MNFJob *job = [[self class] apiRequestWithPath:path pathQuery:[jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameChallenges completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            if ([response.result isKindOfClass:[NSArray class]]) {
+                
+                NSMutableArray *challenges = [NSMutableArray array];
+                for (NSDictionary *dict in response.result) {
+                    MNFChallenge *challenge = [MNFChallenge initWithServerResult:dict];
+                    if ([challenge.type isEqualToString:@"SuggestedSpending"]) {
+                        MNFSpendingChallenge *spending = [MNFSpendingChallenge initWithServerResult:dict[@"typeData"]];
+                        challenge.challengeModel = spending;
+                    }
+                    else if ([challenge.type isEqualToString:@"GlobalSpending"]) {
+                        MNFGlobalChallenge *global = [MNFGlobalChallenge initWithServerResult:dict[@"typeData"]];
+                        challenge.challengeModel = global;
+                    }
+                    else if ([challenge.type isEqualToString:@"CustomSpending"]) {
+                        MNFCustomChallenge *custom = [MNFCustomChallenge initWithServerResult:dict[@"typeData"]];
+                        challenge.challengeModel = custom;
+                    }
+                    [challenges addObject:challenge];
+                }
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:[challenges copy] error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:[MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]]];
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:response.error];
+        }
+    }];
+    
+    return job;
+}
+
 -(MNFJob*)acceptChallengeWithTargetAmount:(NSNumber *)targetAmount waitTime:(nullable NSNumber *)waitTime completion:(MNFErrorOnlyCompletionHandler)completion {
     [completion copy];
     
