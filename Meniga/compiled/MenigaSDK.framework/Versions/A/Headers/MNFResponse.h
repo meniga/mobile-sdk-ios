@@ -30,6 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly, nullable) id metaData;
 
 /**
+ @abstract The included data containing objects that are referenced by the data objects.
+ */
+@property (nonatomic, strong, readonly, nullable) NSDictionary* includedObjects;
+
+/**
  @abstract The raw data from the network request.
  */
 @property (nonatomic, strong, readonly, nullable) NSData *rawData;
