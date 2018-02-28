@@ -645,11 +645,11 @@
 }
 
 -(NSSet*)propertiesToIgnoreJsonSerialization {
-    return [NSSet setWithArray:@[@"objectstate"]];
+    return [NSSet setWithArray:@[@"objectstate", @"account", @"merchant"]];
 }
 
 -(NSSet*)propertiesToIgnoreJsonDeserialization {
-    return [NSSet setWithObjects:@"objectstate", nil];
+    return [NSSet setWithObjects:@"objectstate", @"account", @"merchant", nil];
 }
 
 -(NSDictionary*)subclassedProperties {
