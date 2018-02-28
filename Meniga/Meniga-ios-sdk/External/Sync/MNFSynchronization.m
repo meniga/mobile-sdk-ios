@@ -385,6 +385,14 @@
 
 + (MNFJob*)authorizeRealmAccounts:(NSArray<MNFRealmAccount *> *)realmAccounts realmUserId:(NSNumber *)realmUserId sessionToken:(NSString *)sessionToken completion:(MNFErrorOnlyCompletionHandler)completion {
     
+    if (realmAccounts.count == 0) {
+        
+        NSError *error = [MNFErrorUtils errorWithCode:kMNFErrorInvalidOperation message:@"There needs to be at least 1 realmAccount to authenticate accounts."];
+        [MNFObject executeOnMainThreadWithCompletion:completion withParameter: error];
+        
+        return [MNFJob jobWithError: error];
+    }
+    
     NSString *path = [NSString stringWithFormat:@"%@/%@/authorize?sessionToken=%@",kMNFSynchronizationAccounts,[realmUserId stringValue], sessionToken];
     
     NSArray *jsonArray = [MNFJsonAdapter JSONArrayFromArray:realmAccounts option:kMNFAdapterOptionNoOption error:nil];
