@@ -104,6 +104,7 @@ typedef void (^MNFMultipleAccountHistoryCompletionHandler)(NSArray <MNFAccountHi
 typedef void (^MNFMultipleAccountCategoriesCompletionHandler)(NSArray <MNFAccountCategory *> *_Nullable accountTypes, NSError *_Nullable error);
 typedef void (^MNFMultipleAccountAuthorizationTypesCompletionHandler)(NSArray <MNFAccountAuthorizationType *> *_Nullable accountAuthorizationTypes, NSError *_Nullable error);
 typedef void (^MNFMultipleAccountTypesCompletionHandler)(NSArray <MNFAccountType *> *_Nullable realmAccountTypes, NSError *_Nullable error);
+typedef void (^MNFAccountTypeCompletionHandler)(MNFAccountType *_Nullable realmAccountType, NSError *_Nullable error);
 
 // Networth Account
 typedef void (^MNFMultipleNetworthAccountsCompletionHandler)(NSArray <MNFNetworthAccount *> * _Nullable networthAccounts, NSError *_Nullable error);

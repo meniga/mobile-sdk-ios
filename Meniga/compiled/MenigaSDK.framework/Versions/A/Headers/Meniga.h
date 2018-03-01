@@ -93,6 +93,7 @@
 #import "MNFOrganizationRealm.h"
 #import "MNFRealmAccount.h"
 #import "MNFAuthentication.h"
+#import "MNFImportAccountConfiguration.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
