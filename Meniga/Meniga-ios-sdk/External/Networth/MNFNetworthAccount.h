@@ -10,7 +10,6 @@
 #import "MNFNetworthBalanceHistory.h"
 #import "MNFAccountCategory.h"
 
-
 NS_ASSUME_NONNULL_BEGIN
 /**
  MNFNetworth represents the main networth class from which you fetch main info and lists with Networth information. Networth accounts
@@ -65,7 +64,22 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract Account type of the networth account.
  @discussion This is identical to the account type of the corresponding MNFAccount.
  */
-@property(nonatomic, strong, readonly) MNFAccountType *accountType;
+@property(nonatomic, strong, readonly) MNFAccountType *accountType MNF_DEPRECATED("Deprecated, use accountTypeCategory instead");
+
+/**
+ The account type category.
+ */
+@property (nonatomic,strong,readonly) MNFAccountCategory *accountTypeCategory;
+
+/**
+ The currency code of the account.
+ */
+@property (nonatomic,copy,readonly) NSString *currencyCode;
+
+/**
+ The current balance in user currency.
+ */
+@property (nonatomic,strong,readonly) NSNumber *currentBalanceInUserCurrency;
 
 /**
  @abstract Instantiates a new networth account object.
@@ -108,7 +122,33 @@ NS_ASSUME_NONNULL_BEGIN
  @return An MNFJob containing an array of networth accounts or an error.
  @discussion Unknown account types are ignored
  */
-+(MNFJob*)fetchWithStartDate:(NSDate*)startDate endDate:(NSDate*)endDate interPolation:(BOOL)useInterpolation completion:(nullable MNFMultipleNetworthAccountsCompletionHandler)completion;
++(MNFJob*)fetchWithStartDate:(NSDate*)startDate endDate:(NSDate*)endDate interPolation:(BOOL)useInterpolation completion:(nullable MNFMultipleNetworthAccountsCompletionHandler)completion MNF_DEPRECATED("Use method with skip and take instead.");
+
+/**
+ @abstract Fetches a list of networth accounts and balance history.
+ @param startDate The minimum date of the balance history
+ @param endDate The maximum date of the balance history
+ @param useInterpolation If true, the API will return estimated values for months with no imported or manually added values.
+ @param skip Number of accounts to skip. Defaults to zero.
+ @param take Number of accounts to take. If null returns all.
+ @param completion completion executing with an error or result
+ @return An MNFJob containing an array of networth accounts or an error.
+ @discussion Unknown account types are ignored
+ */
++(MNFJob*)fetchWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate interPolation:(BOOL)useInterpolation skip:(nullable NSNumber*)skip take:(nullable NSNumber*)take completion:(nullable MNFMultipleNetworthAccountsCompletionHandler)completion;
+
+/**
+ @abstract Fetches a list of networth accounts and balance history.
+ @param startDate The minimum date of the balance history
+ @param endDate The maximum date of the balance history
+ @param intervalGrouping An interval enum indicating what balance history entries should be returned Possible values are 'Dailey', 'Monthly' and 'Yearly'.
+ @param skip Number of accounts to skip. Defaults to zero.
+ @param take Number of accounts to take. If null returns all.
+ @param completion completion executing with an error or result
+ @return An MNFJob containing an array of networth accounts or an error.
+ @discussion Unknown account types are ignored
+ */
++(MNFJob*)fetchWithStartDate:(NSDate*)startDate endDate:(NSDate *)endDate intervalGrouping:(NSString*)intervalGrouping skip:(nullable NSNumber*)skip take:(nullable NSNumber*)take completion:(nullable MNFMultipleNetworthAccountsCompletionHandler)completion;
 
 /**
  @abstract Fetches the date of the first entry in the networth balance history
@@ -124,6 +164,15 @@ NS_ASSUME_NONNULL_BEGIN
  @return Returns an MNFJob with results or error.
  */
 +(MNFJob*)fetchNetworthTypesWithCompletion:(MNFMultipleAccountTypesCompletionHandler)completion;
+
+/**
+ @abstract Refreshes the account with data from the server.
+ 
+ @param completion A completion block returns an error.
+ 
+ @return MNFJob A job containing an error.
+ */
+-(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Updates the current networth account with name and visibility

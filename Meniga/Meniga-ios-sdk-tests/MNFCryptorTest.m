@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "MNFCryptor.h"
+//#import "MNFCryptor.h"
 #import "MNFKeychain.h"
 
 @interface MNFCryptorTest : XCTestCase

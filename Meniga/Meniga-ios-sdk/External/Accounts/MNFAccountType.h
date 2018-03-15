@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The account type of the realm account type.
  */
-@property (nonatomic,strong,readonly) NSString *accountType DEPRECATED_ATTRIBUTE;
+@property (nonatomic,strong,readonly) NSString *accountType MNF_DEPRECATED("Use account category instead");
 
 /**
  @abstract Fetches a list of all realm account types.

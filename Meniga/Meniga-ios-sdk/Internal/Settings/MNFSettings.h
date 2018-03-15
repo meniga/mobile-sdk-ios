@@ -84,6 +84,8 @@ typedef NS_ENUM(NSUInteger,MNFCachePolicy) {
 @property (nonatomic,strong) NSTimeZone *timeZone;
 @property (nonatomic) NSTimeInterval requestTimeout;
 @property (nonatomic) NSTimeInterval resourceTimeout;
+@property (nonatomic,strong) NSURLSessionConfiguration *sessionConfiguration;
+@property (nonatomic,weak) id <NSURLSessionDelegate> sessionDelegate;
 
 @property (nonatomic,strong) NSMutableDictionary *apiURLsForClasses;
 @property (nonatomic,strong) NSMutableDictionary *authenticationProvidersForClasses;

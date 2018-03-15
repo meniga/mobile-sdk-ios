@@ -25,7 +25,12 @@
 /**
  @abstract Expired offers without any repayment transactions will be excluded when this parameter is set to true. By default it is false.
  */
-@property (nonatomic, strong, readwrite, nullable) NSNumber *expiredWithCashbackOnly;
+@property (nonatomic, strong, readwrite, nullable) NSNumber *expiredWithCashbackOnly MNF_DEPRECATED("Use expiredWithRedemptionsOnly instead");
+
+/**
+ Whether to exclude offers without any redemption transactions.
+ */
+@property (nonatomic, strong, readwrite, nullable) NSNumber *expiredWithRedemptionsOnly;
 
 /**
  @abstract Wether the meta field should be skipped in the return.
@@ -43,8 +48,13 @@
 @property (nonatomic, strong, readwrite, nullable) NSNumber *longitude;
 
 /**
- @abstract The radius in km for location filtering.
+ @abstract The maximum number of locations to be returned.
  */
 @property (nonatomic, strong, readwrite, nullable) NSNumber *limitLocations;
+
+/**
+ Radius in km for location filtering.
+ */
+@property (nonatomic, strong, readwrite, nullable) NSNumber *radiusKm;
 
 @end

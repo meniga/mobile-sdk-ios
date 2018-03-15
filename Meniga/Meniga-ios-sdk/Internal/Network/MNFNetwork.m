@@ -14,29 +14,9 @@
 #import "MNFErrorUtils.h"
 #import "MNFLogger.h"
 
-//@interface MNFNetworkDelegate  : NSObject <NSURLSessionDelegate>
-//
-//@end
-//
-//@implementation MNFNetworkDelegate
-//
-//-(void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
-//    
-//    NSObject <MNFAuthenticationProviderProtocol> *provider = [Meniga authenticationProvider];
-//    if ([provider respondsToSelector:@selector(respondToAuthenticationChallenge:withCompletion:)]) {
-//        [provider respondToAuthenticationChallenge:challenge withCompletion:completionHandler];
-//    }
-//    else {
-//        completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
-//    }
-//}
-//
-//@end
-
 @implementation MNFNetwork
 
 static NSURLSession *session = nil;
-//static MNFNetworkDelegate *networkDelegate;
 
 +(void)initialize {
     if (self == [MNFNetwork class]) {
@@ -47,7 +27,10 @@ static NSURLSession *session = nil;
         if ([Meniga resourceTimeoutInterval] != 0) {
             sessionConfiguration.timeoutIntervalForResource = [Meniga resourceTimeoutInterval];
         }
-        session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+        if ([Meniga sessionConfiguration] != nil) {
+            sessionConfiguration = [Meniga sessionConfiguration];
+        }
+        session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:[Meniga sessionDelegate] delegateQueue:nil];
     }
 }
 
@@ -56,6 +39,7 @@ static NSURLSession *session = nil;
     sessionConfiguration.protocolClasses = @[[MNFNetworkProtocolForTesting class]];
     session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
 }
+
 +(void)flushForTesting {
     [session invalidateAndCancel];
 }

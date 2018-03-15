@@ -57,6 +57,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSNumber *reward;
 
 /**
+ The type of offer. 'None', 'Onboarding', 'Loyalty', 'Uplift', 'Rescue' or 'Exclusive'.
+ */
+@property (nonatomic, copy, readonly) NSString *offerType;
+
+/**
  @abstract Total amount redeemed when using the offer.
  */
 @property (nonatomic, strong, readonly) NSNumber *totalRedeemedAmount;
@@ -190,6 +195,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString *webUriLabel;
 
 /**
+ The date the offer was first seen.
+ */
+@property (nonatomic, strong, readonly) NSDate *firstSeen;
+
+/**
+ The date the offer was last seen.
+ */
+@property (nonatomic, strong, readonly) NSDate *lastSeen;
+
+/**
  @abstract Fetches an object with a given identifier from the server.
  
  @param identifier The server identifier for the offer.
@@ -235,7 +250,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Fetch nearby merchant locations for offer.
  
+ @param offerId The id of the offer.
+ @param latitude Central latitude for location filtering.
+ @param longitude Central longitude for location filtering.
+ @param radiusKm Radius in km for location filter.
+ @param limitLocations The maximum number of lcoations to be returned (per offer).
+ @param completion A completion block returning a list of merchant locations and an error.
  
+ @return An MNFJob containing a list of merchant locations and an error.
  */
 +(MNFJob *)fetchMerchantLocationsWithOfferId:(NSNumber *)offerId latitude:(NSNumber *)latitude longitude:(NSNumber *)longitude radiusKm:(NSNumber *)radiusKm limitLocations:(NSNumber *)limitLocations completion:(nullable MNFMultipleMerchantLocationsCompletionHandler)completion;
 

@@ -34,10 +34,16 @@
 
 +(MNFJob*)fetchReimbursementAccountsIncludesInactive:(NSNumber *)includesInactive completion:(nullable MNFMultipleReimbursementAccountsCompletionHandler)completion; {
     
+    return [self fetchReimbursementAccountsIncludesInactive:includesInactive skip:nil take:nil completion:completion];
+}
+
++(MNFJob*)fetchReimbursementAccountsIncludesInactive:(NSNumber *)includesInactive skip:(NSNumber *)skip take:(NSNumber *)take completion:(MNFMultipleReimbursementAccountsCompletionHandler)completion {
     NSString *path = [NSString stringWithFormat:@"%@", kMNFApiPathReimbursementAccounts];
     
     NSMutableDictionary *query = [NSMutableDictionary dictionary];
     query[@"includeInactive"] = [[MNFNumberToBoolValueTransformer transformer] reverseTransformedValue:includesInactive];
+    query[@"skip"] = skip;
+    query[@"take"] = take;
     
     __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery: query jsonBody: nil HTTPMethod: kMNFHTTPMethodGET service: MNFServiceNameOffers completion:^(MNFResponse *response) {
         

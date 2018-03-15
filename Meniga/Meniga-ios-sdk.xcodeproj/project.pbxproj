@@ -98,6 +98,22 @@
 		2FDA47832F5BC8431A55370B2600CC34 /* MNFUserEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4291DDE46B757606AA0F3DA62F77D3C1 /* MNFUserEvent.m */; };
 		307058F2D9700D5005092E9968591BF2 /* MNFGlobalChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B5374500FE15AD46EFA82EE806542A /* MNFGlobalChallenge.m */; };
 		30B935D763775EF7BFF0C97BD85E876E /* MNFJob.h in Headers */ = {isa = PBXBuildFile; fileRef = BD36BB35EE4A9D0A6983804655630A82 /* MNFJob.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31014393205A6CBB00F2B52A /* MNFLifeGoalHistory.h in Headers */ = {isa = PBXBuildFile; fileRef = 31014391205A6CBB00F2B52A /* MNFLifeGoalHistory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31014394205A6CBB00F2B52A /* MNFLifeGoalHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 31014392205A6CBB00F2B52A /* MNFLifeGoalHistory.m */; };
+		31014397205A6ED100F2B52A /* MNFLifeGoalAccountInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 31014395205A6ED100F2B52A /* MNFLifeGoalAccountInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31014398205A6ED100F2B52A /* MNFLifeGoalAccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 31014396205A6ED100F2B52A /* MNFLifeGoalAccountInfo.m */; };
+		3101439C205A76EF00F2B52A /* MNFMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 3101439A205A76EF00F2B52A /* MNFMedia.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3101439D205A76EF00F2B52A /* MNFMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 3101439B205A76EF00F2B52A /* MNFMedia.m */; };
+		310143A0205AB9A200F2B52A /* MNFTransactionSuggestion.h in Headers */ = {isa = PBXBuildFile; fileRef = 3101439E205AB9A200F2B52A /* MNFTransactionSuggestion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		310143A1205AB9A200F2B52A /* MNFTransactionSuggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 3101439F205AB9A200F2B52A /* MNFTransactionSuggestion.m */; };
+		310143A5205AC28F00F2B52A /* MNFPeerComparison.h in Headers */ = {isa = PBXBuildFile; fileRef = 310143A3205AC28F00F2B52A /* MNFPeerComparison.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		310143A6205AC28F00F2B52A /* MNFPeerComparison.m in Sources */ = {isa = PBXBuildFile; fileRef = 310143A4205AC28F00F2B52A /* MNFPeerComparison.m */; };
+		310143A9205AC2F500F2B52A /* MNFPeerComparisonStats.h in Headers */ = {isa = PBXBuildFile; fileRef = 310143A7205AC2F500F2B52A /* MNFPeerComparisonStats.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		310143AA205AC2F500F2B52A /* MNFPeerComparisonStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 310143A8205AC2F500F2B52A /* MNFPeerComparisonStats.m */; };
+		310143AD205ACAF000F2B52A /* MNFPeerComparisonMerchants.h in Headers */ = {isa = PBXBuildFile; fileRef = 310143AB205ACAF000F2B52A /* MNFPeerComparisonMerchants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		310143AE205ACAF000F2B52A /* MNFPeerComparisonMerchants.m in Sources */ = {isa = PBXBuildFile; fileRef = 310143AC205ACAF000F2B52A /* MNFPeerComparisonMerchants.m */; };
+		312007D52059854800FCF828 /* MNFLifeGoal.h in Headers */ = {isa = PBXBuildFile; fileRef = 312007D32059854700FCF828 /* MNFLifeGoal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		312007D62059854800FCF828 /* MNFLifeGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 312007D42059854700FCF828 /* MNFLifeGoal.m */; };
 		314FBAE720209EF900135E48 /* MNFImportAccountConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 314FBAE520209EF900135E48 /* MNFImportAccountConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		314FBAE820209EF900135E48 /* MNFImportAccountConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 314FBAE620209EF900135E48 /* MNFImportAccountConfiguration.m */; };
 		31BDD8A42008F6B20089E314 /* MNFBudgetEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 31BDD8A22008F6B20089E314 /* MNFBudgetEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -462,6 +478,22 @@
 		2EDED8416CBCE2D0D61D646FAEC48A99 /* MNFOrganizationRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFOrganizationRealm.h; sourceTree = "<group>"; };
 		2FCA68796B3469B8E1B8545ADCB686DA /* MNFAccountFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAccountFilter.m; sourceTree = "<group>"; };
 		302D9D88B8C65661F1FA21815D4A4153 /* MNFUpcomingBalanceDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFUpcomingBalanceDate.m; path = Upcoming/MNFUpcomingBalanceDate.m; sourceTree = "<group>"; };
+		31014391205A6CBB00F2B52A /* MNFLifeGoalHistory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFLifeGoalHistory.h; sourceTree = "<group>"; };
+		31014392205A6CBB00F2B52A /* MNFLifeGoalHistory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFLifeGoalHistory.m; sourceTree = "<group>"; };
+		31014395205A6ED100F2B52A /* MNFLifeGoalAccountInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFLifeGoalAccountInfo.h; sourceTree = "<group>"; };
+		31014396205A6ED100F2B52A /* MNFLifeGoalAccountInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFLifeGoalAccountInfo.m; sourceTree = "<group>"; };
+		3101439A205A76EF00F2B52A /* MNFMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFMedia.h; sourceTree = "<group>"; };
+		3101439B205A76EF00F2B52A /* MNFMedia.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFMedia.m; sourceTree = "<group>"; };
+		3101439E205AB9A200F2B52A /* MNFTransactionSuggestion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFTransactionSuggestion.h; sourceTree = "<group>"; };
+		3101439F205AB9A200F2B52A /* MNFTransactionSuggestion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFTransactionSuggestion.m; sourceTree = "<group>"; };
+		310143A3205AC28F00F2B52A /* MNFPeerComparison.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFPeerComparison.h; sourceTree = "<group>"; };
+		310143A4205AC28F00F2B52A /* MNFPeerComparison.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFPeerComparison.m; sourceTree = "<group>"; };
+		310143A7205AC2F500F2B52A /* MNFPeerComparisonStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFPeerComparisonStats.h; sourceTree = "<group>"; };
+		310143A8205AC2F500F2B52A /* MNFPeerComparisonStats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFPeerComparisonStats.m; sourceTree = "<group>"; };
+		310143AB205ACAF000F2B52A /* MNFPeerComparisonMerchants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFPeerComparisonMerchants.h; sourceTree = "<group>"; };
+		310143AC205ACAF000F2B52A /* MNFPeerComparisonMerchants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFPeerComparisonMerchants.m; sourceTree = "<group>"; };
+		312007D32059854700FCF828 /* MNFLifeGoal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFLifeGoal.h; sourceTree = "<group>"; };
+		312007D42059854700FCF828 /* MNFLifeGoal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFLifeGoal.m; sourceTree = "<group>"; };
 		314FBAE520209EF900135E48 /* MNFImportAccountConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFImportAccountConfiguration.h; sourceTree = "<group>"; };
 		314FBAE620209EF900135E48 /* MNFImportAccountConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFImportAccountConfiguration.m; sourceTree = "<group>"; };
 		316F5593200E63300033BC38 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
@@ -886,6 +918,41 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		31014399205A76D800F2B52A /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				3101439A205A76EF00F2B52A /* MNFMedia.h */,
+				3101439B205A76EF00F2B52A /* MNFMedia.m */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		310143A2205AC27300F2B52A /* Peer comparison */ = {
+			isa = PBXGroup;
+			children = (
+				310143A3205AC28F00F2B52A /* MNFPeerComparison.h */,
+				310143A4205AC28F00F2B52A /* MNFPeerComparison.m */,
+				310143A7205AC2F500F2B52A /* MNFPeerComparisonStats.h */,
+				310143A8205AC2F500F2B52A /* MNFPeerComparisonStats.m */,
+				310143AB205ACAF000F2B52A /* MNFPeerComparisonMerchants.h */,
+				310143AC205ACAF000F2B52A /* MNFPeerComparisonMerchants.m */,
+			);
+			path = "Peer comparison";
+			sourceTree = "<group>";
+		};
+		312007D22059851C00FCF828 /* LifeGoals */ = {
+			isa = PBXGroup;
+			children = (
+				312007D32059854700FCF828 /* MNFLifeGoal.h */,
+				312007D42059854700FCF828 /* MNFLifeGoal.m */,
+				31014391205A6CBB00F2B52A /* MNFLifeGoalHistory.h */,
+				31014392205A6CBB00F2B52A /* MNFLifeGoalHistory.m */,
+				31014395205A6ED100F2B52A /* MNFLifeGoalAccountInfo.h */,
+				31014396205A6ED100F2B52A /* MNFLifeGoalAccountInfo.m */,
+			);
+			path = LifeGoals;
+			sourceTree = "<group>";
+		};
 		316F5592200E630B0033BC38 /* Podspec metadata */ = {
 			isa = PBXGroup;
 			children = (
@@ -905,15 +972,6 @@
 				3EFF2F8A4F8643009E9D86C9886C412A /* MNFAdapterSubTestObject.m */,
 			);
 			name = Normal;
-			sourceTree = "<group>";
-		};
-		3CF8D2EECCB48A49A80E50D5B33F8DB2 /* Account Filter */ = {
-			isa = PBXGroup;
-			children = (
-				B9844C819A11FA77331B79FB98513AD9 /* MNFAccountFilter.h */,
-				2FCA68796B3469B8E1B8545ADCB686DA /* MNFAccountFilter.m */,
-			);
-			name = "Account Filter";
 			sourceTree = "<group>";
 		};
 		3DE61C382C69F1FD20BBA9336E61561F /* Internal */ = {
@@ -1096,6 +1154,8 @@
 				7012BF000CEA4559EAE0620C8A6DB5DA /* MNFTransactionSeriesValue.m */,
 				52171459AA8554D6BCD0180CE04F189A /* MNFTransactionSplitAction.h */,
 				3F924D9ACD4270AF9F48D5DD6FF3A2DE /* MNFTransactionSplitAction.m */,
+				3101439E205AB9A200F2B52A /* MNFTransactionSuggestion.h */,
+				3101439F205AB9A200F2B52A /* MNFTransactionSuggestion.m */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -1285,6 +1345,9 @@
 		89A73453BCA3D6B321F788661EE4EA06 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				310143A2205AC27300F2B52A /* Peer comparison */,
+				31014399205A76D800F2B52A /* Media */,
+				312007D22059851C00FCF828 /* LifeGoals */,
 				98DB9118F3AE544079D8D5945A9F9672 /* Accounts */,
 				401A52E7D2F157C01A9A820ED1BF3762 /* Authentication */,
 				7078F69CE8051DEFD201449E1340119D /* Budget */,
@@ -1341,7 +1404,8 @@
 		98DB9118F3AE544079D8D5945A9F9672 /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
-				3CF8D2EECCB48A49A80E50D5B33F8DB2 /* Account Filter */,
+				B9844C819A11FA77331B79FB98513AD9 /* MNFAccountFilter.h */,
+				2FCA68796B3469B8E1B8545ADCB686DA /* MNFAccountFilter.m */,
 				7351667EF914B2B404DFFE2482B280EB /* MNFAccount.h */,
 				CD03DF56737E41D84ECEA4872E9538E6 /* MNFAccount.m */,
 				959B36C7454CAF6CA71449E7238DBA43 /* MNFAccountAuthorizationType.h */,
@@ -1841,11 +1905,13 @@
 				09651206CC4727B4EC6885ACB0BD1CB0 /* MNFChallenge.h in Headers */,
 				E6813EDF91A2C18417EA3AC1D61D1964 /* MNFComment.h in Headers */,
 				E09A86119EF4A4D5B7DBBBD113D15273 /* MNFComment_Private.h in Headers */,
+				31014397205A6ED100F2B52A /* MNFLifeGoalAccountInfo.h in Headers */,
 				2A7EB3C38722FAF51341C4CCEB2C84A9 /* MNFConstants.h in Headers */,
 				2A818149FCDC928686253B466E46BBFE /* MNFCurrency.h in Headers */,
 				D9B10DFD75104106F8263C777FC697E1 /* MNFCustomChallenge.h in Headers */,
 				D5940D418B4F301E5254313510C8C3E5 /* MNFErrorUtils.h in Headers */,
 				3E20D83DB72A256D893C9BC7085DCB3F /* MNFFeed.h in Headers */,
+				3101439C205A76EF00F2B52A /* MNFMedia.h in Headers */,
 				28F20AF0A7449D63CDBB08851AD6E59F /* MNFFeedItem.h in Headers */,
 				EB6A24F0567743ABEA99D7B893E6026F /* MNFFeedItemGroup.h in Headers */,
 				9F56E1CA07A61974714DC3C428E74655 /* MNFFeedItem_Private.h in Headers */,
@@ -1867,15 +1933,19 @@
 				4EE607DD20091411005F1811 /* MenigaDocs.h in Headers */,
 				9717FCC9B675B45000B08C0D11A994EF /* MNFMerchantAddress.h in Headers */,
 				1E7A19F1281BBF35C130CA27EB0A565C /* MNFMerchantLocation.h in Headers */,
+				310143A5205AC28F00F2B52A /* MNFPeerComparison.h in Headers */,
 				971CCEA393AEC0A80EA0FA0CD350585A /* MNFMerchantSeries.h in Headers */,
 				98E6454061147E2114D44A5046ED8543 /* MNFMerchantSeriesOptions.h in Headers */,
 				67166599CC89E455EF7E55B660789935 /* MNFNetwork.h in Headers */,
 				B7A59FA975F7B5775B08C7624D3C098F /* MNFNetworthAccount.h in Headers */,
 				3D42265A141A86A79F0714DD92218E9B /* MNFNetworthBalanceHistory.h in Headers */,
+				31014393205A6CBB00F2B52A /* MNFLifeGoalHistory.h in Headers */,
 				1637ACB6C62FE660134EF3BB69EB56F0 /* MNFNumberToBoolValueTransformer.h in Headers */,
 				9A90B9F7143E6739D2B63928E9B31287 /* MNFNumberToStringValueTransformer.h in Headers */,
 				925CAEC9E860C52D2E7F2B6455AD5D73 /* MNFObject.h in Headers */,
+				310143AD205ACAF000F2B52A /* MNFPeerComparisonMerchants.h in Headers */,
 				57C9C801C0A877F0985B62BC39B33DFA /* MNFObjectState.h in Headers */,
+				310143A9205AC2F500F2B52A /* MNFPeerComparisonStats.h in Headers */,
 				2D10908D6AF5001BB9BBF18F2BE55D32 /* MNFObjectTypes.h in Headers */,
 				A473E56DF1B9E3FEAAAD24CBFC0D36FE /* MNFObjectUpdater.h in Headers */,
 				CC8E98A4B8F49891344C80CFB094E1AC /* MNFObject_Private.h in Headers */,
@@ -1891,6 +1961,7 @@
 				866B000B8E72E3E6D1D5FEB65CD61B04 /* MNFRealmAccount.h in Headers */,
 				42F789E612C7FF5D2A725237683E2094 /* MNFRealmSyncResponse.h in Headers */,
 				9A89AE3A62459E974FD1AF803AED703B /* MNFRealmUser.h in Headers */,
+				312007D52059854800FCF828 /* MNFLifeGoal.h in Headers */,
 				E5B7155B58A159EC35C48FEEC78A16AF /* MNFRedemptions.h in Headers */,
 				DA73C96DEEC0067991239EDE838345BE /* MNFReimbursementAccount.h in Headers */,
 				795D384EC30A5B46D39A62B826AEBD15 /* MNFRequest.h in Headers */,
@@ -1902,6 +1973,7 @@
 				36934E84E76299003D9E65546F956EBD /* MNFSpendingChallenge.h in Headers */,
 				FDB9BBAB11131FD57AAC0133A55686C7 /* MNFSyncAuthRequiredParameter.h in Headers */,
 				024156462CF7D33337F6FD2DE1C52D5D /* MNFSyncAuthenticationChallenge.h in Headers */,
+				310143A0205AB9A200F2B52A /* MNFTransactionSuggestion.h in Headers */,
 				FCDCAAEA57A6147B2D2ABC808532C96C /* MNFSynchronization.h in Headers */,
 				D23C5C6EB2F193D2C916F8B2B20FB0C5 /* MNFTag.h in Headers */,
 				9C4FAFD43E2917B5D78CB8C21661B429 /* MNFTermsAndConditionType.h in Headers */,
@@ -2159,6 +2231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFB5224AEF22B9DEFFD41A4DAE61E7DC /* GCDUtils.m in Sources */,
+				312007D62059854800FCF828 /* MNFLifeGoal.m in Sources */,
 				E4DD3F4E4B506CF0C5AB6299E37952A8 /* MNFAPIRequest.m in Sources */,
 				BCCD8F589186C450FEE69A1F43D1544A /* MNFAccount.m in Sources */,
 				6ECE91475F534E9E62D3262EE103D372 /* MNFAccountAuthorizationType.m in Sources */,
@@ -2183,6 +2256,7 @@
 				386DC0188780DB5535B703CE0A0C4E8F /* MNFErrorUtils.m in Sources */,
 				94879610455691C49D39EBDCF26B30B4 /* MNFFeed.m in Sources */,
 				B85E46A82A1516AF43893DB68772C415 /* MNFFeedItem.m in Sources */,
+				3101439D205A76EF00F2B52A /* MNFMedia.m in Sources */,
 				F64F7C2323C6862D4D5ED3993CE1519E /* MNFFeedItemGroup.m in Sources */,
 				307058F2D9700D5005092E9968591BF2 /* MNFGlobalChallenge.m in Sources */,
 				D423DC3B1C7D20482CE0440ED66EE1E0 /* MNFISO8601DateFormatter.m in Sources */,
@@ -2220,6 +2294,7 @@
 				314FBAE820209EF900135E48 /* MNFImportAccountConfiguration.m in Sources */,
 				B4887AA0429BC26EABDE666378CF438A /* MNFPublic.m in Sources */,
 				E249FE41A894F906BE43A4A1CA5CD885 /* MNFRealmAccount.m in Sources */,
+				31014394205A6CBB00F2B52A /* MNFLifeGoalHistory.m in Sources */,
 				919FECC6893EEAC82FB37C0BD61A0741 /* MNFRealmSyncResponse.m in Sources */,
 				23DE6C8E048BADC19C177C2AA6B3861F /* MNFRealmUser.m in Sources */,
 				5FD8AA0C945B2C0E3CFE5ACB99CC8A85 /* MNFRedemptions.m in Sources */,
@@ -2239,11 +2314,15 @@
 				5F8B49A43878D76DA9B51B3AAF7D37CC /* MNFTermsAndConditions.m in Sources */,
 				D40B01FD310FBF260D1A3C2AA3A8E550 /* MNFTransaction.m in Sources */,
 				FECED832C54DD5794CD39185D3DABAD2 /* MNFTransactionDayOverview.m in Sources */,
+				310143AE205ACAF000F2B52A /* MNFPeerComparisonMerchants.m in Sources */,
 				57E4FC7993265ACDB5FB15A0EA7C1CF8 /* MNFTransactionFilter.m in Sources */,
 				07E2FBC0D8E6D08C0267625188D0C306 /* MNFTransactionGroup.m in Sources */,
 				CBF985E8B1BED9F6F263BBA34ADAE35C /* MNFTransactionPage.m in Sources */,
+				31014398205A6ED100F2B52A /* MNFLifeGoalAccountInfo.m in Sources */,
 				2F9502C5AE28BEEC45B03FA43FF324B1 /* MNFTransactionRule.m in Sources */,
 				1F71B4DB799BF3460AED087323B978DB /* MNFTransactionSeries.m in Sources */,
+				310143A6205AC28F00F2B52A /* MNFPeerComparison.m in Sources */,
+				310143AA205AC2F500F2B52A /* MNFPeerComparisonStats.m in Sources */,
 				2C2B8F94958CDA288FB7B620879E8F5E /* MNFTransactionSeriesFilter.m in Sources */,
 				9FA941445721853DD3AD08D88948EFF4 /* MNFTransactionSeriesStatistics.m in Sources */,
 				48D54F3D3033047CB13006E9FB0BE4E9 /* MNFTransactionSeriesValue.m in Sources */,
@@ -2254,6 +2333,7 @@
 				01462C3261AB32AECC55831FD4E5365B /* MNFUpcomingBalanceDate.m in Sources */,
 				1120EAEF51D2B4CF1ED5A22A073E0A3B /* MNFUpcomingComment.m in Sources */,
 				66B6859E014258F36EA1D205CF8BB5FC /* MNFUpcomingDetails.m in Sources */,
+				310143A1205AB9A200F2B52A /* MNFTransactionSuggestion.m in Sources */,
 				0485EFA33F481DECEF600EA6875AB537 /* MNFUpcomingInvoice.m in Sources */,
 				7A3BE61A187B2FE5394077056B5CBDDD /* MNFUpcomingPattern.m in Sources */,
 				EE8AC6A2723FF72369C2247A8D7AB698 /* MNFUpcomingReconcileScore.m in Sources */,
