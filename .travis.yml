@@ -1,4 +1,4 @@
 language: objective-c
 osx_image: xcode9.2
 script:
-  - xcodebuild -project Meniga/Meniga-ios-sdk.xcodeproj -scheme Meniga-ios-sdk -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8' test
+  - xcodebuild -project Meniga/Meniga-ios-sdk.xcodeproj -scheme Meniga-ios-sdk-test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8' test
