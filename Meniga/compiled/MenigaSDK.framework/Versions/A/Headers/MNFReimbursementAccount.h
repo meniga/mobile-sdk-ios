@@ -27,7 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable, readonly) NSString *accountType;
 @property (nonatomic, strong, nullable, readonly) NSString *accountInfo;
 
-+(MNFJob*)fetchReimbursementAccountsIncludesInactive:(NSNumber *)includesInactive completion:(nullable MNFMultipleReimbursementAccountsCompletionHandler)completion;
++(MNFJob*)fetchReimbursementAccountsIncludesInactive:(NSNumber *)includesInactive completion:(nullable MNFMultipleReimbursementAccountsCompletionHandler)completion MNF_DEPRECATED("Use method with skip and take instead.");
++(MNFJob*)fetchReimbursementAccountsIncludesInactive:(NSNumber *)includesInactive skip:(nullable NSNumber*)skip take:(nullable NSNumber*)take completion:(nullable MNFMultipleReimbursementAccountsCompletionHandler)completion;
 
 +(MNFJob *)fetchReimbursementAccountWithId:(NSNumber *)identifier completion:(MNFRemibursementAccountCompletionHandler)completion;
 

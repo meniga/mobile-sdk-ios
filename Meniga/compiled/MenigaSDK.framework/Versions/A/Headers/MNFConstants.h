@@ -52,6 +52,11 @@
 @class MNFRealmAccount;
 @class MNFUserEventSubscriptionDetail;
 @class MNFMerchantLocation;
+@class MNFLifeGoal;
+@class MNFLifeGoalHistory;
+@class MNFLifeGoalAccountInfo;
+@class MNFTransactionSuggestion;
+@class MNFPeerComparison;
 
 // MNFAccount
 @class MNFAccount;
@@ -87,6 +92,8 @@ typedef void (^MNFTransactionCompletionHandler)(MNFTransaction *_Nullable transa
 typedef void (^MNFMultipleTransactionsCompletionHandler)(NSArray <MNFTransaction *> *_Nullable transactions, NSError * _Nullable error);
 typedef void (^MNFTransactionRuleCompletionHandler)(MNFTransactionRule *_Nullable rule, NSError *_Nullable error);
 typedef void (^MNFMultipleTransactionRulesCompleitonHandler)(NSArray <MNFTransactionRule *> *_Nullable transactionRules, NSError *_Nullable error);
+typedef void (^MNFTransactionSuggestionsCompletionHandler)(NSArray <MNFTransactionSuggestion *> *_Nullable suggestions, NSError *_Nullable error);
+
 //TransactionPage
 typedef void (^MNFTransactionPageCompletionHandler)(MNFTransactionPage *_Nullable result, NSError  * _Nullable error);
 //TransactionSeries
@@ -153,6 +160,7 @@ typedef void (^MNFFeedCompletionHandler)(MNFFeed *_Nullable feed, NSError *_Null
 typedef void (^MNFFeedItemsCompletionHandler)(NSArray <MNFFeedItem *> * _Nullable feedItems, NSError * _Nullable error);
 typedef void (^MNFFeedTypesCompletionHandler)(NSArray <NSString *> *_Nullable feedTypes, NSError *_Nullable error);
 typedef void (^MNFScheduledEventCompletionHandler)(MNFScheduledEvent *_Nullable scheduledEvent, NSError *_Nullable error);
+typedef void (^MNFMultipleScheduledEventsCompletionHandler)(NSArray <MNFScheduledEvent *> *_Nullable scheduledEvents, NSError *_Nullable error);
 typedef void (^MNFSingleFeedItemCompletionHandler)(MNFFeedItem *_Nullable feedItem, NSError * _Nullable error);
 
 //Upcoming
@@ -177,6 +185,18 @@ typedef void (^MNFBudgetCompletionHandler)(MNFBudget *_Nullable budget, NSError 
 typedef void (^MNFMultipleBudgetCompletionHandler)(NSArray <MNFBudget *> *_Nullable budgets, NSError *_Nullable error);
 typedef void (^MNFMultipleBudgetEntriesCompletionHandler)(NSArray <MNFBudgetEntry *> *_Nullable budgetEntries, NSError *_Nullable error);
 typedef void (^MNFBudgetEntryCompletionHandler)(MNFBudgetEntry *_Nullable budgetEntry, NSError *_Nullable error);
+
+//Life goals
+typedef void (^MNFLifeGoalCompletionHandler)(MNFLifeGoal *_Nullable lifeGoal, NSError *_Nullable error);
+typedef void (^MNFMultipleLifeGoalsCompletionHandler)(NSArray <MNFLifeGoal *> *_Nullable lifeGoals, NSError *_Nullable error);
+typedef void (^MNFLifeGoalHistoryCompletionHandler)(NSArray <MNFLifeGoalHistory *> *_Nullable lifeGoalHistory, NSError *_Nullable error);
+typedef void (^MNFLifeGoalAccountInfoCompletionHandler)(NSArray <MNFLifeGoalAccountInfo *> *_Nullable lifeGoalAccountInfo, NSError *_Nullable error);
+
+//Media
+typedef void (^MNFMediaCompletionHandler)(NSDate *_Nullable mediaData, NSError *_Nullable error);
+
+//Peer comparison
+typedef void (^MNFPeerComparisonCompletionHandler)(NSArray <MNFPeerComparison*> *_Nullable peerComparison, NSError *_Nullable error);
 
 // Terms and Conditions
 typedef void (^MNFTermsAndConditionsCompletionHandler)(MNFTermsAndConditions * _Nullable termsAndConditions, NSError * _Nullable error);
@@ -321,6 +341,18 @@ typedef NS_ENUM(NSInteger,MNFServiceName) {
      @abstract Feed service includes MNFFeed, MNFFeedItem, MNFFeedItemGroup
      */
     MNFServiceNameFeed,
+    /**
+     @abstract Life goal service include MNFLifeGoal, MNFLifeGoalHistory, MNFLifeGoalAccountInfo
+     */
+    MNFServiceNameLifeGoals,
+    /**
+     @abstract Media service includes MNFMedia
+     */
+    MNFServiceNameMedia,
+    /**
+     @abstract Peer comparison service includes MNFPeerComparison and MNFPeerComparisonStats
+     */
+    MNFServiceNamePeerComparison,
     /**
      @abstract Merchants service MNFMerchant, MNFMerchantAddress
      */
