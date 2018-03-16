@@ -40,7 +40,6 @@
  */
 @property (nonatomic, strong, readwrite, nullable) NSNumber *includeHidden;
 
-
 /**
  @abstract A boolean indicating whether you want to include disabled accounts. Defaults to false.
  */

@@ -7,6 +7,7 @@
 //
 
 #import "MNFObject.h"
+#import "MNFCurrency.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The cluster node name.
  */
-@property (nonatomic,copy,readonly) NSString *clusterNodeName;
+@property (nonatomic,copy,readonly) NSString *clusterNodeName MNF_DEPRECATED("No longer returned with this resource.");
 
 /**
  The currency budget round off.
@@ -57,12 +58,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The available currencies.
  */
-@property (nonatomic,copy,readonly) NSArray *currencies;
+@property (nonatomic,copy,readonly) NSArray <MNFCurrency*> *currencies;
 
 /**
  The current culture.
  */
-@property (nonatomic,copy,readonly) NSString *currentCulture;
+@property (nonatomic,copy,readonly) NSString *currentCulture MNF_DEPRECATED("No longer returned with this resource.");
 
 /**
  The current currency group symbol.

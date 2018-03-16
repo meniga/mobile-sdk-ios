@@ -13,7 +13,7 @@
 #import "MNFURLConstructor.h"
 #import "MNFHTTPMethods.h"
 #import "MNFURLRequestConstants.h"
-#import "MNFCryptor.h"
+//#import "MNFCryptor.h"
 #import "MNFNetworkProtocolForTesting.h"
 #import "MNFObjectTypes.h"
 

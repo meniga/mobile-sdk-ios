@@ -124,6 +124,22 @@ static MNFSettings *s_settings = nil;
     return [self p_settings].resourceTimeout;
 }
 
++(void)setSessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration {
+    [self p_settings].sessionConfiguration = sessionConfiguration;
+}
+
++(NSURLSessionConfiguration*)sessionConfiguration {
+    return [self p_settings].sessionConfiguration;
+}
+
++(void)setSessionDelegate:(id<NSURLSessionDelegate>)delegate {
+    [self p_settings].sessionDelegate = delegate;
+}
+
++(id<NSURLSessionDelegate>)sessionDelegate {
+    return [self p_settings].sessionDelegate;
+}
+
 +(void)setNotificationName:(NSString *)notificationName withNotifiactionCenter:(NSNotificationCenter *)notificationCenter forStatusCode:(NSInteger)statusCode {
     
     if (notificationName == nil || notificationCenter == nil) {

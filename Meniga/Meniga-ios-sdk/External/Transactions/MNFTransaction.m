@@ -301,6 +301,80 @@
     return job;
 }
 
+-(MNFJob*)updateSplitTransactionWithAmount:(NSArray<NSNumber *> *)amounts categoryId:(NSArray<NSNumber *> *)categoryIds text:(NSArray<NSString *> *)texts isFlagged:(NSArray<NSNumber *> *)flagged completion:(MNFTransactionCompletionHandler)completion {
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@/split",kMNFApiPathTransactions,[self.identifier stringValue]];
+    MNFNumberToBoolValueTransformer *transformer = [MNFNumberToBoolValueTransformer transformer];
+    NSMutableArray *jsonArray = [NSMutableArray array];
+    
+    for(int i=0; i<amounts.count; i++) {
+        NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
+        jsonDict[@"amount"] = amounts[i];
+        jsonDict[@"text"] = texts[i];
+        jsonDict[@"categoryId"] = categoryIds[i];
+        jsonDict[@"isFlagged"] = [transformer reverseTransformedValue:flagged[i]];
+        
+        [jsonArray addObject:[jsonDict copy]];
+    }
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonArray copy] options:0 error:nil];
+    
+    __block MNFJob *job = [[self class] apiRequestWithPath:path pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPUT service:MNFServiceNameTransactions completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSArray class]]) {
+                
+                NSArray *transactions = [[self class] initWithServerResults:response.result];
+                
+                NSArray<MNFMerchant*> *includedMerchants;
+                NSArray<MNFAccount*> *includedAccounts;
+                
+                if ([[response.includedObjects objectForKey:@"merchants"] isKindOfClass:[NSArray class]]) {
+                    includedMerchants = [MNFJsonAdapter  objectsOfClass:[MNFMerchant class] jsonArray:[response.includedObjects objectForKey:@"merchants"] option:0 error:nil];
+                }
+                
+                if ([[response.includedObjects objectForKey:@"accounts"] isKindOfClass:[NSArray class]]) {
+                    includedAccounts = [MNFJsonAdapter  objectsOfClass:[MNFAccount class] jsonArray:[response.includedObjects objectForKey:@"accounts"] option:0 error:nil];
+                }
+                
+                
+                for (MNFTransaction *transaction in transactions) {
+                    
+                    transaction.merchant = [[includedMerchants filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.identifier == %@", transaction.merchantId]] firstObject];
+                    transaction.account = [[includedAccounts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.identifier == %@", transaction.accountId]] firstObject];
+                    
+                    for (MNFComment *comment in transaction.comments) {
+                        comment.transactionId = transaction.identifier;
+                    }
+                    
+                    
+                }
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:transactions error:nil];
+                
+            }
+            else {
+                
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]] ];
+                
+            }
+            
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithCompletion:completion withParameters:nil and:response.error];
+            
+        }
+    }];
+    
+    return job;
+}
+
 #pragma mark - creating
 
 +(MNFJob*)createTransactionWithDate:(NSDate *)date

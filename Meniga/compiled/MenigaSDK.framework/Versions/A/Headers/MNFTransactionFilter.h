@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MNFJsonAdapterDelegate.h"
+#import "MNFObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -46,7 +47,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The Bank Id to filter by. If it's null, it will be ignored.
  */
-@property(nonatomic, strong)NSString * _Nullable bankId;
+@property(nonatomic, strong)NSString * _Nullable bankId MNF_DEPRECATED("Use bankIds instead");
+
+/**
+ A comma separated string of bank ids to filter by.
+ */
+@property (nonatomic,strong) NSString *_Nullable bankIds;
 
 /**
  @abstract The category IDs to filter by

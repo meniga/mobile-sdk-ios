@@ -40,4 +40,9 @@
  */
 @property (nonatomic, strong, readonly) NSNumber *distanceKm;
 
+/**
+ Unique identifier for the merchant.
+ */
+@property (nonatomic, strong, readonly) NSString *merchantIdentifier;
+
 @end

@@ -16,6 +16,7 @@
     if (self = [super init]) {
         
         self.expiredWithCashbackOnly = [NSNumber numberWithBool:NO];
+        self.expiredWithRedemptionsOnly = [NSNumber numberWithBool:NO];
         self.offerIds = nil;
         self.offerStates = nil;
         
@@ -25,11 +26,13 @@
 }
 
 -(NSDictionary *)propertyKeysMapToJson {
-    return @{ @"expiredWithCashbackOnly" : @"filter.expiredWithCashbackOnly", @"offerIds" : @"filter.offerIds", @"offerStates" : @"filter.states"  };
+    return @{ @"expiredWithCashbackOnly" : @"filter.expiredWithCashbackOnly", @"offerIds" : @"filter.offerIds", @"offerStates" : @"filter.states", @"expiredWithRedemptionsOnly" : @"filter.expiredWithRedemptionsOnly"};
 }
 
 -(NSDictionary *)propertyValueTransformers {
-    return @{ @"expiredWithCashbackOnly" : [MNFNumberToStringValueTransformer transformer], @"skipMeta" : [MNFNumberToStringValueTransformer transformer] };
+    return @{ @"expiredWithCashbackOnly" : [MNFNumberToStringValueTransformer transformer], @"skipMeta" : [MNFNumberToStringValueTransformer transformer],
+              @"expiredWithRedemptionsOnly" : [MNFNumberToStringValueTransformer transformer]
+              };
 }
 
 

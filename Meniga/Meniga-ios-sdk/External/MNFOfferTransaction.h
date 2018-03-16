@@ -23,12 +23,12 @@
 /**
  @abstract The category Id of the transaction.
  */
-@property (nonatomic, strong, readonly) NSNumber *categoryId;
+@property (nonatomic, strong, readonly) NSNumber *categoryId MNF_DEPRECATED("");
 
 /**
  @abstract The category name of the transaction.
  */
-@property (nonatomic, strong, readonly) NSString *category;
+@property (nonatomic, strong, readonly) NSString *category MNF_DEPRECATED("");
 
 /**
  @abstract The date the transaction occurred on.
@@ -64,5 +64,15 @@
  @abstract The scheduled date for the reimbursement
  */
 @property (nonatomic, strong, readonly) NSDate *scheduledReimbursementDate;
+
+/**
+ The id of the redemption record.
+ */
+@property (nonatomic, strong, readonly) NSNumber *redemptionId;
+
+/**
+ Reimbursement account info.
+ */
+@property (nonatomic, copy, readonly) NSString *reimbursementAccountInfo;
 
 @end

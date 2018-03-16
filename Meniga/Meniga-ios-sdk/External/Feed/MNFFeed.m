@@ -20,14 +20,14 @@
 #import "MNFComment_Private.h"
 
 @interface MNFFeed () <MNFJsonAdapterDelegate>
-@property (nonatomic,strong,readwrite) NSArray *feedItems;
-@property (nonatomic,readwrite) BOOL hasMoreData;
-@property (nonatomic,strong,readwrite) NSDate *from;
-@property (nonatomic,strong,readwrite) NSDate *to;
-@property (nonatomic,strong,readwrite) NSDate *actualEndDate;
-@property (nonatomic,readwrite) BOOL hasMorePages;
-@property (nonatomic, strong, readwrite) NSNumber *skip;
-@property (nonatomic, strong, readwrite) NSNumber *take;
+@property (nonatomic,strong,readwrite)      NSArray *feedItems;
+@property (nonatomic,readwrite)             BOOL hasMoreData;
+@property (nonatomic,strong,readwrite)      NSDate *from;
+@property (nonatomic,strong,readwrite)      NSDate *to;
+@property (nonatomic,strong,readwrite)      NSDate *actualEndDate;
+@property (nonatomic,readwrite)             BOOL hasMorePages;
+@property (nonatomic, strong, readwrite)    NSNumber *skip;
+@property (nonatomic, strong, readwrite)    NSNumber *take;
 @end
 
 @implementation MNFFeed {
@@ -35,20 +35,22 @@
 }
 
 +(MNFJob *)fetchFromDate:(NSDate *)from toDate:(NSDate *)to skip:(NSNumber *)skip take:(NSNumber *)take withCompletion:(MNFFeedCompletionHandler)completion {
+    
+    return [self fetchFromDate:from toDate:to skip:skip take:take type:nil eventTypeIdentifiers:nil withCompletion:completion];
+}
+
++(MNFJob*)fetchFromDate:(NSDate *)from toDate:(NSDate *)to skip:(NSNumber *)skip take:(NSNumber *)take type:(NSString *)type eventTypeIdentifiers:(NSString *)eventTypeIdentifiers withCompletion:(MNFFeedCompletionHandler)completion {
     [completion copy];
     
     MNFBasicDateValueTransformer *transformer = [MNFBasicDateValueTransformer transformer];
     
     NSMutableDictionary *jsonQuery = [NSMutableDictionary dictionary];
-    [jsonQuery setObject:[transformer reverseTransformedValue:from] forKey:@"dateFrom"];
-    [jsonQuery setObject:[transformer reverseTransformedValue:to] forKey:@"dateTo"];
-    
-    if (skip != nil) {
-        [jsonQuery setObject:skip forKey:@"skip"];
-    }
-    if (take != nil) {
-        [jsonQuery setObject:take forKey:@"take"];
-    }
+    jsonQuery[@"dateFrom"] = [transformer reverseTransformedValue:from];
+    jsonQuery[@"dateTo"] = [transformer reverseTransformedValue:to];
+    jsonQuery[@"skip"] = skip;
+    jsonQuery[@"take"] = take;
+    jsonQuery[@"type"] = type;
+    jsonQuery[@"eventTypeIdentifiers"] = eventTypeIdentifiers;
     
     __block MNFJob *job = [self apiRequestWithPath:kMNFApiPathFeed pathQuery:[jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameFeed completion:^(MNFResponse * _Nullable response) {
         
@@ -56,17 +58,16 @@
         
         if (response.error == nil) {
             
-            
             if ([response.result isKindOfClass:[NSArray class]]) {
                 
                 NSMutableArray *array = [NSMutableArray array];
                 
                 for (NSDictionary *dict in response.result) {
-                
+                    
                     MNFFeedItem *feedItem = [self p_createFeedItemWithModelFromData:dict];
                     
                     [array addObject:feedItem];
-                
+                    
                 }
                 
                 MNFFeed *feed = [[MNFFeed alloc] initNeutral];
@@ -75,19 +76,17 @@
                 feed.feedItems = [array copy];
                 feed.take = take;
                 feed.skip = skip;
-
+                
                 [self p_updateMetaDataInFeed:feed withResponse:response];
                 
-                
-//                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:feed error:response.error ];
                 [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:feed metaData:response.metaData error:response.error];
             }
             else {
                 
                 [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]] ];
-            
+                
             }
-        
+            
         }
         else {
             [MNFObject executeOnMainThreadWithJob:job completion:completion parameter: nil error: response.error ];
@@ -357,6 +356,50 @@
     
     return job;
     
+}
+
++(MNFJob*)fetchScheduledEventsOfType:(NSString *)type fromDate:(NSDate *)from toDate:(NSDate *)to withCompletion:(MNFMultipleScheduledEventsCompletionHandler)completion {
+    [completion copy];
+    
+    MNFBasicDateValueTransformer *transformer = [MNFBasicDateValueTransformer transformer];
+    
+    NSMutableDictionary *jsonQuery = [NSMutableDictionary dictionary];
+    jsonQuery[@"eventType"] = type;
+    jsonQuery[@"dateFrom"] = [transformer reverseTransformedValue:from];
+    jsonQuery[@"dateTo"] = [transformer reverseTransformedValue:to];
+    
+    __block MNFJob *job = [self apiRequestWithPath:kMNFFeedScheduledEvents pathQuery:[jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameFeed completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSArray class]]) {
+                
+                NSMutableArray *array = [NSMutableArray array];
+                
+                for (NSDictionary *dict in response.result) {
+                    
+                    MNFFeedItem *feedItem = [self p_createFeedItemWithModelFromData:dict];
+                    [array addObject:feedItem];
+                    
+                }
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:[array copy] metaData:response.metaData error:response.error];
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]] ];
+                
+            }
+            
+        }
+        else {
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter: nil error: response.error ];
+        }
+    }];
+    
+    return job;
 }
 
 
