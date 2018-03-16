@@ -47,6 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readonly) NSObject <MNFJsonAdapterDelegate> *_Nullable challengeModel;
 
 @property (nonatomic,strong,readonly) NSNumber *_Nullable enabled;
+@property (nonatomic,strong,readonly) NSNumber *parentTopicId;
+@property (nonatomic,strong,readonly) NSDate *parentStartDate;
+@property (nonatomic,strong,readonly) NSDate *parentEndDate;
 
 ///******************************
 /// @name Mutable properties
