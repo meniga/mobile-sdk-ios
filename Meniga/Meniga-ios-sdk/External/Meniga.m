@@ -11,7 +11,7 @@
 #import "MNFLogger.h"
 #import "MNFInternalImports.h"
 
-#define MNF_SDK_VERSION @"0.9.21"
+#define MNF_SDK_VERSION @"1.0.0"
 
 @implementation Meniga
 
