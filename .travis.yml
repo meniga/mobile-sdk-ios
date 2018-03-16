@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode8.4
+xcode_project: Meniga-ios-sdk.xcodeproj
+xcode_scheme: Meniga-ios-sdk
+xcode_sdk: iphonesimulator8.4
