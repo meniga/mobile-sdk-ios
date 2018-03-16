@@ -13,7 +13,7 @@
 #import "MNFURLConstructor.h"
 #import "MNFHTTPMethods.h"
 #import "MNFURLRequestConstants.h"
-#import "MNFCryptor.h"
+//#import "MNFCryptor.h"
 #import "MNFNetworkProtocolForTesting.h"
 #import "MNFObjectTypes.h"
 
@@ -74,33 +74,33 @@
     }];
 }
 
--(void)testSuspendAndResumeTask {
-    [MNFNetworkProtocolForTesting setDelay];
-    NSURL *url = [MNFURLConstructor URLFromBaseUrl:@"http://www.menigais.net" path:kMNFGetUserProfile];
-    NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"X-XSRF-Header",nil];
-    NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:kMNFHTTPMethodGET httpHeaders:headers parameters:nil];
-    
-    [MNFNetwork sendRequest:request withCompletion:^(MNFResponse *response){
-        
-    }];
-    
-    [MNFNetwork pauseRequest:request withCompletion:^{
-        [MNFNetwork getAllTasks:^(NSArray *tasks) {
-
-            for (NSURLSessionDataTask *dataTask in tasks) {
-                XCTAssert(dataTask.state == NSURLSessionTaskStateSuspended);
-            }
-            
-            [MNFNetwork resumeRequest:request withCompletion:^{
-                [MNFNetwork getAllTasks:^(NSArray *tasks) {
-                    for (NSURLSessionDataTask *dataTask in tasks) {
-                        XCTAssert(dataTask.state == NSURLSessionTaskStateRunning);
-                    }
-                }];
-            }];
-        }];
-    }];
-}
+//-(void)testSuspendAndResumeTask {
+//    [MNFNetworkProtocolForTesting setDelay];
+//    NSURL *url = [MNFURLConstructor URLFromBaseUrl:@"http://www.menigais.net" path:kMNFGetUserProfile];
+//    NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"X-XSRF-Header",nil];
+//    NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:kMNFHTTPMethodGET httpHeaders:headers parameters:nil];
+//
+//    [MNFNetwork sendRequest:request withCompletion:^(MNFResponse *response){
+//
+//    }];
+//
+//    [MNFNetwork pauseRequest:request withCompletion:^{
+//        [MNFNetwork getAllTasks:^(NSArray *tasks) {
+//
+//            for (NSURLSessionDataTask *dataTask in tasks) {
+//                XCTAssert(dataTask.state == NSURLSessionTaskStateSuspended);
+//            }
+//
+//            [MNFNetwork resumeRequest:request withCompletion:^{
+//                [MNFNetwork getAllTasks:^(NSArray *tasks) {
+//                    for (NSURLSessionDataTask *dataTask in tasks) {
+//                        XCTAssert(dataTask.state == NSURLSessionTaskStateRunning);
+//                    }
+//                }];
+//            }];
+//        }];
+//    }];
+//}
 
 -(void)testCancelAllTasks {
     [MNFNetworkProtocolForTesting setDelay];

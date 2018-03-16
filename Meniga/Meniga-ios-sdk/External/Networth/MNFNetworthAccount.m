@@ -19,12 +19,57 @@
 
 +(MNFJob*)fetchWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate interPolation:(BOOL)useInterpolation completion:(MNFMultipleNetworthAccountsCompletionHandler)completion{
 
+    return [self fetchWithStartDate:startDate endDate:endDate interPolation:useInterpolation skip:nil take:nil completion:completion];
+}
+
++(MNFJob*)fetchWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate interPolation:(BOOL)useInterpolation skip:(NSNumber *)skip take:(NSNumber *)take completion:(MNFMultipleNetworthAccountsCompletionHandler)completion {
+    [completion copy];
+    
     NSString *boolString = useInterpolation ? @"true" : @"false";
     
-    NSDictionary *queryDict = @{@"startDate":[[NSDateUtils dateFormatter] stringFromDate:startDate], @"endDate":[[NSDateUtils dateFormatter] stringFromDate:endDate], @"useInterpolation":boolString};
+    MNFBasicDateValueTransformer *transformer = [MNFBasicDateValueTransformer transformer];
+    NSMutableDictionary *jsonQuery = [NSMutableDictionary dictionary];
+    jsonQuery[@"startDate"] = [transformer reverseTransformedValue:startDate];
+    jsonQuery[@"endDate"] = [transformer reverseTransformedValue:endDate];
+    jsonQuery[@"userInterpolation"] = boolString;
+    jsonQuery[@"skip"] = skip;
+    jsonQuery[@"take"] = take;
     
+    __block MNFJob *job = [self apiRequestWithPath:kMNFAPIPathNetworth pathQuery:[jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameNetWorth completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            if ([response.result isKindOfClass:[NSArray class]]) {
+                
+                NSArray *resultArray = [MNFJsonAdapter objectsOfClass:[self class] jsonArray:response.result option:kMNFAdapterOptionNoOption error:nil];
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:resultArray error:nil];
+            }
+            else{
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:[MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]]];
+            }
+        }
+        else{
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:response.error];
+        }
+    }];
+    
+    
+    return job;
+}
 
-    __block MNFJob *job = [self apiRequestWithPath:kMNFAPIPathNetworth pathQuery:queryDict jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameNetWorth completion:^(MNFResponse * _Nullable response) {
++(MNFJob*)fetchWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate intervalGrouping:(NSString *)intervalGrouping skip:(NSNumber *)skip take:(NSNumber *)take completion:(MNFMultipleNetworthAccountsCompletionHandler)completion {
+    [completion copy];
+    
+    MNFBasicDateValueTransformer *transformer = [MNFBasicDateValueTransformer transformer];
+    NSMutableDictionary *jsonQuery = [NSMutableDictionary dictionary];
+    jsonQuery[@"startDate"] = [transformer reverseTransformedValue:startDate];
+    jsonQuery[@"endDate"] = [transformer reverseTransformedValue:endDate];
+    jsonQuery[@"intervalGrouping"] = intervalGrouping;
+    jsonQuery[@"skip"] = skip;
+    jsonQuery[@"take"] = take;
+    
+    __block MNFJob *job = [self apiRequestWithPath:kMNFAPIPathNetworth pathQuery:[jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameNetWorth completion:^(MNFResponse * _Nullable response) {
         
         kObjectBlockDataDebugLog;
         
@@ -133,6 +178,40 @@
             [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:response.error];
         }
         
+    }];
+    
+    return job;
+}
+
+#pragma mark - refreshing
+-(MNFJob*)refreshWithCompletion:(MNFErrorOnlyCompletionHandler)completion {
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@", kMNFNetworthAccounts, [self.identifier stringValue]];
+    
+    __block MNFJob *job = [[self class] apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameNetWorth completion:^(MNFResponse*  _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                [MNFJsonAdapter refreshObject:self withJsonDict:response.result option:kMNFAdapterOptionNoOption error:nil];
+                [MNFObject executeOnMainThreadWithJob:job completion:completion error: nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion error: [MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]] ];
+                
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion error: response.error];
+            
+        }
     }];
     
     return job;
@@ -258,7 +337,8 @@
 
     return @{
              @"history": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass: [MNFNetworthBalanceHistory class] option:kMNFAdapterOptionNoOption],
-             @"accountType": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass: [MNFAccountType class] option:kMNFAdapterOptionNoOption]
+             @"accountType": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass: [MNFAccountType class] option:kMNFAdapterOptionNoOption],
+             @"accountTypeCategory":[MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAccountCategory class] option:kMNFAdapterOptionNoOption]
              };
 }
 

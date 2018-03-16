@@ -11,7 +11,7 @@
 #import "MNFLogger.h"
 #import "MNFInternalImports.h"
 
-#define MNF_SDK_VERSION @"0.9.21"
+#define MNF_SDK_VERSION @"1.0.0"
 
 @implementation Meniga
 
@@ -122,6 +122,22 @@ static MNFSettings *s_settings = nil;
 
 +(NSTimeInterval)resourceTimeoutInterval {
     return [self p_settings].resourceTimeout;
+}
+
++(void)setSessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration {
+    [self p_settings].sessionConfiguration = sessionConfiguration;
+}
+
++(NSURLSessionConfiguration*)sessionConfiguration {
+    return [self p_settings].sessionConfiguration;
+}
+
++(void)setSessionDelegate:(id<NSURLSessionDelegate>)delegate {
+    [self p_settings].sessionDelegate = delegate;
+}
+
++(id<NSURLSessionDelegate>)sessionDelegate {
+    return [self p_settings].sessionDelegate;
 }
 
 +(void)setNotificationName:(NSString *)notificationName withNotifiactionCenter:(NSNotificationCenter *)notificationCenter forStatusCode:(NSInteger)statusCode {

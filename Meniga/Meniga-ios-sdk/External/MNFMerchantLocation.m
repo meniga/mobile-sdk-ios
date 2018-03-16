@@ -10,5 +10,14 @@
 
 @implementation MNFMerchantLocation
 
+#pragma mark - Json Adapter Delegate
+
+-(NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier" : @"id", @"merchantIdentifier"  : @"identifier" };
+}
+
+-(NSDictionary *)propertyKeysMapToJson {
+    return @{ @"identifier" : @"id", @"merchantIdentifier" : @"identifier" };
+}
 
 @end

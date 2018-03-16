@@ -30,6 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, readonly)NSNumber *accountId;
 
 /**
+ @abstract The account of the transaction. Parsed from the 'includes' field in the JSON.
+ */
+@property(nonatomic, strong)MNFAccount *account;
+
+/**
  @abstract The amount of the transaction
  */
 @property(nonatomic, strong, readonly)NSNumber *amount;
@@ -115,6 +120,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, readonly)NSNumber *isMerchant;
 
 /**
+ @abstract The merchant of the transaction. Parsed from the 'includes' field in the JSON.
+ */
+@property(nonatomic, strong)MNFMerchant *merchant;
+
+/**
  @abstract Whether the transaction is an account transfer to own account.
  */
 @property(nonatomic, strong, readonly)NSNumber *isOwnAccountTransfer;
@@ -183,6 +193,16 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract Holds etra custom data that is not parsed or read via the transaction data format parser.
  */
 @property(nonatomic, copy, readonly)NSString *userData;
+
+/**
+ The original amount of this transaction in account currency.
+ */
+@property (nonatomic,strong,readonly) NSNumber *bookedAmount;
+
+/**
+ The split ratio of the transaction.
+ */
+@property (nonatomic,strong,readonly) NSNumber *splitRatio;
 
 ///******************************
 /// @name Mutable properties
@@ -355,6 +375,25 @@ NS_ASSUME_NONNULL_BEGIN
                              text:(nullable NSString*)text
                         isFlagged:(BOOL)flagged
                        completion:(nullable MNFTransactionCompletionHandler)completion;
+
+/**
+ @abstract Updates transaction splits. This deletes existing split transactions and creates new transactions that are split children of the transaction.
+ 
+ @param amounts The amounts to split by.
+ @param categoryIds The category Ids of the new transactions.
+ @param texts The texts in the new transactions.
+ @param flagged Whether the new transaction is flagged.
+ @param completion A completion block returning a list of transactions and an error.
+ 
+ @warning Make sure the number of items in the arrays provided are equal.
+ 
+ @return MNFJob A job containing an list of transactions and an error.
+ */
+-(MNFJob*)updateSplitTransactionWithAmount:(NSArray <NSNumber*> *)amounts
+                                categoryId:(NSArray <NSNumber*> *)categoryIds
+                                      text:(NSArray <NSString*> *)texts
+                                 isFlagged:(NSArray <NSNumber*> *)flagged
+                                completion:(nullable MNFTransactionCompletionHandler)completion;
 
 ///************************************
 /// @name Comment

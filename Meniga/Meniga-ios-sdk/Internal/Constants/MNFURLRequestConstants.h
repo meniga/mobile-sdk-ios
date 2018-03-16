@@ -30,6 +30,7 @@
 #define kMNFTransactionsComments @"/comments"
 #define KMNFTransactionsRecategorize kMNFApiPathTransactions @"/recategorize"
 #define kMNFTransactionsRule kMNFApiPathTransactions @"/rules"
+#define kMNFTransactionSuggestions kMNFApiPathTransactions @"/suggestions"
 
 #pragma mark - Categories
 
@@ -79,6 +80,7 @@
 #define kMNFApiPathFeed @"/feed"
 #define kMNFFeedTypes kMNFApiPathFeed @"/types"
 #define kMNFFeedUserEvents kMNFApiPathFeed @"/userevents"
+#define kMNFFeedScheduledEvents kMNFApiPathFeed @"/scheduledevents"
 
 #pragma mark - Upcoming
 #define kMNFApiPathUpcoming @"/upcoming"
@@ -103,6 +105,18 @@
 #define kMNFBudgetRecurring kMNFApiPathBudget @"/recurring"
 #define kMNFBudgetRecalculate kMNFApiPathBudget @"/recalculate"
 
+#pragma mark - Life goals
+#define kMNFApiPathLifeGoals @"/lifegoals"
+#define kMNFLifeGoalsHistory kMNFApiPathLifeGoals @"/%@/history"
+#define kMNFLifeGoalsAccountInfo kMNFApiPathLifeGoals @"/accountInfo"
+
+#pragma mark - Media
+#define kMNFApiPathMedia @"/media"
+
+#pragma mark - Peer comparison
+#define kMNFApiPathPeerComparison @"/peercomparison"
+#define kMNFPeerComparisonTopMerchants kMNFApiPathPeerComparison @"/topmerchants"
+
 #pragma mark - Terms
 #define kMNFApiPathTerms @"/terms"
 #define kMNFTermTypes kMNFApiPathTerms @"/types"
@@ -121,6 +135,7 @@
 #define kMNFApiPathAuthentication @"/authentication"
 #define kMNFAuthenticationRefresh kMNFApiPathAuthentication @"/refresh"
 #define kMNFAuthenticationSSO kMNFApiPathAuthentication @"/sso/%@"
+#define kMNFAuthenticationAfter kMNFApiPathAuthentication @"/after"
 
 #pragma mark - User Events
 #define kMNFApiPathUserEvents @"/userevents"

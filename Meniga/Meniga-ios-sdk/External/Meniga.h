@@ -93,6 +93,15 @@
 #import "MNFOrganizationRealm.h"
 #import "MNFRealmAccount.h"
 #import "MNFAuthentication.h"
+#import "MNFImportAccountConfiguration.h"
+#import "MNFTransactionSuggestion.h"
+#import "MNFMedia.h"
+#import "MNFLifeGoal.h"
+#import "MNFLifeGoalHistory.h"
+#import "MNFLifeGoalAccountInfo.h"
+#import "MNFPeerComparison.h"
+#import "MNFPeerComparisonStats.h"
+#import "MNFPeerComparisonMerchants.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -259,6 +268,45 @@ NS_ASSUME_NONNULL_BEGIN
  @return NSTimeInterval The timout interval for resource.
  */
 +(NSTimeInterval)resourceTimeoutInterval;
+
+/**
+ Here you can customise the url session configuration used by the sdk url session. If not set the sdk uses the defaultConfiguration setting.
+ 
+ @see NSURLSessionConfiguration documentation for details.
+ 
+ @param sessionConfiguration The session configuration the sdk will use.
+ 
+ @warning This property should be set before any network requests are made with the sdk.
+ */
++(void)setSessionConfiguration:(NSURLSessionConfiguration*)sessionConfiguration;
+
+/**
+ Returns the session configuration used by the sdk url session.
+ 
+ @see NSURLSessionConfiguration documentation for details.
+ 
+ @return NSURLSessionConfiguration The session configuration for the url session.
+ */
++(NSURLSessionConfiguration*)sessionConfiguration;
+
+/**
+ Here you can pass an NSURLSessionDelegate object to be used by the sdk url session.
+ 
+ @note This sdk will have a weak reference to this object. The sdk url session will retain this object.
+ @see NSURLSessionDelegate documentation for details.
+ 
+ @warning This property should be set before any network requests are made with the sdk.
+ */
++(void)setSessionDelegate:(id<NSURLSessionDelegate>)delegate;
+
+/**
+ Returns the session delegate passed to the sdk.
+ 
+ @see NSURLSessionDelegate documentation for details.
+ 
+ @return sessionDelegate The session delegate set for the sdk url session.
+ */
++(id<NSURLSessionDelegate>)sessionDelegate;
 
 /**
  Here you can set a custom notification for a specific status code that returns from a request f.x. when there is a 502 error and you want to notifify your app anywhere a request has been made.

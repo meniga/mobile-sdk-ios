@@ -32,6 +32,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, readonly)NSNumber *isDefault;
 
 /**
+ The balance of the networth account in user currency.
+ */
+@property (nonatomic,strong,readonly) NSNumber *balanceInUserCurrency;
+
+/**
  @abstract Deletes the object on the remote.
  @param completion completion executing with an error or result
  @discussion When an object has been deleted on the remote, it is marked deleted internally. All future actions on the local object will be ignored. It is recomended to deallocate the object and remove from any collection or container.

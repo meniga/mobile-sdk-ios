@@ -3,7 +3,7 @@
 //  MENIGAAutomaticJson
 //
 //  Created by Mathieu Grettir Skulason on 10/5/15.
-//  Copyright © 2015 Mathieu Grettir Skulason. All rights reserved.
+//  Copyright © 2015 Meniga. All rights reserved.
 //
 
 #import "MNFJsonAdapter.h"

@@ -101,6 +101,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(MNFJob*)fetchFromDate:(NSDate *)from toDate:(NSDate *)to skip:(nullable NSNumber *)skip take:(nullable NSNumber *)take withCompletion:(nullable MNFFeedCompletionHandler)completion;
 
+/**
+ @description Fetches the user feed from the server between two dates.
+ 
+ @param from The date from which the feed is to be fetched.
+ @param to The date to which the feed is to be fetched.
+ @param skip The number of feed items to skip. If nil then no feed items are skipped.
+ @param take The number of feed items to take. If nil then all items are returned.
+ @param type A comma separated string of feed item types to return. Values can be found by fetching feed types.
+ @param eventTypeIdentifiers A comma separated string of identifiers for which userevents to return. Values can be found by fetching event types in MNFUserEvent class.
+ @param completion A completion block returning a feed and an error.
+ 
+ @return An MNFJob containing an MNFFeed or an error.
+ */
++(MNFJob*)fetchFromDate:(NSDate *)from toDate:(NSDate *)to skip:(nullable NSNumber *)skip take:(nullable NSNumber *)take type:(nullable NSString*)type eventTypeIdentifiers:(nullable NSString*)eventTypeIdentifiers withCompletion:(MNFFeedCompletionHandler)completion;
+
 ///******************************
 /// @name Appending
 ///******************************
@@ -159,6 +174,22 @@ NS_ASSUME_NONNULL_BEGIN
  @return An MNFJob containing an array of strings and an error.
  */
 +(MNFJob*)fetchFeedItemWithFeedType:(NSString*)type identifier:(NSNumber*)identifier withCompletion:(nullable MNFSingleFeedItemCompletionHandler)completion;
+
+///******************************
+/// @name Fetch scheduled events
+///******************************
+
+/**
+ Fetches all scheduled user events in a given period.
+ 
+ @param type The type of events to fetch. Can be 'Weekly' or 'Monthly'.
+ @param from The date from which scheduled events are fetched.
+ @param to The date to which scheduled events are fetched.
+ @param completion A completion block returning a list of scheduled events and an error.
+ 
+ @return An MNFJob containing a list of scheduled events and an error.
+ */
++(MNFJob*)fetchScheduledEventsOfType:(NSString*)type fromDate:(NSDate*)from toDate:(NSDate*)to withCompletion:(nullable MNFMultipleScheduledEventsCompletionHandler)completion;
 
 ///******************************
 /// @name Grouping

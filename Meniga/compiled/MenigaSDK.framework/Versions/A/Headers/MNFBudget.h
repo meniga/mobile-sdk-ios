@@ -168,6 +168,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(MNFJob*)fetchBudgetEntriesWithFilter:(nullable MNFBudgetFilter*)filter completion:(nullable MNFMultipleBudgetEntriesCompletionHandler)completion;
 
+/**
+ Fetches a budget entry with a given identifier.
+ 
+ @param identifier The identifier of the budget entry.
+ @param completion A completion block returning a budget entry and an error.
+ 
+ @return MNFJob A job containing a budget entry and an error.
+ */
+- (MNFJob*)fetchBudgetEntryWithId:(NSNumber*)identifier completion:(nullable MNFBudgetEntryCompletionHandler)completion;
+
 ///******************************
 /// @name Creating entries
 ///******************************

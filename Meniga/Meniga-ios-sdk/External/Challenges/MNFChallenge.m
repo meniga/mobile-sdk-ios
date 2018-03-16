@@ -574,7 +574,10 @@
 -(NSDictionary*)propertyValueTransformers {
     return @{@"acceptedDate":[MNFBasicDateValueTransformer transformer],
              @"startDate":[MNFBasicDateValueTransformer transformer],
-             @"endDate":[MNFBasicDateValueTransformer transformer]};
+             @"endDate":[MNFBasicDateValueTransformer transformer],
+             @"parentStartDate":[MNFBasicDateValueTransformer transformer],
+             @"parentEndDate":[MNFBasicDateValueTransformer transformer]
+             };
 }
 
 -(NSSet *)propertiesToIgnoreJsonDeserialization {
