@@ -54,6 +54,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readonly) NSNumber *balance;
 
 /**
+ The balance of an account in the users currency.
+ */
+@property (nonatomic,strong,readonly) NSNumber *balanceInUserCurrency;
+
+/**
  @abstract The currency code of the account. Expressed in a ISO 4217 string.
  */
 @property (nonatomic,strong,readonly) NSString *currencyCode;
@@ -62,6 +67,11 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract The limit or overdraft of an account.
  */
 @property (nonatomic,strong,readonly) NSNumber *limit;
+
+/**
+ The limit or overdraft of an account in the users currency.
+ */
+@property (nonatomic,strong,readonly) NSNumber *limitInUserCurrency;
 
 /**
  @abstract The account class of an account.
@@ -158,7 +168,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The custom meta data of the account.
  */
-@property (nonatomic,copy,readonly) NSDictionary *metadata;
+@property (nonatomic,copy,readonly) NSArray<NSDictionary *> *metadata;
+
+/**
+ The account role external.
+ */
+@property (nonatomic,copy,readonly) NSString *accountRoleExternal;
+
+/**
+ The account status external.
+ */
+@property (nonatomic,copy,readonly) NSString *accountStatusExternal;
 
 ///******************************
 /// @name Mutable properties

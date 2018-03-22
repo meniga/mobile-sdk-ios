@@ -25,7 +25,7 @@
 /**
  The supported file type extensions where key is the file type extension (e.g. .xls) and value is the file type extension description (e.g. Excel Workbook).
  */
-@property (nonatomic,copy,readonly) NSDictionary *supportedFileTypeExtensions;
+@property (nonatomic,copy,readonly) NSArray <NSDictionary*> *supportedFileTypeExtensions;
 
 /**
  Whether or not this import configuration supports copy/paste import.
