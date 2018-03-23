@@ -10,19 +10,7 @@
 
 @interface MNFTestFactory : NSObject
 
-#pragma mark - accounts api
-+(NSDictionary*)accountModel;
-+(NSDictionary*)accountTypeModel;
-+(NSDictionary*)accountCategoryModel;
-+(NSDictionary*)accountAuthorizationTypeModel;
-+(NSDictionary*)accountHistoryEntryModel;
-+(NSDictionary*)importAccountConfigurationModel;
-
-#pragma mark - authentication api
-+(NSDictionary*)authenticationModel;
-
-#pragma mark - budgets api
-+(NSDictionary*)budgetModel;
-+(NSDictionary*)budgetEntryModel;
++(NSDictionary*)apiModelWithDefinition:(NSString*)definition;
++(NSArray<NSDictionary*>*)filterParametersWithPath:(NSString*)path;
 
 @end

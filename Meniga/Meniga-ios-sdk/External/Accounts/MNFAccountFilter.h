@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MNFJsonAdapterDelegate.h"
 
-@interface MNFAccountFilter : NSObject
+@interface MNFAccountFilter : NSObject <MNFJsonAdapterDelegate>
 
 /**
  @abstract The number of items to skip in the request. Defaults to 0.

@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Whether budget entries with intersecting time periods to the filter time period are returned or only budget entries included in the filter period.
  */
-@property (nonatomic,strong) NSNumber * _Nullable allowOverlappingDates;
+@property (nonatomic,strong) NSNumber *_Nullable allowOverlappingEntries;
 
 /**
  Whether to include entries with the budget object.
@@ -45,6 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
  Whether to include target amounts, generation types and id's also for past entries if applicable.
  */
 @property (nonatomic,strong) NSNumber * _Nullable includeOptionalHistoricalData;
+
+/**
+ Whether budget entries with intersecting time periods to the filter time period are returned or only budget entries included in the filter period.
+ */
+@property (nonatomic,strong) NSNumber * _Nullable allowOverlappingDates DEPRECATED_ATTRIBUTE;
 
 @end
 

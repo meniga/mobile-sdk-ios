@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The week-of-year field of the cron expression. The server will calculate the correct week of year from this field, according to ISO8601 specification. If null, the wildcard character * is assumed Allowed values are null or any valid date value.
  */
-@property (nonatomic,strong) NSString * _Nullable weekOfYear;
+@property (nonatomic,strong) NSNumber * _Nullable weekOfYear;
 
 /**
  The interval field for the week-of-year in the cron expression. Used in conjunction with WeekOfYear. If null, the specified WeekOfYear is assumed Allowed values are null, 0-N.

@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class MNFObject;
+#import "MNFObject.h"
 
 @interface MNFTestUtils : NSObject
 
-+(BOOL)validateApiModel:(NSDictionary*)apiModel withModelObject:(MNFObject*)modelObject;
++(BOOL)validateApiModel:(NSDictionary*)apiModel withModelObject:(id <MNFJsonAdapterDelegate>)modelObject;
++(BOOL)validateFilterParameters:(NSArray <NSDictionary*>*)filterParameters withModelObject:(id <MNFJsonAdapterDelegate>)modelObject;
 
 @end

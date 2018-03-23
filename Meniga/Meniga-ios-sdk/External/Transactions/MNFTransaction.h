@@ -49,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, readonly)NSNumber *balance;
 
+@property (nonatomic,strong,readonly) NSNumber *accuracy DEPRECATED_MSG_ATTRIBUTE("Will not be populated in future versions");
+
 /**
  @abstract The bank's unique identifier for the transaction.
  */
@@ -72,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Identifier of a counterparty account in the same realm that was transferred from/to during this transaction.
  */
-@property(nonatomic, strong, readonly)NSNumber *counterpartyAccountIdentifier;
+@property(nonatomic, strong, readonly)NSString *counterpartyAccountIdentifier;
 
 /**
  @abstract The currency the transaction is in.

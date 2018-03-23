@@ -581,7 +581,7 @@
 }
 
 -(NSSet *)propertiesToIgnoreJsonDeserialization {
-    return [NSSet setWithObjects:@"objectstate", nil];
+    return [NSSet setWithObjects:@"objectstate",@"typeData", nil];
 }
 
 -(NSSet *)propertiesToIgnoreJsonSerialization {
