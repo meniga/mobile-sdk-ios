@@ -28,6 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readonly) NSNumber *balance;
 
 /**
+ The balance of the history entry in the users currency.
+ */
+@property (nonatomic,strong,readonly) NSNumber *balanceInUserCurrency;
+
+/**
  @abstract The date of the history entry.
  */
 @property (nonatomic,strong,readonly) NSDate *balanceDate;
