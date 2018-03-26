@@ -68,7 +68,6 @@
 		1803E906FABE5641F90C452A603B3B68 /* MNFFeedIntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BFB731957F1E2E0C9111D4612A239F /* MNFFeedIntegrationTest.m */; };
 		19EF0A2CAB9852958BC538D41FA4C479 /* jsonSingleAdapterTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 489DD351C02C6BFD61AE91366767F7C7 /* jsonSingleAdapterTest.json */; };
 		1A8F3EA495BD7622B861DFBD14A152DC /* MNFUpcomingReconcileScore.h in Headers */ = {isa = PBXBuildFile; fileRef = BD1D663BD144772267F9DC71E1B0E3D7 /* MNFUpcomingReconcileScore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E77F30399B7A5BE05ADA019AF1CC086 /* MNFNetworkProtocolForTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E0B394F5E235ADEE64E9ABD18BE3DF /* MNFNetworkProtocolForTesting.m */; };
 		1E7A19F1281BBF35C130CA27EB0A565C /* MNFMerchantLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = F70FF0FF2AC0C34A9D9F5B173824AB8A /* MNFMerchantLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1ED98DE1A08D99EF13CF34BF73099668 /* MNFAdapterMainUppercaseTestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 206BB0DE3814CA0C3CECBB992A16D8EE /* MNFAdapterMainUppercaseTestObject.m */; };
 		1F1C93AA2E23B146050D131F0AD76ED4 /* MNFKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B96EB696437B9ED1989ED3FBE6ABAA /* MNFKeychain.m */; };
@@ -117,10 +116,28 @@
 		314FBAE820209EF900135E48 /* MNFImportAccountConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 314FBAE620209EF900135E48 /* MNFImportAccountConfiguration.m */; };
 		31BDD8A42008F6B20089E314 /* MNFBudgetEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 31BDD8A22008F6B20089E314 /* MNFBudgetEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31BDD8A52008F6B20089E314 /* MNFBudgetEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BDD8A32008F6B20089E314 /* MNFBudgetEntry.m */; };
-		31FA1DE720629B1700A16393 /* apispec.json in Resources */ = {isa = PBXBuildFile; fileRef = 31FA1DE620629B1600A16393 /* apispec.json */; };
-		31FA1DEA20629BB000A16393 /* MNFTestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DE920629BB000A16393 /* MNFTestFactory.m */; };
-		31FA1DEC20629CCE00A16393 /* MNFApiValidationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DEB20629CCE00A16393 /* MNFApiValidationTest.m */; };
-		31FA1DEF2062B0A500A16393 /* MNFTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DEE2062B0A500A16393 /* MNFTestUtils.m */; };
+		31DE38652069052D00B1DC4E /* downloadapispecs.sh in Resources */ = {isa = PBXBuildFile; fileRef = 31DE38642069052D00B1DC4E /* downloadapispecs.sh */; };
+		31DE389A2069099D00B1DC4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319DAEA4B6150AB2A487A95E9429C78C /* SystemConfiguration.framework */; };
+		31DE389B2069099D00B1DC4E /* libMenigaSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 084C7335A5A2434EE74BB0C43E39C59B /* libMenigaSDK.a */; };
+		31DE389D2069099D00B1DC4E /* JsonSubObjectFirstUppercaseTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D0C03E2EBE170D67E95B2F0B8D593B5 /* JsonSubObjectFirstUppercaseTest.json */; };
+		31DE389E2069099D00B1DC4E /* apispec.json in Resources */ = {isa = PBXBuildFile; fileRef = 31FA1DE620629B1600A16393 /* apispec.json */; };
+		31DE389F2069099D00B1DC4E /* JsonSubObjectLowercaseTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BF688C19DE67CBBE10A9CC71B8F9670 /* JsonSubObjectLowercaseTest.json */; };
+		31DE38A02069099D00B1DC4E /* JsonSubObjectTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 126107C5820AC4F0418E20D1EDAF3E88 /* JsonSubObjectTest.json */; };
+		31DE38A12069099D00B1DC4E /* JsonSubObjectUppercaseTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 803FC492E0031A78073937BC6E7EF026 /* JsonSubObjectUppercaseTest.json */; };
+		31DE38A22069099D00B1DC4E /* jsonAdapaterSingleTestLowercase.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EADDC48657B13F28073A4FAAB292E5F /* jsonAdapaterSingleTestLowercase.json */; };
+		31DE38A32069099D00B1DC4E /* jsonAdapterSingleTestFirstUppercase.json in Resources */ = {isa = PBXBuildFile; fileRef = E946AE56EBEAB17E9644BD2B1F0CB89C /* jsonAdapterSingleTestFirstUppercase.json */; };
+		31DE38A42069099D00B1DC4E /* jsonAdapterSingleTestUppercase.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F6EE9C72C8DFB15F21AF752F386BC34 /* jsonAdapterSingleTestUppercase.json */; };
+		31DE38A52069099D00B1DC4E /* jsonAdapterTestFirstUppercaseValueTransformer.json in Resources */ = {isa = PBXBuildFile; fileRef = C7A4F90EC09E77E9190F6AA8B7EB0FCE /* jsonAdapterTestFirstUppercaseValueTransformer.json */; };
+		31DE38A62069099D00B1DC4E /* jsonAdapterTestUppercaseValueTransformer.json in Resources */ = {isa = PBXBuildFile; fileRef = 92EABF271C98993AFA34971440189C42 /* jsonAdapterTestUppercaseValueTransformer.json */; };
+		31DE38A72069099D00B1DC4E /* jsonAdapterTestValueTransformer.json in Resources */ = {isa = PBXBuildFile; fileRef = 194C1C08CDD0EFAEA570FBD835B254E0 /* jsonAdapterTestValueTransformer.json */; };
+		31DE38A82069099D00B1DC4E /* jsonArrayAdapterTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A6EE112C530FF0ABB925EB8B0F32C60 /* jsonArrayAdapterTest.json */; };
+		31DE38A92069099D00B1DC4E /* downloadapispecs.sh in Resources */ = {isa = PBXBuildFile; fileRef = 31DE38642069052D00B1DC4E /* downloadapispecs.sh */; };
+		31DE38AA2069099D00B1DC4E /* cashbackapispec.json in Resources */ = {isa = PBXBuildFile; fileRef = 31DE3866206905CB00B1DC4E /* cashbackapispec.json */; };
+		31DE38AB2069099D00B1DC4E /* jsonSingleAdapterTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 489DD351C02C6BFD61AE91366767F7C7 /* jsonSingleAdapterTest.json */; };
+		31DE38B2206909EE00B1DC4E /* MNFNetworkProtocolForTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E0B394F5E235ADEE64E9ABD18BE3DF /* MNFNetworkProtocolForTesting.m */; };
+		31DE38B320690A0600B1DC4E /* MNFTestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DE920629BB000A16393 /* MNFTestFactory.m */; };
+		31DE38B420690A0B00B1DC4E /* MNFApiValidationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DEB20629CCE00A16393 /* MNFApiValidationTest.m */; };
+		31DE38B520690A0E00B1DC4E /* MNFTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DEE2062B0A500A16393 /* MNFTestUtils.m */; };
 		34F9D23DDA0DF3C904BCE87F52C16738 /* MNFAccountAuthorizationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 959B36C7454CAF6CA71449E7238DBA43 /* MNFAccountAuthorizationType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3501B284AD17F01BEBC4BC255D2C76DA /* MNFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A11DFD42418C6E80B7C443021042530 /* MNFSettings.m */; };
 		35ACBB2B95D2223CA2E2BE18F8A43639 /* MNFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F673A67A7EEA9CD365D8901ED34ACA /* MNFConstants.m */; };
@@ -377,6 +394,13 @@
 			remoteGlobalIDString = 8E03D8140795B770CC2DE09029DD4AE3;
 			remoteInfo = "Meniga-ios-sdk";
 		};
+		31DE386A2069099D00B1DC4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9E428DDD98FF79472828772278CC722 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E03D8140795B770CC2DE09029DD4AE3;
+			remoteInfo = "Meniga-ios-sdk";
+		};
 		3E4AC4F7085B93F95AE12A972D4873FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C9E428DDD98FF79472828772278CC722 /* Project object */;
@@ -503,6 +527,10 @@
 		31B6C209169056246B2B30F6D1A38387 /* MNFMerchantSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFMerchantSeries.h; path = Merchant/MNFMerchantSeries.h; sourceTree = "<group>"; };
 		31BDD8A22008F6B20089E314 /* MNFBudgetEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFBudgetEntry.h; path = Budget/MNFBudgetEntry.h; sourceTree = "<group>"; };
 		31BDD8A32008F6B20089E314 /* MNFBudgetEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFBudgetEntry.m; path = Budget/MNFBudgetEntry.m; sourceTree = "<group>"; };
+		31DE38642069052D00B1DC4E /* downloadapispecs.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = downloadapispecs.sh; sourceTree = "<group>"; };
+		31DE3866206905CB00B1DC4E /* cashbackapispec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cashbackapispec.json; sourceTree = "<group>"; };
+		31DE38AF2069099D00B1DC4E /* Api-validation-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Api-validation-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		31DE38B02069099E00B1DC4E /* Meniga-ios-sdk-tests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Meniga-ios-sdk-tests copy-Info.plist"; path = "/Users/haukur/mobile-sdk-ios/Meniga/Meniga-ios-sdk-tests copy-Info.plist"; sourceTree = "<absolute>"; };
 		31FA1DE620629B1600A16393 /* apispec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apispec.json; sourceTree = "<group>"; };
 		31FA1DE820629BB000A16393 /* MNFTestFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFTestFactory.h; sourceTree = "<group>"; };
 		31FA1DE920629BB000A16393 /* MNFTestFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFTestFactory.m; sourceTree = "<group>"; };
@@ -810,6 +838,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		31DE38992069099D00B1DC4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31DE389A2069099D00B1DC4E /* SystemConfiguration.framework in Frameworks */,
+				31DE389B2069099D00B1DC4E /* libMenigaSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62D4EFED9B7949E21CE6FD5DDCCD43F5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1082,12 +1119,14 @@
 		53CBCB8765868B36253DF7BEBAD9E3C9 /* Model object tests */ = {
 			isa = PBXGroup;
 			children = (
+				31DE3866206905CB00B1DC4E /* cashbackapispec.json */,
 				31FA1DE620629B1600A16393 /* apispec.json */,
 				31FA1DE820629BB000A16393 /* MNFTestFactory.h */,
 				31FA1DE920629BB000A16393 /* MNFTestFactory.m */,
 				31FA1DEB20629CCE00A16393 /* MNFApiValidationTest.m */,
 				31FA1DED2062B0A500A16393 /* MNFTestUtils.h */,
 				31FA1DEE2062B0A500A16393 /* MNFTestUtils.m */,
+				31DE38642069052D00B1DC4E /* downloadapispecs.sh */,
 			);
 			name = "Model object tests";
 			sourceTree = "<group>";
@@ -1254,6 +1293,7 @@
 				F3F950C8CF30E48D24710938842B4CCB /* Meniga-ios-IntegrationTests.xctest */,
 				63A852E40EC6F618C1EF0787A27CD331 /* Meniga-ios-sdk-tests.xctest */,
 				084C7335A5A2434EE74BB0C43E39C59B /* libMenigaSDK.a */,
+				31DE38AF2069099D00B1DC4E /* Api-validation-tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1474,6 +1514,7 @@
 				0CAC126B3DE7537F008AA5796FC9175F /* Meniga-ios-sdk */,
 				E5728E556B1F3B7C93FFAB60AE34F45A /* Meniga-ios-sdk-tests */,
 				7CEDE8B74E251F32F648E3B10CB0E9FA /* Products */,
+				31DE38B02069099E00B1DC4E /* Meniga-ios-sdk-tests copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2016,6 +2057,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		31DE38682069099D00B1DC4E /* Api-validation-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31DE38AC2069099D00B1DC4E /* Build configuration list for PBXNativeTarget "Api-validation-tests" */;
+			buildPhases = (
+				31DE386B2069099D00B1DC4E /* Sources */,
+				31DE38992069099D00B1DC4E /* Frameworks */,
+				31DE389C2069099D00B1DC4E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31DE38692069099D00B1DC4E /* PBXTargetDependency */,
+			);
+			name = "Api-validation-tests";
+			productName = "Meniga-ios-sdk-tests";
+			productReference = 31DE38AF2069099D00B1DC4E /* Api-validation-tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8700D726F8A23F7169AEDA1061796BF7 /* Meniga-ios-sdk-tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99B9EB413D877957E8B8FCE497A8AB3C /* Build configuration list for PBXNativeTarget "Meniga-ios-sdk-tests" */;
@@ -2112,17 +2171,39 @@
 				D878330A5EAE847393CCE5E58EC3530A /* Meniga-ios-IntegrationTests */,
 				2044B0831B5CF9599570DDD04FA1AAD7 /* Framework */,
 				D2F088B78A0B76A3FE3F6CB8919C97E6 /* Documentation */,
+				31DE38682069099D00B1DC4E /* Api-validation-tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		31DE389C2069099D00B1DC4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31DE389D2069099D00B1DC4E /* JsonSubObjectFirstUppercaseTest.json in Resources */,
+				31DE389E2069099D00B1DC4E /* apispec.json in Resources */,
+				31DE389F2069099D00B1DC4E /* JsonSubObjectLowercaseTest.json in Resources */,
+				31DE38A02069099D00B1DC4E /* JsonSubObjectTest.json in Resources */,
+				31DE38A12069099D00B1DC4E /* JsonSubObjectUppercaseTest.json in Resources */,
+				31DE38A22069099D00B1DC4E /* jsonAdapaterSingleTestLowercase.json in Resources */,
+				31DE38A32069099D00B1DC4E /* jsonAdapterSingleTestFirstUppercase.json in Resources */,
+				31DE38A42069099D00B1DC4E /* jsonAdapterSingleTestUppercase.json in Resources */,
+				31DE38A52069099D00B1DC4E /* jsonAdapterTestFirstUppercaseValueTransformer.json in Resources */,
+				31DE38A62069099D00B1DC4E /* jsonAdapterTestUppercaseValueTransformer.json in Resources */,
+				31DE38A72069099D00B1DC4E /* jsonAdapterTestValueTransformer.json in Resources */,
+				31DE38A82069099D00B1DC4E /* jsonArrayAdapterTest.json in Resources */,
+				31DE38A92069099D00B1DC4E /* downloadapispecs.sh in Resources */,
+				31DE38AA2069099D00B1DC4E /* cashbackapispec.json in Resources */,
+				31DE38AB2069099D00B1DC4E /* jsonSingleAdapterTest.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		68F8264F84480CCFE5C30BDC7A302B23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AE070A22BAEE8417B846242A22F2B402 /* JsonSubObjectFirstUppercaseTest.json in Resources */,
-				31FA1DE720629B1700A16393 /* apispec.json in Resources */,
 				6CAABAD89985F3277A4F205D8705E6B1 /* JsonSubObjectLowercaseTest.json in Resources */,
 				E6A99449D5210809CFF6ACD1F04954B9 /* JsonSubObjectTest.json in Resources */,
 				D71F10E5C78A71BA30DD2A474B8B72B0 /* JsonSubObjectUppercaseTest.json in Resources */,
@@ -2133,6 +2214,7 @@
 				5A3A1BEA850FC39117C4DD55D4270CF2 /* jsonAdapterTestUppercaseValueTransformer.json in Resources */,
 				DCEB2898043EAFA7FE445502987A8E57 /* jsonAdapterTestValueTransformer.json in Resources */,
 				D31491C68B4F25FB22841D60FB5E266E /* jsonArrayAdapterTest.json in Resources */,
+				31DE38652069052D00B1DC4E /* downloadapispecs.sh in Resources */,
 				19EF0A2CAB9852958BC538D41FA4C479 /* jsonSingleAdapterTest.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2221,6 +2303,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		31DE386B2069099D00B1DC4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31DE38B320690A0600B1DC4E /* MNFTestFactory.m in Sources */,
+				31DE38B420690A0B00B1DC4E /* MNFApiValidationTest.m in Sources */,
+				31DE38B520690A0E00B1DC4E /* MNFTestUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6FC7C5CC9385376C33013B5B43BC7E1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2252,6 +2344,7 @@
 				94879610455691C49D39EBDCF26B30B4 /* MNFFeed.m in Sources */,
 				B85E46A82A1516AF43893DB68772C415 /* MNFFeedItem.m in Sources */,
 				3101439D205A76EF00F2B52A /* MNFMedia.m in Sources */,
+				31DE38B2206909EE00B1DC4E /* MNFNetworkProtocolForTesting.m in Sources */,
 				F64F7C2323C6862D4D5ED3993CE1519E /* MNFFeedItemGroup.m in Sources */,
 				307058F2D9700D5005092E9968591BF2 /* MNFGlobalChallenge.m in Sources */,
 				D423DC3B1C7D20482CE0440ED66EE1E0 /* MNFISO8601DateFormatter.m in Sources */,
@@ -2269,7 +2362,6 @@
 				8F1DC30AA5EB047BB0C2E00EE42CA95A /* MNFMerchantSeries.m in Sources */,
 				299704E0A3A82F28D78E21164632015C /* MNFMerchantSeriesOptions.m in Sources */,
 				3A5E9E1D3A747C665C41845F68E99573 /* MNFNetwork.m in Sources */,
-				1E77F30399B7A5BE05ADA019AF1CC086 /* MNFNetworkProtocolForTesting.m in Sources */,
 				7336FBAF06F6518A83F80A8980D98422 /* MNFNetworthAccount.m in Sources */,
 				7BD564B60832BA1315A38A306FCEBF96 /* MNFNetworthBalanceHistory.m in Sources */,
 				8F85C5FDDDC215D13CBC17D939807CCF /* MNFNumberToBoolValueTransformer.m in Sources */,
@@ -2365,7 +2457,6 @@
 				C5E6B4DB5392022A2B7634DFC225C12F /* MNFAdapterSubTestDelegateObj.m in Sources */,
 				58A6310AEEAF881F256992EDDA326212 /* MNFAdapterSubTestObject.m in Sources */,
 				5438463E363EE7AFA52983A53913FD4A /* MNFAdapterSubUppercaseTestObject.m in Sources */,
-				31FA1DEC20629CCE00A16393 /* MNFApiValidationTest.m in Sources */,
 				09BE1BABA3FC52E4DE4E634F78AF2C3F /* MNFDateValueTransformerTests.m in Sources */,
 				8AA1C1B4325FFDF24BE52D1C1423B439 /* MNFJobTest.m in Sources */,
 				C196D99BBE1CA9C7499B9815A6113984 /* MNFJsonAdaoterTestTransformer.m in Sources */,
@@ -2373,7 +2464,6 @@
 				8D4373B5A1BE4AD4984465F13554DE17 /* MNFJsonAdapterIgnoreErrorTestObject.m in Sources */,
 				3ADA901FD29A995E5DA319A1A6E0B47A /* MNFJsonAdapterJsonKeyMapToPropertyErrorTestObject.m in Sources */,
 				C1A441C391A92E7F55584E288AD1DCAB /* MNFJsonAdapterPropertyKeyMapToJsonErrorTestObject.m in Sources */,
-				31FA1DEA20629BB000A16393 /* MNFTestFactory.m in Sources */,
 				AC7C427DC2555F8C960E629896D97B7A /* MNFJsonAdapterRestrictedPRopertyErrorTestObject.m in Sources */,
 				3A0CBC9B9A0ABCBB456A7481E7D54EFC /* MNFJsonAdapterTestDelegateConformingObject.m in Sources */,
 				9F6DE6660B32428AADC341A3F50CA959 /* MNFJsonAdapterTestFirstUppercaseValueTransformerDelegate.m in Sources */,
@@ -2387,7 +2477,6 @@
 				5E8D664456AD68BE450D2822254FF939 /* MNFMainAdapterDelegateTestObj.m in Sources */,
 				5CAC7ED38B60437305C968ACAE1770F9 /* MNFMainAdapterDelegateUppercaseTestObj.m in Sources */,
 				026CF44AC1E7ED9E2883B1BB6FCD7422 /* MNFNetworkTest.m in Sources */,
-				31FA1DEF2062B0A500A16393 /* MNFTestUtils.m in Sources */,
 				8C3E1279D153C8F75B42389B37F99743 /* MNFRequestTest.m in Sources */,
 				78AA9ECF37FB195384571EF5F732544C /* MNFResponseTest.m in Sources */,
 				2C5E22B93B0C6032129B9E1293964C75 /* MNFSeparateFirstUppercaseOptionDelegateObject.m in Sources */,
@@ -2403,6 +2492,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		31DE38692069099D00B1DC4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E03D8140795B770CC2DE09029DD4AE3 /* Meniga-ios-sdk */;
+			targetProxy = 31DE386A2069099D00B1DC4E /* PBXContainerItemProxy */;
+		};
 		3FD77A0EF0E1CE3FDBDAFC2A3FCF9373 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8E03D8140795B770CC2DE09029DD4AE3 /* Meniga-ios-sdk */;
@@ -2561,6 +2655,48 @@
 			};
 			name = Debug;
 		};
+		31DE38AD2069099D00B1DC4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Meniga-ios-sdk-tests copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Meniga.Meniga-ios-sdk-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Debug;
+		};
+		31DE38AE2069099D00B1DC4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Meniga-ios-sdk-tests copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Meniga.Meniga-ios-sdk-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Release;
+		};
 		3C681781C6995C7413015C933EA96862 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2701,6 +2837,15 @@
 			buildConfigurations = (
 				CF58CB1AC3E1F20A279182AF748CFDDC /* Debug */,
 				3C681781C6995C7413015C933EA96862 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31DE38AC2069099D00B1DC4E /* Build configuration list for PBXNativeTarget "Api-validation-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31DE38AD2069099D00B1DC4E /* Debug */,
+				31DE38AE2069099D00B1DC4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
