@@ -10,7 +10,6 @@
 #import "MNFTestFactory.h"
 #import "MNFTestUtils.h"
 #import "Meniga.h"
-#import <objc/runtime.h>
 
 @interface MNFApiValidationTest : XCTestCase
 
