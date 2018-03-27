@@ -139,6 +139,7 @@
 		31DE38B420690A0B00B1DC4E /* MNFApiValidationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DEB20629CCE00A16393 /* MNFApiValidationTest.m */; };
 		31DE38B520690A0E00B1DC4E /* MNFTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DEE2062B0A500A16393 /* MNFTestUtils.m */; };
 		31DE38B82069407C00B1DC4E /* MNFCashbackApiValidationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DE38B72069407C00B1DC4E /* MNFCashbackApiValidationTest.m */; };
+		31DE38BA206A975600B1DC4E /* MNFTestModelObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DE38B9206A975600B1DC4E /* MNFTestModelObjects.m */; };
 		34F9D23DDA0DF3C904BCE87F52C16738 /* MNFAccountAuthorizationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 959B36C7454CAF6CA71449E7238DBA43 /* MNFAccountAuthorizationType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3501B284AD17F01BEBC4BC255D2C76DA /* MNFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A11DFD42418C6E80B7C443021042530 /* MNFSettings.m */; };
 		35ACBB2B95D2223CA2E2BE18F8A43639 /* MNFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F673A67A7EEA9CD365D8901ED34ACA /* MNFConstants.m */; };
@@ -533,6 +534,7 @@
 		31DE38AF2069099D00B1DC4E /* Api-validation-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Api-validation-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DE38B02069099E00B1DC4E /* Meniga-ios-sdk-tests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Meniga-ios-sdk-tests copy-Info.plist"; path = "/Users/haukur/mobile-sdk-ios/Meniga/Meniga-ios-sdk-tests copy-Info.plist"; sourceTree = "<absolute>"; };
 		31DE38B72069407C00B1DC4E /* MNFCashbackApiValidationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFCashbackApiValidationTest.m; sourceTree = "<group>"; };
+		31DE38B9206A975600B1DC4E /* MNFTestModelObjects.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFTestModelObjects.m; sourceTree = "<group>"; };
 		31FA1DE620629B1600A16393 /* apispec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apispec.json; sourceTree = "<group>"; };
 		31FA1DE820629BB000A16393 /* MNFTestFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFTestFactory.h; sourceTree = "<group>"; };
 		31FA1DE920629BB000A16393 /* MNFTestFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFTestFactory.m; sourceTree = "<group>"; };
@@ -1130,6 +1132,7 @@
 				31FA1DEE2062B0A500A16393 /* MNFTestUtils.m */,
 				31DE38642069052D00B1DC4E /* downloadapispecs.sh */,
 				31DE38B72069407C00B1DC4E /* MNFCashbackApiValidationTest.m */,
+				31DE38B9206A975600B1DC4E /* MNFTestModelObjects.m */,
 			);
 			name = "Model object tests";
 			sourceTree = "<group>";
@@ -2455,6 +2458,7 @@
 				A2E7F0951D8C380C0B186E4D0BCAA514 /* MNFAdapterSubDelegateUppercaseTestObj.m in Sources */,
 				E437583D409FF45E0453F4186F740E5E /* MNFAdapterSubFirstUppercaseTestObject.m in Sources */,
 				E04DF64A5B75FCF04D17FDCD89B47042 /* MNFAdapterSubPropertyFirstUppercaseOptionDelegate.m in Sources */,
+				31DE38BA206A975600B1DC4E /* MNFTestModelObjects.m in Sources */,
 				ACD3DD324F2D07067D0E1C140CE2F8CC /* MNFAdapterSubPropertyMappingDelegateFirstUppercaseDelegate.m in Sources */,
 				B057462307F834C98160F44668216F11 /* MNFAdapterSubPropertyMappingDelegateUppercaseDelegate.m in Sources */,
 				DB2C8B0F98777885C513390CA3835E09 /* MNFAdapterSubPropertyUppercaseOptionDelegate.m in Sources */,

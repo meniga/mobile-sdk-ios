@@ -16,4 +16,6 @@
 +(NSDictionary*)cashbackapiModelWithDefinition:(NSString*)definition;
 +(NSArray<NSDictionary*>*)cashbackfilterParametersWithPath:(NSString*)path;
 
++(NSDictionary*)jsonModelWithDefinition:(NSString*)definition;
+
 @end

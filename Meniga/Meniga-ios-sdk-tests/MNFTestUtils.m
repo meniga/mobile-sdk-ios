@@ -9,10 +9,11 @@
 #import "MNFTestUtils.h"
 #import "MNFObject.h"
 #import <objc/runtime.h>
+#import "MNFInternalImports.h"
 
 @implementation MNFTestUtils
 
-+(BOOL)validateApiModel:(NSDictionary*)apiModel withModelObject:(MNFObject*)modelObject {
++(BOOL)validateApiModel:(NSDictionary*)apiModel withModelObject:(id <MNFJsonAdapterDelegate>)modelObject {
         
     if (apiModel == nil) { return NO; }
     
@@ -88,8 +89,6 @@
 
 +(BOOL)validateFilterParameters:(NSArray <NSDictionary*> *)filterParameters withModelObject:(id <MNFJsonAdapterDelegate>)modelObject {
     
-    NSLog(@"Filter parameters: %@",filterParameters);
-    
     if (filterParameters == nil) { return NO; }
     
     BOOL isValid = YES;
@@ -121,6 +120,47 @@
                     break;
                 }
             }
+        }
+    }
+    
+    return isValid;
+}
+
++(BOOL)validateApiSerialization:(NSDictionary *)json withModelObject:(NSObject <MNFJsonAdapterDelegate> *)modelObject {
+    
+    BOOL isValid = YES;
+    for (NSString *key in json) {
+        
+        NSString *modelKey = key;
+        if ([modelObject respondsToSelector:@selector(jsonKeysMapToProperties)]) {
+            if ([[modelObject jsonKeysMapToProperties] allKeysForObject:key].count > 0) {
+                modelKey = [[[modelObject jsonKeysMapToProperties] allKeysForObject:key] firstObject];
+            }
+        }
+        if ([modelObject respondsToSelector:@selector(propertiesToIgnoreJsonSerialization)]) {
+            if ([[modelObject propertiesToIgnoreJsonDeserialization] containsObject:modelKey]) {
+                continue;
+            }
+        }
+        
+        id value = [modelObject valueForKey:modelKey];
+        id jsonValue = json[key];
+        if ([modelObject respondsToSelector:@selector(propertyValueTransformers)]) {
+            if ([modelObject propertyValueTransformers][modelKey] != nil) {
+                jsonValue = [[modelObject propertyValueTransformers][modelKey] reverseTransformedValue:jsonValue];
+            }
+        }
+        if ([modelObject respondsToSelector:@selector(subclassedProperties)]) {
+            if ([modelObject subclassedProperties][modelKey] != nil) {
+                MNFJsonAdapterSubclassedProperty *subclassedProperty = [modelObject subclassedProperties][modelKey];
+                jsonValue = [MNFJsonAdapter objectOfClass:subclassedProperty.class jsonDict:jsonValue option:subclassedProperty.propertyOption error:nil];
+            }
+        }
+        
+        if (![value isEqual:jsonValue]) {
+            NSLog(@"Model object serialization failed. Expected %@ got %@",jsonValue,value);
+            isValid = NO;
+            break;
         }
     }
     

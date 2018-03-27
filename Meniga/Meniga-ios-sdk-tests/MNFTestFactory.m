@@ -7,6 +7,7 @@
 //
 
 #import "MNFTestFactory.h"
+#import "MNFInternalImports.h"
 
 static NSDictionary *apiSpecDictionary;
 static NSDictionary *cashbackapiSpecDictionary;
@@ -51,6 +52,52 @@ static NSDictionary *cashbackapiSpecDictionary;
     }
     
     return [sanitizedArray copy];
+}
+
++(NSDictionary*)jsonModelWithDefinition:(NSString *)definition {
+    
+    NSDictionary *apiModel = [self apiModelWithDefinition:definition];
+    
+    NSMutableDictionary *jsonDictionary = [NSMutableDictionary dictionary];
+    
+    for (NSString *key in apiModel.allKeys) {
+        
+        NSDictionary *model = apiModel[key];
+        jsonDictionary[model[@"name"]] = [self randomValueForModel:model];
+    }
+    
+    return [jsonDictionary copy];
+}
+
++(id)randomValueForModel:(NSDictionary *)model {
+    
+    NSString *modelType = model[@"type"];
+    NSString *modelFormat = model[@"format"];
+    NSString *ref = model[@"$ref"];
+    
+    if ([modelType isEqualToString:@"string"]) {
+        return [NSStringUtils randomStringWithLength:6];
+    }
+    if ([modelType isEqualToString:@"boolean"]) {
+        return (arc4random() % 2 ? @"true" : @"false");
+    }
+    if ([modelType isEqualToString:@"integer"]) {
+        return [NSNumber numberWithInt:arc4random_uniform(100)];
+    }
+    if ([modelType isEqualToString:@"number"]) {
+        return [NSNumber numberWithDouble:arc4random_uniform(100)/10.0];
+    }
+    if ([modelType isEqualToString:@"array"]) {
+        return @[];
+    }
+    if ([modelFormat isEqualToString:@"date-time"]) {
+        return [NSString stringWithFormat:@"2018-%u-%-uT23:59:59.360Z",arc4random_uniform(12),arc4random_uniform(30)];
+    }
+    if (ref != nil || [modelType isEqualToString:@"object"]) {
+        return @{};
+    }
+    
+    return nil;
 }
 
 @end
