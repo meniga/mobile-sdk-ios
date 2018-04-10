@@ -79,9 +79,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSString *title;
 
 /**
- @abstract The topic id the user event relates to.
+ @abstract A list of topic ids that are connected to the user events. The value is based on the type i.e. for transactions topic id would contain a transaction id 
  */
-@property (nonatomic, strong, readonly) NSNumber *topicId;
+@property (nonatomic, strong, readonly) NSArray *topicId;
 
 /**
  @abstract The date of the user event.
@@ -114,6 +114,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSNumber *userId;
 
 @property (nonatomic, strong, readonly) NSDictionary *messageData;
+
+@property (nonatomic,strong,readonly) NSDictionary *dataItem;
 
 /**
  Subscribe to a list of user events on a given channel.

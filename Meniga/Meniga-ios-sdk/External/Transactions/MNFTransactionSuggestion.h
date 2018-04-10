@@ -28,6 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,copy,readonly) NSString *category;
 
+/**
+ The type of the search suggestion "Category", "Merchant", "Tag", "Comment", "Currency", "Description", "ParsedDataField"
+ */
+@property (nonatomic,copy,readonly) NSString *type;
+
 +(MNFJob*)fetchTransactionSuggestionsWithText:(NSString*)text
                               suggestionTypes:(nullable NSString*)suggestionTypes
               onlyShowResultsWithTransactions:(nullable NSNumber*)onlyShowResultsWithTransactions

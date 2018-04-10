@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Content type of the challenge. ['0','1','2','3','4'].
  */
-@property (nonatomic,strong,readonly) NSNumber *contentType;
+@property (nonatomic,strong,readonly) NSString *contentType;
 
 /**
  @abstract Text challenge to be displayed to the user.

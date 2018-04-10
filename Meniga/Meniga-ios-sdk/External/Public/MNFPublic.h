@@ -68,12 +68,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current currency group symbol.
  */
-@property (nonatomic,copy,readonly) NSString *currentGroupSymbol;
+@property (nonatomic,copy,readonly) NSString *currencyGroupSymbol;
 
 /**
  The current currency decimal symbol.
  */
-@property (nonatomic,copy,readonly) NSString *currentDecimalSymbol;
+@property (nonatomic,copy,readonly) NSString *currencyDecimalSymbol;
 
 +(MNFJob*)fetchPublicSettingsWithCompletion:(nullable MNFPublicCompletionHandler)completion;
 

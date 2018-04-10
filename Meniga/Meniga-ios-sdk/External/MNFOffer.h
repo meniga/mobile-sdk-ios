@@ -205,6 +205,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSDate *lastSeen;
 
 /**
+ Whether the offer has been seen by the user.
+ */
+@property (nonatomic,strong,readonly) NSNumber *seen;
+
+/**
  @abstract Fetches an object with a given identifier from the server.
  
  @param identifier The server identifier for the offer.

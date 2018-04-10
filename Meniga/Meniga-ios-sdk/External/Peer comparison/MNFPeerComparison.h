@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy,readonly) NSArray <NSNumber*> *categoryIds;
 @property (nonatomic,copy,readonly) NSArray <NSString*> *months;
-@property (nonatomic,copy,readonly) NSArray <MNFPeerComparisonStats*> *user;
-@property (nonatomic,copy,readonly) NSArray <MNFPeerComparisonStats*> *community;
+@property (nonatomic,copy,readonly) MNFPeerComparisonStats *user;
+@property (nonatomic,copy,readonly) MNFPeerComparisonStats *community;
 @property (nonatomic,copy,readonly) NSArray <MNFPeerComparisonMerchants*> *userMerchants;
 @property (nonatomic,copy,readonly) NSArray <MNFPeerComparisonMerchants*> *communityMerchants;
 @property (nonatomic,copy,readonly) NSString *status;

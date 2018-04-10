@@ -36,6 +36,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong,readonly)    NSDate *created;
 
+/**
+ The display currency of the user.
+ */
+@property (nonatomic,copy,readonly) NSString *currencyCode;
+
 ///******************************
 /// @name Mutable properties
 ///******************************

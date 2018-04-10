@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The offset of the budget if the budget is a planning budget.
  */
-@property (nonatomic,copy,readonly) NSString * _Nullable offset;
+@property (nonatomic,copy,readonly) NSNumber * _Nullable offset;
 
 /**
  The creation date of the budget.
