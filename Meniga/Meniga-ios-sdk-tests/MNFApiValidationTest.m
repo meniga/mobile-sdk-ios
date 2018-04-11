@@ -135,7 +135,7 @@
     XCTAssertTrue([MNFTestUtils validateApiModel:[MNFTestFactory apiModelWithDefinition:@"Meniga.Upcoming.Api.Models.DetailsModel"] withModelObject:[MNFUpcomingDetails new]]);
     XCTAssertTrue([MNFTestUtils validateApiModel:[MNFTestFactory apiModelWithDefinition:@"Meniga.Upcoming.Api.Models.InvoiceModel"] withModelObject:[MNFUpcomingInvoice new]]);
     XCTAssertTrue([MNFTestUtils validateApiModel:[MNFTestFactory apiModelWithDefinition:@"Meniga.Upcoming.Api.Models.ScheduledPaymentModel"] withModelObject:[MNFUpcomingScheduledPayment new]]);
-//    XCTAssertTrue([MNFTestUtils validateApiModel:[MNFTestFactory apiModelWithDefinition:@"Meniga.Upcoming.Api.Models.ThresholdSetModel"] withModelObject:[MNFUpcomingThreshold new]]);
+    XCTAssertTrue([MNFTestUtils validateApiModel:[MNFTestFactory apiModelWithDefinition:@"Meniga.Upcoming.Api.Models.ThresholdSetModel"] withModelObject:[MNFUpcomingThreshold new]]);
     XCTAssertTrue([MNFTestUtils validateApiModel:[MNFTestFactory apiModelWithDefinition:@"Meniga.Upcoming.Api.Models.BalanceModel"] withModelObject:[MNFUpcomingBalance new]]);
     XCTAssertTrue([MNFTestUtils validateApiModel:[MNFTestFactory apiModelWithDefinition:@"Meniga.Upcoming.Api.Models.BalanceDateModel"] withModelObject:[MNFUpcomingBalanceDate new]]);
 }

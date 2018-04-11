@@ -85,12 +85,23 @@
              @"accountDescription":@"description"};
 }
 
+-(NSDictionary*)propertyKeysMapToJson {
+    return @{@"identifier":@"id",
+             @"accountDescription":@"description"};
+}
+
 -(NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
 -(NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObjects:@"objectstate", nil];
+}
+
+-(NSDictionary*)subclassedProperties {
+    return @{
+             @"importAccountConfiguration": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass: [MNFImportAccountConfiguration class] option: kMNFAdapterOptionNoOption]
+             };
 }
 
 #pragma mark - Description

@@ -131,8 +131,8 @@
 -(NSDictionary *)propertyValueTransformers {
     
     return @{
-             @"creationDate" : [MNFBasicDateValueTransformer class],
-             @"modifiedAt" : [MNFBasicDateValueTransformer class]
+             @"creationDate" : [MNFBasicDateValueTransformer transformer],
+             @"modifiedAt" : [MNFBasicDateValueTransformer transformer]
              };
 }
 

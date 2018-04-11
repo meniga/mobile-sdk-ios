@@ -106,6 +106,40 @@
     return job;
 }
 
++(MNFJob*)createThresholdSetWithLowerThresholds:(NSArray<NSNumber *> *)lowerThresholds upperThresholds:(NSArray<NSNumber *> *)upperThresholds accountIds:(NSArray<NSNumber *> *)accountIds completion:(MNFThresholdCompletionHandler)completion {
+    [completion copy];
+    
+    NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
+    jsonDict[@"lowerThresholds"] = lowerThresholds;
+    jsonDict[@"upperThresholds"] = upperThresholds;
+    jsonDict[@"accountIds"] = accountIds;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDict copy] options:0 error:nil];
+    
+    __block MNFJob *job = [MNFObject apiRequestWithPath:kMNFUpcomingThresholds pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameUpcoming completion:^(MNFResponse * _Nullable response) {
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                MNFUpcomingThreshold *threshold = [MNFUpcomingThreshold initWithServerResult:response.result];
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:threshold error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:[MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]]];
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:response.error];
+        }
+    }];
+    
+    return job;
+}
+
 -(MNFJob*)deleteThresholdWithCompletion:(MNFErrorOnlyCompletionHandler)completion {
     [completion copy];
     
@@ -125,8 +159,11 @@
     
     NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFUpcomingThresholds,[self.identifier stringValue]];
     
-    NSDictionary *jsonDict = @{@"value":self.value,@"isUpperLimit":self.isUpperLimit};
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:nil];
+    NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
+    jsonDict[@"lowerThresholds"] = self.lowerThresholds;
+    jsonDict[@"upperThresholds"] = self.upperThresholds;
+    jsonDict[@"accountIds"] = self.accountIds;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDict copy] options:0 error:nil];
     
     __block MNFJob *job = [self updateWithApiPath:path pathQuery:nil jsonBody:jsonData httpMethod:kMNFHTTPMethodPUT service:MNFServiceNameUpcoming completion:^(MNFResponse * _Nullable response) {
         kObjectBlockDataDebugLog;

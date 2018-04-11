@@ -22,26 +22,41 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The id of the account group for which the threshold is valid.
  */
-@property (nonatomic,strong,readonly) NSNumber *accountSetId;
+@property (nonatomic,strong,readonly) NSNumber *accountSetId MNF_DEPRECATED("Not available in api version 3.8");
 
 /**
- A collection of account ids for which the threshold is valid. If nothing specified the threshold will be applied to all the user's accounts.
+ The currency of the threshold set's threshold values. If all associated accounts are in the same currency then that currency is used. If the account currencies are different the user currency is used.
  */
-@property (nonatomic,copy,readonly) NSArray *accountIds;
+@property (nonatomic,strong,readonly) NSString *currencyCode;
 
 ///******************************
 /// @name Mutable properties
 ///******************************
 
 /**
+ A collection of account ids for which the threshold is valid. If nothing specified the threshold will be applied to all the user's accounts.
+ */
+@property (nonatomic,copy) NSArray *accountIds;
+
+/**
+ A collection of lower thresholds for the thresholds set in the currency of 'CurrencyCode'.
+ */
+@property (nonatomic,copy) NSArray *lowerThresholds;
+
+/**
+ A collection of upper thresholds for the thresholds set in the currency of 'CurrencyCode'.
+ */
+@property (nonatomic,copy) NSArray *upperThresholds;
+
+/**
  A decimal specifying the value of the threshold.
  */
-@property (nonatomic,strong) NSNumber *value;
+@property (nonatomic,strong) NSNumber *value MNF_DEPRECATED("Not available in api version 3.8");
 
 /**
  Whether the threshold is an upper limit or not.
  */
-@property (nonatomic,strong) NSNumber *isUpperLimit;
+@property (nonatomic,strong) NSNumber *isUpperLimit MNF_DEPRECATED("Not available in api version 3.8");
 
 /**
  Fetches a threshold with a given identifier.
@@ -51,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a threshold and an error.
  */
-+(MNFJob*)fetchWithId:(NSNumber*)identifier completion:(nullable MNFThresholdCompletionHandler)completion;
++(MNFJob*)fetchWithId:(NSNumber*)identifier completion:(nullable MNFThresholdCompletionHandler)completion MNF_DEPRECATED("Not available in api version 3.8");
 
 /**
  Fetches a list of thresholds filtered by account ids.
@@ -73,7 +88,19 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing the created threshold and an error.
  */
-+(MNFJob*)createThresholdWithValue:(nullable NSNumber*)value isUpperLimit:(nullable NSNumber*)isUpperLimit accountIds:(NSArray <NSNumber*> *)accountIds completion:(nullable MNFThresholdCompletionHandler)completion;
++(MNFJob*)createThresholdWithValue:(nullable NSNumber*)value isUpperLimit:(nullable NSNumber*)isUpperLimit accountIds:(NSArray <NSNumber*> *)accountIds completion:(nullable MNFThresholdCompletionHandler)completion MNF_DEPRECATED("User 'createThresholdSetWithLowerThresholds:...' instead");
+
+/**
+ Creates a threshold on the server for give account ids.
+ 
+ @param lowerThresholds A list of lower thresholds.
+ @param upperThresholds A list of upper thresholds.
+ @param accountIds A list of account ids for which the threshold is valid.
+ @param completion A completion block returning the created threshold and an error.
+ 
+ @return MNFJob A job containing the created threshold and an error.
+ */
++(MNFJob*)createThresholdSetWithLowerThresholds:(NSArray <NSNumber*> *)lowerThresholds upperThresholds:(NSArray <NSNumber *> *)upperThresholds accountIds:(NSArray <NSNumber *> *)accountIds completion:(nullable MNFThresholdCompletionHandler)completion;
 
 /**
  Deletes the threshold from the server.

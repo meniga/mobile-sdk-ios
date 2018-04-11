@@ -147,18 +147,24 @@
         id jsonValue = json[key];
         if ([modelObject respondsToSelector:@selector(propertyValueTransformers)]) {
             if ([modelObject propertyValueTransformers][modelKey] != nil) {
-                jsonValue = [[modelObject propertyValueTransformers][modelKey] reverseTransformedValue:jsonValue];
+                jsonValue = [[modelObject propertyValueTransformers][modelKey] transformedValue:jsonValue];
             }
         }
         if ([modelObject respondsToSelector:@selector(subclassedProperties)]) {
             if ([modelObject subclassedProperties][modelKey] != nil) {
-                MNFJsonAdapterSubclassedProperty *subclassedProperty = [modelObject subclassedProperties][modelKey];
-                jsonValue = [MNFJsonAdapter objectOfClass:subclassedProperty.class jsonDict:jsonValue option:subclassedProperty.propertyOption error:nil];
+                if ([jsonValue isKindOfClass:[NSArray class]]) {
+                        return [self validateApiSerialization:[jsonValue firstObject] withModelObject:[value firstObject]];
+                        break;
+                }
+                else {
+                    return [self validateApiSerialization:jsonValue withModelObject:value];
+                    break;
+                }
             }
         }
         
         if (![value isEqual:jsonValue]) {
-            NSLog(@"Model object serialization failed. Expected %@ got %@",jsonValue,value);
+            NSLog(@"Model object serialization failed for modelKey %@. Expected %@ got %@",modelKey,jsonValue,value);
             isValid = NO;
             break;
         }

@@ -184,7 +184,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Extra fields for this transaction having field names as keys.
  */
-@property(nonatomic, copy, readonly)NSArray *parsedData;
+@property(nonatomic, copy, readonly)NSDictionary *parsedData;
 
 /**
  @abstract The transaction timestamp.
@@ -205,6 +205,11 @@ NS_ASSUME_NONNULL_BEGIN
  The split ratio of the transaction.
  */
 @property (nonatomic,strong,readonly) NSNumber *splitRatio;
+
+/**
+ The country code of the transaction.
+ */
+@property (nonatomic,strong,readonly) NSString *countryCode;
 
 ///******************************
 /// @name Mutable properties

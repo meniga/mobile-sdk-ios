@@ -224,4 +224,52 @@
     return job;
 }
 
+-(MNFJob*)fetchHistoryWithCompletion:(MNFLifeGoalHistoryCompletionHandler)completion {
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:kMNFLifeGoalsHistory,[self.identifier stringValue]];
+    
+    __block MNFJob *job = [[self class] apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameLifeGoals completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            if ([response.result isKindOfClass:[NSArray class]]) {
+                
+                NSArray *lifeGoals = [MNFLifeGoalHistory initWithServerResults:response.result];
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:lifeGoals error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:[MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]]];
+                
+            }
+        }
+        else {
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:response.error];
+        }
+    }];
+    
+    return job;
+}
+
+#pragma mark - json adaptor delegate methods
+
+-(NSDictionary*)jsonKeysMapToProperties{
+    return @{@"identifier":@"id"};
+}
+
+-(NSDictionary*)propertyKeysMapToJson{
+    return @{@"identifier":@"id"};
+}
+
+-(NSDictionary*)propertyValueTransformers {
+    
+    return @{@"expectedTargetDate":[MNFBasicDateValueTransformer transformer],
+             @"startDate":[MNFBasicDateValueTransformer transformer],
+             @"achievedDate":[MNFBasicDateValueTransformer transformer],
+             @"targetDate":[MNFBasicDateValueTransformer transformer]};
+}
+
 @end
