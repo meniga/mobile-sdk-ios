@@ -608,7 +608,7 @@
     XCTAssertNotNil(jsonDict);
     XCTAssertNotNil(testObj);
     
-    XCTAssertEqualObjects(testObj.userId, @2);
+    XCTAssertEqualObjects(testObj.userId, @1);
     XCTAssertEqualObjects(testObj.postId, nil);
     XCTAssertEqualObjects(testObj.body, @"quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto");
     XCTAssertEqualObjects(testObj.title, nil);
@@ -629,7 +629,7 @@
     XCTAssertNotNil(jsonDict);
     XCTAssertNotNil(testObj);
     
-    XCTAssertEqualObjects(testObj.UserId, @2);
+    XCTAssertEqualObjects(testObj.UserId, @1);
     XCTAssertEqualObjects(testObj.PostId, nil);
     XCTAssertEqualObjects(testObj.Body, @"quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto");
     XCTAssertEqualObjects(testObj.Title, nil);
@@ -650,7 +650,7 @@
     XCTAssertNotNil(jsonDict);
     XCTAssertNotNil(testObj);
     
-    XCTAssertEqualObjects(testObj.UserId, @2);
+    XCTAssertEqualObjects(testObj.UserId, @1);
     XCTAssertEqualObjects(testObj.PostId, nil);
     XCTAssertEqualObjects(testObj.Body, @"quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto");
     XCTAssertEqualObjects(testObj.Title, nil);
@@ -692,7 +692,7 @@
     XCTAssertNotNil(jsonDict);
     XCTAssertNotNil(testObj);
     
-    XCTAssertEqualObjects(testObj.userId, @2);
+    XCTAssertEqualObjects(testObj.userId, @1);
     XCTAssertEqualObjects(testObj.postId, nil);
     XCTAssertEqualObjects(testObj.body, @"quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto");
     XCTAssertEqualObjects(testObj.title, nil);
@@ -967,7 +967,7 @@
     XCTAssertNotNil(testObj);
     
     // these should be automatically serialized as they match the json
-    XCTAssertEqualObjects(testObj.UserId, @2);
+    XCTAssertEqualObjects(testObj.UserId, @1);
     XCTAssertEqualObjects(testObj.PostId, @42);
     XCTAssertEqualObjects(testObj.Title, @"aaaw yeah!");
     // this was not serilaized this is the prior value of the property
@@ -997,7 +997,7 @@
     XCTAssertNotNil(testObj);
     
     // these should be automatically serialized as they match the json
-    XCTAssertEqualObjects(testObj.UserId, @2);
+    XCTAssertEqualObjects(testObj.UserId, @1);
     XCTAssertEqualObjects(testObj.PostId, @42);
     XCTAssertEqualObjects(testObj.Title, @"aaaw yeah!");
     // this was not serilaized this is the prior value of the property
