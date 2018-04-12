@@ -18,7 +18,7 @@
 
 @implementation MNFSynchronization
 
-+(MNFJob *)synchronizeWithTimeout:(NSNumber *)timeout interval:(NSNumber *)interval completion:(MNFErrorOnlyCompletionHandler)completion {
++(MNFJob *)synchronizeWithTimeout:(NSNumber *)timeout interval:(NSNumber *)interval completion:(MNFSynchronizationCompletionHandler)completion {
     [completion copy];
     
     NSDate *syncStart = [NSDate date];
@@ -29,12 +29,12 @@
     [startJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
         
         if (error != nil) {
-            [self executeOnMainThreadWithJob:job completion:completion error:error];
+            [self executeOnMainThreadWithJob:job completion:completion parameter:nil error:error];
         }
         else{
             MNFSynchronization *synchronization = (MNFSynchronization*)result;
             [self p_querySynchronizationWithSync:synchronization start:syncStart timeout:timeout interval:interval completion:^(NSError *error) {
-                [self executeOnMainThreadWithJob:job completion:completion error:error];
+                [self executeOnMainThreadWithJob:job completion:completion parameter:synchronization error:error];
             }];
         }
 

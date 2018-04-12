@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a result or an error.
  */
-+(MNFJob*)synchronizeWithTimeout:(NSNumber*)timeout interval:(NSNumber*)interval completion:(nullable MNFErrorOnlyCompletionHandler)completion;
++(MNFJob *)synchronizeWithTimeout:(NSNumber *)timeout interval:(NSNumber *)interval completion:(MNFSynchronizationCompletionHandler)completion;
 
 + (MNFJob*)synchronizeRealmUserWithId:(NSNumber *)realmUserId timeout:(NSNumber*)timeout interval:(NSNumber*)interval completin:(nullable MNFErrorOnlyCompletionHandler)completion;
 

@@ -50,9 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)NSString * _Nullable bankId MNF_DEPRECATED("Use bankIds instead");
 
 /**
- A comma separated string of bank ids to filter by.
+ A list of bank ids to filter by.
  */
-@property (nonatomic,strong) NSString *_Nullable bankIds;
+@property (nonatomic,strong) NSArray *_Nullable bankIds;
 
 /**
  @abstract The category IDs to filter by
@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The counterparty account identifers to filter by
  */
-@property(nonatomic, strong)NSString * _Nullable counterpartyAccountIdentifiers;
+@property(nonatomic, strong)NSArray * _Nullable counterpartyAccountIdentifiers;
 
 /**
  @abstract The transaction currency to filter by. If it's null or empty, it will be ignored.
@@ -92,6 +92,16 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract The merchant IDs to exclude
  */
 @property(nonatomic, strong)NSArray * _Nullable excludeMerchantIds;
+
+/**
+ The merchant texts to exclude.
+ */
+@property (nonatomic,strong) NSArray *_Nullable excludeMerchantTexts;
+
+/**
+ The external merchant identifiers on transactions.
+ */
+@property (nonatomic,strong) NSArray *_Nullable externalMerchantIdentifiers;
 
 /**
  @abstract Whether or not to hide excluded transactions
@@ -142,7 +152,7 @@ NS_ASSUME_NONNULL_BEGIN
  ByParsedData - Order by parsed data. = 4
  ByOriginalDate - Order by date = 5
  */
-@property(nonatomic, strong)NSNumber * _Nullable orderBy;
+@property(nonatomic, strong)NSString * _Nullable orderBy;
 
 /**
  @abstract The date to search from
@@ -236,6 +246,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)NSNumber * _Nullable useParentMerchantIds;
 
 /**
+ If true, filters by the original description (transaction text from bank).
+ */
+@property (nonatomic,strong) NSNumber *_Nullable useOriginalDescription;
+
+/**
  @abstract A list of transaction ids to filter by.
  */
 @property(nonatomic, strong)NSArray * _Nullable ids;
@@ -244,6 +259,36 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract A comma seperated list of what fields should be returned.
  */
 @property(nonatomic, strong)NSString * _Nullable fields;
+
+/**
+ Decides the order of the returned transactions, defined by a comma separated list of the properties of the Transaction object. The sort order for each sort field is ascending unless it is prefixed with a "-" in which case it is descending. If this string is null or empty then 'OrderBy' is used. The supported Transaction fields are: AccountId, Accuracy, Amount, AmountInCurrency, Balance,BankId, CategoryChangedTime, CategoryId, Date, DueDate, HasUserClearedCategoryUncertainty, Id, IsFlagged,IsMerchant, IsOwnAccountTransfer, IsRead, IsSplitChild, IsUncleared, InsertTime, Mcc, MerchantId, ParentIdentifier, Text, Timestamp, CounterpartyAccountIdentifier, Currency, HasUncertainCategorization, OriginalAmount, OriginalDate, OriginalText
+ */
+@property (nonatomic,strong) NSString *_Nullable sort;
+
+/**
+ f true, then all the fields passed as {Meniga.Core.Api.Models.TransactionFilter.ParsedData} will be AND-ed together. If the same key appears more than once then they will be OR-ed together and AND-ed with the other keys. If false, they will be OR-ed together. Example: Given ParsedData: (Key=X,Value=x1),(Key=X,Value=x2),(Key=Y,Value=y1) When true: (X=x1 OR X=x2) AND Y=y1 When false: X=x1 OR X=x2 OR Y=y1
+ */
+@property (nonatomic,strong) NSNumber *_Nullable useAndSearchForParsedData;
+
+/**
+ List of merchant connector ids.
+ */
+@property (nonatomic,strong) NSArray *_Nullable merchantConnectorIds;
+
+/**
+ The transaction descriptions to filter by. If it's null or empty, it will be ignored. Searching for empty descriptions is possible. If this property is set and is not empty, then the {Meniga.Core.Api.Models.TransactionFilter.Description} property will be ignored regardless of its value. 
+ */
+@property (nonatomic,strong) NSArray *_Nullable descriptions;
+
+/**
+ List of merchant category codes ( MCC ).
+ */
+@property (nonatomic,strong) NSArray *_Nullable merchantCategoryCodes;
+
+/**
+ Tells which {Meniga.Core.Api.Models.TransactionModel} amount fields to use when searching using {Meniga.Core.Api.Models.TransactionFilter.AmountFrom} and {Meniga.Core.Api.Models.TransactionFilter.AmountTo}. However, if {Meniga.Core.Api.Models.TransactionFilter.UseAmountInCurrencySearch} = true then only {Meniga.Core.Api.Models.TransactionAmountField.AmountInCurrency} is used. If {Meniga.Core.Api.Models.TransactionFilter.UseAmountInCurrencySearch} = false then this list is used but if the list is empty then {Meniga.Core.Api.Models.TransactionAmountField.Amount} is used.
+ */
+@property (nonatomic,strong) NSArray *_Nullable useAmountFields;
 
 @end
 

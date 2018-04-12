@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The file path for the icon.
  */
-@property (nonatomic,copy,readonly) NSString *iconFileName;
+@property (nonatomic,copy,readonly) NSString *iconFilename;
 
 /**
  The id of icon file.
