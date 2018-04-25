@@ -18,4 +18,10 @@
              @"realmIdentifier" : @"identifier"};
 }
 
+- (NSDictionary*)propertyKeysMapToJson {
+    return @{@"identifier" : @"id",
+             @"realmDescription" : @"description",
+             @"realmIdentifier" : @"identifier"};
+}
+
 @end

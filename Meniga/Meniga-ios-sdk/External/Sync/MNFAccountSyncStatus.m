@@ -7,7 +7,17 @@
 //
 
 #import "MNFAccountSyncStatus.h"
+#import "MNFInternalImports.h"
 
 @implementation MNFAccountSyncStatus
+
+#pragma mark - Json Adapter Delegate
+
+-(NSDictionary*)propertyValueTransformers {
+    
+    return @{@"startDate":[MNFBasicDateValueTransformer transformer],
+             @"endDate":[MNFBasicDateValueTransformer transformer]
+             };
+}
 
 @end

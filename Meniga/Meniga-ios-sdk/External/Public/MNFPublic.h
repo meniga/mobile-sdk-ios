@@ -77,6 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(MNFJob*)fetchPublicSettingsWithCompletion:(nullable MNFPublicCompletionHandler)completion;
 
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -22,22 +22,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The date and time the entry was last edited.
  */
-@property (nonatomic,strong) NSDate * _Nullable updatedAt;
+@property (nonatomic,strong,readonly) NSDate * _Nullable updatedAt;
 
 /**
  The id of the budget the entry is in.
  */
-@property (nonatomic,strong) NSNumber * _Nullable budgetId;
+@property (nonatomic,strong,readonly) NSNumber * _Nullable budgetId;
 
 /**
  The generation type for the entry if iti is in a planning budget.
  */
-@property (nonatomic,strong) NSNumber * _Nullable generationType;
+@property (nonatomic,strong,readonly) NSNumber * _Nullable generationType;
 
 /**
  The spent amount in the associated categories if the entry is current.
  */
-@property (nonatomic,strong) NSNumber * _Nullable spentAmount;
+@property (nonatomic,strong,readonly) NSNumber * _Nullable spentAmount;
+
+/**
+ The id of the associated rule.
+ */
+@property (nonatomic,strong,readonly) NSNumber *_Nullable ruleId;
 
 ///******************************
 /// @name Mutable properties

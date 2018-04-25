@@ -19,10 +19,6 @@
     return @{ @"identifier" : @"id" };
 }
 
--(NSDictionary *)propertyValueTransformers {
-    return @{ @"identifier" : [MNFNumberToStringValueTransformer transformer] };
-}
-
 -(NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }

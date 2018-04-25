@@ -86,7 +86,7 @@
 #define kMNFApiPathUpcoming @"/upcoming"
 #define kMNFUpcomingRecurring kMNFApiPathUpcoming @"/recurring"
 #define KMNFUpcomingBalances kMNFApiPathUpcoming @"/balances"
-#define kMNFUpcomingThresholds kMNFApiPathUpcoming @"/thresholds"
+#define kMNFUpcomingThresholds kMNFApiPathUpcoming @"/thresholdsets"
 #define kMNFUpcomingAccountsDefault kMNFApiPathUpcoming @"/accounts/default"
 #define kMNFUpcomingAccountsIncluded kMNFApiPathUpcoming @"/accounts/included"
 

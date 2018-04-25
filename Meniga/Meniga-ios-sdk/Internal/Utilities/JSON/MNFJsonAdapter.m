@@ -522,7 +522,7 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
                 // set its value to the property key value so we know which property the json key
                 // corresponds to
                 [dictionaryToReturn setObject:propertyKey forKey:theMapDictionary[mapPropertyKey]];
-                [dictionaryToReturn removeObjectForKey: propertyKey];
+//                [dictionaryToReturn removeObjectForKey: propertyKey];
                 if (theMapDictionary[propertyKey] == nil) {
                     [dictionaryToReturn removeObjectForKey:propertyKey];
                 }

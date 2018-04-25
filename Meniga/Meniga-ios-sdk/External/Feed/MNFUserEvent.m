@@ -16,6 +16,71 @@
 
 @implementation MNFUserEvent
 
++(MNFJob*)fetchWithId:(NSNumber *)identifier completion:(MNFUserEventCompletionHandler)completion {
+    [completion copy];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%@", kMNFApiPathUserEvents, [identifier stringValue]];
+    
+    __block MNFJob *job = [self apiRequestWithPath:path pathQuery:nil jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameUserEvents completion:^(MNFResponse*  _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            if ([response.result isKindOfClass:[NSDictionary class]]) {
+                
+                MNFUserEvent *userEvent = [MNFUserEvent initWithServerResult:response.result];
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:userEvent error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:[MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSDictionary class]]];
+            }
+        }
+        else {
+            
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:response.error];
+        }
+    }];
+    
+    return job;
+}
+
++(MNFJob*)fetchFromDate:(NSDate *)from toDate:(NSDate *)to topicName:(NSString *)topicName typeIdentifiers:(NSString *)typeIdentifier completion:(MNFMultipleUserEventsCompletionHandler)completion {
+    [completion copy];
+    
+    NSMutableDictionary *jsonQuery = [NSMutableDictionary dictionary];
+    jsonQuery[@"dateFrom"] = from;
+    jsonQuery[@"dateTo"] = to;
+    jsonQuery[@"topicName"] = topicName;
+    jsonQuery[@"typeIdentifiers"] = typeIdentifier;
+    
+    __block MNFJob *job = [self apiRequestWithPath:kMNFApiPathUserEvents pathQuery: [jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameUserEvents completion:^(MNFResponse*  _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        if (response.error == nil) {
+            if ([response.result isKindOfClass:[NSArray class]]) {
+                
+                NSArray *userEvents = [MNFUserEvent initWithServerResults:response.result];
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:userEvents error:nil];
+                
+            }
+            else {
+                
+                [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:[MNFErrorUtils errorForUnexpectedDataOfType:[response.result class] expected:[NSArray class]]];
+                
+            }
+        }
+        else {
+            [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:nil error:response.error];
+        }
+    }];
+    
+    return job;
+}
+
 + (MNFJob *)subscribeToUserEvents:(NSArray<NSString *> *)userEventTypeIdentifiers onChannel:(NSString *)channelName withCompletion:(MNFErrorOnlyCompletionHandler)completion {
     
     [completion copy];
