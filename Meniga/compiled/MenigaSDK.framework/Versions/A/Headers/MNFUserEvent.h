@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param from The date to filter from.
  @param to The date to filter to.
  @param topicName The topic name of the user events.
- @param typeIdentifiers The type identifiers of the user events.
+ @param typeIdentifier The type identifiers of the user events.
  @param completion A completion handler with a list of user events and an error.
  
  @return MNFJob A job containing a list of user events and an error.
