@@ -53,6 +53,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readonly) NSNumber *interceptAmount;
 
 /**
+ The target amount of the life goal at the time of the change.
+ */
+@property (nonatomic,strong,readonly) NSNumber *targetAmount;
+
+/**
  The amount allocated to the life goal at the time of the change.
  */
 @property (nonatomic,strong,readonly) NSNumber *currentAmount;

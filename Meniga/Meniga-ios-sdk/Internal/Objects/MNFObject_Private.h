@@ -50,8 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)makeDeleted;
 
 //Private constructors
-+(instancetype)initWithServerResult:(NSDictionary *)dictionary;
-+(NSArray*)initWithServerResults:(NSArray *)array;
++(nullable instancetype)initWithServerResult:(NSDictionary *)dictionary;
++(nullable NSArray*)initWithServerResults:(NSArray *)array;
 
 //Used for test
 -(MNFObjectState*)objectState;

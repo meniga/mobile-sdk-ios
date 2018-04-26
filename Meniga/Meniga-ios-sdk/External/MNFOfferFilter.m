@@ -15,7 +15,6 @@
     
     if (self = [super init]) {
         
-        self.expiredWithCashbackOnly = [NSNumber numberWithBool:NO];
         self.expiredWithRedemptionsOnly = [NSNumber numberWithBool:NO];
         self.offerIds = nil;
         self.offerStates = nil;

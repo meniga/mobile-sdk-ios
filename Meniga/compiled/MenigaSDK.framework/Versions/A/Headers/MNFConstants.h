@@ -218,6 +218,8 @@ typedef void (^MNFAuthenticationCompletionHandler)(MNFAuthentication *_Nullable 
 
 //User events
 typedef void (^MNFUserEventSubscriptionDetailCompletionHandler)(NSArray <MNFUserEventSubscriptionDetail *> *_Nullable subscriptionDetails, NSError *_Nullable error);
+typedef void (^MNFUserEventCompletionHandler)(MNFUserEvent *_Nullable userEvent, NSError *_Nullable error);
+typedef void (^MNFMultipleUserEventsCompletionHandler)(NSArray <MNFUserEvent *> *_Nullable userEvents, NSError *_Nullable error);
 
 //Repayment Account info keys
 extern NSString *const _Nonnull kMNFRepaymentAccountInfoBankAccountNumberKey;// bankAccountNumber

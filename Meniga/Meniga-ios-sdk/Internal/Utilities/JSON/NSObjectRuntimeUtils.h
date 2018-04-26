@@ -15,8 +15,8 @@
 +(id)objectWithClass:(Class)theClass modelDictionary:(NSDictionary *)theDictionary error:(NSError **)theError;
 +(id)objectWithClass:(Class)theClass modelArray:(NSArray<MNFJsonAdapterKeyAndProperty *> *)theArray error:(NSError *__autoreleasing *)theError;
 +(void)enumeratePropertiesOnClass:(Class)class UsingBlock:(void (^)(objc_property_t property, BOOL *stop))block;
-+(void)updateModel:(NSObject*)model Witharray:(NSArray<MNFJsonAdapterKeyAndProperty *> *)theArray error:(NSError *__autoreleasing *)theError;
-+(void)validateAndSetValue:(id)theValue propertyKey:(NSString *)thePropertyKey onModel:(NSObject*)model error:(NSError **)theError;
++(BOOL)updateModel:(NSObject*)model Witharray:(NSArray<MNFJsonAdapterKeyAndProperty *> *)theArray error:(NSError *__autoreleasing *)theError;
++(BOOL)validateAndSetValue:(id)theValue propertyKey:(NSString *)thePropertyKey onModel:(NSObject*)model error:(NSError **)theError;
 +(Class)classOfProperty:(NSString*)propertyName onModel:(NSObject*)model;
 
 @end

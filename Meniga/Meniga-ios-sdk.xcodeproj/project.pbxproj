@@ -211,6 +211,7 @@
 		66B6859E014258F36EA1D205CF8BB5FC /* MNFUpcomingDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 74203BEB5510D9C574ABCBC2F076BB4A /* MNFUpcomingDetails.m */; };
 		67166599CC89E455EF7E55B660789935 /* MNFNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 2969AA6F8C0E1D734375B31574558A35 /* MNFNetwork.h */; };
 		67BE6C3A6CD2C3A646702B527C10D214 /* MNFNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0E40C1EFD9C7D64A825D8EFB6FD7A7 /* MNFNumberToStringValueTransformer.m */; };
+		68D87DFA2091ED3600A916E1 /* MNFInternalUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 68D87DF82091ED3600A916E1 /* MNFInternalUtilities.h */; };
 		6AE522F330BD2343DDBC2FA5BDD5E6D9 /* MNFOfferRelevanceHook.h in Headers */ = {isa = PBXBuildFile; fileRef = DF1E67674ABA1C0E804D9CABCBAA09EE /* MNFOfferRelevanceHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AE88F61359ACED0E6F2913180FA76A5 /* MNFAccountCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9275744F7FA372C1E70AECC84D4E09B9 /* MNFAccountCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B40AFA287D3A4C4B68E1A9D80E3FA43 /* MNFAccountSyncStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE6A5E0CC7C342174EB902F5EDE8677 /* MNFAccountSyncStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -622,6 +623,7 @@
 		660DE4A036421052AAA5F62EDE35A41C /* MNFUserEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFUserEvent.h; sourceTree = "<group>"; };
 		675B9C2F42CEBF8153ABED67E9B3A986 /* MNFPublic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFPublic.m; path = Public/MNFPublic.m; sourceTree = "<group>"; };
 		6890D8934D0494D994AF68D321B38F15 /* MNFTransactionSeriesFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFTransactionSeriesFilter.m; sourceTree = "<group>"; };
+		68D87DF82091ED3600A916E1 /* MNFInternalUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFInternalUtilities.h; sourceTree = "<group>"; };
 		69BD4896197E54E74C52B78D1362CC1A /* MNFUpcomingThreshold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNFUpcomingThreshold.m; path = Upcoming/MNFUpcomingThreshold.m; sourceTree = "<group>"; };
 		69F78B401E400A7EA85E3FF06186D5F8 /* GCDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDUtils.h; sourceTree = "<group>"; };
 		6A9F966422676CC0AA36F517A7030B17 /* MNFAdapterSubPropertyUppercaseOptionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFAdapterSubPropertyUppercaseOptionDelegate.m; sourceTree = "<group>"; };
@@ -1658,6 +1660,7 @@
 				20952C8D80D2393996E5EDE981481BBA /* MNFHTTPMethods.h */,
 				8879CB2F8B7245C3FCB4D158AF825FD5 /* MNFObjectTypes.h */,
 				8CB8F7C0395B2A4B45BF0D48502EB703 /* MNFURLRequestConstants.h */,
+				68D87DF82091ED3600A916E1 /* MNFInternalUtilities.h */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1936,6 +1939,7 @@
 				3BD33E6AD129C0442C1B5121B56199AA /* MNFAccount.h in Headers */,
 				34F9D23DDA0DF3C904BCE87F52C16738 /* MNFAccountAuthorizationType.h in Headers */,
 				6AE88F61359ACED0E6F2913180FA76A5 /* MNFAccountCategory.h in Headers */,
+				68D87DFA2091ED3600A916E1 /* MNFInternalUtilities.h in Headers */,
 				CF9C52E8EE860A21A455AAF27891FF28 /* MNFAccountFilter.h in Headers */,
 				13508C3A7FBC5A8105D471E79A1F4D99 /* MNFAccountHistoryEntry.h in Headers */,
 				6B40AFA287D3A4C4B68E1A9D80E3FA43 /* MNFAccountSyncStatus.h in Headers */,
@@ -2147,7 +2151,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MNF;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Meniga;
 				TargetAttributes = {
 					2044B0831B5CF9599570DDD04FA1AAD7 = {
@@ -2570,12 +2574,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -2631,12 +2637,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

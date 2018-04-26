@@ -201,7 +201,7 @@
         [MNFObject executeOnMainThreadWithJob:job completion:completion error: response.error];
     }];
     
-    return nil;
+    return job;
 }
 
 -(MNFJob*)postComment:(NSString *)comment withCompletion:(MNFErrorOnlyCompletionHandler)completion {

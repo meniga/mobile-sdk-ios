@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(instancetype)initWithClass:(Class)theClass delegate:(nullable id <MNFJsonAdapterDelegate> )theDelegate option:(MNFAdapterOption)theOption;
 
--(id)transformedValue:(id)value error:(NSError **)theError;
--(id)reverseTransformedValue:(id)value error:(NSError **)theError;
+-(nullable id)transformedValue:(nullable id)value error:(NSError **)theError;
+-(nullable id)reverseTransformedValue:(nullable id)value error:(NSError **)theError;
 
 @end
 

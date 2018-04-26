@@ -48,7 +48,7 @@
 }
 
 
--(id)transformedValue:(id)value error:(NSError **)theError {
+-(nullable id)transformedValue:(nullable id)value error:(NSError **)theError {
     
     if (value == nil || value == [NSNull null]) {
         return value;
@@ -76,7 +76,7 @@
     return nil;
 }
 
--(id)reverseTransformedValue:(id)value error:(NSError *__autoreleasing *)theError {
+-(nullable id)reverseTransformedValue:(nullable id)value error:(NSError *__autoreleasing *)theError {
     
     if (value == nil || value == [NSNull null]) {
         return value;

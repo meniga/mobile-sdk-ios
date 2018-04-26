@@ -79,9 +79,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSString *title;
 
 /**
- @abstract The topic id the user event relates to.
+ @abstract A list of topic ids that are connected to the user events. The value is based on the type i.e. for transactions topic id would contain a transaction id 
  */
-@property (nonatomic, strong, readonly) NSNumber *topicId;
+@property (nonatomic, strong, readonly) NSArray *topicId;
 
 /**
  @abstract The date of the user event.
@@ -114,6 +114,32 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSNumber *userId;
 
 @property (nonatomic, strong, readonly) NSDictionary *messageData;
+
+@property (nonatomic,strong,readonly) NSDictionary *dataItem;
+
+/**
+ Fetch a user event with an identifier.
+ 
+ @param identifier The id of the user event.
+ @param completion A completion handler with a user event and an error.
+ 
+ @return MNFJob A job containing a user event and an error.
+ */
++(MNFJob*)fetchWithId:(NSNumber*)identifier completion:(nullable MNFUserEventCompletionHandler)completion;
+
+
+/**
+ Fetch a list of user events.
+ 
+ @param from The date to filter from.
+ @param to The date to filter to.
+ @param topicName The topic name of the user events.
+ @param typeIdentifiers The type identifiers of the user events.
+ @param completion A completion handler with a list of user events and an error.
+ 
+ @return MNFJob A job containing a list of user events and an error.
+ */
++(MNFJob*)fetchFromDate:(nullable NSDate *)from toDate:(nullable NSDate*)to topicName:(nullable NSString*)topicName typeIdentifiers:(nullable NSString*)typeIdentifier completion:(nullable MNFMultipleUserEventsCompletionHandler)completion;
 
 /**
  Subscribe to a list of user events on a given channel.

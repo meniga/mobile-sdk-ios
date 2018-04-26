@@ -77,7 +77,7 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
 
 // Refreshing objects
 
-+(void)refreshObject:(NSObject <MNFJsonAdapterDelegate> *)theModel withJsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError *__autoreleasing *)theError {
++(BOOL)refreshObject:(NSObject <MNFJsonAdapterDelegate> *)theModel withJsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError *__autoreleasing *)theError {
     
     MNFJsonAdapter *tmpSerializer = [[[self class] alloc] init];
     
@@ -85,12 +85,12 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
     MNFLogVerbose(@"Deserialize object: %@ option: %ld, json dictionary: %@", theModel, theAdapterOption, theJsonDict);
     
     // the delegate is the model in this call by default for simplicity and usability
-    [tmpSerializer p_refreshInstance:theModel delegate:theModel jsonDict:theJsonDict propertyKeys:[tmpSerializer p_propertyKeysForClass:[theModel class] delegate:theModel option:theAdapterOption error:theError] option:theAdapterOption error:theError];
+    return [tmpSerializer p_refreshInstance:theModel delegate:theModel jsonDict:theJsonDict propertyKeys:[tmpSerializer p_propertyKeysForClass:[theModel class] delegate:theModel option:theAdapterOption error:theError] option:theAdapterOption error:theError];
     
     MNFLogVerbose(@"Object after refresh: %@ with json dictionary: %@", theModel, theJsonDict);
 }
 
-+(void)refreshObject:(NSObject <MNFJsonAdapterDelegate> *)theModel delegate:(id<MNFJsonAdapterDelegate>)theDelegate jsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError *__autoreleasing *)theError {
++(BOOL)refreshObject:(NSObject <MNFJsonAdapterDelegate> *)theModel delegate:(id<MNFJsonAdapterDelegate>)theDelegate jsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError *__autoreleasing *)theError {
     
     MNFJsonAdapter *tmpSerializer = [[[self class] alloc] init];
     
@@ -98,10 +98,10 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
     MNFLogVerbose(@"Deserialize object: %@ option: %ld json dictionary: %@", theModel, theAdapterOption, theJsonDict);
     
     if (theDelegate == nil) {
-        [tmpSerializer p_refreshInstance:theModel delegate:theModel jsonDict:theJsonDict propertyKeys:[tmpSerializer p_propertyKeysForClass:[theModel class] delegate:theModel option:theAdapterOption error:theError] option:theAdapterOption error:theError];
+        return [tmpSerializer p_refreshInstance:theModel delegate:theModel jsonDict:theJsonDict propertyKeys:[tmpSerializer p_propertyKeysForClass:[theModel class] delegate:theModel option:theAdapterOption error:theError] option:theAdapterOption error:theError];
     }
     else {
-        [tmpSerializer p_refreshInstance:theModel delegate:theDelegate jsonDict:theJsonDict propertyKeys:[tmpSerializer p_propertyKeysForClass:[theModel class] delegate:theDelegate option:theAdapterOption error:theError] option:theAdapterOption error:theError];
+        return [tmpSerializer p_refreshInstance:theModel delegate:theDelegate jsonDict:theJsonDict propertyKeys:[tmpSerializer p_propertyKeysForClass:[theModel class] delegate:theDelegate option:theAdapterOption error:theError] option:theAdapterOption error:theError];
     }
     
     MNFLogVerbose(@"Object after refresh: %@ with json dictionary: %@", theModel, theJsonDict, theError);
@@ -170,13 +170,17 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
     return createdObject;
 }
 
--(void)p_refreshInstance:(NSObject<MNFJsonAdapterDelegate> *)theModel delegate:(id <MNFJsonAdapterDelegate>)theDelegate jsonDict:(NSDictionary *)theJsonDict propertyKeys:(NSDictionary *)thePropertyKeys option:(MNFAdapterOption)theOption error:(NSError **)theError {
+-(BOOL)p_refreshInstance:(NSObject<MNFJsonAdapterDelegate> *)theModel delegate:(id <MNFJsonAdapterDelegate>)theDelegate jsonDict:(NSDictionary *)theJsonDict propertyKeys:(NSDictionary *)thePropertyKeys option:(MNFAdapterOption)theOption error:(NSError **)theError {
     
     NSArray <MNFJsonAdapterKeyAndProperty *> *array = [[self class] p_createModelDictionaryWithDelegate:theModel jsonDict:theJsonDict propertyKeys:thePropertyKeys option:theOption];
-    
+    BOOL aggregatedSuccess = YES;
     for (MNFJsonAdapterKeyAndProperty *currentAdapterObj in array) {
-        [NSObjectRuntimeUtils validateAndSetValue:currentAdapterObj.propertyValue propertyKey:currentAdapterObj.propertyKey onModel:theModel error:theError];
+        BOOL localSuccess = [NSObjectRuntimeUtils validateAndSetValue:currentAdapterObj.propertyValue propertyKey:currentAdapterObj.propertyKey onModel:theModel error:theError];
+        if (localSuccess == NO) {
+            aggregatedSuccess = NO;
+        }
     }
+    return aggregatedSuccess;
 }
 
 +(NSArray*)p_createModelDictionaryWithDelegate:(id <MNFJsonAdapterDelegate>)theDelegate jsonDict:(NSDictionary*)theJsonDict propertyKeys:(NSDictionary*)thePropertyKeys option:(MNFAdapterOption)theOption {
@@ -455,7 +459,7 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
     return newDict;
 }
 
--(id)createSubObjectWithClass:(Class)theClass delegate:(id <MNFJsonAdapterDelegate>)theDelegate option:(MNFAdapterOption)theOption object:(id)theObject {
+-(nullable id)createSubObjectWithClass:(Class)theClass delegate:(id <MNFJsonAdapterDelegate>)theDelegate option:(MNFAdapterOption)theOption object:(id)theObject {
     
     MNFJsonAdapterValueTransformer *valueTransformer = [MNFJsonAdapterValueTransformer transformerWithClass:theClass delegate:theDelegate option:theOption];
     

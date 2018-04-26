@@ -106,7 +106,7 @@
 
 #pragma mark - Description
 -(NSString*)description {
-    return [NSString stringWithFormat:@"Realm account type %@ identifier: %@, accountDescription: %@, accountType: %@, name: %@",[super description],self.identifier,self.accountDescription,self.accountType,self.name];
+    return [NSString stringWithFormat:@"Realm account type %@ identifier: %@, accountDescription: %@, accountType: %@, name: %@",[super description],self.identifier,self.accountDescription,self.accountCategory,self.name];
 }
 
 @end

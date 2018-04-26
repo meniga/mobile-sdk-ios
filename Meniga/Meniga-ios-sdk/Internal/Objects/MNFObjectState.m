@@ -11,7 +11,7 @@
 
 @interface MNFObjectState ()
 
-@property(nonatomic, copy, readwrite)NSMutableDictionary *serverData;
+@property(nonatomic, readwrite)NSMutableDictionary *serverData;
 @property(nonatomic, strong, readwrite)id targetClass;
 
 @end
@@ -31,7 +31,8 @@
 
 -(instancetype)initForClass:(id)theClass withServerData:(NSDictionary *)dictionary{
     
-    if ([self init]) {
+    self = [self init];
+    if (self) {
         [self setState:dictionary];
         _targetClass = theClass;
     }

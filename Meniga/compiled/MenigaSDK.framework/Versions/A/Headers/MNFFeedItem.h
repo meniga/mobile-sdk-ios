@@ -53,6 +53,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy,readonly) NSString *typeName;
 
 /**
+ The type of the feed item. A value from /feed/types. 'Transactions','UserEvents','Cashback'.
+ */
+@property (nonatomic,copy,readonly) NSString *type;
+
+/**
  @abstract The deserialized model object that this feed item represents.
  
  @discussion This object will be serialized according to the feed item type name. A 'TransactionFeedItemModel' type name means the model will be an MNFTransaction object.

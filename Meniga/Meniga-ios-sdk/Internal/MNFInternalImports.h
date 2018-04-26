@@ -24,5 +24,6 @@
 #import "MNFConstants.h"
 #import "MNFErrorUtils.h"
 #import "NSStringUtils.h"
+#import "MNFInternalUtilities.h"
 
 #endif /* MNFInternalImports_h */

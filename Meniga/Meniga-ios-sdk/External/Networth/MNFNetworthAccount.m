@@ -222,8 +222,9 @@
 -(MNFJob*)saveWithCompletion:(MNFErrorOnlyCompletionHandler)completion{
     
     if (![self.isManual boolValue]) {
-        MNFJob *manualJob;
-        [MNFObject executeOnMainThreadWithJob:manualJob completion:completion error:[MNFErrorUtils errorWithCode:kMNFErrorInvalidOperation message:@"Only manually created networth accounts can be updated"]];
+        NSError *error = [MNFErrorUtils errorWithCode:kMNFErrorInvalidOperation message:@"Only manually created networth accounts can be updated"];
+        MNFJob *manualJob = [MNFJob jobWithError:error];
+        [MNFObject executeOnMainThreadWithCompletion:completion withParameter:error];
         return manualJob;
     }
 
@@ -315,7 +316,7 @@
             }
             
             if ([self.history filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", balanceHistory.identifier]].count == 0) {
-                _history = [self.history arrayByAddingObject:balanceHistory];
+                self->_history = [self.history arrayByAddingObject:balanceHistory];
             }
             
         }
@@ -328,7 +329,7 @@
 
 #pragma mark - Description
 -(NSString*)description {
-    return [NSString stringWithFormat:@"Networth account %@ accountId: %@, realmAccountTypeId: %@, accountName: %@, isImport: %@, isManual: %@, isExcluded: %@, netWorthType: %@, currentBalance: %@, history: %@, accountType: %@",[super description],self.accountId,self.accountTypeId,self.accountName,self.isImport,self.isManual,self.isExcluded,self.netWorthType,self.currentBalance,self.history,self.accountType];
+    return [NSString stringWithFormat:@"Networth account %@ accountId: %@, realmAccountTypeId: %@, accountName: %@, isImport: %@, isManual: %@, isExcluded: %@, netWorthType: %@, currentBalance: %@, history: %@, accountType: %@",[super description],self.accountId,self.accountTypeId,self.accountName,self.isImport,self.isManual,self.isExcluded,self.netWorthType,self.currentBalance,self.history,self.accountTypeCategory];
 }
 
 #pragma mark - json delegate

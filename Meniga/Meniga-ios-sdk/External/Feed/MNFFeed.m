@@ -163,14 +163,12 @@
     }
     
     __block MNFJob *job = [MNFJob jobWithRequest:nil];
-    
     [[self class] fetchFromDate:_from toDate:_to skip:@([_skip integerValue]+[_take integerValue]) take:_take withCompletion:^(MNFFeed * _Nullable feed, NSError * _Nullable error) {
-        
         if (error == nil) {
             
-            NSArray *newItems = [self appendObjects: feed.feedItems toDate: _to fromDate: _from];
+            NSArray *newItems = [self appendObjects: feed.feedItems toDate: self->_to fromDate: self->_from];
             
-            self.skip = @([_skip integerValue]+[_take integerValue]);
+            self.skip = @([self->_skip integerValue]+[self->_take integerValue]);
             
             [MNFObject executeOnMainThreadWithJob: job completion: completion parameter: newItems error: nil];
             
@@ -206,7 +204,7 @@
         if (error == nil) {
             
             self.feedItems = feed.feedItems;
-            self.skip = @([_skip integerValue]+[_take integerValue]);
+            self.skip = @([self->_skip integerValue]+[self->_take integerValue]);
             
         }
         else{
@@ -245,7 +243,7 @@
         if (error == nil) {
             
             self.feedItems = feed.feedItems;
-            self.skip = @([_skip integerValue]-[_take integerValue]);
+            self.skip = @([self->_skip integerValue]-[self->_take integerValue]);
             
         }
         else{

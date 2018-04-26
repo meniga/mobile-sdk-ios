@@ -192,7 +192,7 @@
         
         if (response.error == nil) {
         
-            _culture = culture;
+            self->_culture = culture;
         
         }
         

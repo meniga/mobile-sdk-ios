@@ -452,9 +452,9 @@
     return [self.comments[commentIndex] deleteCommentWithCompletion:^(NSError * _Nullable error) {
        
         if (error == nil) {
-            NSMutableArray *mutableComments = [_comments mutableCopy];
+            NSMutableArray *mutableComments = [self->_comments mutableCopy];
             [mutableComments removeObject:self.comments[commentIndex]];
-            _comments = [mutableComments copy];
+            self->_comments = [mutableComments copy];
         }
         
         completion(error);

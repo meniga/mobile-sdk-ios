@@ -7,6 +7,7 @@
 //
 
 #import "MNFObject.h"
+#import "MNFConstants.h"
 
 @class MNFTransactionFilter;
 @class MNFTransactionGroup;
@@ -96,7 +97,12 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract Refreshes and reorders the transaction list. Reccommended to use after a significant transaction update
  @param error An error that may occur when refreshing a transaction page.
  */
--(void)refreshTransactionListWithError:(NSError **)error;
+-(BOOL)refreshTransactionListWithError:(NSError **)error MNF_DEPRECATED("Please use -refreshTransactionList instead");
+
+/**
+ @abstract Refreshes and reorders the transaction list. Reccommended to use after a significant transaction update
+ */
+-(void)refreshTransactionList;
 
 /**
  @abstract Refreshes the transaction list with data from the server.
@@ -129,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The transactions for all the transactions grouped by category. Make sure you have called the group by category method after any additional fetches on the transaction page.
  */
--(NSArray <MNFTransactionGroup *> *)transactionsGroupedByCategory;
+-(nullable NSArray <MNFTransactionGroup *> *)transactionsGroupedByCategory;
 
 
 @end

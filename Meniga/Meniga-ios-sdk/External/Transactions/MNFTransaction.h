@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The account of the transaction. Parsed from the 'includes' field in the JSON.
  */
-@property(nonatomic, strong)MNFAccount *account;
+@property(nullable, nonatomic, strong)MNFAccount *account;
 
 /**
  @abstract The amount of the transaction
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The merchant of the transaction. Parsed from the 'includes' field in the JSON.
  */
-@property(nonatomic, strong)MNFMerchant *merchant;
+@property(nullable, nonatomic, strong)MNFMerchant *merchant;
 
 /**
  @abstract Whether the transaction is an account transfer to own account.

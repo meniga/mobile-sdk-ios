@@ -195,7 +195,7 @@
                 }
                 
                 self.transactions = [self.transactions arrayByAddingObjectsFromArray:transactions];
-                self.pageNumber = [NSNumber numberWithInt:[_pageNumber intValue]+1];
+                self.pageNumber = [NSNumber numberWithInt:[self->_pageNumber intValue]+1];
                 
                 
             }
@@ -263,8 +263,8 @@
                     
                 }
                 
-                _pageNumber = @([self.pageNumber intValue]+1);
-                _transactions = transactions;
+                self->_pageNumber = @([self.pageNumber intValue]+1);
+                self->_transactions = transactions;
                 
                 
             }
@@ -286,7 +286,14 @@
 
 #pragma mark - refreshing
 
--(void)refreshTransactionListWithError:(NSError **)error{
+-(BOOL)refreshTransactionListWithError:(NSError **)error{
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+    self.transactions = [_transactions sortedArrayUsingDescriptors:@[sortDescriptor]];
+    return YES;
+}
+
+-(void)refreshTransactionList{
     
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
     self.transactions = [_transactions sortedArrayUsingDescriptors:@[sortDescriptor]];
@@ -392,7 +399,7 @@
     _transactionsGroupedByCategory = groupArray;
 }
 
--(NSArray <MNFTransactionGroup *> *)transactionsGroupedByCategory {
+-(nullable NSArray <MNFTransactionGroup *> *)transactionsGroupedByCategory {
     
     if (_transactionsGroupedByCategory == nil && self.transactions.count != 0) {
         [self groupByCategory];

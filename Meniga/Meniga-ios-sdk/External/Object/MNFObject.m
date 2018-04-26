@@ -21,7 +21,7 @@
 @interface MNFObject () <MNFJsonAdapterDelegate>
 
 @property(nonatomic, copy, readonly) NSArray *mutableProperties;
-@property(nonatomic, copy) NSMutableDictionary *keyValueStore;
+@property(nonatomic) NSMutableDictionary *keyValueStore;
 @property(nonatomic, readwrite, getter=isDirty) BOOL dirty;
 @property(nonatomic, readwrite, getter=isDeleted) BOOL deleted;
 @property(nonatomic, strong) MNFObjectState *objectstate;
@@ -66,7 +66,7 @@
 }
 
 #pragma mark - private constructors accessible from the MNFObject private header
-+(instancetype)initWithServerResult:(NSDictionary *)dictionary {
++(nullable instancetype)initWithServerResult:(NSDictionary *)dictionary {
     
     if (dictionary != nil && [dictionary isKindOfClass:[NSDictionary class]] == YES && dictionary.allKeys.count != 0) {
         return [MNFJsonAdapter objectOfClass:[self class] jsonDict:dictionary option:kMNFAdapterOptionNoOption error:nil];
@@ -74,7 +74,7 @@
     
     return nil;
 }
-+(NSArray*)initWithServerResults:(NSArray *)array {
++(nullable NSArray*)initWithServerResults:(NSArray *)array {
     
     if (array != nil && [array isKindOfClass:[NSArray class]] == YES) {
         return [MNFJsonAdapter objectsOfClass:[self class] jsonArray:array option:kMNFAdapterOptionNoOption error:nil];

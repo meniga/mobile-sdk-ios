@@ -110,7 +110,7 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @param theError An error the user can send by reference if something goes wrong in the deserialization. Currently not used.
  
  */
-+(void)refreshObject:(NSObject <MNFJsonAdapterDelegate> *)theModel withJsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
++(BOOL)refreshObject:(NSObject <MNFJsonAdapterDelegate> *)theModel withJsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
 
 /**
  @description Updates an object's property values with the matching values from an NSDictionary. If you do not now want the object of type Class being deserialized to conform to the delegate pass in a delegate object you want to use for delegation. If none is used it assumes an object of type Class will be the receiver for the delegate.
@@ -124,7 +124,7 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @param theError An error the user can send by reference if something goes wrong in the deserialization. Currently not used.
   
  */
-+(void)refreshObject:(NSObject *)theModel delegate:(id <MNFJsonAdapterDelegate>)theDelegate jsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
++(BOOL)refreshObject:(NSObject *)theModel delegate:(id <MNFJsonAdapterDelegate>)theDelegate jsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
 
 
 #pragma mark - Serialization

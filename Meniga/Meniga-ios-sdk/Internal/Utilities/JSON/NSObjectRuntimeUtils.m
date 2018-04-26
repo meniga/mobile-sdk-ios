@@ -63,17 +63,21 @@
     }
 }
 
-+(void)updateModel:(NSObject*)model Witharray:(NSArray<MNFJsonAdapterKeyAndProperty *> *)theArray error:(NSError *__autoreleasing *)theError {
++(BOOL)updateModel:(NSObject*)model Witharray:(NSArray<MNFJsonAdapterKeyAndProperty *> *)theArray error:(NSError *__autoreleasing *)theError {
+    
+    BOOL aggregatedSuccess = YES;
     
     for (MNFJsonAdapterKeyAndProperty *jsonKeyAndPropObj in theArray) {
         
-        [self validateAndSetValue:jsonKeyAndPropObj.propertyValue propertyKey:jsonKeyAndPropObj.propertyKey onModel:model error:theError];
-        
+        BOOL localSucess = [self validateAndSetValue:jsonKeyAndPropObj.propertyValue propertyKey:jsonKeyAndPropObj.propertyKey onModel:model error:theError];
+        if (localSucess == NO) {
+            aggregatedSuccess = NO;
+        }
     }
-    
+    return aggregatedSuccess;
 }
 
-+(void)validateAndSetValue:(id)theValue propertyKey:(NSString *)thePropertyKey onModel:(NSObject*)model error:(NSError **)theError {
++(BOOL)validateAndSetValue:(id)theValue propertyKey:(NSString *)thePropertyKey onModel:(NSObject*)model error:(NSError **)theError {
     
     Class theClass = [self classOfProperty:thePropertyKey onModel:model];
     
@@ -89,11 +93,8 @@
         
         
     }
-//    else if(theValue == [NSNull null]) {
-//        
-//        [model setValue:nil forKey:thePropertyKey];
-//        
-//    }
+    
+    return YES;
 }
 
 +(Class)classOfProperty:(NSString*) propertyName onModel:(NSObject*)model

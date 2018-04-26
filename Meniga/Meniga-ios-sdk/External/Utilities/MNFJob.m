@@ -7,10 +7,8 @@
 //
 
 #import "MNFJob.h"
-#import "MNFJob_Private.h"
 #import "MNFNetwork.h"
-#import "MNFLogger.h"
-#import "MNFResponse.h"
+#import "MNFInternalImports.h"
 
 @interface MNFJob ()
 
@@ -171,14 +169,14 @@
     }
     else {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if ([_delegate respondsToSelector:@selector(job:didCompleteOnMainThreadWithResult:metaData:error:)]) {
-                [_delegate job:self didCompleteOnMainThreadWithResult:_result metaData:_metaData error:_error];
+            if ([self.delegate respondsToSelector:@selector(job:didCompleteOnMainThreadWithResult:metaData:error:)]) {
+                [self.delegate job:self didCompleteOnMainThreadWithResult:self->_result metaData:self->_metaData error:self->_error];
             }
-            if ([_mainThreadCompletions count] > 0) {
-                for (MNFJobCompletionHandler mainThreadCompletion in _mainThreadCompletions) {
-                    mainThreadCompletion(_result,_metaData,_error);
+            if ([self->_mainThreadCompletions count] > 0) {
+                for (MNFJobCompletionHandler mainThreadCompletion in self->_mainThreadCompletions) {
+                    mainThreadCompletion(self->_result,self->_metaData,self->_error);
                 }
-                [_mainThreadCompletions removeAllObjects];
+                [self->_mainThreadCompletions removeAllObjects];
             }
         });
     }
@@ -298,7 +296,7 @@
     MNFJob *completedJob = [MNFJob jobWithRequest:_request];
     
     void (^wrappedBlock)(void) = ^() {
-        if (_cancellationRequested) {
+        if (self->_cancellationRequested) {
             completedJob.cancelled = YES;
             return;
         }
@@ -314,7 +312,7 @@
         if ([result isKindOfClass:[MNFJob class]]) {
             
             id (^setupWithJob) (MNFJob *) = ^id(MNFJob *job) {
-                if (_cancellationRequested || _cancelled) {
+                if (self->_cancellationRequested || self->_cancelled) {
                     return nil;
                 }
                 else if (job.error) {
