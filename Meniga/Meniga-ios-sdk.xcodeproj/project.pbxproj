@@ -526,9 +526,9 @@
 		312007D42059854700FCF828 /* MNFLifeGoal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFLifeGoal.m; sourceTree = "<group>"; };
 		314FBAE520209EF900135E48 /* MNFImportAccountConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFImportAccountConfiguration.h; sourceTree = "<group>"; };
 		314FBAE620209EF900135E48 /* MNFImportAccountConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFImportAccountConfiguration.m; sourceTree = "<group>"; };
-		316F5593200E63300033BC38 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
-		316F5594200E63300033BC38 /* MenigaSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MenigaSDK.podspec; path = ../../MenigaSDK.podspec; sourceTree = "<group>"; };
-		316F5595200E63300033BC38 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		316F5593200E63300033BC38 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = SOURCE_ROOT; };
+		316F5594200E63300033BC38 /* MenigaSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MenigaSDK.podspec; path = ../MenigaSDK.podspec; sourceTree = SOURCE_ROOT; };
+		316F5595200E63300033BC38 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = SOURCE_ROOT; };
 		319DAEA4B6150AB2A487A95E9429C78C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		31B6C209169056246B2B30F6D1A38387 /* MNFMerchantSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFMerchantSeries.h; path = Merchant/MNFMerchantSeries.h; sourceTree = "<group>"; };
 		31BDD8A22008F6B20089E314 /* MNFBudgetEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNFBudgetEntry.h; path = Budget/MNFBudgetEntry.h; sourceTree = "<group>"; };
@@ -1008,7 +1008,7 @@
 				316F5595200E63300033BC38 /* README.md */,
 			);
 			path = "Podspec metadata";
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		32CB53C6290297462DA1E506AD398F51 /* Normal */ = {
 			isa = PBXGroup;
