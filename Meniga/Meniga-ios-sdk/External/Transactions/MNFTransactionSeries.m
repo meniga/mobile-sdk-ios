@@ -36,11 +36,14 @@
     
     }
     
-    NSDictionary *jsonDict = @{@"transactionFilter":[MNFJsonAdapter JSONDictFromObject:seriesFilter.transactionFilter option:kMNFAdapterOptionNoOption error:nil],
-                               @"options":@{@"timeResolution":[transactionSeriesFilter objectForKey:@"timeResolution"],
-                                            @"overTime":[transactionSeriesFilter objectForKey:@"overTime"],
-                                            @"includeTransactions":[transactionSeriesFilter objectForKey:@"includeTransactions"],
-                                            @"includeTransactionIds":[transactionSeriesFilter objectForKey:@"includeTransactionIds"]},
+    NSMutableDictionary *optionsDict = [NSMutableDictionary dictionary];
+    optionsDict[@"timeResolution"] = transactionSeriesFilter[@"timeResolution"];
+    optionsDict[@"overTime"] = transactionSeriesFilter[@"overTime"];
+    optionsDict[@"includeTransactions"] = transactionSeriesFilter[@"includeTransactions"];
+    optionsDict[@"includeTransactionIds"] = transactionSeriesFilter[@"includeTransactionIds"];
+    
+    NSDictionary *jsonDict = @{@"transactionFilter":[MNFJsonAdapter JSONDictFromObject:seriesFilter.transactionFilter==nil?[MNFTransactionFilter new]:seriesFilter.transactionFilter option:kMNFAdapterOptionNoOption error:nil],
+                               @"options":[optionsDict copy],
                                @"seriesSelectors":[modifiedSeriesSelector copy]};
     
     NSData *jsonData = [MNFJsonAdapter JSONDataFromDictionary:jsonDict];

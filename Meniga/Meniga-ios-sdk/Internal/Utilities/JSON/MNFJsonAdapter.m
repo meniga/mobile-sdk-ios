@@ -398,9 +398,6 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
         if (value != nil) {
             [mutableDict setValue:value forKey:currentProperty];
         }
-        else {
-            [mutableDict setValue:[NSNull null] forKey:currentProperty];
-        }
         
     }
     
@@ -450,10 +447,6 @@ static NSString *JsonAdapterDomain = @"com.Meniga.JsonAdapter";
         if (value != nil) {
             [newDict setObject:value forKey:thePropertyDictionary[currentProperty]];
         }
-        else {
-            [newDict setObject:[NSNull null] forKey:thePropertyDictionary[currentProperty]];
-        }
-        
     }
     
     return newDict;

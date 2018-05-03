@@ -1017,8 +1017,6 @@
     XCTAssertNotNil(serializedDict);
     
     XCTAssert([serializedDict[@"userId"] isEqualToNumber:[NSNumber numberWithInt:10]]);
-    XCTAssert(serializedDict[@"postId"] == [NSNull null]);
-    XCTAssert(serializedDict[@"body"] == [NSNull null]);
     XCTAssert([serializedDict[@"title"] isEqualToString:@"Title"]);
 }
 
@@ -1053,8 +1051,6 @@
     XCTAssertNil(serializedDict[@"title"]);
     
     XCTAssertTrue([serializedDict[@"UserId"] isEqualToNumber:[NSNumber numberWithInt:10]]);
-    XCTAssertTrue([serializedDict[@"PostId"] isEqual:[NSNull null]]);
-    XCTAssertTrue([serializedDict[@"Body"] isEqual:[NSNull null]]);
     XCTAssertTrue([serializedDict[@"Title"] isEqualToString:@"Title"]);
 }
 
@@ -1074,7 +1070,6 @@
     
     XCTAssertTrue([serializedDict[@"USERID"] isEqualToNumber:[NSNumber numberWithInt:8]]);
     XCTAssertTrue([serializedDict[@"POSTID"] isEqualToNumber:[NSNumber numberWithInt:3]]);
-    XCTAssertTrue([serializedDict[@"BODY"] isEqual:[NSNull null]]);
     XCTAssertTrue([serializedDict[@"TITLE"] isEqualToString:@"Test title"]);
 }
 
@@ -1090,10 +1085,8 @@
     XCTAssertNil(serializedDict[@"userId"]);
     XCTAssertNil(serializedDict[@"postId"]);
     
-    XCTAssertTrue([serializedDict[@"userid"] isEqual:[NSNull null]]);
     XCTAssertTrue([serializedDict[@"postid"] isEqualToNumber:[NSNumber numberWithInt:7]]);
     XCTAssertTrue([serializedDict[@"body"] isEqualToString:@"Test body"]);
-    XCTAssertTrue([serializedDict[@"title"] isEqual:[NSNull null]]);
 }
 
 #pragma mark - Serialization With Delegate
@@ -1135,7 +1128,6 @@
     
     // these keys are explicitly declared to be serialized in the delegate
     XCTAssertTrue([serializeDict[@"id"] isEqualToNumber:[NSNumber numberWithInt:6]]);
-    XCTAssertTrue([serializeDict[@"userId"] isEqual:[NSNull null]]);
     
     // these keys should be ignored
     XCTAssertNil(serializeDict[@"title"]);
@@ -1232,7 +1224,6 @@
     XCTAssertNotNil(serializedDict);
     
     XCTAssert([serializedDict[@"userIdentifier"] isEqualToNumber:[NSNumber numberWithInt:10]]);
-    XCTAssert(serializedDict[@"postId"] == [NSNull null]);
     XCTAssert(serializedDict[@"body"] == nil);
     XCTAssert([serializedDict[@"title"] isEqualToString:@"Title"]);
     
@@ -1266,10 +1257,8 @@
     XCTAssertNil(serializedDict[@"userId"]);
     XCTAssertNil(serializedDict[@"postId"]);
     
-    XCTAssertTrue([serializedDict[@"useridentifier"] isEqual:[NSNull null]]);
     XCTAssertTrue([serializedDict[@"postid"] isEqualToNumber:[NSNumber numberWithInt:7]]);
     XCTAssertTrue(serializedDict[@"body"] == nil);
-    XCTAssertTrue([serializedDict[@"title"] isEqual:[NSNull null]]);
 }
 
 -(void)testSerializationWithSeparateDelegateFirstUppercaseOption {
@@ -1287,7 +1276,6 @@
     XCTAssertNil(serializedDict[@"title"]);
     
     XCTAssertTrue([serializedDict[@"UserIdentifier"] isEqualToNumber:[NSNumber numberWithInt:10]]);
-    XCTAssertTrue([serializedDict[@"PostId"] isEqual:[NSNull null]]);
     XCTAssertTrue(serializedDict[@"Body"] == nil);
     XCTAssertTrue([serializedDict[@"Title"] isEqualToString:@"Title"]);
 }
