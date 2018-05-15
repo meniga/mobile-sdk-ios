@@ -7,7 +7,7 @@
 //
 
 #import "MNFOfferFilter.h"
-#import "MNFNumberToStringValueTransformer.h"
+#import "MNFInternalImports.h"
 
 @implementation MNFOfferFilter
 
@@ -29,8 +29,8 @@
 }
 
 -(NSDictionary *)propertyValueTransformers {
-    return @{ @"expiredWithCashbackOnly" : [MNFNumberToStringValueTransformer transformer], @"skipMeta" : [MNFNumberToStringValueTransformer transformer],
-              @"expiredWithRedemptionsOnly" : [MNFNumberToStringValueTransformer transformer]
+    return @{ @"expiredWithCashbackOnly" : [MNFNumberToBoolValueTransformer transformer], @"skipMeta" : [MNFNumberToBoolValueTransformer transformer],
+              @"expiredWithRedemptionsOnly" : [MNFNumberToBoolValueTransformer transformer]
               };
 }
 
