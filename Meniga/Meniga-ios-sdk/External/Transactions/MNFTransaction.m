@@ -15,6 +15,7 @@
 #import "MNFTag.h"
 #import "MNFMerchant.h"
 #import "MNFAccount.h"
+#import "MNFTransactionParsedDataTransformer.h"
 
 @interface MNFTransaction ()
 
@@ -731,7 +732,9 @@
              @"lastModifiedTime":[MNFBasicDateValueTransformer transformer],
              @"originalDate":[MNFBasicDateValueTransformer transformer],
              @"timestamp":[MNFBasicDateValueTransformer transformer],
-             @"date":[MNFBasicDateValueTransformer transformer]};
+             @"date":[MNFBasicDateValueTransformer transformer],
+             @"parsedData":[MNFTransactionParsedDataTransformer transformer]
+             };
 }
 
 -(NSSet*)propertiesToIgnoreJsonSerialization {

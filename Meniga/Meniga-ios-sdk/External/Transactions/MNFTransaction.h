@@ -183,6 +183,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  @abstract Extra fields for this transaction having field names as keys.
+ 
+ @discussion The server supports parsed data both as a list of "key-value" pairs like '@[@{@"key":@"testKey",@"value":@"testValue"}] and regular hashmap like '@{@"testKey":@"testValue"}. The sdk will transform list based objects to regular json objects.
  */
 @property(nonatomic, copy, readonly)NSDictionary *parsedData;
 
