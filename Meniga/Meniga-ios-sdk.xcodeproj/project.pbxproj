@@ -213,7 +213,7 @@
 		66B6859E014258F36EA1D205CF8BB5FC /* MNFUpcomingDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 74203BEB5510D9C574ABCBC2F076BB4A /* MNFUpcomingDetails.m */; };
 		67166599CC89E455EF7E55B660789935 /* MNFNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 2969AA6F8C0E1D734375B31574558A35 /* MNFNetwork.h */; };
 		67BE6C3A6CD2C3A646702B527C10D214 /* MNFNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0E40C1EFD9C7D64A825D8EFB6FD7A7 /* MNFNumberToStringValueTransformer.m */; };
-		68B8D57C20C03791003979F2 /* MNFEventTracking.h in Headers */ = {isa = PBXBuildFile; fileRef = 68B8D57A20C03791003979F2 /* MNFEventTracking.h */; };
+		68B8D57C20C03791003979F2 /* MNFEventTracking.h in Headers */ = {isa = PBXBuildFile; fileRef = 68B8D57A20C03791003979F2 /* MNFEventTracking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68B8D57D20C03791003979F2 /* MNFEventTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8D57B20C03791003979F2 /* MNFEventTracking.m */; };
 		68D87DFA2091ED3600A916E1 /* MNFInternalUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 68D87DF82091ED3600A916E1 /* MNFInternalUtilities.h */; };
 		6AE522F330BD2343DDBC2FA5BDD5E6D9 /* MNFOfferRelevanceHook.h in Headers */ = {isa = PBXBuildFile; fileRef = DF1E67674ABA1C0E804D9CABCBAA09EE /* MNFOfferRelevanceHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2018,6 +2018,7 @@
 				57C9C801C0A877F0985B62BC39B33DFA /* MNFObjectState.h in Headers */,
 				3182D3F820B44CF900A03C6E /* MNFTransactionParsedDataTransformer.h in Headers */,
 				310143A9205AC2F500F2B52A /* MNFPeerComparisonStats.h in Headers */,
+				68B8D57C20C03791003979F2 /* MNFEventTracking.h in Headers */,
 				2D10908D6AF5001BB9BBF18F2BE55D32 /* MNFObjectTypes.h in Headers */,
 				A473E56DF1B9E3FEAAAD24CBFC0D36FE /* MNFObjectUpdater.h in Headers */,
 				CC8E98A4B8F49891344C80CFB094E1AC /* MNFObject_Private.h in Headers */,
@@ -2080,7 +2081,6 @@
 				EC8E2AB952179B8B6A4261CF24DD8480 /* MNFUserEvent.h in Headers */,
 				D5F1817F207FEBCDB8C9CBCD8D184FB4 /* MNFUserEventSubscription.h in Headers */,
 				847EF087992FFDA571A8892094C991FF /* MNFUserEventSubscriptionDetail.h in Headers */,
-				68B8D57C20C03791003979F2 /* MNFEventTracking.h in Headers */,
 				95A7651F0ACDB63CCA0B7CFB3ACF876B /* MNFUserEventSubscriptionSetting.h in Headers */,
 				86B2FCA18CA1DFBD7DDB28DCB2DB9A71 /* MNFUserProfile.h in Headers */,
 				013E52B94B0B64CD9652D36168D9B15A /* Meniga.h in Headers */,
