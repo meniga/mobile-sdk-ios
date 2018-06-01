@@ -11,7 +11,7 @@
 
 @implementation MNFEventTracking
 
-+(MNFJob*)trackEventWithType:(NSString*)type state:(NSString*)state identifier:(NSNumber*)identifier media:(NSString*)media completion:(MNFErrorOnlyCompletionHandler)completion{
++(MNFJob*)trackEventWithType:(NSString*)type state:(NSString*)state identifier:(nullable NSNumber*)identifier media:(nullable NSString*)media completion:(nullable MNFErrorOnlyCompletionHandler)completion{
     
     NSMutableDictionary *jsonDict = [NSMutableDictionary new];
     jsonDict[@"trackingType"] = type;
