@@ -183,6 +183,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  @abstract Extra fields for this transaction having field names as keys.
+ 
+ @discussion The server supports parsed data both as a list of "key-value" pairs like '@[@{@"key":@"testKey",@"value":@"testValue"}] and regular hashmap like '@{@"testKey":@"testValue"}. The sdk will transform list based objects to regular json objects.
  */
 @property(nonatomic, copy, readonly)NSDictionary *parsedData;
 
@@ -447,7 +449,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param amount The amount to update to. If null, it will not be updated. Will only affect user created transactions.
  @param categoryId The categoryId to update to. If null, it will not be updated.
  @param uncertainCategorization The uncertainCategorization to update to.
- @param useSubtextInRecategorization True if automatic categorization should be matched against subtext otherwise it will by default be matched against text
+ @param useSubText True if automatic categorization should be matched against subtext otherwise it will by default be matched against text
  @param text The text to update to. If null, it will not be updated.
  @param date The date to update to. If null, it will not be updated.
  @param isRead The isRead status to update to.

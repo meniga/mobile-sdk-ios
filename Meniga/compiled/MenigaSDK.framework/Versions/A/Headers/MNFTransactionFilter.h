@@ -290,6 +290,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong) NSArray *_Nullable useAmountFields;
 
+/**
+ An array of strings specifying which related resources should be included in the response as 'included' data. Supported resources are "Account" and "Merchant", e.g. "Account,Merchant" to get both resources included
+ */
+@property (nonatomic,strong) NSArray <NSString*>*_Nullable include;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -144,6 +144,9 @@
 #define kMNFUserEventTypes @"/eventtypes"
 
 
+#pragma mark - Event Tracking
+#define kMNFApiPathEventTracking @"/eventtracking"
+
 //*********************************
 //Meniga 2.0 API
 //*********************************

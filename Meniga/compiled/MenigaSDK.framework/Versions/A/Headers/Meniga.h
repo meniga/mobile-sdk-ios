@@ -103,6 +103,8 @@
 #import "MNFPeerComparisonStats.h"
 #import "MNFPeerComparisonMerchants.h"
 
+#import "MNFEventTracking.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**

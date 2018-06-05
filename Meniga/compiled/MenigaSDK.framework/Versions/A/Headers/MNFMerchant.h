@@ -103,6 +103,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy,readonly) NSString *webpage;
 
 /**
+ @abstract Custom attributes of the merchant.
+ */
+@property (nonatomic, readonly) NSDictionary *customAttributes;
+
+/**
  @abstract Fetches a merchant with a given identifier.
  
  @param identifier The identifier of the merchant.
