@@ -309,6 +309,7 @@
     [filterDict setObject:[NSNumber numberWithInt:[self.transactionsPerPage intValue]*[self.pageNumber intValue]] forKey:@"take"];
     
     NSNumber *skip = @0;
+    [filterDict setObject:skip forKey:@"skip"];
     
     __block MNFJob *job = [[self class] apiRequestWithPath:kMNFApiPathTransactions pathQuery:[filterDict copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameTransactions completion:^(MNFResponse * _Nullable response) {
         
