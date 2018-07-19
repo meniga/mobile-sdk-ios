@@ -106,8 +106,8 @@
                 int numberOfPages = 0;
                 
                 if (headerFields != nil) {
-                    totalCount = [[headerFields objectForKey:@"X-Total-Count"] intValue];
-                    numberOfPages = (totalCount+[transactionsPerPage intValue]-1)/[transactionsPerPage intValue];
+                    totalCount = [[headerFields objectForKey:@"X-Total-Count"] doubleValue];
+                    numberOfPages = ceil(totalCount/[transactionsPerPage doubleValue]);
                 }
                 
                 NSDictionary *transPageDict = @{@"pageNumber":page,
@@ -308,8 +308,7 @@
     
     [filterDict setObject:[NSNumber numberWithInt:[self.transactionsPerPage intValue]*[self.pageNumber intValue]] forKey:@"take"];
     
-    NSNumber *skip = [NSNumber numberWithInt:[self.transactionsPerPage intValue]*[self.pageNumber intValue]-(int)[self.transactions count]];
-    [filterDict setObject:skip forKey:@"skip"];
+    NSNumber *skip = @0;
     
     __block MNFJob *job = [[self class] apiRequestWithPath:kMNFApiPathTransactions pathQuery:[filterDict copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameTransactions completion:^(MNFResponse * _Nullable response) {
         
