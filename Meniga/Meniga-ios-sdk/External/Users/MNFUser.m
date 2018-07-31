@@ -15,11 +15,36 @@
 
 + (MNFJob*)registerUserWithEmail:(NSString *)email password:(NSString *)password culture:(NSString *)culture completion:(MNFUserCompletionHandler)completion {
     
+    return [self registerUserWithEmail:email password:password signupToken:@"" culture:culture completion:completion];
+}
+
++ (MNFJob*)beginRegistrationWithEmail:(NSString *)email completion:(MNFErrorOnlyCompletionHandler)completion {
+    
+    [completion copy];
+    
+    NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
+    jsonDict[@"email"] = email;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDict copy] options:0 error:nil];
+    
+    __block MNFJob *job = [self apiRequestWithPath:kMNFUserBeginRegistration pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameUsers completion:^(MNFResponse * _Nullable response) {
+        
+        kObjectBlockDataDebugLog;
+        
+        [MNFObject executeOnMainThreadWithJob:job completion:completion error:response.error];
+    }];
+    
+    return job;
+}
+
++ (MNFJob*)registerUserWithEmail:(NSString *)email password:(NSString *)password signupToken:(NSString *)signupToken culture:(NSString *)culture completion:(MNFUserCompletionHandler)completion {
+    
     [completion copy];
     
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
     jsonDict[@"email"] = email;
     jsonDict[@"password"] = password;
+    jsonDict[@"signupToken"] = signupToken;
     jsonDict[@"culture"] = culture;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDict copy] options:0 error:nil];
