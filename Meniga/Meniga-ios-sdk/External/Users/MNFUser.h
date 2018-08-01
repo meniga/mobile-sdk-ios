@@ -121,7 +121,30 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a user and an error.
  */
-+(MNFJob*)registerUserWithEmail:(NSString*)email password:(NSString *)password culture:(NSString*)culture completion:(nullable MNFUserCompletionHandler)completion;
++(MNFJob*)registerUserWithEmail:(NSString*)email password:(NSString *)password culture:(NSString*)culture completion:(nullable MNFUserCompletionHandler)completion MNF_DEPRECATED("Use beginRegistration instead and follow with registerUserWithEmail:password:signupToken:culture:completion:");
+
+/**
+ Begin registration of a user with an email.
+ 
+ @param email The email for the user
+ @param completion A completion block returning a user and an error.
+ 
+ @return MNFJob A job containing a user and an error.
+ */
++(MNFJob*)beginRegistrationWithEmail:(NSString*)email completion:(nullable MNFErrorOnlyCompletionHandler)completion;
+
+/**
+ Register a user with email, password, signup token and default culture.
+ 
+ @param email The email for the user.
+ @param password The password for the user.
+ @param signupToken A token provided through the signup process via f.x. email.
+ @param culture The default culture for the user.
+ @param completion A completion block returning a user and an error.
+ 
+ @return MNFJob A job containing a user and an error.
+ */
++(MNFJob*)registerUserWithEmail:(NSString*)email password:(NSString*)password signupToken:(NSString*)signupToken culture:(NSString*)culture completion:(nullable MNFUserCompletionHandler)completion;
 
 ///******************************
 /// @name Fetching

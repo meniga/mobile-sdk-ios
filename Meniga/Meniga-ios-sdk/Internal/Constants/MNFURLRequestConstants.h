@@ -57,6 +57,7 @@
 #define kMNFUserProfile kMNFApiPathUser @"/profile"
 #define kMNFRealmUsers kMNFApiPathUser @"/realmusers"
 #define kMNFUserRegister kMNFApiPathUser @"/register"
+#define kMNFUserBeginRegistration kMNFApiPathUser @"/beginregistration"
 
 #pragma mark - Merchant
 
