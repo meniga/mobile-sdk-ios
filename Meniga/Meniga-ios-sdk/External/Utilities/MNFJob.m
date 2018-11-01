@@ -248,7 +248,7 @@
     
     _cancellationRequested = YES;
     
-    if(_request != nil) [MNFNetwork cancelRequest:_request withCompletion:^{
+    if(_request != nil) [[MNFNetwork sharedNetwork] cancelRequest:_request withCompletion:^{
         self.cancelled = YES;
         if (completion != nil) {
             __block typeof (completion) subCompletion = completion;
@@ -265,7 +265,7 @@
         completion();
     }
     
-    if (_request != nil) [MNFNetwork pauseRequest:_request withCompletion:^{
+    if (_request != nil) [[MNFNetwork sharedNetwork] pauseRequest:_request withCompletion:^{
         self.paused = YES;
         if (completion != nil) {
             __block typeof (completion) subCompletion = completion;
@@ -281,7 +281,7 @@
         completion();
     }
     
-    if (_request != nil) [MNFNetwork resumeRequest:_request withCompletion:^{
+    if (_request != nil) [[MNFNetwork sharedNetwork] resumeRequest:_request withCompletion:^{
         self.resumed = YES;
         if (completion != nil) {
             __block typeof (completion) subCompletion = completion;

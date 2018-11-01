@@ -25,15 +25,15 @@
 
 -(void)setUp {
     [super setUp];
-    [MNFNetwork initializeForTesting];
+    [[MNFNetwork sharedNetwork] initializeForTesting];
 }
 -(void)tearDown {
-    [MNFNetwork flushForTesting];
+    [[MNFNetwork sharedNetwork] flushForTesting];
     [super tearDown];
 }
 
 -(void)testInitialize {
-    XCTAssertNoThrow([MNFNetwork initialize]);
+    XCTAssertNoThrow([MNFNetwork sharedNetwork]);
 }
 -(void)testSendRequest {
     [MNFNetworkProtocolForTesting removeDelay];
@@ -45,7 +45,7 @@
     NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"X-XSRF-Header",@"application/json",@"Content-type",nil];
     NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:kMNFHTTPMethodGET httpHeaders:headers parameters:nil];
     
-    [MNFNetwork sendRequest:request withCompletion:^(MNFResponse *response){
+    [[MNFNetwork sharedNetwork] sendRequest:request withCompletion:^(MNFResponse *response){
         NSDictionary *testDict = @{@"TestResponse":@"NetworkTest",@"TestNumber":@10};
         XCTAssertEqualObjects(response.error, nil);
         XCTAssertTrue(response.statusCode == 200);
