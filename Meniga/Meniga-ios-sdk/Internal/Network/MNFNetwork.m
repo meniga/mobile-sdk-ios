@@ -97,8 +97,8 @@ static MNFNetwork *MENIGASharedNetworkInstance;
             block(response);
         }
         else {
-            NSError *unexpectedError = [MNFErrorUtils errorWithCode:kMNFErrorInvalidResponse message:[NSString stringWithFormat:@"Unexpected response type. Expected class: %@. Got class: %@",NSStringFromClass([NSHTTPURLResponse class]), NSStringFromClass([urlResponse class])]];
-            MNFResponse *response = [MNFResponse responseWithData:data error:unexpectedError statusCode:kMNFErrorInvalidResponse headerFields:nil];
+//            NSError *unexpectedError = [MNFErrorUtils errorWithCode:kMNFErrorInvalidResponse message:[NSString stringWithFormat:@"Unexpected response type. Expected class: %@. Got class: %@ Error: %@",NSStringFromClass([NSHTTPURLResponse class]), NSStringFromClass([urlResponse class]), error]];
+            MNFResponse *response = [MNFResponse responseWithData:data error:error statusCode:kMNFErrorInvalidResponse headerFields:nil];
             
             block(response);
         }
