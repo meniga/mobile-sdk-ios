@@ -38,6 +38,7 @@
 @class MNFChallenge;
 @class MNFBudget;
 @class MNFBudgetEntry;
+@class MNFBudgetRule;
 @class MNFScheduledEvent;
 @class MNFMerchantSeries;
 @class MNFPublic;
@@ -185,6 +186,7 @@ typedef void (^MNFBudgetCompletionHandler)(MNFBudget *_Nullable budget, NSError 
 typedef void (^MNFMultipleBudgetCompletionHandler)(NSArray <MNFBudget *> *_Nullable budgets, NSError *_Nullable error);
 typedef void (^MNFMultipleBudgetEntriesCompletionHandler)(NSArray <MNFBudgetEntry *> *_Nullable budgetEntries, NSError *_Nullable error);
 typedef void (^MNFBudgetEntryCompletionHandler)(MNFBudgetEntry *_Nullable budgetEntry, NSError *_Nullable error);
+typedef void (^MNFMultipleBudgetRulesCompletionHandler)(NSArray <MNFBudgetRule *> *_Nullable budgetRules, NSError *_Nullable error);
 
 //Life goals
 typedef void (^MNFLifeGoalCompletionHandler)(MNFLifeGoal *_Nullable lifeGoal, NSError *_Nullable error);
