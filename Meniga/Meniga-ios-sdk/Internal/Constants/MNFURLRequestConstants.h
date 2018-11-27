@@ -105,7 +105,7 @@
 #define kMNFBudgetTransactions kMNFApiPathBudget @"/%@/transactions"
 #define kMNFBudgetRecurring kMNFApiPathBudget @"/recurring"
 #define kMNFBudgetRecalculate kMNFApiPathBudget @"/recalculate"
-#define kMNFBudgetRules kMNFApiPathBudget @"/rules"
+#define kMNFBudgetRules @"/rules"
 
 #pragma mark - Life goals
 #define kMNFApiPathLifeGoals @"/lifegoals"

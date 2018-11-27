@@ -57,7 +57,7 @@
     
     [completion copy];
     
-    NSString *path = [NSString stringWithFormat:kMNFBudgetRules,budgetId.stringValue];
+    NSString *path = [NSString stringWithFormat:@"%@/%@/%@",kMNFApiPathBudget,budgetId.stringValue,kMNFBudgetRules];
     
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
     jsonDict[@"categoryIds"] = categoryIds;
