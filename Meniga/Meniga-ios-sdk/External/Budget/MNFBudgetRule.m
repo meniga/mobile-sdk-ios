@@ -17,10 +17,12 @@
     
     NSString *path = [NSString stringWithFormat:@"%@/%@/%@",kMNFApiPathBudget,budgetId.stringValue,kMNFBudgetRules];
     
+    MNFBasicDateValueTransformer *transformer = [MNFBasicDateValueTransformer transformer];
+    
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
     jsonDict[@"categoryIds"] = categoryIds;
-    jsonDict[@"startDate"] = startDate;
-    jsonDict[@"endDate"] = endDate;
+    jsonDict[@"startDate"] = [transformer reverseTransformedValue:startDate];
+    jsonDict[@"endDate"] = [transformer reverseTransformedValue:endDate];
     jsonDict[@"allowOverlappingRules"] = allowOverlappingRules;
     
     __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:[jsonDict copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameBudget completion:^(MNFResponse * _Nullable response) {
@@ -59,12 +61,14 @@
     
     NSString *path = [NSString stringWithFormat:@"%@/%@/%@",kMNFApiPathBudget,budgetId.stringValue,kMNFBudgetRules];
     
+    MNFBasicDateValueTransformer *transformer = [MNFBasicDateValueTransformer transformer];
+    
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
     jsonDict[@"categoryIds"] = categoryIds;
-    jsonDict[@"startDate"] = startDate;
-    jsonDict[@"endDate"] = endDate;
+    jsonDict[@"startDate"] = [transformer reverseTransformedValue:startDate];
+    jsonDict[@"endDate"] = [transformer reverseTransformedValue:endDate];
     jsonDict[@"generationType"] = generationType;
-    jsonDict[@"repeatUntil"] = repeatUntil;
+    jsonDict[@"repeatUntil"] = [transformer reverseTransformedValue:repeatUntil];
     if (monthInterval != nil) {
         jsonDict[@"recurringPattern"] = @{@"monthInterval":monthInterval};
     }
@@ -113,6 +117,31 @@
     }];
     
     return job;
+}
+
+#pragma mark - json delegate
+
+-(NSDictionary*)jsonKeysMapToProperties {
+    return @{@"identifier":@"id"};
+}
+
+-(NSDictionary*)propertyKeysMapToJson {
+    return @{@"identifier":@"id"};
+}
+
+-(NSDictionary*)propertyValueTransformers {
+    return @{@"startDate":[MNFBasicDateValueTransformer transformer],
+             @"endDate":[MNFBasicDateValueTransformer transformer],
+             @"updatedAt":[MNFBasicDateValueTransformer transformer]
+             };
+}
+
+-(NSSet *)propertiesToIgnoreJsonDeserialization {
+    return [NSSet setWithObjects:@"objectstate", nil];
+}
+
+-(NSSet *)propertiesToIgnoreJsonSerialization {
+    return [NSSet setWithObjects:@"objectstate", nil];
 }
 
 @end
