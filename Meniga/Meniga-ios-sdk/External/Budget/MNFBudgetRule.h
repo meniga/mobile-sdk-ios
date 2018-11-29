@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MNFBudgetRuleRecurringPattern;
+
 @interface MNFBudgetRule : MNFObject
 
 ///******************************
@@ -17,29 +19,33 @@ NS_ASSUME_NONNULL_BEGIN
 ///******************************
 
 /**
- The target amount in the planning rule.
+ The id of the budget the rule is in.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable targetAmount;
-
-/**
- The start date for the rule.
- */
-@property (nonatomic,strong,readonly) NSDate *_Nullable startDate;
-
-/**
- The end date for the rule.
- */
-@property (nonatomic,strong,readonly) NSDate *_Nullable endDate;
+@property (nonatomic,strong,readonly) NSNumber *_Nullable budgetId;
 
 /**
  The date and time the rule was last edited.
  */
-@property (nonatomic,strong,readonly) NSDate *_Nullable updatedAt;
+@property (nonatomic,strong) NSDate *_Nullable updatedAt;
+
+///******************************
+/// @name Mutable properties
+///******************************
 
 /**
- The id of the budget the rule is in.
+ The target amount in the planning rule.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable budgetId;
+@property (nonatomic,strong) NSNumber *_Nullable targetAmount;
+
+/**
+ The start date for the rule.
+ */
+@property (nonatomic,strong) NSDate *_Nullable startDate;
+
+/**
+ The end date for the rule.
+ */
+@property (nonatomic,strong) NSDate *_Nullable endDate;
 
 /**
  The generation type for the rule.
@@ -50,6 +56,16 @@ NS_ASSUME_NONNULL_BEGIN
  The category ids the rule is associated with.
  */
 @property (nonatomic,copy,readonly) NSArray <NSNumber*> *_Nullable categoryIds;
+
+/**
+ The recurring pattern for the rule.
+ */
+@property (nonatomic,strong) MNFBudgetRuleRecurringPattern *_Nullable recurringPattern;
+
+/**
+ The time based delimiter for the rule recurrence.
+ */
+@property (nonatomic,strong) NSDate *_Nullable repeatUntil;
 
 ///******************************
 /// @name Fetching
@@ -82,24 +98,14 @@ NS_ASSUME_NONNULL_BEGIN
  Creates a list of budget rules.
  
  @param budgetId The id of the budget the rules are in.
- @param categoryIds The category ids the rules are associated with.
- @param startDate The start date for the rules.
- @param endDate The end date for the rules.
- @param generationType The generation type for the rules.
- @param monthInterval The monthly interval of a recurring pattern for the rules.
- @param repeatUntil The end of the recurrence of the rules.
+ @param budgetRulesToCreate A list of budget rules to create.
  @param completion A completion block returning a list of budget rules and an error.
  
  @return MNFJob A job containing a list of budget rules and an error.
  */
-+ (MNFJob*)budgetRuleWithBudgetId:(NSNumber*)budgetId
-                      categoryIds:(nullable NSString*)categoryIds
-                        startDate:(nullable NSDate*)startDate
-                          endDate:(nullable NSDate*)endDate
-                   generationType:(nullable NSNumber*)generationType
-                    monthInterval:(nullable NSNumber *)monthInterval
-                      repeatUntil:(nullable NSDate*)repeatUntil
-                       completion:(nullable MNFMultipleBudgetRulesCompletionHandler)completion;
++ (MNFJob*)createBudgetRules:(NSArray <MNFBudgetRule*> *)budgetRulesToCreate
+                    budgetId:(NSNumber*)budgetId
+                  completion:(nullable MNFMultipleBudgetRulesCompletionHandler)completion;
 
 ///******************************
 /// @name Deleting

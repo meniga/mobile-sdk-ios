@@ -148,6 +148,8 @@
 		31DE38BA206A975600B1DC4E /* MNFTestModelObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DE38B9206A975600B1DC4E /* MNFTestModelObjects.m */; };
 		31E960EB21AD748D009D0E76 /* MNFBudgetRule.h in Headers */ = {isa = PBXBuildFile; fileRef = 31E960E921AD748D009D0E76 /* MNFBudgetRule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31E960EC21AD748D009D0E76 /* MNFBudgetRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E960EA21AD748D009D0E76 /* MNFBudgetRule.m */; };
+		31E960EF21AFDC56009D0E76 /* MNFBudgetRuleRecurringPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 31E960ED21AFDC56009D0E76 /* MNFBudgetRuleRecurringPattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31E960F021AFDC56009D0E76 /* MNFBudgetRuleRecurringPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E960EE21AFDC56009D0E76 /* MNFBudgetRuleRecurringPattern.m */; };
 		34F9D23DDA0DF3C904BCE87F52C16738 /* MNFAccountAuthorizationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 959B36C7454CAF6CA71449E7238DBA43 /* MNFAccountAuthorizationType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3501B284AD17F01BEBC4BC255D2C76DA /* MNFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A11DFD42418C6E80B7C443021042530 /* MNFSettings.m */; };
 		35ACBB2B95D2223CA2E2BE18F8A43639 /* MNFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F673A67A7EEA9CD365D8901ED34ACA /* MNFConstants.m */; };
@@ -550,6 +552,8 @@
 		31DE38B9206A975600B1DC4E /* MNFTestModelObjects.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFTestModelObjects.m; sourceTree = "<group>"; };
 		31E960E921AD748D009D0E76 /* MNFBudgetRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MNFBudgetRule.h; path = Budget/MNFBudgetRule.h; sourceTree = "<group>"; };
 		31E960EA21AD748D009D0E76 /* MNFBudgetRule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MNFBudgetRule.m; path = Budget/MNFBudgetRule.m; sourceTree = "<group>"; };
+		31E960ED21AFDC56009D0E76 /* MNFBudgetRuleRecurringPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MNFBudgetRuleRecurringPattern.h; path = Budget/MNFBudgetRuleRecurringPattern.h; sourceTree = "<group>"; };
+		31E960EE21AFDC56009D0E76 /* MNFBudgetRuleRecurringPattern.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MNFBudgetRuleRecurringPattern.m; path = Budget/MNFBudgetRuleRecurringPattern.m; sourceTree = "<group>"; };
 		31FA1DE620629B1600A16393 /* apispec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apispec.json; sourceTree = "<group>"; };
 		31FA1DE820629BB000A16393 /* MNFTestFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFTestFactory.h; sourceTree = "<group>"; };
 		31FA1DE920629BB000A16393 /* MNFTestFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFTestFactory.m; sourceTree = "<group>"; };
@@ -1288,6 +1292,8 @@
 				3FED98D2CCD2BF2BEE93A604F25BE045 /* MNFBudgetFilter.m */,
 				31E960E921AD748D009D0E76 /* MNFBudgetRule.h */,
 				31E960EA21AD748D009D0E76 /* MNFBudgetRule.m */,
+				31E960ED21AFDC56009D0E76 /* MNFBudgetRuleRecurringPattern.h */,
+				31E960EE21AFDC56009D0E76 /* MNFBudgetRuleRecurringPattern.m */,
 			);
 			name = Budget;
 			sourceTree = "<group>";
@@ -1966,6 +1972,7 @@
 				34F9D23DDA0DF3C904BCE87F52C16738 /* MNFAccountAuthorizationType.h in Headers */,
 				6AE88F61359ACED0E6F2913180FA76A5 /* MNFAccountCategory.h in Headers */,
 				68D87DFA2091ED3600A916E1 /* MNFInternalUtilities.h in Headers */,
+				31E960EF21AFDC56009D0E76 /* MNFBudgetRuleRecurringPattern.h in Headers */,
 				CF9C52E8EE860A21A455AAF27891FF28 /* MNFAccountFilter.h in Headers */,
 				13508C3A7FBC5A8105D471E79A1F4D99 /* MNFAccountHistoryEntry.h in Headers */,
 				6B40AFA287D3A4C4B68E1A9D80E3FA43 /* MNFAccountSyncStatus.h in Headers */,
@@ -2444,6 +2451,7 @@
 				FDEFD8D1B674EE1AB7B48059E97F8860 /* MNFSpendingChallenge.m in Sources */,
 				6152A3F7EC6CE46FCB933F08AE2A956F /* MNFSyncAuthRequiredParameter.m in Sources */,
 				42214194546BA547A78FFB8C8085433F /* MNFSyncAuthenticationChallenge.m in Sources */,
+				31E960F021AFDC56009D0E76 /* MNFBudgetRuleRecurringPattern.m in Sources */,
 				F9CACFD8521F2E9CE42D4C0DEB0BB4BA /* MNFSynchronization.m in Sources */,
 				019EABCF94F2FAFDD16D8AE089F4B2F2 /* MNFTag.m in Sources */,
 				9855DB42B083927FD0722356CF960B71 /* MNFTermsAndConditionType.m in Sources */,

@@ -82,6 +82,7 @@
 #import "MNFBudgetFilter.h"
 #import "MNFBudgetEntry.h"
 #import "MNFBudgetRule.h"
+#import "MNFBudgetRuleRecurringPattern.h"
 #import "MNFSpendingChallenge.h"
 #import "MNFCustomChallenge.h"
 

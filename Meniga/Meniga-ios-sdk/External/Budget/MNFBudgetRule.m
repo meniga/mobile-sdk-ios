@@ -7,6 +7,7 @@
 //
 
 #import "MNFBudgetRule.h"
+#import "MNFBudgetRuleRecurringPattern.h"
 #import "MNFInternalImports.h"
 
 @implementation MNFBudgetRule
@@ -55,23 +56,15 @@
     return job;
 }
 
-+ (MNFJob *)budgetRuleWithBudgetId:(NSNumber *)budgetId categoryIds:(NSString *)categoryIds startDate:(NSDate *)startDate endDate:(NSDate *)endDate generationType:(NSNumber *)generationType monthInterval:(NSNumber *)monthInterval repeatUntil:(NSNumber *)repeatUntil completion:(MNFMultipleBudgetRulesCompletionHandler)completion {
++ (MNFJob *)createBudgetRules:(NSArray<MNFBudgetRule *> *)budgetRulesToCreate budgetId:(NSNumber *)budgetId completion:(MNFMultipleBudgetRulesCompletionHandler)completion {
     
     [completion copy];
     
     NSString *path = [NSString stringWithFormat:@"%@/%@/%@",kMNFApiPathBudget,budgetId.stringValue,kMNFBudgetRules];
     
-    MNFBasicDateValueTransformer *transformer = [MNFBasicDateValueTransformer transformer];
-    
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
-    jsonDict[@"categoryIds"] = categoryIds;
-    jsonDict[@"startDate"] = [transformer reverseTransformedValue:startDate];
-    jsonDict[@"endDate"] = [transformer reverseTransformedValue:endDate];
-    jsonDict[@"generationType"] = generationType;
-    jsonDict[@"repeatUntil"] = [transformer reverseTransformedValue:repeatUntil];
-    if (monthInterval != nil) {
-        jsonDict[@"recurringPattern"] = @{@"monthInterval":monthInterval};
-    }
+    NSArray *rules = [MNFJsonAdapter JSONArrayFromArray:budgetRulesToCreate option:kMNFAdapterOptionNoOption error:nil];
+    jsonDict[@"rules"] = rules;
     
     __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:[jsonDict copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameBudget completion:^(MNFResponse * _Nullable response) {
         
@@ -142,6 +135,12 @@
 
 -(NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObjects:@"objectstate", nil];
+}
+
+-(NSDictionary*)subclassedProperties {
+    return @{
+             @"recurringPattern": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass: [MNFBudgetRuleRecurringPattern class] option: kMNFAdapterOptionNoOption]
+             };
 }
 
 @end
