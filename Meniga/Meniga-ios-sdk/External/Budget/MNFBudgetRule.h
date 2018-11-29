@@ -50,12 +50,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The generation type for the rule.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable generationType;
+@property (nonatomic,strong) NSNumber *_Nullable generationType;
 
 /**
  The category ids the rule is associated with.
  */
-@property (nonatomic,copy,readonly) NSArray <NSNumber*> *_Nullable categoryIds;
+@property (nonatomic,copy) NSArray <NSNumber*> *_Nullable categoryIds;
 
 /**
  The recurring pattern for the rule.
