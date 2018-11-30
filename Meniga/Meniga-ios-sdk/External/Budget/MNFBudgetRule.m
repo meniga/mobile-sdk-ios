@@ -19,12 +19,13 @@
     NSString *path = [NSString stringWithFormat:@"%@/%@/%@",kMNFApiPathBudget,budgetId.stringValue,kMNFBudgetRules];
     
     MNFBasicDateValueTransformer *transformer = [MNFBasicDateValueTransformer transformer];
+    MNFNumberToBoolValueTransformer *boolTransformer = [MNFNumberToBoolValueTransformer transformer];
     
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
     jsonDict[@"categoryIds"] = categoryIds;
     jsonDict[@"startDate"] = [transformer reverseTransformedValue:startDate];
     jsonDict[@"endDate"] = [transformer reverseTransformedValue:endDate];
-    jsonDict[@"allowOverlappingRules"] = allowOverlappingRules;
+    jsonDict[@"allowOverlappingRules"] = [boolTransformer reverseTransformedValue:allowOverlappingRules];
     
     __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:[jsonDict copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameBudget completion:^(MNFResponse * _Nullable response) {
         
