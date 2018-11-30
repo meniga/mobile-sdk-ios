@@ -67,7 +67,9 @@
     NSArray *rules = [MNFJsonAdapter JSONArrayFromArray:budgetRulesToCreate option:kMNFAdapterOptionNoOption error:nil];
     jsonDict[@"rules"] = rules;
     
-    __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:[jsonDict copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameBudget completion:^(MNFResponse * _Nullable response) {
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[jsonDict copy] options:0 error:nil];
+    
+    __block MNFJob *job = [MNFObject apiRequestWithPath:path pathQuery:nil jsonBody:jsonData HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameBudget completion:^(MNFResponse * _Nullable response) {
         
         kObjectBlockDataDebugLog;
         
