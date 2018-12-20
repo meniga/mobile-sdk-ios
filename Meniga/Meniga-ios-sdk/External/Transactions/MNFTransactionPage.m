@@ -147,7 +147,7 @@
     
     [completion copy];
     
-    if (_pageNumber >=_numberOfPages) {
+    if (_pageNumber.integerValue >=_numberOfPages.integerValue) {
         
         NSError *error = [MNFErrorUtils errorWithCode:kMNFErrorInvalidOperation message:@"Cannot append next page. The transaction page is on last page."];
         [MNFObject executeOnMainThreadWithCompletion:completion withParameter: error];
@@ -195,7 +195,7 @@
                 }
                 
                 self.transactions = [self.transactions arrayByAddingObjectsFromArray:transactions];
-                self.pageNumber = [NSNumber numberWithInt:[self->_pageNumber intValue]+1];
+                self.pageNumber = [NSNumber numberWithInteger:[self->_pageNumber integerValue]+1];
                 
                 
             }
@@ -217,7 +217,7 @@
 
 -(MNFJob *)nextPageWithCompletion:(MNFErrorOnlyCompletionHandler)completion {
     
-    if (_pageNumber >= _numberOfPages) {
+    if (_pageNumber.integerValue >= _numberOfPages.integerValue) {
         
         NSError *error = [MNFErrorUtils errorWithCode:kMNFErrorInvalidOperation message:@"Cannot fetch next page. The transaction page is on last page."];
         [MNFObject executeOnMainThreadWithCompletion:completion withParameter:error];
@@ -263,7 +263,7 @@
                     
                 }
                 
-                self->_pageNumber = @([self.pageNumber intValue]+1);
+                self->_pageNumber = @([self.pageNumber integerValue]+1);
                 self->_transactions = transactions;
                 
                 
