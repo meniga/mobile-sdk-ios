@@ -128,7 +128,8 @@
 -(NSDictionary*)propertyValueTransformers {
     return @{@"startDate":[MNFBasicDateValueTransformer transformer],
              @"endDate":[MNFBasicDateValueTransformer transformer],
-             @"updatedAt":[MNFBasicDateValueTransformer transformer]
+             @"updatedAt":[MNFBasicDateValueTransformer transformer],
+             @"repeatUntil":[MNFBasicDateValueTransformer transformer]
              };
 }
 
