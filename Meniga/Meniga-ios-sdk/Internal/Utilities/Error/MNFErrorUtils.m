@@ -48,11 +48,11 @@
         MNFLogInfo(@"%@",message);
         MNFLogDebug(@"%@",message);
         MNFLogVerbose(@"%@",message);
-        [userInfo setObject:NSLocalizedDescriptionKey forKey:message];
+        [userInfo setObject:message forKey:NSLocalizedDescriptionKey];
     }
     
     if (errorInfo != nil) {
-        [userInfo setObject:NSUnderlyingErrorKey forKey:errorInfo];
+        [userInfo setObject:errorInfo forKey:NSUnderlyingErrorKey];
     }
     
     return [NSError errorWithDomain:MNFMenigaErrorDomain code:code userInfo: userInfo];

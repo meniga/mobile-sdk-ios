@@ -116,7 +116,7 @@
         
         NSDictionary *firstError = [theDictionaryErrors firstObject];
         NSString *errorMessage = [self p_errorMessageFromData:firstError];
-        NSDictionary *errorInfo = [firstError objectForKey:@"modelState"];
+        NSDictionary *errorInfo = [[firstError objectForKey:@"modelState"] firstObject];
 
         return [MNFErrorUtils errorWithCode:theStatusCode message:errorMessage errorInfo:errorInfo];
         
