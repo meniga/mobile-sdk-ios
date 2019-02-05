@@ -14,12 +14,29 @@
 #import "MNFErrorUtils.h"
 #import "MNFLogger.h"
 
-@implementation MNFNetwork
+@implementation MNFNetwork{
+    
+    NSURLSession *_sharedSession;
+    
+}
 
-static NSURLSession *session = nil;
+static MNFNetwork *MENIGASharedNetworkInstance;
 
-+(void)initialize {
-    if (self == [MNFNetwork class]) {
++(instancetype)sharedNetwork{
+    
+    if (MENIGASharedNetworkInstance == nil) {
+        MENIGASharedNetworkInstance = [[MNFNetwork alloc]init];
+    }
+    
+    return MENIGASharedNetworkInstance;
+    
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
         NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
         if ([Meniga requestTimeoutInterval] != 0) {
             sessionConfiguration.timeoutIntervalForRequest = [Meniga requestTimeoutInterval];
@@ -30,21 +47,23 @@ static NSURLSession *session = nil;
         if ([Meniga sessionConfiguration] != nil) {
             sessionConfiguration = [Meniga sessionConfiguration];
         }
-        session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:[Meniga sessionDelegate] delegateQueue:nil];
+        _sharedSession = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:[Meniga sessionDelegate] delegateQueue:nil];
+        
     }
+    return self;
 }
 
-+(void)initializeForTesting {
+-(void)initializeForTesting {
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     sessionConfiguration.protocolClasses = @[[MNFNetworkProtocolForTesting class]];
-    session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+    _sharedSession = [NSURLSession sessionWithConfiguration:sessionConfiguration];
 }
 
-+(void)flushForTesting {
-    [session invalidateAndCancel];
+-(void)flushForTesting {
+    [_sharedSession invalidateAndCancel];
 }
 
-+(void)sendRequest:(NSURLRequest *) request withCompletion:(MenigaResponseBlock)block {
+-(void)sendRequest:(NSURLRequest *) request withCompletion:(MenigaResponseBlock)block {
     [block copy];
     
     MNFLogInfo(@"Sending request to URL: %@",request.URL);
@@ -58,7 +77,7 @@ static NSURLSession *session = nil;
     MNFLogDebug(@"Sending request to URL: %@, header fields: %@, HTTPMethod: %@, HTTPBody: %@",request.URL,request.allHTTPHeaderFields,request.HTTPMethod,httpBody);
     MNFLogVerbose(@"Sending request to URL: %@, header fields: %@, HTTPMethod: %@, HTTPBody: %@",request.URL,request.allHTTPHeaderFields,request.HTTPMethod,httpBody);
     
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *urlResponse, NSError *error){
+    NSURLSessionDataTask *dataTask = [_sharedSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *urlResponse, NSError *error){
         
         NSInteger statusCode;
         if ([[urlResponse class] isSubclassOfClass:[NSHTTPURLResponse class]]) {
@@ -78,22 +97,22 @@ static NSURLSession *session = nil;
             block(response);
         }
         else {
-            NSError *unexpectedError = [MNFErrorUtils errorWithCode:kMNFErrorInvalidResponse message:[NSString stringWithFormat:@"Unexpected response type. Expected class: %@. Got class: %@",NSStringFromClass([NSHTTPURLResponse class]), NSStringFromClass([urlResponse class])]];
-            MNFResponse *response = [MNFResponse responseWithData:data error:unexpectedError statusCode:kMNFErrorInvalidResponse headerFields:nil];
+//            NSError *unexpectedError = [MNFErrorUtils errorWithCode:kMNFErrorInvalidResponse message:[NSString stringWithFormat:@"Unexpected response type. Expected class: %@. Got class: %@ Error: %@",NSStringFromClass([NSHTTPURLResponse class]), NSStringFromClass([urlResponse class]), error]];
+            MNFResponse *response = [MNFResponse responseWithData:data error:error statusCode:kMNFErrorInvalidResponse headerFields:nil];
             
             block(response);
         }
     }];
     [dataTask resume];
 }
-+(void)sendRequest:(NSURLRequest *)request overwrite:(BOOL *)overwrite withCompletion:(MenigaResponseBlock)block {
+-(void)sendRequest:(NSURLRequest *)request overwrite:(BOOL *)overwrite withCompletion:(MenigaResponseBlock)block {
     [block copy];
     if (overwrite) {
         [self cancelRequest:request];
     }
     [self sendRequest:request withCompletion:block];
 }
-+(void)sendPriorityRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block {
+-(void)sendPriorityRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block {
     [block copy];
     
     [self pauseAllRequestsWithCompletion:^ {
@@ -104,10 +123,10 @@ static NSURLSession *session = nil;
     }];
 }
 
-+(void)sendDownloadRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block {
+-(void)sendDownloadRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block {
     [block copy];
     
-    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable urlResponse, NSError * _Nullable error) {
+    NSURLSessionDownloadTask *downloadTask = [_sharedSession downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable urlResponse, NSError * _Nullable error) {
         
         NSInteger statusCode = [(NSHTTPURLResponse*)urlResponse statusCode];
         NSData *data = [NSData dataWithContentsOfURL:location];
@@ -119,16 +138,16 @@ static NSURLSession *session = nil;
     [downloadTask resume];
 }
 
-+(void)cancelRequest:(NSURLRequest *) request {
+-(void)cancelRequest:(NSURLRequest *) request {
     
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
         for (NSURLSessionDataTask *dataTask in dataTasks) {
             if (dataTask.originalRequest == request) [dataTask cancel];
         }
     }];
 }
-+(void)cancelRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
+-(void)cancelRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
         for (NSURLSessionDataTask *dataTask in dataTasks) {
             if (dataTask.originalRequest == request) [dataTask cancel];
         }
@@ -136,23 +155,23 @@ static NSURLSession *session = nil;
     }];
 }
 
-+(void)pauseRequest:(NSURLRequest *)request {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
+-(void)pauseRequest:(NSURLRequest *)request {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
         for (NSURLSessionDataTask *dataTask in dataTasks) {
             if (dataTask.originalRequest == request) [dataTask suspend];
         }
     }];
 }
-+(void)pauseRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
+-(void)pauseRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
         for (NSURLSessionDataTask *dataTask in dataTasks) {
             if (dataTask.originalRequest == request) [dataTask suspend];
         }
         completionHandler();
     }];
 }
-+(void)resumeRequest:(NSURLRequest *)request {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
+-(void)resumeRequest:(NSURLRequest *)request {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
         for (NSURLSessionDataTask *dataTask in dataTasks) {
             if (dataTask.originalRequest == request) {
                 if (dataTask.state == NSURLSessionTaskStateSuspended) [dataTask resume];
@@ -160,8 +179,8 @@ static NSURLSession *session = nil;
         }
     }];
 }
-+(void)resumeRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
+-(void)resumeRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
         for (NSURLSessionDataTask *dataTask in dataTasks) {
             if (dataTask.originalRequest == request) {
                 if (dataTask.state == NSURLSessionTaskStateSuspended) [dataTask resume];
@@ -170,45 +189,45 @@ static NSURLSession *session = nil;
         completionHandler();
     }];
 }
-+(void)cancelAllRequests {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
+-(void)cancelAllRequests {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
         for (NSURLSessionDataTask *task in dataTasks) {
             [task cancel];
         }
     }];
 }
-+(void)cancelAllRequestsWithCompletion:(void (^)(void))completionHandler {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
+-(void)cancelAllRequestsWithCompletion:(void (^)(void))completionHandler {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks){
         for (NSURLSessionDataTask *task in dataTasks) {
             [task cancel];
         }
         completionHandler();
     }];
 }
-+(void)pauseAllRequests {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
+-(void)pauseAllRequests {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         for (NSURLSessionDataTask *task in dataTasks) {
             [task suspend];
         }
     }];
 }
-+(void)pauseAllRequestsWithCompletion:(void (^)(void))completionHandler {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
+-(void)pauseAllRequestsWithCompletion:(void (^)(void))completionHandler {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         for (NSURLSessionDataTask *task in dataTasks) {
             [task suspend];
         }
         completionHandler();
     }];
 }
-+(void)resumeAllRequests {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
+-(void)resumeAllRequests {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         for (NSURLSessionDataTask *task in dataTasks) {
             [task resume];
         }
     }];
 }
-+(void)resumeAllRequestsWithCompletion:(void (^)(void))completionHandler {
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
+-(void)resumeAllRequestsWithCompletion:(void (^)(void))completionHandler {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         for (NSURLSessionDataTask *task in dataTasks) {
             [task resume];
         }
@@ -216,14 +235,14 @@ static NSURLSession *session = nil;
     }];
 }
 
-+(void)getAllTasks:(void (^)(NSArray <NSURLSessionDataTask *>* tasks))completion; {
+-(void)getAllTasks:(void (^)(NSArray <NSURLSessionDataTask *>* tasks))completion; {
     [completion copy];
-    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
+    [_sharedSession getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         completion(dataTasks);
     }];
 }
-+(NSURLSession*)getSession {
-    return session;
+-(NSURLSession*)getSession {
+    return _sharedSession;
 }
 
 @end

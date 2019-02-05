@@ -44,7 +44,7 @@
     NSObject <MNFAuthenticationProviderProtocol> *provider = [Meniga authenticationProvider];
     if ([provider respondsToSelector:@selector(prepareRequest:withCompletion:)]) {
         [provider prepareRequest:request withCompletion:^(NSURLRequest *postRequest) {
-            [MNFNetwork sendRequest:postRequest withCompletion:^(MNFResponse * _Nonnull response) {
+            [[MNFNetwork sharedNetwork] sendRequest:postRequest withCompletion:^(MNFResponse * _Nonnull response) {
                 
                 [job setResponse:response];
                 
@@ -55,7 +55,7 @@
         }];
     }
     else {
-        [MNFNetwork sendRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
+        [[MNFNetwork sharedNetwork] sendRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
             
             [job setResponse:response];
             
@@ -72,7 +72,7 @@
     
     __block MNFJob *job = [MNFJob jobWithRequest:request];
     
-    [MNFNetwork sendRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
+    [[MNFNetwork sharedNetwork] sendRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
         [job setResponse:response];
     }];
     

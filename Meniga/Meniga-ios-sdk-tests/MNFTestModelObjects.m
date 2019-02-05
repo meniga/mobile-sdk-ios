@@ -24,11 +24,11 @@
 
 - (void)setUp {
     [super setUp];
-    [MNFNetwork initializeForTesting];
+    [[MNFNetwork sharedNetwork] initializeForTesting];
 }
 
 - (void)tearDown {
-    [MNFNetwork flushForTesting];
+    [[MNFNetwork sharedNetwork] flushForTesting];
     [super tearDown];
 }
 

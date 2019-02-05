@@ -153,7 +153,7 @@
     
     __block MNFJob *job = [MNFJob jobWithRequest:request];
     
-    [MNFNetwork sendDownloadRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
+    [[MNFNetwork sharedNetwork] sendDownloadRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
         [job setResponse:response];
         
         if (completion != nil) {

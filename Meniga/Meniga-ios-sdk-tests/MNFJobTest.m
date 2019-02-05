@@ -23,11 +23,11 @@
 
 - (void)setUp {
     [super setUp];
-    [MNFNetwork initializeForTesting];
+    [[MNFNetwork sharedNetwork] initializeForTesting];
 }
 
 - (void)tearDown {
-    [MNFNetwork flushForTesting];
+    [[MNFNetwork sharedNetwork] flushForTesting];
     [super tearDown];
 }
 
@@ -40,7 +40,7 @@
     NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:@"POST" httpHeaders:nil parameters:nil];
     MNFJob *job = [self sendRequest:request];
     [job cancelWithCompletion:^{
-        [MNFNetwork getAllTasks:^(NSArray<NSURLSessionDataTask *> * _Nonnull tasks) {
+        [[MNFNetwork sharedNetwork] getAllTasks:^(NSArray<NSURLSessionDataTask *> * _Nonnull tasks) {
 //            NSLog(@"All tasks: %@",tasks);
         }];
         XCTAssertTrue([job isCancelled]);
@@ -59,7 +59,7 @@
     MNFJob *job = [self sendRequest:request];
     [job pauseWithCompletion:^{
         
-        [MNFNetwork getAllTasks:^(NSArray<NSURLSessionDataTask *> * _Nonnull tasks) {
+        [[MNFNetwork sharedNetwork] getAllTasks:^(NSArray<NSURLSessionDataTask *> * _Nonnull tasks) {
 
         }];
         
@@ -76,7 +76,7 @@
 
 -(MNFJob*)sendRequest:(NSURLRequest*)request {
     MNFJob *job = [MNFJob jobWithRequest:request];
-    [MNFNetwork sendRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
+    [[MNFNetwork sharedNetwork] sendRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
         
         if (![job isCancelled]) {
 
