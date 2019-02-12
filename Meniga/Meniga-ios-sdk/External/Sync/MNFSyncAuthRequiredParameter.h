@@ -81,6 +81,10 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract Whether the parameter is an identity parameter.
  */
 @property (nonatomic,strong,readonly) NSNumber *isIdentity;
+/**
+ @abstract Url to an external identity provider for the OAuth 2.0 auth flow.
+ */
+@property (nonatomic,strong,readonly) NSString *authenticationUrl;
 
 @end
 
