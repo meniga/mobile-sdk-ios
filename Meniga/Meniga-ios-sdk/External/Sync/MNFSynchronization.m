@@ -79,7 +79,7 @@
         completion(timeoutError);
         return;
     }
-    else if (sync.isSyncDone) {
+    else if ([sync.isSyncDone boolValue]) {
         completion(nil);
         return;
     }
@@ -90,7 +90,7 @@
             if (error != nil) {
                 completion(error);
             }
-            else if (sync.isSyncDone) {
+            else if ([sync.isSyncDone boolValue]) {
                 completion(nil);
             }
             else {
