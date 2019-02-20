@@ -116,7 +116,21 @@
         
         NSDictionary *firstError = [theDictionaryErrors firstObject];
         NSString *errorMessage = [self p_errorMessageFromData:firstError];
-        NSDictionary *errorInfo = [[firstError objectForKey:@"modelState"] firstObject];
+        
+        id errorInfo = nil;
+        
+        if ([firstError objectForKey:@"modelState"] != nil) { //modelState is used in some TDM APIs instead of messageDetails.
+            
+            errorInfo = [firstError objectForKey:@"modelState"];
+            
+            if ([errorInfo isKindOfClass:[NSArray class]]) {
+                errorInfo = [errorInfo firstObject];
+            }
+            
+        }
+        else if ([firstError objectForKey:@"messageDetails"] != nil){
+            errorInfo = [firstError objectForKey:@"messageDetails"];
+        }
 
         return [MNFErrorUtils errorWithCode:theStatusCode message:errorMessage errorInfo:errorInfo];
         
