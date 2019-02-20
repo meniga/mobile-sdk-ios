@@ -44,6 +44,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong,readonly) NSNumber *_Nullable ruleId;
 
+/**
+ The number of transactions.
+ */
+@property (nonatomic,strong,readonly) NSNumber *_Nullable transactionCount;
+
 ///******************************
 /// @name Mutable properties
 ///******************************

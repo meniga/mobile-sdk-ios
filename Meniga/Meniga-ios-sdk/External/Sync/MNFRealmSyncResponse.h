@@ -63,6 +63,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong,readonly) NSNumber *isSyncDone;
 
+/**
+ @abstract Id of the realm.
+ */
+@property (nonatomic,strong,readonly) NSNumber *realmId;
+
 @end
 
 NS_ASSUME_NONNULL_END
