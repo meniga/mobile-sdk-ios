@@ -74,7 +74,7 @@
     
     NSTimeInterval timeoutInterval = [syncStart timeIntervalSinceNow];
     
-    if (fabs(timeoutInterval) > [timeout doubleValue]/1000 && !sync.isSyncDone) {
+    if (fabs(timeoutInterval) > [timeout doubleValue]/1000 && ![sync.isSyncDone boolValue]) {
         NSError *timeoutError = [MNFErrorUtils errorWithCode:kMNFErrorMethodExecution message:@"Synchronization timed out before synchronization was completed"];
         completion(timeoutError);
         return;
