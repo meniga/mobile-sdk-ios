@@ -144,6 +144,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)NSNumber * _Nullable onlyUnread;
 
 /**
+ @abstract Whether or not to only get uncleared transactions
+ */
+@property(nonatomic, strong)NSNumber * _Nullable onlyIsUncleared;
+
+/**
  @abstract The order of the returned transactions.
  ByDate - Order by sub-date. = 0
  ByText - Order by text description. = 1
