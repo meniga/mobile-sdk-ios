@@ -427,7 +427,7 @@
         // these are the components to be compared otherwise it will compare them all with
         // second and millisecond accuracy.
         
-        if([NSDateUtils isDate:transaction.date equalToDayMonthAndYear:date] == YES) {
+        if([NSDateUtils isDate:transaction.date equalToDayMonthAndYear:date]) {
             
             [dateArray addObject:transaction];
         
