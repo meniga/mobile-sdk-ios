@@ -26,6 +26,7 @@
         self.onlyUncategorized = @NO;
         self.onlyUncertain = @NO;
         self.onlyUnread = @NO;
+        self.onlyIsUncleared = @NO;
         self.orderBy = @"ByDate";
         self.uncertainOrFlagged = @NO;
         self.useAbsoluteAmountSearch = @NO;
@@ -42,7 +43,7 @@
 
 #pragma mark - Description
 -(NSString*)description {
-    return [NSString stringWithFormat:@"Transaction filter %@ accountIds: %@, accountIdentifiers: %@, counterpartyAccountIdentifiers: %@, categoryIds: %@, categoryTypes: %@, onlyUnread: %@, onlyFlagged: %@, onlyUncertain: %@, onlyUncategorized: %@, uncertainOrFlagged: %@, hideExcluded: %@, insertedBefore: %@, periodFrom: %@, periodTo: %@, originalPeriodFrom: %@, originalPeriodTo: %@, amountFrom: %@, amountTo: %@, searchText: %@, transactionDescription: %@, currency: %@, comment: %@, tags: %@, orderBy: %@, parsedDataNameToOrderBy: %@, ascendingOrder: %@, useAbsoluteAmountSearch: %@, useAndSearchForTags: %@, useEqualsSearchForBankId: %@, useAmountInCurrencySearch: %@, useExactDescription: %@, useExactMerchantTexts: %@, useAccentInsensitiveSearch: %@, merchantIds: %@, excludeMerchantIds: %@, merchantTexts: %@, parsedData: %@, parsedDataExactKeys: %@, useParentMerchantIds: %@, excludeMerchantTexts: %@, bankIds: %@, ids: %@, fields: %@",[super description],self.accountIds,self.accountIdentifiers,self.counterpartyAccountIdentifiers,self.categoryIds,self.categoryTypes,self.onlyUnread,self.onlyFlagged,self.onlyUncertain,self.onlyUncategorized,self.uncertainOrFlagged,self.hideExcluded,self.insertedBefore,self.periodFrom,self.periodTo,self.originalPeriodFrom,self.originalPeriodTo,self.amountFrom,self.amountTo,self.searchText,self.transactionDescription,self.currency,self.comment,self.tags,self.orderBy,self.parsedDataNameToOrderBy,self.ascendingOrder,self.useAbsoluteAmountSearch,self.useAndSearchForTags,self.useEqualsSearchForBankId,self.useAmountInCurrencySearch,self.useExactDescription,self.useExactMerchantTexts,self.useAccentInsensitiveSearch,self.merchantIds,self.excludeMerchantIds,self.merchantTexts,self.parsedData,self.parsedDataExactKeys,self.useParentMerchantIds,self.excludeMerchantIds,self.bankIds,self.ids,self.fields];
+    return [NSString stringWithFormat:@"Transaction filter %@ accountIds: %@, accountIdentifiers: %@, counterpartyAccountIdentifiers: %@, categoryIds: %@, categoryTypes: %@, onlyUnread: %@, onlyFlagged: %@, onlyUncertain: %@, onlyUncategorized: %@, onlyIsUncleared: %@, uncertainOrFlagged: %@, hideExcluded: %@, insertedBefore: %@, periodFrom: %@, periodTo: %@, originalPeriodFrom: %@, originalPeriodTo: %@, amountFrom: %@, amountTo: %@, searchText: %@, transactionDescription: %@, currency: %@, comment: %@, tags: %@, orderBy: %@, parsedDataNameToOrderBy: %@, ascendingOrder: %@, useAbsoluteAmountSearch: %@, useAndSearchForTags: %@, useEqualsSearchForBankId: %@, useAmountInCurrencySearch: %@, useExactDescription: %@, useExactMerchantTexts: %@, useAccentInsensitiveSearch: %@, merchantIds: %@, excludeMerchantIds: %@, merchantTexts: %@, parsedData: %@, parsedDataExactKeys: %@, useParentMerchantIds: %@, excludeMerchantTexts: %@, bankIds: %@, ids: %@, fields: %@",[super description],self.accountIds,self.accountIdentifiers,self.counterpartyAccountIdentifiers,self.categoryIds,self.categoryTypes,self.onlyUnread,self.onlyFlagged,self.onlyUncertain,self.onlyUncategorized, self.onlyIsUncleared ,self.uncertainOrFlagged,self.hideExcluded,self.insertedBefore,self.periodFrom,self.periodTo,self.originalPeriodFrom,self.originalPeriodTo,self.amountFrom,self.amountTo,self.searchText,self.transactionDescription,self.currency,self.comment,self.tags,self.orderBy,self.parsedDataNameToOrderBy,self.ascendingOrder,self.useAbsoluteAmountSearch,self.useAndSearchForTags,self.useEqualsSearchForBankId,self.useAmountInCurrencySearch,self.useExactDescription,self.useExactMerchantTexts,self.useAccentInsensitiveSearch,self.merchantIds,self.excludeMerchantIds,self.merchantTexts,self.parsedData,self.parsedDataExactKeys,self.useParentMerchantIds,self.excludeMerchantIds,self.bankIds,self.ids,self.fields];
 }
 
 #pragma mark - Json Adapter Delegate
@@ -64,6 +65,7 @@
              @"onlyUncategorized":[MNFNumberToBoolValueTransformer transformer],
              @"onlyUncertain":[MNFNumberToBoolValueTransformer transformer],
              @"onlyUnread":[MNFNumberToBoolValueTransformer transformer],
+             @"onlyIsUncleared":[MNFNumberToBoolValueTransformer transformer],
              @"uncertainOrFlagged":[MNFNumberToBoolValueTransformer transformer],
              @"useAbsoluteAmountSearch":[MNFNumberToBoolValueTransformer transformer],
              @"useAccentInsensitiveSearch":[MNFNumberToBoolValueTransformer transformer],
