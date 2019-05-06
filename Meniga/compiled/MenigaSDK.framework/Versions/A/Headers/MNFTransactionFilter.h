@@ -146,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Whether or not to only get uncleared transactions
  */
-@property(nonatomic, strong)NSNumber * _Nullable onlyIsUncleared;
+@property(nonatomic, strong)NSNumber * _Nullable onlyUncleared;
 
 /**
  @abstract The order of the returned transactions.
