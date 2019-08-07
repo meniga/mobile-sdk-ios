@@ -44,15 +44,8 @@
 
 +(MNFJob *)fetchMerchantsWithIds:(NSArray <NSNumber*>*)identifiers completion:(MNFMultipleMerchantsCompletionHandler)completion {
     
-    NSString *merchantIds = @"";
-    for (NSNumber *merchantId in identifiers) {
-        if (merchantId == [identifiers lastObject]) {
-            merchantIds = [merchantIds stringByAppendingString:[NSString stringWithFormat:@"%@",merchantId]];
-        }
-        else {
-            merchantIds = [merchantIds stringByAppendingString:[NSString stringWithFormat:@"%@,",merchantId]];
-        }
-    }
+    NSArray *distinctIdentifiers = [identifiers valueForKeyPath:@"@distinctUnionOfObjects.self"];
+    NSString *merchantIds = [distinctIdentifiers componentsJoinedByString:@","];
     
     NSDictionary *jsonQuery = @{@"merchantIds":merchantIds};
     
