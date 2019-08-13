@@ -434,4 +434,7 @@ typedef NS_ENUM(NSInteger,MNFServiceName) {
 #  endif
 #endif
 
+#define MNF_DEPRECATED_VER(_MSG, _VER_DEP, _VER_REM) \
+    MNF_DEPRECATED( _MSG " Depracated in version " _VER_DEP ". Will be removed in " _VER_REM ".")
+
 #define MNF_CLASS_UNAVAILABLE 0

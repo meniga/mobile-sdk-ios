@@ -120,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Fetches a list of merchants with a given identifiers.
  
- @param identifier The identifiers of the merchants. Duplicate identifiers are filtered out.
+ @param identifiers The identifiers of the merchants. Duplicate identifiers are filtered out.
  @param completion A completion block returning a list of merchants and an error.
  
  @return An MNFJob containing a list of merchants and an error.
