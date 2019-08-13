@@ -62,7 +62,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(MNFJob *)synchronizeWithTimeout:(NSNumber *)timeout interval:(NSNumber *)interval completion:(MNFSynchronizationCompletionHandler)completion;
 
-+ (MNFJob*)synchronizeRealmUserWithId:(NSNumber *)realmUserId timeout:(NSNumber*)timeout interval:(NSNumber*)interval completin:(nullable MNFErrorOnlyCompletionHandler)completion;
+/**
+ @abstract Starts the accounts synchronization process for a specific realm with a session token already provided.
+ 
+ @param realmUserId  The id of the realm account user - a realm is a "department" in e.g. a bank. Most organizations (most often banks) have only one but some
+ large organizations can have many realms (e.g. insurance, banking, credit cards and so on). This id identifies the user's realm user account.
+ @param sessionToken A token from a previous (e.g. authentication) operation that should be carried over to the sync process
+ @param timeout The number of milliseconds to wait before cancelling the task in the background.
+ @param interval The number of milliseconds to wait between queries of synchronization status.
+ 
+ @note All queries and waits are performed on a background thread until the request either times out or synchronization is completed. The completion block fires on the main thread.
+
+ @return An MNFJob containing a synchronization object and an error.
+ */
++ (MNFJob*)synchronizeRealmUserWithId:(NSNumber *)realmUserId
+                         sessionToken:(nullable NSString *)sessionToken
+                              timeout:(NSNumber *)timeout
+                             interval:(NSNumber *)interval
+                           completion:(nullable MNFErrorOnlyCompletionHandler)completion;
+
++ (MNFJob*)synchronizeRealmUserWithId:(NSNumber *)realmUserId
+                              timeout:(NSNumber*)timeout
+                             interval:(NSNumber*)interval
+                            completin:(nullable MNFErrorOnlyCompletionHandler)completion
+MNF_DEPRECATED_VER("Please use +[MNFSynchronization synchronizeRealmUserWithId:sessionToken:timeout:interval:completion] instead.", "1.1.13", "1.2");
 
 ///******************************
 /// @name Start synchronization
@@ -78,7 +101,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(MNFJob*)startSynchronizationWithWaitTime:(NSNumber *)waitTime completion:(nullable MNFSynchronizationCompletionHandler)completion;
 
-+(MNFJob*)startSynchronizationForRealmUserWithId:(NSNumber*)realmUserId waitTime:(NSNumber*)waitTime completion:(nullable MNFSynchronizationCompletionHandler)completion;
+/**
+ @abstract Starts the accounts synchronization process for a specific realm with a session token already provided.
+
+ @param realmUserId  The id of the realm account user - a realm is a "department" in e.g. a bank. Most organizations (most often banks) have only one but some
+ large organizations can have many realms (e.g. insurance, banking, credit cards and so on). This id identifies the user's realm user account.
+ @param sessionToken A token from a previous (e.g. authentication) operation that should be carried over to the sync process
+ @param waitTime The number of milliseconds to wait before cancelling the task in the background.
+ 
+ @return An MNFJob containing a synchronization object and an error.
+ */
++(MNFJob*)startSynchronizationForRealmUserWithId:(NSNumber*)realmUserId
+                                    sessionToken:(nullable NSString *)sessionToken
+                                        waitTime:(NSNumber*)waitTime
+                                      completion:(nullable MNFSynchronizationCompletionHandler)completion;
+
++(MNFJob*)startSynchronizationForRealmUserWithId:(NSNumber*)realmUserId
+                                        waitTime:(NSNumber*)waitTime
+                                      completion:(nullable MNFSynchronizationCompletionHandler)completion
+MNF_DEPRECATED_VER("Please use +[MNFSynchronization startSynchronizationForRealmUserWithId:sessionToken:waitTime:completion] instead.", "1.1.13", "1.2");
 
 ///******************************
 /// @name Synchronization status

@@ -43,7 +43,22 @@
     return job;
 }
 
-+(MNFJob*)synchronizeRealmUserWithId:(NSNumber *)realmUserId timeout:(NSNumber *)timeout interval:(NSNumber *)interval completin:(MNFErrorOnlyCompletionHandler)completion {
++(MNFJob*)synchronizeRealmUserWithId:(NSNumber *)realmUserId
+                             timeout:(NSNumber *)timeout
+                            interval:(NSNumber *)interval
+                           completin:(MNFErrorOnlyCompletionHandler)completion {
+    return [self synchronizeRealmUserWithId:realmUserId
+                               sessionToken:nil
+                                    timeout:timeout
+                                   interval:interval
+                                 completion:completion];
+}
+
++(MNFJob*)synchronizeRealmUserWithId:(NSNumber *)realmUserId
+                        sessionToken:(NSString *)sessionToken
+                             timeout:(NSNumber *)timeout
+                            interval:(NSNumber *)interval
+                          completion:(MNFErrorOnlyCompletionHandler)completion {
     
     [completion copy];
     
@@ -51,7 +66,11 @@
     
     __block MNFJob *job;
     
-    MNFJob *startJob = [self startSynchronizationForRealmUserWithId:realmUserId waitTime:timeout completion:nil];
+    MNFJob *startJob = [self startSynchronizationForRealmUserWithId:realmUserId
+                                                       sessionToken:sessionToken
+                                                           waitTime:timeout
+                                                         completion:nil];
+    
     [startJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
         
         if (error != nil) {
@@ -135,13 +154,20 @@
     return job;
 }
 
-+(MNFJob*)startSynchronizationForRealmUserWithId:(NSNumber *)realmUserId waitTime:(NSNumber *)waitTime completion:(MNFSynchronizationCompletionHandler)completion {
++(MNFJob*)startSynchronizationForRealmUserWithId:(NSNumber *)realmUserId
+                                    sessionToken:(NSString *)sessionToken
+                                        waitTime:(NSNumber *)waitTime
+                                      completion:(MNFSynchronizationCompletionHandler)completion {
     
     [completion copy];
     
     NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFSynchronizationRealm,[realmUserId stringValue]];
     
-    NSData *data = [NSJSONSerialization dataWithJSONObject:@{@"waitForCompleteMilliseconds":waitTime} options:0 error:nil];
+    NSMutableDictionary <NSString *, NSObject *> *dataDictionary = [@{@"waitForCompleteMilliseconds":waitTime} mutableCopy];
+    if (sessionToken != nil) {
+        dataDictionary[@"sessionToken"] = sessionToken;
+    }
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dataDictionary options:0 error:nil];
     
     __block MNFJob *job = [self apiRequestWithPath:path pathQuery:nil jsonBody:data HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNameSync completion:^(MNFResponse * _Nullable response) {
         
@@ -170,6 +196,15 @@
     }];
     
     return job;
+}
+
++(MNFJob*)startSynchronizationForRealmUserWithId:(NSNumber *)realmUserId
+                                        waitTime:(NSNumber *)waitTime
+                                      completion:(MNFSynchronizationCompletionHandler)completion {
+    return [self startSynchronizationForRealmUserWithId:realmUserId
+                                           sessionToken:nil
+                                               waitTime:waitTime
+                                             completion:completion];
 }
 
 -(MNFJob *)refreshWithCompletion:(MNFErrorOnlyCompletionHandler)completion {
