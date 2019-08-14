@@ -1,0 +1,71 @@
+default_platform(:ios)
+
+podspecFile = "MenigaSDK.podspec"
+
+platform :ios do
+
+  desc %(Deploy MenigaSDK to cocoapods trunk
+  Steps:
+   * Create compiled framework
+   * Bump version in podspec
+   * Commit framework and podspec changes
+   * Create version tag
+   * Push commit and tag to remote
+   * Push podspec to Trunk specs
+  Options:  
+  - version - new version number to release
+  )
+  lane :deploy do |options|
+    if !options[:version]
+      raise "No version specified!".red
+    end
+    version = options[:version]
+
+    build_framework
+    update_podspec_version(
+      version: version
+    )
+    create_deploy_commit_and_push(
+      version: version
+    )
+    push_podspec
+  end
+  
+  desc "Build framework under path Meniga/compiled"
+  lane :build_framework do
+    xcodebuild(
+      scheme: "Framework",
+      project: "Meniga/Meniga-ios-sdk.xcodeproj"
+    )
+  end
+
+  private_lane :update_podspec_version do |options|
+    version_bump_podspec(
+      path: podspecFile,
+      version_number: options[:version]
+    )
+  end
+
+  private_lane :create_deploy_commit_and_push do |options|
+    version = options[:version]
+
+    git_commit(
+      path: ["./Meniga/compiled/MenigaSDK.framework/*", "./#{podspecFile}"],
+      message: "Bump version to #{version}"
+    )
+    add_git_tag(
+      tag: version
+    )
+
+    push_to_git_remote
+  end
+
+  private_lane :push_podspec do
+    pod_push(
+      use_bundle_exec: true,
+      path: podspecFile,
+      allow_warnings: false
+    )
+  end
+
+end
