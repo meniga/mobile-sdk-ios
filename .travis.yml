@@ -1,6 +1,11 @@
 language: objective-c
 osx_image: xcode10.2
 
+stages:
+- name: test
+- name: deploy
+  if: repo = meniga/mobile-sdk-ios AND type = push AND branch =~ release/*
+
 jobs:
   include:
     - stage: test
@@ -13,6 +18,23 @@ jobs:
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 8' \
         test
-        
+      
     - script: bundle exec pod lib lint
       name:  "Validate podspec"
+
+    - stage: deploy
+      name: "Release podspec"
+      install:
+        - git fetch --unshallow --tags
+        - git checkout $TRAVIS_BRANCH
+        - bundle install
+      script: 
+      - |
+        bundle exec fastlane ci_deploy \
+        gh_user:MenigaBuildsson \
+        gh_user_email:mobile.dev@meniga.com \
+        gh_token:$GH_TOKEN
+env:
+  global:
+  - secure: gVYxZRYgL5KQkRPPmnkaZj9rzR9aGRuCRtbK12aD3vzPJiJEm2Xd2Sqpdoxt/loZIMoHRz1wQW7BsnZoFkydzKBVpHUJXV/Q6L533qWn9fyLq3k+GF0Putrkf7NJJKTn+xn7LnZWpFAibJOPAJKK+4qapEx6GiMqfLzOJiAaCFpz04NNH/IVQfKjwFtojMdUhEmPK3com9l4PktwhHacJflmhJtWoY3RbRny2CoEVWQzBSem3+8KXd7xh9QJ1Oy6Y/XAhWVSIvZbVG1lRDRQTnd96H+m8wFClw9sEUgt+ou0E0gv7zbk7EeIsbMDwPEr68IQfqUr89LDdW+Nq1WSGRWPiyTERSghbn6xenIRu/LX0H8iV+IpDB/Dkmyehz76BR/7e8LhLufDmsKTJcHZZy5E7AaIB6lHjVL3fJM3QHm4YbV9r4VHjnvbNA4x9foZVAUoiAXLnmnMuY3bnBTHqDHfhRiODlbyuxOxH9yYOAEmYb7XCDI7hTV/7IR6Cab2ml7EeDeTuZhWn8jN/PXzzg6F/XxEG7ziDFEYACr4VjyJnOAG/gn1KsEFJqwjuKBQbWi5bZzOpHAFZWmnAykN9YBYqpo5lCDphe0Qhlt9HE5MpUL5tpGXWQZ9HjXaysXdEpNp9p/JGOvdHCUnTk3j1HEVbRDwKRDacWtBhlji7Xw=
+  - secure: t2Hu+uurNBy3BxjnVkI3/2TZy+SJ7SLIp36gpuKbeqITKhPOs+a1no5P+ZU00gHLdIYpB1AM1WLugI1hE4HHyXU9GgdzpINhphhjJGqtHw5n1zDofX4lsoDWnYeMxY8oyv6r3ZrLdOabv3YD0S6NRyNtyC+WNDqrPSBBQGvOZ6aIFCXaBVfLpihPu//EclRbPslmAjBZUH/9KwD4ezDf/pPtRAH78p0a1sydRRwrImvf40lzCFC5/hGVr1p3rLtkaBmDcQuR+8Z62Bdfu9ZU6cWwJyeuRN5EaORv8TOHKidBIC5LJEq6qJ+PD2uku93T8QaBfYtPbj8GMcs4mh9qTAyGj7I0nnghQaSDBzGZwbs3oDYN2Lm5X2DGYWTtz0RHzIMoL2JnZguw76Ahz3DhiRtUwLlAAJLcrQTkn2Fu9kVZf0MvGTZuPkZh6pUBNKmLbHxT7P80YqVAPB8tEDh3+1IFxeM5QbQjW2CNhgK8MgIv1Xwj8o7T7kyfHbGIknES5E+xTIpNuUIuoycJkZL7VA/jGQW39w/8yzRV2XMnUjCJosq5lHbZRCUldnS72287s8jt/DkvHOLzgZwDc8bqMqF7OiagQZ/wmqxOnsiPwCgqKEjYc2n4kxPufdXc2TPYVreV8+EVRQ8VatXsnhZZtlfBsnyRial3dY8r8OrSmmI=
