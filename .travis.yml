@@ -6,12 +6,13 @@ jobs:
     - stage: test
       name: "Unit tests"
       script:
-        - |
+      - |
         xcodebuild \
         -project Meniga/Meniga-ios-sdk.xcodeproj \
         -scheme Meniga-ios-sdk-tests \
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 8' \
         test
+        
     - script: bundle exec pod lib lint
       name:  "Validate podspec"
