@@ -31,6 +31,25 @@ Deploy MenigaSDK to cocoapods trunk
   Options:  
   - version - new version number to release
   
+### ios ci_deploy
+```
+fastlane ios ci_deploy
+```
+Deploy MenigaSDK to cocoapods trunk, 
+  lane developed to run on release branch from CI server
+  Steps:
+   * Create compiled framework
+   * Bump podspec version
+   * Commit framework and podspec changes as MenigaBuildsson
+   * Create version tag
+   * Push commit and tag to remote
+   * Push podspec to Trunk specs
+   * Merge branch into master
+  Options:  
+  - gh_user - Username fotr github account 
+  - gh_user_email - Email that be use to create commit 
+  - gh_token - Access token for gh_user_name github account 
+  
 ### ios build_framework
 ```
 fastlane ios build_framework

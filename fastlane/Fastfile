@@ -25,10 +25,86 @@ platform :ios do
     update_podspec_version(
       version: version
     )
-    create_deploy_commit_and_push(
+    create_deploy_commit(
       version: version
     )
+    push_to_git_remote
     push_podspec
+  end
+
+  desc %(Deploy MenigaSDK to cocoapods trunk, 
+  lane developed to run on release branch from CI server
+  Steps:
+   * Create compiled framework
+   * Bump podspec version
+   * Commit framework and podspec changes as MenigaBuildsson
+   * Create version tag
+   * Push commit and tag to remote
+   * Push podspec to Trunk specs
+   * Merge branch into master
+  Options:  
+  - gh_user - Username fotr github account 
+  - gh_user_email - Email that be use to create commit 
+  - gh_token - Access token for gh_user_name github account 
+  )
+  lane :ci_deploy do |options|
+    branch_name = git_branch
+    if !branch_name.match("release/*")
+      raise "ci_deploy should be run only from release branch!".red
+    end
+
+    if !options[:gh_user]
+      raise "No username specified!".red
+    end
+    gh_user = options[:gh_user]
+
+    if !options[:gh_user_email]
+      raise "No email specified!".red
+    end
+    gh_user_email = options[:gh_user_email]
+
+    if !options[:gh_token]
+    raise "No Github token specified!".red
+    end
+    gh_token = options[:gh_token]
+
+    version = branch_name.partition("release/")[2]
+
+    build_framework
+    update_podspec_version(
+      version: version
+    )
+
+    gh_user = "MenigaBuildsson"
+    set_git_config_user(
+      name: gh_user,
+      email: "mobile.dev@meniga.com"
+    )
+
+    create_deploy_commit(
+      version: version,
+      prefix: "[auto][skip ci] "
+    )
+    
+    remoteName =  "originWithToken"
+    add_git_remote(
+      remote: remoteName,
+      path: "https://#{gh_user}:#{gh_token}@github.com/meniga/mobile-sdk-ios.git"
+    )
+    push_to_git_remote(
+      remote: remoteName
+    )
+    
+    push_podspec
+
+    push_to_git_remote(
+      remote: remoteName,
+      remote_branch: "master",
+    )
+
+    remove_git_remote(
+      remote: remoteName
+    )
   end
   
   desc "Build framework under path Meniga/compiled"
@@ -46,18 +122,18 @@ platform :ios do
     )
   end
 
-  private_lane :create_deploy_commit_and_push do |options|
+  private_lane :create_deploy_commit do |options|
     version = options[:version]
+    prefix = options[:prefix]
 
     git_commit(
       path: ["./Meniga/compiled/MenigaSDK.framework/*", "./#{podspecFile}"],
-      message: "Bump version to #{version}"
+      message: "#{prefix}Bump version to #{version}"
     )
     add_git_tag(
       tag: version
     )
 
-    push_to_git_remote
   end
 
   private_lane :push_podspec do
