@@ -21,6 +21,4 @@ The Meniga mobile sdk for Objective-C provides a convenient way to interact with
 
     s.requires_arc      = true
 
-    s.vendored_frameworks = 'Meniga/compiled/MenigaSDK.framework'
-
 end
