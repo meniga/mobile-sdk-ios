@@ -6,7 +6,7 @@
 //  Copyright © 2018 Meniga. All rights reserved.
 //
 
-#import <MenigaSDK/Meniga.h>
+#import "MNFObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
