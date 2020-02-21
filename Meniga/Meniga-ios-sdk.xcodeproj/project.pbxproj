@@ -1131,7 +1131,7 @@
 				D58E824B3405A1732D23267E565B1CBF /* Error Objects */,
 				CCA5E17615F8628782F7A299443A8480 /* Normal objects */,
 				AF620BF9CB3990A4699F8057B037FEAE /* Separate Delegation Objects */,
-				C57692BBBDE6562A0C1E037995A532BF /* sub property de/serialization tests */,
+				C57692BBBDE6562A0C1E037995A532BF /* sub property serialization tests */,
 				41F0F5201E901072607D285D3E53E8EE /* MenigaAdapterTest.m */,
 				4EADDC48657B13F28073A4FAAB292E5F /* jsonAdapaterSingleTestLowercase.json */,
 				E946AE56EBEAB17E9644BD2B1F0CB89C /* jsonAdapterSingleTestFirstUppercase.json */,
@@ -1716,7 +1716,7 @@
 			path = "Value transforming";
 			sourceTree = "<group>";
 		};
-		C57692BBBDE6562A0C1E037995A532BF /* sub property de/serialization tests */ = {
+		C57692BBBDE6562A0C1E037995A532BF /* sub property serialization tests */ = {
 			isa = PBXGroup;
 			children = (
 				80EDBD5C525214DD8A5038C882346EF7 /* Sub property with Separate Delegate */,
@@ -1725,7 +1725,7 @@
 				88CDB722AC1C3CD2A717EDD83E381DD9 /* sub property with options */,
 				99E1CCF3C569347742859B57E8DF5FFB /* MenigaAdapterSubObjectTests.m */,
 			);
-			name = "sub property de/serialization tests";
+			name = "sub property serialization tests";
 			sourceTree = "<group>";
 		};
 		C92B4E5AC931E62BFC277460B9C5E32C /* Custom Creation */ = {
@@ -2209,6 +2209,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 9F7FB9B18DF8AD8445AF68065AE15C39;
