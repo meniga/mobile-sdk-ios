@@ -235,7 +235,7 @@
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
     jsonDict[@"name"] = theName;
     jsonDict[@"isFixedExpenses"] = isFixedExpense;
-    jsonDict[@"categoryType"] = [NSNumber numberWithInt:theCategoryType];
+    jsonDict[@"categoryType"] = [NSNumber numberWithInt:(int)theCategoryType];
     jsonDict[@"parentId"] = theParentCategoryId;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:nil];
@@ -274,7 +274,7 @@
     
     
     NSMutableDictionary *mutableCategoryDict = [NSMutableDictionary dictionaryWithDictionary:[MNFJsonAdapter JSONDictFromObject:self option:kMNFAdapterOptionNoOption error:nil]];
-    mutableCategoryDict[@"categoryType"] = [NSNumber numberWithInt:self.categoryTypeId];
+    mutableCategoryDict[@"categoryType"] = [NSNumber numberWithInt:(int)self.categoryTypeId];
     
     NSData *categoryData = nil;
     if (mutableCategoryDict != nil) {
@@ -416,7 +416,7 @@
 -(void)setCategoryTypeId:(MNFCategoryTypeId)categoryType {
     
     if ([self.isSystemCategory boolValue] == NO) {
-        _categoryTypeNumber = [NSNumber numberWithInt:categoryType];
+        _categoryTypeNumber = [NSNumber numberWithInt:(int)categoryType];
     }
     else {
         MNFLogError(@"Trying to set categoryType on a system category.");

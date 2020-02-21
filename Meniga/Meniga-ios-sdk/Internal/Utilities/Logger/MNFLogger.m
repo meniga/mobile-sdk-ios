@@ -46,7 +46,7 @@ void MNFLog(int logLevel, NSString *format, ...) {
 @implementation MNFLogger
 
 +(void)setLogLevel:(MNFLogLevel)theLogLevel {
-    classLogLevel = theLogLevel;
+    classLogLevel = (int)theLogLevel;
 }
 
 +(int)appleLogLevelFromLogLevel:(MNFLogLevel)theLogLevel {
