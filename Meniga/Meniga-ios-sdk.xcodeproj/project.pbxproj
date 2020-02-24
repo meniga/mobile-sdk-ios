@@ -902,11 +902,11 @@
 		04B5CEA6A28A1C118B713437AFEB15EB /* Meniga-ios-IntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
-				5C3F5A439B5036258A127C302730B63C /* Category Tests */,
-				E209B8CD1F52FD7A58F57721D28AE644 /* Integration Test Setup */,
-				A31735EDEA02B65A05F65ECC7438ED91 /* Networth tests */,
-				76FE502A0925D9A9B6BEC39B9830886C /* Offer Integration Tests */,
-				1AAA36DAFEAAEC21DBE0C8563021ADA7 /* Transaction Page Tests */,
+				5C3F5A439B5036258A127C302730B63C /* CategoryTests */,
+				E209B8CD1F52FD7A58F57721D28AE644 /* IntegrationTestSetup */,
+				A31735EDEA02B65A05F65ECC7438ED91 /* NetworthTests */,
+				76FE502A0925D9A9B6BEC39B9830886C /* OfferIntegrationTests */,
+				1AAA36DAFEAAEC21DBE0C8563021ADA7 /* TransactionPageTests */,
 				1892117F3060F2B5520FDC4843802416 /* Info.plist */,
 				F0DA29AB88EA4C70D15EBE8C2BB890E1 /* MNFAccountIntegrationTest.m */,
 				7CDF76699A098D7F23F14AA8E3199396 /* MNFCommentIntegrationTest.m */,
@@ -935,13 +935,13 @@
 			path = "Meniga-ios-sdk";
 			sourceTree = "<group>";
 		};
-		0EFD63DF9BC69495CC6756EB4056A2BF /* Offer Transaction */ = {
+		0EFD63DF9BC69495CC6756EB4056A2BF /* OfferTransaction */ = {
 			isa = PBXGroup;
 			children = (
 				3E03A9D8B91282089DF76933CA6E2B8E /* MNFOfferTransaction.h */,
 				7592532AD0A5FC2FACE71ABBD33C4C66 /* MNFOfferTransaction.m */,
 			);
-			path = "Offer Transaction";
+			path = OfferTransaction;
 			sourceTree = "<group>";
 		};
 		1A86E43D3B8A7C01932B797DAEB74B45 /* Frameworks */ = {
@@ -954,12 +954,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1AAA36DAFEAAEC21DBE0C8563021ADA7 /* Transaction Page Tests */ = {
+		1AAA36DAFEAAEC21DBE0C8563021ADA7 /* TransactionPageTests */ = {
 			isa = PBXGroup;
 			children = (
 				1889A1AF6EB32E914807A010A489FDAE /* MNFTransactionPageIntegrationTests.m */,
 			);
-			path = "Transaction Page Tests";
+			path = TransactionPageTests;
 			sourceTree = "<group>";
 		};
 		2841C195E4DD14A005552FA151D15C4B /* Tags */ = {
@@ -971,13 +971,13 @@
 			path = Tags;
 			sourceTree = "<group>";
 		};
-		289FD803E21B9D02EF0EB83D6CF2E6E0 /* Predicate handling */ = {
+		289FD803E21B9D02EF0EB83D6CF2E6E0 /* PredicateHandling */ = {
 			isa = PBXGroup;
 			children = (
 				E2CEA9C236479F557FD6A795B8E4B2EB /* MNFPredicateExpression.h */,
 				07054ACE52F42D957F6DB6B60786CC86 /* MNFPredicateExpression.m */,
 			);
-			path = "Predicate handling";
+			path = PredicateHandling;
 			sourceTree = "<group>";
 		};
 		2EDD40233B38FB08651A23F96990A6C3 /* Settings */ = {
@@ -998,7 +998,7 @@
 			path = Media;
 			sourceTree = "<group>";
 		};
-		310143A2205AC27300F2B52A /* Peer comparison */ = {
+		310143A2205AC27300F2B52A /* PeerComparison */ = {
 			isa = PBXGroup;
 			children = (
 				310143A3205AC28F00F2B52A /* MNFPeerComparison.h */,
@@ -1008,7 +1008,7 @@
 				310143A7205AC2F500F2B52A /* MNFPeerComparisonStats.h */,
 				310143A8205AC2F500F2B52A /* MNFPeerComparisonStats.m */,
 			);
-			path = "Peer comparison";
+			path = PeerComparison;
 			sourceTree = "<group>";
 		};
 		312007D22059851C00FCF828 /* LifeGoals */ = {
@@ -1068,10 +1068,10 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
-		425D39D7AF41C18C8B60C4170E4B3278 /* User Events */ = {
+		425D39D7AF41C18C8B60C4170E4B3278 /* UserEvents */ = {
 			isa = PBXGroup;
 			children = (
-				DF0DE4884EFAFBFE070CD23B11D22B19 /* Scheduled Events */,
+				DF0DE4884EFAFBFE070CD23B11D22B19 /* ScheduledEvents */,
 				660DE4A036421052AAA5F62EDE35A41C /* MNFUserEvent.h */,
 				4291DDE46B757606AA0F3DA62F77D3C1 /* MNFUserEvent.m */,
 				C1EA145CF17A351DA24E826FCE8291CC /* MNFUserEventSubscription.h */,
@@ -1081,7 +1081,7 @@
 				13FD8AE4F69DBC95E662840AF30F7058 /* MNFUserEventSubscriptionSetting.h */,
 				5854854C893CE27CB2ECDD99286C0D25 /* MNFUserEventSubscriptionSetting.m */,
 			);
-			path = "User Events";
+			path = UserEvents;
 			sourceTree = "<group>";
 		};
 		42D19BF6A860DA0EC6C0CC21A49B30F1 /* Uppercase */ = {
@@ -1098,14 +1098,14 @@
 		44A547CBEB0A0D8933DDB49602618E19 /* Offers */ = {
 			isa = PBXGroup;
 			children = (
-				AD8F39462EF5D3C4B141BFD2FB022F72 /* Offers Objects */,
-				FB9C8D997342F01AB693B1E70BA9F95D /* Redemptions Objects */,
-				E7D6AB0E3CCC8B4542D89A92E54054B0 /* Reimbursement Accounts */,
+				AD8F39462EF5D3C4B141BFD2FB022F72 /* OffersObjects */,
+				FB9C8D997342F01AB693B1E70BA9F95D /* RedemptionsObjects */,
+				E7D6AB0E3CCC8B4542D89A92E54054B0 /* ReimbursementAccounts */,
 			);
 			path = Offers;
 			sourceTree = "<group>";
 		};
-		45C901584E33F58D012C21AF375BBD5B /* Without property mapping delegation */ = {
+		45C901584E33F58D012C21AF375BBD5B /* WithoutPropertyMappingDelegation */ = {
 			isa = PBXGroup;
 			children = (
 				88B3EEAF845C4195B7850DC3916C79DF /* MNFAdapterSubPropertyFirstUppercaseOptionDelegate.h */,
@@ -1113,10 +1113,10 @@
 				77D5BE99FCA63BFF89C3A1EEDD39DA1D /* MNFAdapterSubPropertyUppercaseOptionDelegate.h */,
 				6A9F966422676CC0AA36F517A7030B17 /* MNFAdapterSubPropertyUppercaseOptionDelegate.m */,
 			);
-			path = "Without property mapping delegation";
+			path = WithoutPropertyMappingDelegation;
 			sourceTree = "<group>";
 		};
-		504567A0F3C052B82C4AB21BC586BF74 /* json sources */ = {
+		504567A0F3C052B82C4AB21BC586BF74 /* JsonSources */ = {
 			isa = PBXGroup;
 			children = (
 				8D0C03E2EBE170D67E95B2F0B8D593B5 /* JsonSubObjectFirstUppercaseTest.json */,
@@ -1124,19 +1124,19 @@
 				126107C5820AC4F0418E20D1EDAF3E88 /* JsonSubObjectTest.json */,
 				803FC492E0031A78073937BC6E7EF026 /* JsonSubObjectUppercaseTest.json */,
 			);
-			path = "json sources";
+			path = JsonSources;
 			sourceTree = "<group>";
 		};
-		53657863B0B14FF075ABA7AC0780CD8B /* Json adapter test */ = {
+		53657863B0B14FF075ABA7AC0780CD8B /* JsonAdapterTest */ = {
 			isa = PBXGroup;
 			children = (
-				C92B4E5AC931E62BFC277460B9C5E32C /* Custom Creation */,
-				803CEA10A3DADD1DA710CB6C177BE947 /* Delegate objects */,
-				A854B6392D746E6D6DC61A760696C176 /* Delegate value transformer object */,
-				D58E824B3405A1732D23267E565B1CBF /* Error Objects */,
-				CCA5E17615F8628782F7A299443A8480 /* Normal objects */,
-				AF620BF9CB3990A4699F8057B037FEAE /* Separate Delegation Objects */,
-				C57692BBBDE6562A0C1E037995A532BF /* sub property serialization tests */,
+				C92B4E5AC931E62BFC277460B9C5E32C /* CustomCreation */,
+				803CEA10A3DADD1DA710CB6C177BE947 /* DelegateObjects */,
+				A854B6392D746E6D6DC61A760696C176 /* DelegateValueTransformerObject */,
+				D58E824B3405A1732D23267E565B1CBF /* ErrorObjects */,
+				CCA5E17615F8628782F7A299443A8480 /* NormalObjects */,
+				AF620BF9CB3990A4699F8057B037FEAE /* SeparateDelegationObjects */,
+				C57692BBBDE6562A0C1E037995A532BF /* SubPropertySerializationTests */,
 				41F0F5201E901072607D285D3E53E8EE /* MenigaAdapterTest.m */,
 				4EADDC48657B13F28073A4FAAB292E5F /* jsonAdapaterSingleTestLowercase.json */,
 				E946AE56EBEAB17E9644BD2B1F0CB89C /* jsonAdapterSingleTestFirstUppercase.json */,
@@ -1144,10 +1144,10 @@
 				2A6EE112C530FF0ABB925EB8B0F32C60 /* jsonArrayAdapterTest.json */,
 				489DD351C02C6BFD61AE91366767F7C7 /* jsonSingleAdapterTest.json */,
 			);
-			path = "Json adapter test";
+			path = JsonAdapterTest;
 			sourceTree = "<group>";
 		};
-		53CBCB8765868B36253DF7BEBAD9E3C9 /* Model object tests */ = {
+		53CBCB8765868B36253DF7BEBAD9E3C9 /* ModelObjectTests */ = {
 			isa = PBXGroup;
 			children = (
 				31FA1DEB20629CCE00A16393 /* MNFApiValidationTest.m */,
@@ -1161,7 +1161,7 @@
 				31DE3866206905CB00B1DC4E /* cashbackapispec.json */,
 				31DE38642069052D00B1DC4E /* downloadapispecs.sh */,
 			);
-			path = "Model object tests";
+			path = ModelObjectTests;
 			sourceTree = "<group>";
 		};
 		58237A11B8DFC4C4FF4C074A7DF4B916 /* Users */ = {
@@ -1177,12 +1177,12 @@
 			path = Users;
 			sourceTree = "<group>";
 		};
-		5C3F5A439B5036258A127C302730B63C /* Category Tests */ = {
+		5C3F5A439B5036258A127C302730B63C /* CategoryTests */ = {
 			isa = PBXGroup;
 			children = (
 				EDAFC34C17B68419B2D857C9E21A48AF /* MNFCategoryIntegrationTest.m */,
 			);
-			path = "Category Tests";
+			path = CategoryTests;
 			sourceTree = "<group>";
 		};
 		5FFE1510293FF7018813CF955B42E624 /* Job */ = {
@@ -1237,7 +1237,7 @@
 			path = Transactions;
 			sourceTree = "<group>";
 		};
-		650E87E6C03F6DCF92C2F96FC199C45A /* First uppercase */ = {
+		650E87E6C03F6DCF92C2F96FC199C45A /* FirstUppercase */ = {
 			isa = PBXGroup;
 			children = (
 				83D321D42CC06D385772197E1E976AB0 /* MNFAdapterMainFirstUppercaseTestObj.h */,
@@ -1245,16 +1245,16 @@
 				3B9C53AD5376FE57DAF746640B7E6D0F /* MNFAdapterSubFirstUppercaseTestObject.h */,
 				7FA7257AE8CF549F1E071AB130331304 /* MNFAdapterSubFirstUppercaseTestObject.m */,
 			);
-			path = "First uppercase";
+			path = FirstUppercase;
 			sourceTree = "<group>";
 		};
-		67310A26785D43886E8E60DAF51994EE /* Similar Brand */ = {
+		67310A26785D43886E8E60DAF51994EE /* SimilarBrand */ = {
 			isa = PBXGroup;
 			children = (
 				FC3FE6844F12B1E777DE6DCD345378F8 /* MNFSimilarBrand.h */,
 				D64F4AD0D2A88F99115C9F555FED4ED8 /* MNFSimilarBrand.m */,
 			);
-			path = "Similar Brand";
+			path = SimilarBrand;
 			sourceTree = "<group>";
 		};
 		6859F1A467D0D41B772408509A9FBE66 /* Object */ = {
@@ -1266,13 +1266,13 @@
 			path = Object;
 			sourceTree = "<group>";
 		};
-		68B8D57920C036ED003979F2 /* Event Tracking */ = {
+		68B8D57920C036ED003979F2 /* EventTracking */ = {
 			isa = PBXGroup;
 			children = (
 				68B8D57A20C03791003979F2 /* MNFEventTracking.h */,
 				68B8D57B20C03791003979F2 /* MNFEventTracking.m */,
 			);
-			path = "Event Tracking";
+			path = EventTracking;
 			sourceTree = "<group>";
 		};
 		6E0F223C73920321FC0435C2650C98EF /* Normal */ = {
@@ -1314,15 +1314,15 @@
 			path = Organizations;
 			sourceTree = "<group>";
 		};
-		76FE502A0925D9A9B6BEC39B9830886C /* Offer Integration Tests */ = {
+		76FE502A0925D9A9B6BEC39B9830886C /* OfferIntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
 				16C9C032B984B1C73D070B8080393167 /* MNFOfferIntegrationTests.m */,
 			);
-			path = "Offer Integration Tests";
+			path = OfferIntegrationTests;
 			sourceTree = "<group>";
 		};
-		7703F9824015218F5E8110890CDDD7F1 /* First uppercase */ = {
+		7703F9824015218F5E8110890CDDD7F1 /* FirstUppercase */ = {
 			isa = PBXGroup;
 			children = (
 				F185C8FCF301FE6E45656364E76AD94C /* MNFAdapterSubDelegateFirstUppercaseTestObj.h */,
@@ -1330,7 +1330,7 @@
 				6D1F6F36821E78EBEBE001B6B42CE6AF /* MNFMainAdapterDelegateFirstUppercaseTestObj.h */,
 				38EF92A8733FC61DE5EC59C25CBE013E /* MNFMainAdapterDelegateFirstUppercaseTestObj.m */,
 			);
-			path = "First uppercase";
+			path = FirstUppercase;
 			sourceTree = "<group>";
 		};
 		7CEDE8B74E251F32F648E3B10CB0E9FA /* Products */ = {
@@ -1359,7 +1359,7 @@
 			path = Merchant;
 			sourceTree = "<group>";
 		};
-		803CEA10A3DADD1DA710CB6C177BE947 /* Delegate objects */ = {
+		803CEA10A3DADD1DA710CB6C177BE947 /* DelegateObjects */ = {
 			isa = PBXGroup;
 			children = (
 				FE03FE7E698887DCBDD39E98C68AED25 /* MNFJsonAdapterTestDelegateConformingObject.h */,
@@ -1369,25 +1369,25 @@
 				BD257E7123160F6F462F5AA2194BB15E /* MNFJsonAdapterTestObjectsDelegateSpecificProperties.h */,
 				CAFDE166B7F197CC5B621FA9166E6A62 /* MNFJsonAdapterTestObjectsDelegateSpecificProperties.m */,
 			);
-			path = "Delegate objects";
+			path = DelegateObjects;
 			sourceTree = "<group>";
 		};
-		80EDBD5C525214DD8A5038C882346EF7 /* Sub property with Separate Delegate */ = {
+		80EDBD5C525214DD8A5038C882346EF7 /* SubPropertyWithSeparateDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				DBEA894B36C28110E6A2E331DA622307 /* With property mapping delegation */,
-				45C901584E33F58D012C21AF375BBD5B /* Without property mapping delegation */,
+				DBEA894B36C28110E6A2E331DA622307 /* WithPropertyMappingDelegation */,
+				45C901584E33F58D012C21AF375BBD5B /* WithoutPropertyMappingDelegation */,
 			);
-			path = "Sub property with Separate Delegate";
+			path = SubPropertyWithSeparateDelegate;
 			sourceTree = "<group>";
 		};
-		84BB5232240011B700F749AE /* Network Testing */ = {
+		84BB5232240011B700F749AE /* NetworkTesting */ = {
 			isa = PBXGroup;
 			children = (
 				84BB5233240011B700F749AE /* MNFNetworkProtocolForTesting.m */,
 				84BB5234240011B700F749AE /* MNFNetworkProtocolForTesting.h */,
 			);
-			path = "Network Testing";
+			path = NetworkTesting;
 			sourceTree = "<group>";
 		};
 		864428908C7F4BC2239680EAC84ED928 /* Network */ = {
@@ -1423,24 +1423,24 @@
 			path = Challenges;
 			sourceTree = "<group>";
 		};
-		88CDB722AC1C3CD2A717EDD83E381DD9 /* sub property with options */ = {
+		88CDB722AC1C3CD2A717EDD83E381DD9 /* AubPropertyWithOptions */ = {
 			isa = PBXGroup;
 			children = (
-				650E87E6C03F6DCF92C2F96FC199C45A /* First uppercase */,
+				650E87E6C03F6DCF92C2F96FC199C45A /* FirstUppercase */,
 				32CB53C6290297462DA1E506AD398F51 /* Normal */,
 				42D19BF6A860DA0EC6C0CC21A49B30F1 /* Uppercase */,
 			);
-			path = "sub property with options";
+			path = AubPropertyWithOptions;
 			sourceTree = "<group>";
 		};
-		8910700DE9E07A3FBDD3A86471F49489 /* Sub property with delegate and options */ = {
+		8910700DE9E07A3FBDD3A86471F49489 /* SubPropertyWithDelegateAndOptions */ = {
 			isa = PBXGroup;
 			children = (
-				7703F9824015218F5E8110890CDDD7F1 /* First uppercase */,
+				7703F9824015218F5E8110890CDDD7F1 /* FirstUppercase */,
 				6E0F223C73920321FC0435C2650C98EF /* Normal */,
 				9AD3FEF8E84A73388D3F58F19B32415E /* Uppercase */,
 			);
-			path = "Sub property with delegate and options";
+			path = SubPropertyWithDelegateAndOptions;
 			sourceTree = "<group>";
 		};
 		89A73453BCA3D6B321F788661EE4EA06 /* External */ = {
@@ -1452,7 +1452,7 @@
 				8A2A55FB72BE6EE47AB489FB225806C4 /* Categories */,
 				87DCFB4A8A83CF9E2EEAB0C4425D4540 /* Challenges */,
 				DBC009E8BFC3AD150504ED592E5D81B9 /* Constants */,
-				68B8D57920C036ED003979F2 /* Event Tracking */,
+				68B8D57920C036ED003979F2 /* EventTracking */,
 				E5EF0AEF81B6537EA6620B545478CC05 /* Feed */,
 				312007D22059851C00FCF828 /* LifeGoals */,
 				31014399205A76D800F2B52A /* Media */,
@@ -1461,15 +1461,15 @@
 				6859F1A467D0D41B772408509A9FBE66 /* Object */,
 				44A547CBEB0A0D8933DDB49602618E19 /* Offers */,
 				7170A03CD48D2F98E8F307905BF89FEB /* Organizations */,
-				310143A2205AC27300F2B52A /* Peer comparison */,
+				310143A2205AC27300F2B52A /* PeerComparison */,
 				E80F1CC238FCE3F0E291052F7EE8F97A /* Protocols */,
 				B3396A8E1D321A3702AEC60171EA358F /* Public */,
 				CFAF5E603195AC4949534CF4BB85F88E /* Sync */,
 				2841C195E4DD14A005552FA151D15C4B /* Tags */,
-				9FCB9E7297D4B9D4EABF7E3E7678A0CE /* Terms and Conditions */,
+				9FCB9E7297D4B9D4EABF7E3E7678A0CE /* TermsAndConditions */,
 				638282264BBAF71CC8ABF5ED8673FDF6 /* Transactions */,
 				B607666C70C12A632435195F074F52D8 /* Upcoming */,
-				425D39D7AF41C18C8B60C4170E4B3278 /* User Events */,
+				425D39D7AF41C18C8B60C4170E4B3278 /* UserEvents */,
 				58237A11B8DFC4C4FF4C074A7DF4B916 /* Users */,
 				60A35698968777379C58C51ECB8F4AB0 /* Utilities */,
 				93E6BD918786980F6C11A1710189DB21 /* MNFObjectUpdater.h */,
@@ -1484,7 +1484,7 @@
 		8A2A55FB72BE6EE47AB489FB225806C4 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				9C47D636E79C8138936A0AB7B550856B /* Helper Objects */,
+				9C47D636E79C8138936A0AB7B550856B /* HelperObjects */,
 				55B31E254A78ABF79E6C2F295659A82F /* MNFCategory.h */,
 				7FAC416AFDF79AC93BDBAB64974BA11A /* MNFCategory.m */,
 				37B5521659C98301E5B7030323C8A54F /* MNFCategoryScore.h */,
@@ -1493,14 +1493,14 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		8CB73718E3DAEC183C7C7FBC06B7785B /* Network test */ = {
+		8CB73718E3DAEC183C7C7FBC06B7785B /* NetworkTest */ = {
 			isa = PBXGroup;
 			children = (
 				F492A37D5675A5DA021803A73152314F /* MNFNetworkProtocolForTesting.h */,
 				83E0B394F5E235ADEE64E9ABD18BE3DF /* MNFNetworkProtocolForTesting.m */,
 				00CEEB98FD78FBCE52556D5B00464343 /* MNFNetworkTest.m */,
 			);
-			path = "Network test";
+			path = NetworkTest;
 			sourceTree = "<group>";
 		};
 		98DB9118F3AE544079D8D5945A9F9672 /* Accounts */ = {
@@ -1535,13 +1535,13 @@
 			path = Uppercase;
 			sourceTree = "<group>";
 		};
-		9C47D636E79C8138936A0AB7B550856B /* Helper Objects */ = {
+		9C47D636E79C8138936A0AB7B550856B /* HelperObjects */ = {
 			isa = PBXGroup;
 			children = (
 				EB4648CE7CFA705C7D8C52752D0F55DF /* MNFCategoryType.h */,
 				109763B384FCF4C0AB81A43CB0220286 /* MNFCategoryType.m */,
 			);
-			path = "Helper Objects";
+			path = HelperObjects;
 			sourceTree = "<group>";
 		};
 		9EE20258E8A913A30B0E73E3C88A7606 /* JSON */ = {
@@ -1575,7 +1575,7 @@
 			);
 			sourceTree = "<group>";
 		};
-		9FCB9E7297D4B9D4EABF7E3E7678A0CE /* Terms and Conditions */ = {
+		9FCB9E7297D4B9D4EABF7E3E7678A0CE /* TermsAndConditions */ = {
 			isa = PBXGroup;
 			children = (
 				07E47E4E19D9F47ECA439C1B100F7032 /* MNFTermsAndConditionType.h */,
@@ -1583,18 +1583,18 @@
 				91F3DE80E49B15394EBF2DC9578BEECF /* MNFTermsAndConditions.h */,
 				5CC6297E88F7660900077A32887ADDB9 /* MNFTermsAndConditions.m */,
 			);
-			path = "Terms and Conditions";
+			path = TermsAndConditions;
 			sourceTree = "<group>";
 		};
-		A31735EDEA02B65A05F65ECC7438ED91 /* Networth tests */ = {
+		A31735EDEA02B65A05F65ECC7438ED91 /* NetworthTests */ = {
 			isa = PBXGroup;
 			children = (
 				17CA41396551ADDEB37F683BED1F8797 /* MNFNetworthIntegrationTest.m */,
 			);
-			path = "Networth tests";
+			path = NetworthTests;
 			sourceTree = "<group>";
 		};
-		A854B6392D746E6D6DC61A760696C176 /* Delegate value transformer object */ = {
+		A854B6392D746E6D6DC61A760696C176 /* DelegateValueTransformerObject */ = {
 			isa = PBXGroup;
 			children = (
 				3858FACAD44456CE4AE4CCECAEC40F59 /* MNFJsonAdaoterTestTransformer.h */,
@@ -1609,14 +1609,14 @@
 				92EABF271C98993AFA34971440189C42 /* jsonAdapterTestUppercaseValueTransformer.json */,
 				194C1C08CDD0EFAEA570FBD835B254E0 /* jsonAdapterTestValueTransformer.json */,
 			);
-			path = "Delegate value transformer object";
+			path = DelegateValueTransformerObject;
 			sourceTree = "<group>";
 		};
-		AD8F39462EF5D3C4B141BFD2FB022F72 /* Offers Objects */ = {
+		AD8F39462EF5D3C4B141BFD2FB022F72 /* OffersObjects */ = {
 			isa = PBXGroup;
 			children = (
-				0EFD63DF9BC69495CC6756EB4056A2BF /* Offer Transaction */,
-				67310A26785D43886E8E60DAF51994EE /* Similar Brand */,
+				0EFD63DF9BC69495CC6756EB4056A2BF /* OfferTransaction */,
+				67310A26785D43886E8E60DAF51994EE /* SimilarBrand */,
 				F70FF0FF2AC0C34A9D9F5B173824AB8A /* MNFMerchantLocation.h */,
 				9BABA85AB5EAA5F96C75A1ABC77F7554 /* MNFMerchantLocation.m */,
 				A21EAC85D368D1442AD5740490C536CD /* MNFOffer.h */,
@@ -1626,10 +1626,10 @@
 				DF1E67674ABA1C0E804D9CABCBAA09EE /* MNFOfferRelevanceHook.h */,
 				6EFCB360007C510772E91FED88B3F692 /* MNFOfferRelevanceHook.m */,
 			);
-			path = "Offers Objects";
+			path = OffersObjects;
 			sourceTree = "<group>";
 		};
-		AF620BF9CB3990A4699F8057B037FEAE /* Separate Delegation Objects */ = {
+		AF620BF9CB3990A4699F8057B037FEAE /* SeparateDelegationObjects */ = {
 			isa = PBXGroup;
 			children = (
 				5D77A2570A59F97313303F43B51461BD /* MNFSeparateFirstUppercaseOptionDelegateObject.h */,
@@ -1641,19 +1641,19 @@
 				57E75669C29057F51DF9DCE4AF107ABD /* MNFSeparateNormalOptionUpdateDelegateObject.h */,
 				64DE3D16C2EC7E98454C032D4BE57E0C /* MNFSeparateNormalOptionUpdateDelegateObject.m */,
 			);
-			path = "Separate Delegation Objects";
+			path = SeparateDelegationObjects;
 			sourceTree = "<group>";
 		};
 		B28C2D2E0622A437BA4019090BBC21F2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				84BB5232240011B700F749AE /* Network Testing */,
+				84BB5232240011B700F749AE /* NetworkTesting */,
 				D41BD4F3ADFC7C4DDD7A2EC557A65CFD /* Encryption */,
 				9EE20258E8A913A30B0E73E3C88A7606 /* JSON */,
 				DE9A9159B9A4ABB409D3445A7C7AEAB5 /* Logger */,
-				289FD803E21B9D02EF0EB83D6CF2E6E0 /* Predicate handling */,
+				289FD803E21B9D02EF0EB83D6CF2E6E0 /* PredicateHandling */,
 				FD225266A2963C137DFBC66D17DF0B1A /* Utils */,
-				C1C8132FD58861F5FDBB9A945AE08DD8 /* Value transforming */,
+				C1C8132FD58861F5FDBB9A945AE08DD8 /* ValueTransforming */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1711,7 +1711,7 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		C1C8132FD58861F5FDBB9A945AE08DD8 /* Value transforming */ = {
+		C1C8132FD58861F5FDBB9A945AE08DD8 /* ValueTransforming */ = {
 			isa = PBXGroup;
 			children = (
 				2D4526F2C981FF563367DF28DB8AC027 /* MNFBasicDateValueTransformer.h */,
@@ -1729,31 +1729,31 @@
 				3182D3F620B44CF900A03C6E /* MNFTransactionParsedDataTransformer.h */,
 				3182D3F720B44CF900A03C6E /* MNFTransactionParsedDataTransformer.m */,
 			);
-			path = "Value transforming";
+			path = ValueTransforming;
 			sourceTree = "<group>";
 		};
-		C57692BBBDE6562A0C1E037995A532BF /* sub property serialization tests */ = {
+		C57692BBBDE6562A0C1E037995A532BF /* SubPropertySerializationTests */ = {
 			isa = PBXGroup;
 			children = (
-				80EDBD5C525214DD8A5038C882346EF7 /* Sub property with Separate Delegate */,
-				8910700DE9E07A3FBDD3A86471F49489 /* Sub property with delegate and options */,
-				504567A0F3C052B82C4AB21BC586BF74 /* json sources */,
-				88CDB722AC1C3CD2A717EDD83E381DD9 /* sub property with options */,
+				80EDBD5C525214DD8A5038C882346EF7 /* SubPropertyWithSeparateDelegate */,
+				8910700DE9E07A3FBDD3A86471F49489 /* SubPropertyWithDelegateAndOptions */,
+				504567A0F3C052B82C4AB21BC586BF74 /* JsonSources */,
+				88CDB722AC1C3CD2A717EDD83E381DD9 /* AubPropertyWithOptions */,
 				99E1CCF3C569347742859B57E8DF5FFB /* MenigaAdapterSubObjectTests.m */,
 			);
-			path = "sub property serialization tests";
+			path = SubPropertySerializationTests;
 			sourceTree = "<group>";
 		};
-		C92B4E5AC931E62BFC277460B9C5E32C /* Custom Creation */ = {
+		C92B4E5AC931E62BFC277460B9C5E32C /* CustomCreation */ = {
 			isa = PBXGroup;
 			children = (
 				EF1BA3921BA01C97FAC9923CB44040FF /* MNFJsonAdapterCustomCreationTestObject.h */,
 				9CED750E3C4D879DD072489BF4EFFD9B /* MNFJsonAdapterCustomCreationTestObject.m */,
 			);
-			path = "Custom Creation";
+			path = CustomCreation;
 			sourceTree = "<group>";
 		};
-		CCA5E17615F8628782F7A299443A8480 /* Normal objects */ = {
+		CCA5E17615F8628782F7A299443A8480 /* NormalObjects */ = {
 			isa = PBXGroup;
 			children = (
 				1E7BC0963F4A1478759EA36C3E6D9A81 /* MNFJsonAdapterTestObject.h */,
@@ -1761,7 +1761,7 @@
 				C3BC1ABB972D7563C56C45C00FD934D9 /* MNFJsonAdapterTestObjectPropertiesFirstUppercase.h */,
 				47C9138BA2797AC245D9F8ACD8DA8905 /* MNFJsonAdapterTestObjectPropertiesFirstUppercase.m */,
 			);
-			path = "Normal objects";
+			path = NormalObjects;
 			sourceTree = "<group>";
 		};
 		CFAF5E603195AC4949534CF4BB85F88E /* Sync */ = {
@@ -1792,7 +1792,7 @@
 			path = Encryption;
 			sourceTree = "<group>";
 		};
-		D58E824B3405A1732D23267E565B1CBF /* Error Objects */ = {
+		D58E824B3405A1732D23267E565B1CBF /* ErrorObjects */ = {
 			isa = PBXGroup;
 			children = (
 				804770AAFE7598D5A950DE05254ABC86 /* MNFJsonAdapterIgnoreErrorTestObject.h */,
@@ -1804,7 +1804,7 @@
 				167B9BD299595DBC75EFC3D8BC2FD0CC /* MNFJsonAdapterRestrictedPRopertyErrorTestObject.h */,
 				3701D637F39BC64F3D554432B31EE71B /* MNFJsonAdapterRestrictedPRopertyErrorTestObject.m */,
 			);
-			path = "Error Objects";
+			path = ErrorObjects;
 			sourceTree = "<group>";
 		};
 		DBC009E8BFC3AD150504ED592E5D81B9 /* Constants */ = {
@@ -1816,7 +1816,7 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		DBEA894B36C28110E6A2E331DA622307 /* With property mapping delegation */ = {
+		DBEA894B36C28110E6A2E331DA622307 /* WithPropertyMappingDelegation */ = {
 			isa = PBXGroup;
 			children = (
 				F42354EEB528F02454670687ED207BB3 /* MNFAdapterSubPropertyMappingDelegateFirstUppercaseDelegate.h */,
@@ -1824,7 +1824,7 @@
 				7C2BB2BA56878D89FE89236FE2F7C6A1 /* MNFAdapterSubPropertyMappingDelegateUppercaseDelegate.h */,
 				8143B228869561E971B47C59FAB9221D /* MNFAdapterSubPropertyMappingDelegateUppercaseDelegate.m */,
 			);
-			path = "With property mapping delegation";
+			path = WithPropertyMappingDelegation;
 			sourceTree = "<group>";
 		};
 		DE9A9159B9A4ABB409D3445A7C7AEAB5 /* Logger */ = {
@@ -1836,7 +1836,7 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
-		DF0DE4884EFAFBFE070CD23B11D22B19 /* Scheduled Events */ = {
+		DF0DE4884EFAFBFE070CD23B11D22B19 /* ScheduledEvents */ = {
 			isa = PBXGroup;
 			children = (
 				CB646DEBC4C865E3A8BC162171094A54 /* MNFScheduledEvent.h */,
@@ -1844,7 +1844,7 @@
 				FD430938FE98D9106365163C8DB0BB2E /* MNFTransactionDayOverview.h */,
 				F23674F2F3CA624BC18EAF1854D238BD /* MNFTransactionDayOverview.m */,
 			);
-			path = "Scheduled Events";
+			path = ScheduledEvents;
 			sourceTree = "<group>";
 		};
 		E0649AF4FAB4DB24DBF10B0B6FE5F050 /* Config */ = {
@@ -1857,7 +1857,7 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		E209B8CD1F52FD7A58F57721D28AE644 /* Integration Test Setup */ = {
+		E209B8CD1F52FD7A58F57721D28AE644 /* IntegrationTestSetup */ = {
 			isa = PBXGroup;
 			children = (
 				281D3232E135A84611B266F86D02342F /* MENIGAAuthentication.h */,
@@ -1869,16 +1869,16 @@
 				D2DFCC24AE657DA77AC6F758E3233FD3 /* MNFIntegrationTestSetup.h */,
 				8AA7DE08DDEEA40B1525EB813826885B /* MNFIntegrationTestSetup.m */,
 			);
-			path = "Integration Test Setup";
+			path = IntegrationTestSetup;
 			sourceTree = "<group>";
 		};
 		E5728E556B1F3B7C93FFAB60AE34F45A /* Meniga-ios-sdk-tests */ = {
 			isa = PBXGroup;
 			children = (
-				53657863B0B14FF075ABA7AC0780CD8B /* Json adapter test */,
-				53CBCB8765868B36253DF7BEBAD9E3C9 /* Model object tests */,
-				8CB73718E3DAEC183C7C7FBC06B7785B /* Network test */,
-				F0AEB146946D5682A97D3EB5EC3998B3 /* Value Transformer Tests */,
+				53657863B0B14FF075ABA7AC0780CD8B /* JsonAdapterTest */,
+				53CBCB8765868B36253DF7BEBAD9E3C9 /* ModelObjectTests */,
+				8CB73718E3DAEC183C7C7FBC06B7785B /* NetworkTest */,
+				F0AEB146946D5682A97D3EB5EC3998B3 /* ValueTransformerTests */,
 				3CC4460C8080D981076181281192E1CB /* Info.plist */,
 				CAA416405A2F9D55808D2B6D66A83C86 /* MNFJobTest.m */,
 				9F4FF862E13E3084F8F551CBCCF8159A /* MNFRequestTest.m */,
@@ -1901,13 +1901,13 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
-		E7D6AB0E3CCC8B4542D89A92E54054B0 /* Reimbursement Accounts */ = {
+		E7D6AB0E3CCC8B4542D89A92E54054B0 /* ReimbursementAccounts */ = {
 			isa = PBXGroup;
 			children = (
 				583FE1DE29D294EC52D0D1F20A54C675 /* MNFReimbursementAccount.h */,
 				8FD39866D1154AD1E3BDBDA535AB73E0 /* MNFReimbursementAccount.m */,
 			);
-			path = "Reimbursement Accounts";
+			path = ReimbursementAccounts;
 			sourceTree = "<group>";
 		};
 		E80F1CC238FCE3F0E291052F7EE8F97A /* Protocols */ = {
@@ -1919,12 +1919,12 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		F0AEB146946D5682A97D3EB5EC3998B3 /* Value Transformer Tests */ = {
+		F0AEB146946D5682A97D3EB5EC3998B3 /* ValueTransformerTests */ = {
 			isa = PBXGroup;
 			children = (
 				CFC336247992D49ABBF0F4F0968CD47E /* MNFDateValueTransformerTests.m */,
 			);
-			path = "Value Transformer Tests";
+			path = ValueTransformerTests;
 			sourceTree = "<group>";
 		};
 		FB4AEF12326BB0FFCCEF774C217EDBD1 /* Objects */ = {
@@ -1939,13 +1939,13 @@
 			path = Objects;
 			sourceTree = "<group>";
 		};
-		FB9C8D997342F01AB693B1E70BA9F95D /* Redemptions Objects */ = {
+		FB9C8D997342F01AB693B1E70BA9F95D /* RedemptionsObjects */ = {
 			isa = PBXGroup;
 			children = (
 				9B7B44193508078CF589359646A95A13 /* MNFRedemptions.h */,
 				C8D05E71FC64C85DF88B93FD4C2EF330 /* MNFRedemptions.m */,
 			);
-			path = "Redemptions Objects";
+			path = RedemptionsObjects;
 			sourceTree = "<group>";
 		};
 		FD225266A2963C137DFBC66D17DF0B1A /* Utils */ = {
