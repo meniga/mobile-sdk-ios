@@ -10,7 +10,8 @@
 
 @interface MENIGAAuthentication : NSObject
 
-+(void)loginWithUsername:(NSString*)theUsername password:(NSString*)thePassword withCompletion:(void (^)(NSDictionary *tokenDictionary, NSError *error))completion;
-//+(void)setLoginApiPath:(NSString *)theLoginPath;
++ (void)loginWithUsername:(NSString *)theUsername
+                 password:(NSString *)thePassword
+           withCompletion:(void (^)(NSDictionary *tokenDictionary, NSError *error))completion;
 
 @end

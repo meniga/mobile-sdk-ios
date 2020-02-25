@@ -28,22 +28,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The sync history identifier of this synchronization.
  */
-@property (nonatomic,strong,readonly) NSNumber *syncHistoryId;
+@property (nonatomic, strong, readonly) NSNumber *syncHistoryId;
 
 /**
  @abstract Whether the synchronization is completed.
  */
-@property (nonatomic,strong,readonly) NSNumber *isSyncDone;
+@property (nonatomic, strong, readonly) NSNumber *isSyncDone;
 
 /**
  @abstract The starting date of the synchronization session.
  */
-@property (nonatomic,strong,readonly) NSDate *syncSessionStartTime;
+@property (nonatomic, strong, readonly) NSDate *syncSessionStartTime;
 
 /**
  @abstract Response information from the financial realm being synchronized to.
  */
-@property (nonatomic,strong,readonly) NSArray <MNFRealmSyncResponse *> *realmSyncResponses;
+@property (nonatomic, strong, readonly) NSArray<MNFRealmSyncResponse *> *realmSyncResponses;
 
 ///******************************
 /// @name Sync and wait
@@ -60,7 +60,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a result or an error.
  */
-+(MNFJob *)synchronizeWithTimeout:(NSNumber *)timeout interval:(NSNumber *)interval completion:(MNFSynchronizationCompletionHandler)completion;
++ (MNFJob *)synchronizeWithTimeout:(NSNumber *)timeout
+                          interval:(NSNumber *)interval
+                        completion:(MNFSynchronizationCompletionHandler)completion;
 
 /**
  @abstract Starts the accounts synchronization process for a specific realm with a session token already provided.
@@ -75,17 +77,20 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return An MNFJob containing a synchronization object and an error.
  */
-+ (MNFJob*)synchronizeRealmUserWithId:(NSNumber *)realmUserId
-                         sessionToken:(nullable NSString *)sessionToken
-                              timeout:(NSNumber *)timeout
-                             interval:(NSNumber *)interval
-                           completion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (MNFJob *)synchronizeRealmUserWithId:(NSNumber *)realmUserId
+                          sessionToken:(nullable NSString *)sessionToken
+                               timeout:(NSNumber *)timeout
+                              interval:(NSNumber *)interval
+                            completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
-+ (MNFJob*)synchronizeRealmUserWithId:(NSNumber *)realmUserId
-                              timeout:(NSNumber*)timeout
-                             interval:(NSNumber*)interval
-                            completin:(nullable MNFErrorOnlyCompletionHandler)completion
-MNF_DEPRECATED_VER("Please use +[MNFSynchronization synchronizeRealmUserWithId:sessionToken:timeout:interval:completion] instead.", "1.1.13", "1.2");
++ (MNFJob *)synchronizeRealmUserWithId:(NSNumber *)realmUserId
+                               timeout:(NSNumber *)timeout
+                              interval:(NSNumber *)interval
+                             completin:(nullable MNFErrorOnlyCompletionHandler)completion
+    MNF_DEPRECATED_VER(
+        "Please use +[MNFSynchronization synchronizeRealmUserWithId:sessionToken:timeout:interval:completion] instead.",
+        "1.1.13",
+        "1.2");
 
 ///******************************
 /// @name Start synchronization
@@ -99,7 +104,8 @@ MNF_DEPRECATED_VER("Please use +[MNFSynchronization synchronizeRealmUserWithId:s
  
  @return An MNFJob containing a synchronization object and an error.
  */
-+(MNFJob*)startSynchronizationWithWaitTime:(NSNumber *)waitTime completion:(nullable MNFSynchronizationCompletionHandler)completion;
++ (MNFJob *)startSynchronizationWithWaitTime:(NSNumber *)waitTime
+                                  completion:(nullable MNFSynchronizationCompletionHandler)completion;
 
 /**
  @abstract Starts the accounts synchronization process for a specific realm with a session token already provided.
@@ -111,15 +117,18 @@ MNF_DEPRECATED_VER("Please use +[MNFSynchronization synchronizeRealmUserWithId:s
  
  @return An MNFJob containing a synchronization object and an error.
  */
-+(MNFJob*)startSynchronizationForRealmUserWithId:(NSNumber*)realmUserId
-                                    sessionToken:(nullable NSString *)sessionToken
-                                        waitTime:(NSNumber*)waitTime
-                                      completion:(nullable MNFSynchronizationCompletionHandler)completion;
++ (MNFJob *)startSynchronizationForRealmUserWithId:(NSNumber *)realmUserId
+                                      sessionToken:(nullable NSString *)sessionToken
+                                          waitTime:(NSNumber *)waitTime
+                                        completion:(nullable MNFSynchronizationCompletionHandler)completion;
 
-+(MNFJob*)startSynchronizationForRealmUserWithId:(NSNumber*)realmUserId
-                                        waitTime:(NSNumber*)waitTime
-                                      completion:(nullable MNFSynchronizationCompletionHandler)completion
-MNF_DEPRECATED_VER("Please use +[MNFSynchronization startSynchronizationForRealmUserWithId:sessionToken:waitTime:completion] instead.", "1.1.13", "1.2");
++ (MNFJob *)startSynchronizationForRealmUserWithId:(NSNumber *)realmUserId
+                                          waitTime:(NSNumber *)waitTime
+                                        completion:(nullable MNFSynchronizationCompletionHandler)completion
+    MNF_DEPRECATED_VER("Please use +[MNFSynchronization "
+                       "startSynchronizationForRealmUserWithId:sessionToken:waitTime:completion] instead.",
+                       "1.1.13",
+                       "1.2");
 
 ///******************************
 /// @name Synchronization status
@@ -132,7 +141,7 @@ MNF_DEPRECATED_VER("Please use +[MNFSynchronization startSynchronizationForRealm
  
  @return An MNFJob containing an error.
  */
--(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Get the current synchronization status for the user.
@@ -141,7 +150,7 @@ MNF_DEPRECATED_VER("Please use +[MNFSynchronization startSynchronizationForRealm
  
  @return An MNFJob containing a synchronization object and an error.
  */
-+(MNFJob*)fetchCurrentSynchronizationStatusWithCompletion:(nullable MNFSynchronizationCompletionHandler)completion;
++ (MNFJob *)fetchCurrentSynchronizationStatusWithCompletion:(nullable MNFSynchronizationCompletionHandler)completion;
 
 /**
  @abstract Find out whether synchronization is needed
@@ -149,7 +158,7 @@ MNF_DEPRECATED_VER("Please use +[MNFSynchronization startSynchronizationForRealm
  @return A boolean indicating whether synchronization is needed.
  
  */
--(BOOL)isSynchronizationNeeded;
+- (BOOL)isSynchronizationNeeded;
 
 ///******************************
 /// @name Realm authentication
@@ -163,7 +172,8 @@ MNF_DEPRECATED_VER("Please use +[MNFSynchronization startSynchronizationForRealm
  
  @return MNFJob A job containing an authentication challenge and an error.
  */
-+ (MNFJob *)fetchRealmAuthenticationChallengeWithRealmId:(NSNumber *)realmId completion:(nullable MNFSyncAuthenticationCompletionHandler)completion;
++ (MNFJob *)fetchRealmAuthenticationChallengeWithRealmId:(NSNumber *)realmId
+                                              completion:(nullable MNFSyncAuthenticationCompletionHandler)completion;
 
 /**
  Authenticate to an organization with a given realm id with the required parameters.
@@ -176,7 +186,12 @@ MNF_DEPRECATED_VER("Please use +[MNFSynchronization startSynchronizationForRealm
  
  @return MNFJob A job containing an authentication challenge and an error.
  */
-+ (MNFJob *)authenticateToRealmWithId:(NSNumber *)realmId withParameters:(nullable NSArray <NSDictionary *> *)parameters sessionToken:(nullable NSString *)sessionToken saveDetails:(nullable NSNumber *)saveDetails realmUserIdentifier:(nullable NSString *)realmUserIdentifier completion:(nullable MNFSyncAuthenticationCompletionHandler)completion;
++ (MNFJob *)authenticateToRealmWithId:(NSNumber *)realmId
+                       withParameters:(nullable NSArray<NSDictionary *> *)parameters
+                         sessionToken:(nullable NSString *)sessionToken
+                          saveDetails:(nullable NSNumber *)saveDetails
+                  realmUserIdentifier:(nullable NSString *)realmUserIdentifier
+                           completion:(nullable MNFSyncAuthenticationCompletionHandler)completion;
 
 /**
  Fetches the realm accounts available to the user.
@@ -187,7 +202,9 @@ MNF_DEPRECATED_VER("Please use +[MNFSynchronization startSynchronizationForRealm
  
  @return MNFJob A job containing a list of realm accounts and an error.
  */
-+ (MNFJob *)fetchAvailableRealmAccountsWithRealmUserId:(NSNumber *)realmUserId sessionToken:(nullable NSString *)sessionToken completion:(nullable MNFMultipleRealmAccountCompletionHandler)completion;
++ (MNFJob *)fetchAvailableRealmAccountsWithRealmUserId:(NSNumber *)realmUserId
+                                          sessionToken:(nullable NSString *)sessionToken
+                                            completion:(nullable MNFMultipleRealmAccountCompletionHandler)completion;
 
 /**
  Authorizes a list of realm accounts.
@@ -200,7 +217,10 @@ MNF_DEPRECATED_VER("Please use +[MNFSynchronization startSynchronizationForRealm
  
  @return MNFJob A job containing a list of realm accounts and an error.
  */
-+ (MNFJob *)authorizeRealmAccounts:(NSArray <MNFRealmAccount*> *)realmAccounts realmUserId:(NSNumber *)realmUserId sessionToken:(nullable NSString *)sessionToken completion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (MNFJob *)authorizeRealmAccounts:(NSArray<MNFRealmAccount *> *)realmAccounts
+                       realmUserId:(NSNumber *)realmUserId
+                      sessionToken:(nullable NSString *)sessionToken
+                        completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

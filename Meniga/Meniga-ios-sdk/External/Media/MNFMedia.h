@@ -22,7 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing image data and an error.
  */
-+(MNFJob*)fetchMediaWithId:(NSString*)identifier width:(nullable NSNumber*)width height:(nullable NSNumber*)height completion:(nullable MNFMediaCompletionHandler)completion;
++ (MNFJob *)fetchMediaWithId:(NSString *)identifier
+                       width:(nullable NSNumber *)width
+                      height:(nullable NSNumber *)height
+                  completion:(nullable MNFMediaCompletionHandler)completion;
 
 @end
 

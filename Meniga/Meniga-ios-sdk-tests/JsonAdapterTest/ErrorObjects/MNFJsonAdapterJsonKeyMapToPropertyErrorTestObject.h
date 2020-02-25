@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "MNFJsonAdapter.h"
 
-
 @interface MNFJsonAdapterJsonKeyMapToPropertyErrorTestObject : NSObject <MNFJsonAdapterDelegate>
 
 @property (nonatomic, strong) NSNumber *userId;
@@ -17,7 +16,9 @@
 @property (nonatomic, strong) NSString *body;
 @property (nonatomic, strong) NSString *title;
 
-+(instancetype)initWithUserId:(NSNumber *)userId postId:(NSNumber *)thePostId body:(NSString *)theBody title:(NSString *)theTitle;
-
++ (instancetype)initWithUserId:(NSNumber *)userId
+                        postId:(NSNumber *)thePostId
+                          body:(NSString *)theBody
+                         title:(NSString *)theTitle;
 
 @end

@@ -24,22 +24,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The identifier of the person who created the comment.
  */
-@property (nonatomic,strong,readonly) NSNumber *personId;
+@property (nonatomic, strong, readonly) NSNumber *personId;
 
 /**
  @abstract The date the comment was created.
  */
-@property (nonatomic,strong,readonly) NSDate *createdDate;
+@property (nonatomic, strong, readonly) NSDate *createdDate;
 
 /**
  @abstract The date the comment was last modified.
  */
-@property (nonatomic,strong,readonly) NSDate *modifiedDate;
+@property (nonatomic, strong, readonly) NSDate *modifiedDate;
 
 /**
  @abstract The identifier of the transaction the comment belongs to.
  */
-@property (nonatomic,strong,readonly) NSNumber *transactionId;
+@property (nonatomic, strong, readonly) NSNumber *transactionId;
 
 ///******************************
 /// @name Mutable properties
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The actual comment.
  */
-@property (nonatomic,copy) NSString * _Nullable comment;
+@property (nonatomic, copy) NSString *_Nullable comment;
 
 ///************************************
 /// @name Saving
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a result and an error.
  */
--(MNFJob*)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///************************************
 /// @name Deleting
@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @warning Remember to deallocate objects that have been deleted from the server.
  */
--(MNFJob*)deleteCommentWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteCommentWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

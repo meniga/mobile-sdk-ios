@@ -16,7 +16,9 @@
 @property (nonatomic, strong) NSString *Body;
 @property (nonatomic, strong) NSString *Title;
 
-+(instancetype)initWithUserId:(NSNumber *)userId postId:(NSNumber *)thePostId body:(NSString *)theBody title:(NSString *)theTitle;
-
++ (instancetype)initWithUserId:(NSNumber *)userId
+                        postId:(NSNumber *)thePostId
+                          body:(NSString *)theBody
+                         title:(NSString *)theTitle;
 
 @end

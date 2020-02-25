@@ -22,17 +22,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The date the comment was created.
  */
-@property (nonatomic,strong,readonly) NSDate *created;
+@property (nonatomic, strong, readonly) NSDate *created;
 
 /**
  The date the comment was modified.
  */
-@property (nonatomic,strong,readonly) NSDate *modified;
+@property (nonatomic, strong, readonly) NSDate *modified;
 
 /**
  The actual comment.
  */
-@property (nonatomic,copy,readonly) NSString *comment;
+@property (nonatomic, copy, readonly) NSString *comment;
 
 @end
 

@@ -20,16 +20,16 @@
 /**
  The description for the import account configuration.
  */
-@property (nonatomic,copy,readonly) NSString *configurationDescription;
+@property (nonatomic, copy, readonly) NSString *configurationDescription;
 
 /**
  The supported file type extensions where key is the file type extension (e.g. .xls) and value is the file type extension description (e.g. Excel Workbook).
  */
-@property (nonatomic,copy,readonly) NSArray <NSDictionary*> *supportedFileTypeExtensions;
+@property (nonatomic, copy, readonly) NSArray<NSDictionary *> *supportedFileTypeExtensions;
 
 /**
  Whether or not this import configuration supports copy/paste import.
  */
-@property (nonatomic,strong,readonly) NSNumber *isCopyPaste;
+@property (nonatomic, strong, readonly) NSNumber *isCopyPaste;
 
 @end

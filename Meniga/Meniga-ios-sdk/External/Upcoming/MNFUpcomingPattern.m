@@ -11,8 +11,27 @@
 @implementation MNFUpcomingPattern
 
 #pragma mark - json adapter delegate
--(NSSet*)propertiesToIgnoreJsonSerialization {
-    return [NSSet setWithArray:@[@"identifier",@"text",@"amountInCurrency",@"currencyCode",@"categoryId",@"accountId",@"isWatched",@"isFlagged",@"type", @"objectstate",@"description",@"debugDescription",@"superclass",@"mutableProperties",@"dirty",@"deleted",@"isNew",@"keyValueStore"]];
+- (NSSet *)propertiesToIgnoreJsonSerialization {
+    return [NSSet setWithArray:@[
+        @"identifier",
+        @"text",
+        @"amountInCurrency",
+        @"currencyCode",
+        @"categoryId",
+        @"accountId",
+        @"isWatched",
+        @"isFlagged",
+        @"type",
+        @"objectstate",
+        @"description",
+        @"debugDescription",
+        @"superclass",
+        @"mutableProperties",
+        @"dirty",
+        @"deleted",
+        @"isNew",
+        @"keyValueStore"
+    ]];
 }
 
 @end

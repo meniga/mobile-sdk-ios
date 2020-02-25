@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *CommentTitle;
 @property (nonatomic, strong) NSNumber *CommentId;
 
-+(instancetype)adapterSubFirstUppercaseTestObjWithCommentId:(NSNumber *)theCommentId commentTitle:(NSString *)theCommentTitle;
++ (instancetype)adapterSubFirstUppercaseTestObjWithCommentId:(NSNumber *)theCommentId
+                                                commentTitle:(NSString *)theCommentTitle;
 
 @end

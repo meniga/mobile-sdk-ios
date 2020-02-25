@@ -145,7 +145,6 @@
 #define kMNFUserEventsSubscriptionDetails kMNFUserEventsSubscription @"/details"
 #define kMNFUserEventTypes @"/eventtypes"
 
-
 #pragma mark - Event Tracking
 #define kMNFApiPathEventTracking @"/eventtracking"
 
@@ -153,9 +152,7 @@
 //Meniga 2.0 API
 //*********************************
 
-
 #pragma mark Cashback
-
 
 #pragma mark Cashback
 #pragma mark -
@@ -259,8 +256,6 @@
 #define kMNFDeleteTag @"%@/Api/Transactions/DeleteTag"
 #define kMNFUpdateTag @"%@/Api/Transactions/UpdateTag"
 #define kMNFUpdateTags @"%@/Api/Transactions/UpdateTags"
-
-
 
 #pragma mark Lifegoals
 #pragma mark -

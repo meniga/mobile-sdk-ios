@@ -6,6 +6,8 @@
 //  Copyright © 2015 Meniga. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 @class MNFTransaction;
 @class MNFOffer;
 @class MNFOfferTransaction;
@@ -69,18 +71,18 @@
 @class MNFJob;
 
 // internal completion handler
-typedef void (^MNFCompletionHandler)(MNFResponse * _Nullable response);
+typedef void (^MNFCompletionHandler)(MNFResponse *_Nullable response);
 
 // metadata completion handler
 typedef void (^MNFMetadataValueCompletionHandler)(NSString *_Nullable metadataValue, NSError *_Nullable error);
 typedef void (^MNFMetadataCompletionHandler)(NSDictionary *_Nullable metadata, NSError *_Nullable error);
-typedef void (^MNFMultipleMetadataCompletionHandlers)(NSArray <NSDictionary *> *_Nullable metadatas, NSError *_Nullable error);
+typedef void (^MNFMultipleMetadataCompletionHandlers)(NSArray<NSDictionary *> *_Nullable metadatas,
+                                                      NSError *_Nullable error);
 
-typedef void (^MNFFetchMultipleCompletionHandler)(NSArray *_Nullable result, NSError  * _Nullable error);
+typedef void (^MNFFetchMultipleCompletionHandler)(NSArray *_Nullable result, NSError *_Nullable error);
 
 //Completion for built in types
-typedef void (^MNFDateCompletionHandler)(NSDate *_Nullable result, NSError  * _Nullable error);
-
+typedef void (^MNFDateCompletionHandler)(NSDate *_Nullable result, NSError *_Nullable error);
 
 //generic for misc calls that only need to return an error
 typedef void (^MNFErrorOnlyCompletionHandler)(NSError *_Nullable error);
@@ -89,155 +91,207 @@ typedef void (^MNFErrorOnlyCompletionHandler)(NSError *_Nullable error);
 typedef void (^MNFFetchObjectsCompletionHandler)(NSArray *_Nullable objects, NSError *_Nullable error);
 
 //Transaction
-typedef void (^MNFTransactionCompletionHandler)(MNFTransaction *_Nullable transaction, NSError * _Nullable error);
-typedef void (^MNFMultipleTransactionsCompletionHandler)(NSArray <MNFTransaction *> *_Nullable transactions, NSError * _Nullable error);
+typedef void (^MNFTransactionCompletionHandler)(MNFTransaction *_Nullable transaction, NSError *_Nullable error);
+typedef void (^MNFMultipleTransactionsCompletionHandler)(NSArray<MNFTransaction *> *_Nullable transactions,
+                                                         NSError *_Nullable error);
 typedef void (^MNFTransactionRuleCompletionHandler)(MNFTransactionRule *_Nullable rule, NSError *_Nullable error);
-typedef void (^MNFMultipleTransactionRulesCompleitonHandler)(NSArray <MNFTransactionRule *> *_Nullable transactionRules, NSError *_Nullable error);
-typedef void (^MNFTransactionSuggestionsCompletionHandler)(NSArray <MNFTransactionSuggestion *> *_Nullable suggestions, NSError *_Nullable error);
+typedef void (^MNFMultipleTransactionRulesCompleitonHandler)(NSArray<MNFTransactionRule *> *_Nullable transactionRules,
+                                                             NSError *_Nullable error);
+typedef void (^MNFTransactionSuggestionsCompletionHandler)(NSArray<MNFTransactionSuggestion *> *_Nullable suggestions,
+                                                           NSError *_Nullable error);
 
 //TransactionPage
-typedef void (^MNFTransactionPageCompletionHandler)(MNFTransactionPage *_Nullable result, NSError  * _Nullable error);
+typedef void (^MNFTransactionPageCompletionHandler)(MNFTransactionPage *_Nullable result, NSError *_Nullable error);
 //TransactionSeries
-typedef void (^MNFTransactionSeriesCompletionHandler)(NSArray <MNFTransactionSeries *> *_Nullable result, NSError *_Nullable error);
+typedef void (^MNFTransactionSeriesCompletionHandler)(NSArray<MNFTransactionSeries *> *_Nullable result,
+                                                      NSError *_Nullable error);
 
 // Categories
 typedef void (^MNFCategoryCompletionHandler)(MNFCategory *_Nullable category, NSError *_Nullable error);
-typedef void (^MNFMultipleCategoriesCompletionHandler)(NSArray <MNFCategory *> *_Nullable categories, NSError * _Nullable error);
-typedef void (^MNFMultipleCategoryTypesCompletionHandler)(NSArray <MNFCategoryType *> * _Nullable categoryTypes, NSError * _Nullable error);
+typedef void (^MNFMultipleCategoriesCompletionHandler)(NSArray<MNFCategory *> *_Nullable categories,
+                                                       NSError *_Nullable error);
+typedef void (^MNFMultipleCategoryTypesCompletionHandler)(NSArray<MNFCategoryType *> *_Nullable categoryTypes,
+                                                          NSError *_Nullable error);
 
 // Accounts
 typedef void (^MNFAccountCompletionHandler)(MNFAccount *_Nullable account, NSError *_Nullable error);
-typedef void (^MNFMultipleAccountsCompletionHandler)(NSArray <MNFAccount *> * _Nullable accounts, NSError *_Nullable error);
-typedef void (^MNFMultipleAccountHistoryCompletionHandler)(NSArray <MNFAccountHistoryEntry*> *_Nullable accountHistoryEntries, NSError *_Nullable error);
-typedef void (^MNFMultipleAccountCategoriesCompletionHandler)(NSArray <MNFAccountCategory *> *_Nullable accountTypes, NSError *_Nullable error);
-typedef void (^MNFMultipleAccountAuthorizationTypesCompletionHandler)(NSArray <MNFAccountAuthorizationType *> *_Nullable accountAuthorizationTypes, NSError *_Nullable error);
-typedef void (^MNFMultipleAccountTypesCompletionHandler)(NSArray <MNFAccountType *> *_Nullable realmAccountTypes, NSError *_Nullable error);
+typedef void (^MNFMultipleAccountsCompletionHandler)(NSArray<MNFAccount *> *_Nullable accounts,
+                                                     NSError *_Nullable error);
+typedef void (^MNFMultipleAccountHistoryCompletionHandler)(
+    NSArray<MNFAccountHistoryEntry *> *_Nullable accountHistoryEntries, NSError *_Nullable error);
+typedef void (^MNFMultipleAccountCategoriesCompletionHandler)(NSArray<MNFAccountCategory *> *_Nullable accountTypes,
+                                                              NSError *_Nullable error);
+typedef void (^MNFMultipleAccountAuthorizationTypesCompletionHandler)(
+    NSArray<MNFAccountAuthorizationType *> *_Nullable accountAuthorizationTypes, NSError *_Nullable error);
+typedef void (^MNFMultipleAccountTypesCompletionHandler)(NSArray<MNFAccountType *> *_Nullable realmAccountTypes,
+                                                         NSError *_Nullable error);
 typedef void (^MNFAccountTypeCompletionHandler)(MNFAccountType *_Nullable realmAccountType, NSError *_Nullable error);
 
 // Networth Account
-typedef void (^MNFMultipleNetworthAccountsCompletionHandler)(NSArray <MNFNetworthAccount *> * _Nullable networthAccounts, NSError *_Nullable error);
-typedef void (^MNFSingleNetworthAccountsCompletionHandler)(MNFNetworthAccount* _Nullable networthAccount, NSError *_Nullable error);
-typedef void (^MNFMultipleNetworthBalanceHistoryCompletionHandler)(NSArray <MNFNetworthBalanceHistory *> * _Nullable networthBalanceHistory, NSError *_Nullable error);
-typedef void (^MNFSingleNetworthBalanceHistoryCompletionHandler)(MNFNetworthBalanceHistory* _Nullable networthBalanceHistory, NSError *_Nullable error);
+typedef void (^MNFMultipleNetworthAccountsCompletionHandler)(NSArray<MNFNetworthAccount *> *_Nullable networthAccounts,
+                                                             NSError *_Nullable error);
+typedef void (^MNFSingleNetworthAccountsCompletionHandler)(MNFNetworthAccount *_Nullable networthAccount,
+                                                           NSError *_Nullable error);
+typedef void (^MNFMultipleNetworthBalanceHistoryCompletionHandler)(
+    NSArray<MNFNetworthBalanceHistory *> *_Nullable networthBalanceHistory, NSError *_Nullable error);
+typedef void (^MNFSingleNetworthBalanceHistoryCompletionHandler)(
+    MNFNetworthBalanceHistory *_Nullable networthBalanceHistory, NSError *_Nullable error);
 
 // Tag
 typedef void (^MNFTagCompletionHandler)(MNFTag *_Nullable tag, NSError *_Nullable error);
-typedef void (^MNFMultipleTagsCompletionHandler) (NSArray <MNFTag *> *_Nullable tags, NSError *_Nullable error);
+typedef void (^MNFMultipleTagsCompletionHandler)(NSArray<MNFTag *> *_Nullable tags, NSError *_Nullable error);
 
 // User
 typedef void (^MNFUserCompletionHandler)(MNFUser *_Nullable user, NSError *_Nullable error);
-typedef void (^MNFMultipleUsersCompletionHandler)(NSArray <MNFUser*> *_Nullable users, NSError *_Nullable error);
+typedef void (^MNFMultipleUsersCompletionHandler)(NSArray<MNFUser *> *_Nullable users, NSError *_Nullable error);
 typedef void (^MNFUserProfileCompletionHandler)(MNFUserProfile *_Nullable userProfile, NSError *_Nullable error);
-typedef void (^MNFMultipleRealmUsersComletionHandler)(NSArray <MNFRealmUser*> *_Nullable users, NSError *_Nullable error);
-
+typedef void (^MNFMultipleRealmUsersComletionHandler)(NSArray<MNFRealmUser *> *_Nullable users,
+                                                      NSError *_Nullable error);
 
 //Synchronization
-typedef void (^MNFSynchronizationCompletionHandler)(MNFSynchronization *_Nullable synchronization, NSError *_Nullable error);
+typedef void (^MNFSynchronizationCompletionHandler)(MNFSynchronization *_Nullable synchronization,
+                                                    NSError *_Nullable error);
 typedef void (^MNFIsSyncNeededCompletionHandler)(NSNumber *_Nullable isSyncNeeded, NSError *_Nullable error);
-typedef void (^MNFSyncAuthenticationCompletionHandler)(MNFSyncAuthenticationChallenge *_Nullable authChallenge, NSError *_Nullable error);
-typedef void (^MNFMultipleRealmAccountCompletionHandler)(NSArray <MNFRealmAccount *> *_Nullable realmAccounts, NSError *_Nullable error);
+typedef void (^MNFSyncAuthenticationCompletionHandler)(MNFSyncAuthenticationChallenge *_Nullable authChallenge,
+                                                       NSError *_Nullable error);
+typedef void (^MNFMultipleRealmAccountCompletionHandler)(NSArray<MNFRealmAccount *> *_Nullable realmAccounts,
+                                                         NSError *_Nullable error);
 
 //Merchant
-typedef void (^MNFMerchantCompletionHandler)(MNFMerchant *_Nullable merchant,NSError *_Nullable error);
-typedef void (^MNFMultipleMerchantsCompletionHandler)(NSArray <MNFMerchant*> *_Nullable merchants,NSError *_Nullable error);
+typedef void (^MNFMerchantCompletionHandler)(MNFMerchant *_Nullable merchant, NSError *_Nullable error);
+typedef void (^MNFMultipleMerchantsCompletionHandler)(NSArray<MNFMerchant *> *_Nullable merchants,
+                                                      NSError *_Nullable error);
 //MerchantSeries
-typedef void (^MNFMerchantSeriesCompletionHandler)(NSArray <MNFMerchantSeries *> *_Nullable result, NSError *_Nullable error);
-
+typedef void (^MNFMerchantSeriesCompletionHandler)(NSArray<MNFMerchantSeries *> *_Nullable result,
+                                                   NSError *_Nullable error);
 
 // Offers
-typedef void (^MNFOfferCompletionHandler)(MNFOffer *_Nullable offer, NSError * _Nullable error);
-typedef void (^MNFMultipleOffersCompletionHandler)(NSArray <MNFOffer *> * _Nullable offers, NSDictionary * _Nullable metadata, NSError * _Nullable error);
-typedef void (^MNFMultipleOfferTransactionsCompletionHandler)(NSArray <MNFOfferTransaction *> * _Nullable offerTransactions, NSError * _Nullable error);
-typedef void (^MNFOfferSimilarBrandSpendingCompletionHandler)(NSArray <MNFSimilarBrand *> * _Nullable similarBrands, MNFSimilarBrandMetaData * _Nullable metaData, NSError * _Nullable error);
-typedef void (^MNFRedemptionsCompletionHandler)(NSArray <MNFOfferTransaction *> * _Nullable offerRedemptionTransactions, MNFRedemptionsMetaData * _Nullable metaData, NSError *_Nullable error);
-typedef void (^MNFMultipleReimbursementAccountsCompletionHandler)(NSArray <MNFReimbursementAccount *> * _Nullable reimbursementAccounts, NSError * _Nullable error);
-typedef void (^MNFRemibursementAccountCompletionHandler)(MNFReimbursementAccount * _Nullable account, NSError * _Nullable error);
-typedef void (^MNFMultipleReimbursementAccountTypesCompletionHandler)(NSArray <MNFReimbursementAccountType *> * _Nullable accountType, NSError * _Nullable error);
-typedef void (^MNFMultipleMerchantLocationsCompletionHandler)(NSArray <MNFMerchantLocation *> * _Nullable locations, NSError * _Nullable error);
-
+typedef void (^MNFOfferCompletionHandler)(MNFOffer *_Nullable offer, NSError *_Nullable error);
+typedef void (^MNFMultipleOffersCompletionHandler)(NSArray<MNFOffer *> *_Nullable offers,
+                                                   NSDictionary *_Nullable metadata,
+                                                   NSError *_Nullable error);
+typedef void (^MNFMultipleOfferTransactionsCompletionHandler)(
+    NSArray<MNFOfferTransaction *> *_Nullable offerTransactions, NSError *_Nullable error);
+typedef void (^MNFOfferSimilarBrandSpendingCompletionHandler)(NSArray<MNFSimilarBrand *> *_Nullable similarBrands,
+                                                              MNFSimilarBrandMetaData *_Nullable metaData,
+                                                              NSError *_Nullable error);
+typedef void (^MNFRedemptionsCompletionHandler)(NSArray<MNFOfferTransaction *> *_Nullable offerRedemptionTransactions,
+                                                MNFRedemptionsMetaData *_Nullable metaData,
+                                                NSError *_Nullable error);
+typedef void (^MNFMultipleReimbursementAccountsCompletionHandler)(
+    NSArray<MNFReimbursementAccount *> *_Nullable reimbursementAccounts, NSError *_Nullable error);
+typedef void (^MNFRemibursementAccountCompletionHandler)(MNFReimbursementAccount *_Nullable account,
+                                                         NSError *_Nullable error);
+typedef void (^MNFMultipleReimbursementAccountTypesCompletionHandler)(
+    NSArray<MNFReimbursementAccountType *> *_Nullable accountType, NSError *_Nullable error);
+typedef void (^MNFMultipleMerchantLocationsCompletionHandler)(NSArray<MNFMerchantLocation *> *_Nullable locations,
+                                                              NSError *_Nullable error);
 
 //Feed
 typedef void (^MNFFeedCompletionHandler)(MNFFeed *_Nullable feed, NSError *_Nullable error);
-typedef void (^MNFFeedItemsCompletionHandler)(NSArray <MNFFeedItem *> * _Nullable feedItems, NSError * _Nullable error);
-typedef void (^MNFFeedTypesCompletionHandler)(NSArray <NSString *> *_Nullable feedTypes, NSError *_Nullable error);
-typedef void (^MNFScheduledEventCompletionHandler)(MNFScheduledEvent *_Nullable scheduledEvent, NSError *_Nullable error);
-typedef void (^MNFMultipleScheduledEventsCompletionHandler)(NSArray <MNFScheduledEvent *> *_Nullable scheduledEvents, NSError *_Nullable error);
-typedef void (^MNFSingleFeedItemCompletionHandler)(MNFFeedItem *_Nullable feedItem, NSError * _Nullable error);
+typedef void (^MNFFeedItemsCompletionHandler)(NSArray<MNFFeedItem *> *_Nullable feedItems, NSError *_Nullable error);
+typedef void (^MNFFeedTypesCompletionHandler)(NSArray<NSString *> *_Nullable feedTypes, NSError *_Nullable error);
+typedef void (^MNFScheduledEventCompletionHandler)(MNFScheduledEvent *_Nullable scheduledEvent,
+                                                   NSError *_Nullable error);
+typedef void (^MNFMultipleScheduledEventsCompletionHandler)(NSArray<MNFScheduledEvent *> *_Nullable scheduledEvents,
+                                                            NSError *_Nullable error);
+typedef void (^MNFSingleFeedItemCompletionHandler)(MNFFeedItem *_Nullable feedItem, NSError *_Nullable error);
 
 //Upcoming
 typedef void (^MNFUpcomingCompletionHandler)(MNFUpcoming *_Nullable upcoming, NSError *_Nullable error);
-typedef void (^MNFMultipleUpcomingCompletionHandler)(NSArray <MNFUpcoming *> *_Nullable upcomings, NSError *_Nullable error);
-typedef void (^MNFRecurringPatternCompletionHandler)(MNFUpcomingRecurringPattern *_Nullable recurringPattern, NSError *_Nullable error);
-typedef void (^MNFMultipleRecurringPatternsCompletionHandler)(NSArray <MNFUpcomingRecurringPattern *> *_Nullable recurringPatterns, NSError *_Nullable error);
+typedef void (^MNFMultipleUpcomingCompletionHandler)(NSArray<MNFUpcoming *> *_Nullable upcomings,
+                                                     NSError *_Nullable error);
+typedef void (^MNFRecurringPatternCompletionHandler)(MNFUpcomingRecurringPattern *_Nullable recurringPattern,
+                                                     NSError *_Nullable error);
+typedef void (^MNFMultipleRecurringPatternsCompletionHandler)(
+    NSArray<MNFUpcomingRecurringPattern *> *_Nullable recurringPatterns, NSError *_Nullable error);
 typedef void (^MNFDefaultAccountIdCompletionHandler)(NSNumber *_Nullable accountId, NSError *_Nullable error);
-typedef void (^MNFMultipleAccountIdsCompletionHandler)(NSArray <NSNumber *> *_Nullable accountIds, NSError *_Nullable error);
+typedef void (^MNFMultipleAccountIdsCompletionHandler)(NSArray<NSNumber *> *_Nullable accountIds,
+                                                       NSError *_Nullable error);
 typedef void (^MNFBalancesCompletionHandler)(MNFUpcomingBalance *_Nullable balance, NSError *_Nullable error);
 typedef void (^MNFThresholdCompletionHandler)(MNFUpcomingThreshold *_Nullable threshold, NSError *_Nullable error);
-typedef void (^MNFMultipleThresholdsCompletionHandler)(NSArray <MNFUpcomingThreshold *> *_Nullable thresholds, NSError *_Nullable error);
+typedef void (^MNFMultipleThresholdsCompletionHandler)(NSArray<MNFUpcomingThreshold *> *_Nullable thresholds,
+                                                       NSError *_Nullable error);
 
 //Challenges
 typedef void (^MNFChallengesCompletionHandler)(MNFChallenge *_Nullable challenge, NSError *_Nullable error);
-typedef void (^MNFMultipleChallengesCompletionHandler)(NSArray <MNFChallenge *> *_Nullable challenges, NSError *_Nullable error);
-typedef void (^MNFChallengeIconIdentifiersCompletionHandler)(NSArray <NSString *> *_Nullable iconIdentifiers, NSError *_Nullable error);
+typedef void (^MNFMultipleChallengesCompletionHandler)(NSArray<MNFChallenge *> *_Nullable challenges,
+                                                       NSError *_Nullable error);
+typedef void (^MNFChallengeIconIdentifiersCompletionHandler)(NSArray<NSString *> *_Nullable iconIdentifiers,
+                                                             NSError *_Nullable error);
 typedef void (^MNFChallengeIconImageDataCompletionHandler)(NSData *_Nullable imageData, NSError *_Nullable error);
 
 //Budget
 typedef void (^MNFBudgetCompletionHandler)(MNFBudget *_Nullable budget, NSError *_Nullable error);
-typedef void (^MNFMultipleBudgetCompletionHandler)(NSArray <MNFBudget *> *_Nullable budgets, NSError *_Nullable error);
-typedef void (^MNFMultipleBudgetEntriesCompletionHandler)(NSArray <MNFBudgetEntry *> *_Nullable budgetEntries, NSError *_Nullable error);
+typedef void (^MNFMultipleBudgetCompletionHandler)(NSArray<MNFBudget *> *_Nullable budgets, NSError *_Nullable error);
+typedef void (^MNFMultipleBudgetEntriesCompletionHandler)(NSArray<MNFBudgetEntry *> *_Nullable budgetEntries,
+                                                          NSError *_Nullable error);
 typedef void (^MNFBudgetEntryCompletionHandler)(MNFBudgetEntry *_Nullable budgetEntry, NSError *_Nullable error);
-typedef void (^MNFMultipleBudgetRulesCompletionHandler)(NSArray <MNFBudgetRule *> *_Nullable budgetRules, NSError *_Nullable error);
+typedef void (^MNFMultipleBudgetRulesCompletionHandler)(NSArray<MNFBudgetRule *> *_Nullable budgetRules,
+                                                        NSError *_Nullable error);
 
 //Life goals
 typedef void (^MNFLifeGoalCompletionHandler)(MNFLifeGoal *_Nullable lifeGoal, NSError *_Nullable error);
-typedef void (^MNFMultipleLifeGoalsCompletionHandler)(NSArray <MNFLifeGoal *> *_Nullable lifeGoals, NSError *_Nullable error);
-typedef void (^MNFLifeGoalHistoryCompletionHandler)(NSArray <MNFLifeGoalHistory *> *_Nullable lifeGoalHistory, NSError *_Nullable error);
-typedef void (^MNFLifeGoalAccountInfoCompletionHandler)(NSArray <MNFLifeGoalAccountInfo *> *_Nullable lifeGoalAccountInfo, NSError *_Nullable error);
+typedef void (^MNFMultipleLifeGoalsCompletionHandler)(NSArray<MNFLifeGoal *> *_Nullable lifeGoals,
+                                                      NSError *_Nullable error);
+typedef void (^MNFLifeGoalHistoryCompletionHandler)(NSArray<MNFLifeGoalHistory *> *_Nullable lifeGoalHistory,
+                                                    NSError *_Nullable error);
+typedef void (^MNFLifeGoalAccountInfoCompletionHandler)(
+    NSArray<MNFLifeGoalAccountInfo *> *_Nullable lifeGoalAccountInfo, NSError *_Nullable error);
 
 //Media
 typedef void (^MNFMediaCompletionHandler)(NSDate *_Nullable mediaData, NSError *_Nullable error);
 
 //Peer comparison
-typedef void (^MNFPeerComparisonCompletionHandler)(NSArray <MNFPeerComparison*> *_Nullable peerComparison, NSError *_Nullable error);
+typedef void (^MNFPeerComparisonCompletionHandler)(NSArray<MNFPeerComparison *> *_Nullable peerComparison,
+                                                   NSError *_Nullable error);
 
 // Terms and Conditions
-typedef void (^MNFTermsAndConditionsCompletionHandler)(MNFTermsAndConditions * _Nullable termsAndConditions, NSError * _Nullable error);
-typedef void (^MNFMultipleTermsAndConditionsCompletionHandler)(NSArray <MNFTermsAndConditions *> * _Nullable termsAndConditions, NSError * _Nullable error);
+typedef void (^MNFTermsAndConditionsCompletionHandler)(MNFTermsAndConditions *_Nullable termsAndConditions,
+                                                       NSError *_Nullable error);
+typedef void (^MNFMultipleTermsAndConditionsCompletionHandler)(
+    NSArray<MNFTermsAndConditions *> *_Nullable termsAndConditions, NSError *_Nullable error);
 
-typedef void (^MNFMultipleTermsAndConditionTypesCompletionHandler)(NSArray <MNFTermsAndConditionType *> * _Nullable termsAndConditions, NSError * _Nullable error);
-typedef void (^MNFTermsAndConditionTypeCompletionHandler)(MNFTermsAndConditionType * _Nullable termsAndConditionType, NSError * _Nullable error);
+typedef void (^MNFMultipleTermsAndConditionTypesCompletionHandler)(
+    NSArray<MNFTermsAndConditionType *> *_Nullable termsAndConditions, NSError *_Nullable error);
+typedef void (^MNFTermsAndConditionTypeCompletionHandler)(MNFTermsAndConditionType *_Nullable termsAndConditionType,
+                                                          NSError *_Nullable error);
 
 //Public
 typedef void (^MNFPublicCompletionHandler)(MNFPublic *_Nullable publicSettings, NSError *_Nullable error);
 typedef void (^MNFPostalCodeCompletionHandler)(MNFPostalCode *_Nullable postalCode, NSError *_Nullable error);
-typedef void (^MNFMultiplePostalCodesCompletionHandler)(NSArray <MNFPostalCode*> *_Nullable postalCodes, NSError *_Nullable error);
+typedef void (^MNFMultiplePostalCodesCompletionHandler)(NSArray<MNFPostalCode *> *_Nullable postalCodes,
+                                                        NSError *_Nullable error);
 
 //Organizations
-typedef void (^MNFOrganizationsCompletionHandler)(NSArray <MNFOrganization *> *_Nullable organizations, NSError *_Nullable error);
+typedef void (^MNFOrganizationsCompletionHandler)(NSArray<MNFOrganization *> *_Nullable organizations,
+                                                  NSError *_Nullable error);
 
 //Authentication
-typedef void (^MNFAuthenticationCompletionHandler)(MNFAuthentication *_Nullable authentication, NSError *_Nullable error);
+typedef void (^MNFAuthenticationCompletionHandler)(MNFAuthentication *_Nullable authentication,
+                                                   NSError *_Nullable error);
 
 //User events
-typedef void (^MNFUserEventSubscriptionDetailCompletionHandler)(NSArray <MNFUserEventSubscriptionDetail *> *_Nullable subscriptionDetails, NSError *_Nullable error);
+typedef void (^MNFUserEventSubscriptionDetailCompletionHandler)(
+    NSArray<MNFUserEventSubscriptionDetail *> *_Nullable subscriptionDetails, NSError *_Nullable error);
 typedef void (^MNFUserEventCompletionHandler)(MNFUserEvent *_Nullable userEvent, NSError *_Nullable error);
-typedef void (^MNFMultipleUserEventsCompletionHandler)(NSArray <MNFUserEvent *> *_Nullable userEvents, NSError *_Nullable error);
+typedef void (^MNFMultipleUserEventsCompletionHandler)(NSArray<MNFUserEvent *> *_Nullable userEvents,
+                                                       NSError *_Nullable error);
 
 //Repayment Account info keys
-extern NSString *const _Nonnull kMNFRepaymentAccountInfoBankAccountNumberKey;// bankAccountNumber
-extern NSString *const _Nonnull kMNFRepaymentAccountInfoLedgerKey;// ledger
-extern NSString *const _Nonnull kMNFRepaymentAccountInfoSocialSecurityNumberKey;// socialSecurityNumber
-extern NSString *const _Nonnull kMNFRepaymentAccountInfoBankNumberKey;//bankNumber
+extern NSString *const _Nonnull kMNFRepaymentAccountInfoBankAccountNumberKey; // bankAccountNumber
+extern NSString *const _Nonnull kMNFRepaymentAccountInfoLedgerKey; // ledger
+extern NSString *const _Nonnull kMNFRepaymentAccountInfoSocialSecurityNumberKey; // socialSecurityNumber
+extern NSString *const _Nonnull kMNFRepaymentAccountInfoBankNumberKey; //bankNumber
 
 //Error message json key
 extern NSString *const _Nonnull kMNFErrorMessageJSONKey;
 
-
 //Error domains
 extern NSString *const _Nonnull MNFMenigaErrorDomain;
 
-typedef NS_ENUM(NSInteger, MNFErrorCode){
-    
+typedef NS_ENUM(NSInteger, MNFErrorCode) {
+
     /**
      @abstract Invalid response from server.
      */
@@ -274,7 +328,7 @@ typedef NS_ENUM(NSInteger, MNFErrorCode){
 
 //Log levels
 typedef NS_ENUM(NSInteger, MNFLogLevel) {
-    
+
     /**
      @abstract No information logged from the sdk.
      */
@@ -301,7 +355,7 @@ typedef NS_ENUM(NSInteger, MNFLogLevel) {
     kMNFLogLevelVerbose
 };
 
-typedef NS_ENUM(NSInteger,MNFGroupedBy){
+typedef NS_ENUM(NSInteger, MNFGroupedBy) {
     /**
      @abstract Ungrouped transaction group.
      */
@@ -316,7 +370,7 @@ typedef NS_ENUM(NSInteger,MNFGroupedBy){
     MNFGroupedByCategory,
 };
 
-typedef NS_ENUM(NSInteger,MNFServiceName) {
+typedef NS_ENUM(NSInteger, MNFServiceName) {
     /**
      @abstract Account service includes MNFAccount, MNFAccountAuthorizationType, MNFAccountCategory, MNFAccountHistoryEntry, MNFAccountType
      */
@@ -409,7 +463,7 @@ typedef NS_ENUM(NSInteger,MNFServiceName) {
      @abstract Terms and condition service includes MNFTermsAndConditionType and MNFTermsAndConditions
      */
     MNFServiceNameTerms,
-    
+
     /**
      @abstract Not related to any service, should not be used.
      */
@@ -423,18 +477,18 @@ typedef NS_ENUM(NSInteger,MNFServiceName) {
 ///******************************
 
 #ifndef MNF_DEPRECATED
-#  ifdef __deprecated_msg
-#    define MNF_DEPRECATED(_MSG) __deprecated_msg(_MSG)
-#  else
-#    ifdef __deprecated
-#      define MNF_DEPRECATED(_MSG) __attribute__((deprecated))
-#    else
-#      define MNF_DEPRECATED(_MSG)
-#    endif
-#  endif
+#ifdef __deprecated_msg
+#define MNF_DEPRECATED(_MSG) __deprecated_msg(_MSG)
+#else
+#ifdef __deprecated
+#define MNF_DEPRECATED(_MSG) __attribute__((deprecated))
+#else
+#define MNF_DEPRECATED(_MSG)
+#endif
+#endif
 #endif
 
 #define MNF_DEPRECATED_VER(_MSG, _VER_DEP, _VER_REM) \
-    MNF_DEPRECATED( _MSG " Depracated in version " _VER_DEP ". Will be removed in " _VER_REM ".")
+    MNF_DEPRECATED(_MSG " Depracated in version " _VER_DEP ". Will be removed in " _VER_REM ".")
 
 #define MNF_CLASS_UNAVAILABLE 0

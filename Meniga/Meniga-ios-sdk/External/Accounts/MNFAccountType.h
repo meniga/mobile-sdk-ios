@@ -26,52 +26,52 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The name of the realm account type.
  */
-@property (nonatomic,copy,readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSString *name;
 
 /**
  @abstract The description of the realm account type.
  */
-@property (nonatomic,copy,readonly) NSString *accountDescription;
+@property (nonatomic, copy, readonly) NSString *accountDescription;
 
 /**
  The account category for this account type. 'Unknown', 'Current', 'Credit', 'Savings', 'Loan', 'Wallet', 'Manual.
  */
-@property (nonatomic,copy,readonly) NSString *accountCategory;
+@property (nonatomic, copy, readonly) NSString *accountCategory;
 
 /**
  The account class that is for example used for displaying an image for this account in CSS.
  */
-@property (nonatomic,copy,readonly) NSString *accountClass;
+@property (nonatomic, copy, readonly) NSString *accountClass;
 
 /**
  The id of the organization associated with this account type.
  */
-@property (nonatomic,strong,readonly) NSNumber *organizationId;
+@property (nonatomic, strong, readonly) NSNumber *organizationId;
 
 /**
  This will include information about supported file type extensions and parser class for import account types.
  */
-@property (nonatomic,copy,readonly) MNFImportAccountConfiguration *importAccountConfiguration;
+@property (nonatomic, copy, readonly) MNFImportAccountConfiguration *importAccountConfiguration;
 
 /**
  The id of the realm used to synchronize transactions.
  */
-@property (nonatomic,strong,readonly) NSNumber *realmId;
+@property (nonatomic, strong, readonly) NSNumber *realmId;
 
 /**
  Extra information about the account category, f.x. 'visa' or 'amex' for the 'Credit' account category.
  */
-@property (nonatomic,copy,readonly) NSString *accountCategoryDetails;
+@property (nonatomic, copy, readonly) NSString *accountCategoryDetails;
 
 /**
  True if cashback can be calculated for the account.
  */
-@property (nonatomic,strong,readonly) NSNumber *enableCashback;
+@property (nonatomic, strong, readonly) NSNumber *enableCashback;
 
 /**
  @abstract The account type of the realm account type.
  */
-@property (nonatomic,strong,readonly) NSString *accountType MNF_DEPRECATED("Use account category instead");
+@property (nonatomic, strong, readonly) NSString *accountType MNF_DEPRECATED("Use account category instead");
 
 /**
  @abstract Fetches a list of all realm account types.
@@ -81,7 +81,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of realm account types and an error.
  */
-+ (MNFJob*)fetchAccountTypesWithOrganizationId:(nullable NSNumber*)organizationId completion:(nullable MNFMultipleAccountTypesCompletionHandler)completion;
++ (MNFJob *)fetchAccountTypesWithOrganizationId:(nullable NSNumber *)organizationId
+                                     completion:(nullable MNFMultipleAccountTypesCompletionHandler)completion;
 
 /**
  @abstract Fetches a realm account type with a given identifier.
@@ -91,7 +92,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a realm account type and an error.
  */
-+ (MNFJob*)fetchAccountTypeWithId:(NSNumber *)identifier completion:(nullable MNFAccountTypeCompletionHandler)completion;
++ (MNFJob *)fetchAccountTypeWithId:(NSNumber *)identifier
+                        completion:(nullable MNFAccountTypeCompletionHandler)completion;
 
 @end
 

@@ -11,21 +11,24 @@
 @implementation MNFAccountAuthorizationType
 
 #pragma mark - json delegates
--(NSDictionary*)jsonKeysMapToProperties {
-    return @{@"identifier":@"id"};
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier": @"id" };
 }
 
--(NSSet *)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
+- (NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
 #pragma mark - Description
--(NSString*)description {
-    return [NSString stringWithFormat:@"Account authorization type %@ identifier: %@, name: %@",[super description],self.identifier,self.name];
+- (NSString *)description {
+    return [NSString stringWithFormat:@"Account authorization type %@ identifier: %@, name: %@",
+                                      [super description],
+                                      self.identifier,
+                                      self.name];
 }
 
 @end

@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *UglyCommentTitle;
 @property (nonatomic, strong) NSNumber *UglyCommentId;
 
-+(instancetype)adapterSubDelegateFirstUppercaseTestObjWithCommentId:(NSNumber *)theCommentId commentTitle:(NSString *)theCommentTitle;
++ (instancetype)adapterSubDelegateFirstUppercaseTestObjWithCommentId:(NSNumber *)theCommentId
+                                                        commentTitle:(NSString *)theCommentTitle;
 
 @end

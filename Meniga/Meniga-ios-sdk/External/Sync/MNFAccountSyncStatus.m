@@ -13,11 +13,11 @@
 
 #pragma mark - Json Adapter Delegate
 
--(NSDictionary*)propertyValueTransformers {
-    
-    return @{@"startDate":[MNFBasicDateValueTransformer transformer],
-             @"endDate":[MNFBasicDateValueTransformer transformer]
-             };
+- (NSDictionary *)propertyValueTransformers {
+    return @{
+        @"startDate": [MNFBasicDateValueTransformer transformer],
+        @"endDate": [MNFBasicDateValueTransformer transformer]
+    };
 }
 
 @end

@@ -7,75 +7,72 @@
 //
 
 #import "MNFRouter.h"
-#import "Meniga.h"
-#import "MNFNetwork.h"
+#import "MNFErrorUtils.h"
 #import "MNFJob.h"
 #import "MNFJob_Private.h"
-#import "MNFErrorUtils.h"
 #import "MNFLogger.h"
+#import "MNFNetwork.h"
+#import "Meniga.h"
 
 @implementation MNFRouter
 
-+ (void)initialize
-{
++ (void)initialize {
     if (self == [MNFRouter class]) {
-        
     }
 }
 
-+(MNFJob*)routeRequest:(NSURLRequest *)request withCompletion:(MNFCompletionHandler)completion {
++ (MNFJob *)routeRequest:(NSURLRequest *)request withCompletion:(MNFCompletionHandler)completion {
     [completion copy];
-    
+
     return [self p_routeToServer:request withCompletion:completion];
 }
 
-+(MNFJob*)routeRequest:(NSURLRequest *)request {
-    
++ (MNFJob *)routeRequest:(NSURLRequest *)request {
     return [self p_routeToServer:request];
 }
 
 #pragma mark - Routing To Server
 
-+(MNFJob *)p_routeToServer:(NSURLRequest*)request withCompletion:(MNFCompletionHandler)completion {
++ (MNFJob *)p_routeToServer:(NSURLRequest *)request withCompletion:(MNFCompletionHandler)completion {
     [completion copy];
-    
+
     __block MNFJob *job = [MNFJob jobWithRequest:request];
-    
-    NSObject <MNFAuthenticationProviderProtocol> *provider = [Meniga authenticationProvider];
+
+    NSObject<MNFAuthenticationProviderProtocol> *provider = [Meniga authenticationProvider];
     if ([provider respondsToSelector:@selector(prepareRequest:withCompletion:)]) {
-        [provider prepareRequest:request withCompletion:^(NSURLRequest *postRequest) {
-            [[MNFNetwork sharedNetwork] sendRequest:postRequest withCompletion:^(MNFResponse * _Nonnull response) {
-                
-                [job setResponse:response];
-                
-                if (completion != nil) {
-                    completion(response);
-                }
-            }];
-        }];
-    }
-    else {
-        [[MNFNetwork sharedNetwork] sendRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
-            
-            [job setResponse:response];
-            
-            if (completion != nil) {
-                completion(response);
-            }
-        }];
+        [provider prepareRequest:request
+                  withCompletion:^(NSURLRequest *postRequest) {
+                      [[MNFNetwork sharedNetwork] sendRequest:postRequest
+                                               withCompletion:^(MNFResponse *_Nonnull response) {
+                                                   [job setResponse:response];
+
+                                                   if (completion != nil) {
+                                                       completion(response);
+                                                   }
+                                               }];
+                  }];
+    } else {
+        [[MNFNetwork sharedNetwork] sendRequest:request
+                                 withCompletion:^(MNFResponse *_Nonnull response) {
+                                     [job setResponse:response];
+
+                                     if (completion != nil) {
+                                         completion(response);
+                                     }
+                                 }];
     }
 
     return job;
 }
 
-+(MNFJob*)p_routeToServer:(NSURLRequest*)request {
-    
++ (MNFJob *)p_routeToServer:(NSURLRequest *)request {
     __block MNFJob *job = [MNFJob jobWithRequest:request];
-    
-    [[MNFNetwork sharedNetwork] sendRequest:request withCompletion:^(MNFResponse * _Nonnull response) {
-        [job setResponse:response];
-    }];
-    
+
+    [[MNFNetwork sharedNetwork] sendRequest:request
+                             withCompletion:^(MNFResponse *_Nonnull response) {
+                                 [job setResponse:response];
+                             }];
+
     return job;
 }
 

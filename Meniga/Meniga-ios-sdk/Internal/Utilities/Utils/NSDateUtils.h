@@ -10,10 +10,10 @@
 
 @interface NSDateUtils : NSObject
 
-+(BOOL)isDate:(NSDate*)firstDate equalToDateWithAllComponents:(NSDate *)secondDate;
-+(BOOL)isDate:(NSDate*)firstDate equalToDate:(NSDate *)secondDate withDateComponents:(NSCalendarUnit)components;
-+(BOOL)isDate:(NSDate*)firstDate equalToDayMonthAndYear:(NSDate *)secondDate;
-+(NSDateComponents*)allComponentsFromDate:(NSDate*)date;
-+(NSDateFormatter*)dateFormatter;
++ (BOOL)isDate:(NSDate *)firstDate equalToDateWithAllComponents:(NSDate *)secondDate;
++ (BOOL)isDate:(NSDate *)firstDate equalToDate:(NSDate *)secondDate withDateComponents:(NSCalendarUnit)components;
++ (BOOL)isDate:(NSDate *)firstDate equalToDayMonthAndYear:(NSDate *)secondDate;
++ (NSDateComponents *)allComponentsFromDate:(NSDate *)date;
++ (NSDateFormatter *)dateFormatter;
 
 @end

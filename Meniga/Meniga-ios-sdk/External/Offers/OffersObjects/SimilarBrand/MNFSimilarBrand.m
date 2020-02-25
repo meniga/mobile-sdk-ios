@@ -15,31 +15,27 @@
 
 @implementation MNFSimilarBrandMetaData
 
--(NSDictionary *)propertyValueTransformers {
-    return @{ @"startDate" : [MNFBasicDateValueTransformer transformer], @"endDate" : [MNFBasicDateValueTransformer transformer] };
+- (NSDictionary *)propertyValueTransformers {
+    return @{
+        @"startDate": [MNFBasicDateValueTransformer transformer],
+        @"endDate": [MNFBasicDateValueTransformer transformer]
+    };
 }
 
 @end
 
 @interface MNFSimilarBrand () <MNFJsonAdapterDelegate>
 
-
 @end
 
 @implementation MNFSimilarBrand
 
--(NSDictionary *)propertyKeysMapToJson {
-    
-    return @{
-             @"identifier" : @"id"
-             };
-    
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"identifier": @"id" };
 }
 
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{
-             @"identifier" : @"id"
-             };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier": @"id" };
 }
 
 @end

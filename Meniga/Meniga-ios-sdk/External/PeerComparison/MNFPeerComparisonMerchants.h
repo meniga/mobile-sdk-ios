@@ -10,10 +10,10 @@
 
 @interface MNFPeerComparisonMerchants : MNFObject
 
-@property (nonatomic,copy,readonly) NSString *merchantIdentifier;
-@property (nonatomic,copy,readonly) NSString *name;
-@property (nonatomic,strong,readonly) NSNumber *rank;
-@property (nonatomic,strong,readonly) NSNumber *amount;
-@property (nonatomic,strong,readonly) NSNumber *numberOfVisits;
+@property (nonatomic, copy, readonly) NSString *merchantIdentifier;
+@property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, strong, readonly) NSNumber *rank;
+@property (nonatomic, strong, readonly) NSNumber *amount;
+@property (nonatomic, strong, readonly) NSNumber *numberOfVisits;
 
 @end

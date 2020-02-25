@@ -10,20 +10,19 @@
 
 @implementation MNFSeparateNormalOptionUpdateDelegateObject
 
-
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{ @"postId" : @"uglyId" };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"postId": @"uglyId" };
 }
 
--(NSDictionary *)propertyKeysMapToJson {
-    return @{ @"postId" : @"uglyId" };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"postId": @"uglyId" };
 }
 
--(NSSet*)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObject:@"body"];
 }
 
--(NSSet*)propertiesToIgnoreJsonSerialization {
+- (NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObject:@"body"];
 }
 

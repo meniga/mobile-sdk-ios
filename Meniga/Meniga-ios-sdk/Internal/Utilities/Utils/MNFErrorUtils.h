@@ -10,10 +10,10 @@
 @class MNFObject;
 @interface MNFErrorUtils : NSObject
 
-+(NSError*)errorForDeletedObject:(MNFObject*)deletedObject;
-+(NSError*)errorForUnexpectedDataOfType:(Class)returnedClass expected:(Class)expectedClass;
-+(NSError*)errorForNewObject;
-+(NSError*)errorWithCode:(NSInteger)code message:(NSString*)message;
-+(NSError *)errorWithCode:(NSInteger)code message:(NSString *)message errorInfo:(NSDictionary *)errorInf;
++ (NSError *)errorForDeletedObject:(MNFObject *)deletedObject;
++ (NSError *)errorForUnexpectedDataOfType:(Class)returnedClass expected:(Class)expectedClass;
++ (NSError *)errorForNewObject;
++ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message;
++ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message errorInfo:(NSDictionary *)errorInf;
 
 @end

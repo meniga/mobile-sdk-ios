@@ -11,22 +11,32 @@
 
 @implementation MNFMedia
 
-+(MNFJob*)fetchMediaWithId:(NSString *)identifier width:(NSNumber *)width height:(NSNumber *)height completion:(MNFMediaCompletionHandler)completion {
++ (MNFJob *)fetchMediaWithId:(NSString *)identifier
+                       width:(NSNumber *)width
+                      height:(NSNumber *)height
+                  completion:(MNFMediaCompletionHandler)completion {
     [completion copy];
-    
-    NSString *path = [NSString stringWithFormat:@"%@/%@",kMNFApiPathMedia,identifier];
-    
+
+    NSString *path = [NSString stringWithFormat:@"%@/%@", kMNFApiPathMedia, identifier];
+
     NSMutableDictionary *jsonQuery = [NSMutableDictionary dictionary];
     jsonQuery[@"width"] = width;
     jsonQuery[@"height"] = height;
-    
-    __block MNFJob *job = [self resourceRequestWithPath:path pathQuery:[jsonQuery copy] jsonBody:nil HTTPMethod:kMNFHTTPMethodGET service:MNFServiceNameMedia completion:^(MNFResponse * _Nullable response) {
-        
-        kObjectBlockDataDebugLog;
-        
-        [MNFObject executeOnMainThreadWithJob:job completion:completion parameter:response.rawData error:response.error];
-    }];
-    
+
+    __block MNFJob *job = [self resourceRequestWithPath:path
+                                              pathQuery:[jsonQuery copy]
+                                               jsonBody:nil
+                                             HTTPMethod:kMNFHTTPMethodGET
+                                                service:MNFServiceNameMedia
+                                             completion:^(MNFResponse *_Nullable response) {
+                                                 kObjectBlockDataDebugLog;
+
+                                                 [MNFObject executeOnMainThreadWithJob:job
+                                                                            completion:completion
+                                                                             parameter:response.rawData
+                                                                                 error:response.error];
+                                             }];
+
     return job;
 }
 

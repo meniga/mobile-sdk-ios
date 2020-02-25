@@ -13,13 +13,14 @@
 
 #pragma mark - json adaptor delegate
 
--(NSDictionary*)jsonKeysMapToProperties{
-    return @{@"identifier":@"id"};
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier": @"id" };
 }
--(NSDictionary*)propertyValueTransformers {
-    
-    return @{@"created":[MNFBasicDateValueTransformer transformer],
-             @"modified":[MNFBasicDateValueTransformer transformer]};
+- (NSDictionary *)propertyValueTransformers {
+    return @{
+        @"created": [MNFBasicDateValueTransformer transformer],
+        @"modified": [MNFBasicDateValueTransformer transformer]
+    };
 }
 
 @end

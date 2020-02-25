@@ -14,21 +14,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFDemoUser : MNFObject
 
-+(void)fetchDemoProfileIdsWithCompletion:(void (^)(NSArray <NSDictionary *> * _Nullable listOfIds, NSError * _Nullable error))completion;
-+(void)createDemoUserWithEmail:(nullable NSString *)theEmail password:(nullable NSString *)thePassword culture:(nullable NSString *)theCulture demoProfileId:(NSNumber *)theDemoProfileId completion:(void (^)(NSError * _Nullable error))completion;
-+(void)createRandomDemoUserWithCompletion:(void (^)(NSError * _Nullable error))completion;
-+(void)createRandomUserAndLoginWithCompletion:(void (^)(NSError * _Nullable error))completion;
++ (void)fetchDemoProfileIdsWithCompletion:(void (^)(NSArray<NSDictionary *> *_Nullable listOfIds,
+                                                    NSError *_Nullable error))completion;
++ (void)createDemoUserWithEmail:(nullable NSString *)theEmail
+                       password:(nullable NSString *)thePassword
+                        culture:(nullable NSString *)theCulture
+                  demoProfileId:(NSNumber *)theDemoProfileId
+                     completion:(void (^)(NSError *_Nullable error))completion;
++ (void)createRandomDemoUserWithCompletion:(void (^)(NSError *_Nullable error))completion;
++ (void)createRandomUserAndLoginWithCompletion:(void (^)(NSError *_Nullable error))completion;
 
-+(void)deleteUserWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (void)deleteUserWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
-+(void)startSynchronizationWithWaitTime:(nullable NSNumber *)theWaitTime completion:(void (^)(MNFSynchronization *_Nullable sync, NSError *error))completion;
++ (void)startSynchronizationWithWaitTime:(nullable NSNumber *)theWaitTime
+                              completion:(void (^)(MNFSynchronization *_Nullable sync, NSError *error))completion;
 
-+(void)setCreateDemoUrl:(NSString *)theDemoUrl;
++ (void)setCreateDemoUrl:(NSString *)theDemoUrl;
 
-+(NSString *)email;
-+(NSString *)password;
-+(NSDictionary *)tokenDictionary;
-+(void)setTokenDict:(NSDictionary *)theTokenDict;
++ (NSString *)email;
++ (NSString *)password;
++ (NSDictionary *)tokenDictionary;
++ (void)setTokenDict:(NSDictionary *)theTokenDict;
 
 @end
 

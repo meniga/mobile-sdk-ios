@@ -11,16 +11,16 @@
 
 @interface MNFFeedItemGroup ()
 
-@property (nonatomic,copy,readwrite) NSArray <MNFFeedItem*> *_Nullable feedItems;
-@property (nonatomic,strong,readwrite) NSNumber *_Nullable sum;
-@property (nonatomic,readwrite) MNFGroupedBy groupedBy;
-@property (nonatomic,strong,readwrite) NSDate *_Nullable date;
+@property (nonatomic, copy, readwrite) NSArray<MNFFeedItem *> *_Nullable feedItems;
+@property (nonatomic, strong, readwrite) NSNumber *_Nullable sum;
+@property (nonatomic, readwrite) MNFGroupedBy groupedBy;
+@property (nonatomic, strong, readwrite) NSDate *_Nullable date;
 
 @end
 
 @implementation MNFFeedItemGroup
 
-+(instancetype)groupBy:(MNFGroupedBy)groupedBy withFeedItems:(NSArray *)feedItems {
++ (instancetype)groupBy:(MNFGroupedBy)groupedBy withFeedItems:(NSArray *)feedItems {
     MNFFeedItemGroup *feedItemGroup = [[MNFFeedItemGroup alloc] init];
     feedItemGroup.feedItems = feedItems;
     feedItemGroup.groupedBy = groupedBy;
@@ -30,16 +30,16 @@
             feedItemGroup.date = feedItem.date;
         }
     }
-    
+
     double sum = 0.0;
     for (MNFFeedItem *feedItem in feedItems) {
         if ([feedItem.typeName isEqualToString:@"TransactionFeedItemModel"]) {
-            MNFTransaction *transaction = (MNFTransaction*)feedItem.model;
+            MNFTransaction *transaction = (MNFTransaction *)feedItem.model;
             sum += [transaction.amount doubleValue];
         }
     }
     feedItemGroup.sum = @(sum);
-    
+
     return feedItemGroup;
 }
 

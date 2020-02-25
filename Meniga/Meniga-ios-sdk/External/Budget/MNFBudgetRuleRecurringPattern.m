@@ -11,11 +11,11 @@
 @implementation MNFBudgetRuleRecurringPattern
 
 #pragma mark - json delegate
--(NSSet *)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
+- (NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 

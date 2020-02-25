@@ -12,19 +12,20 @@
 @implementation MNFBudgetFilter
 
 #pragma mark - Json Adapter Delegate
--(NSDictionary*)propertyValueTransformers {
-    return @{@"allowOverlappingDates" : [MNFNumberToBoolValueTransformer transformer],
-             @"includeOptionalHistoricalData" : [MNFNumberToBoolValueTransformer transformer],
-             @"startDate" : [MNFBasicDateValueTransformer transformer],
-             @"endDate" : [MNFBasicDateValueTransformer transformer]
-             };
+- (NSDictionary *)propertyValueTransformers {
+    return @{
+        @"allowOverlappingDates": [MNFNumberToBoolValueTransformer transformer],
+        @"includeOptionalHistoricalData": [MNFNumberToBoolValueTransformer transformer],
+        @"startDate": [MNFBasicDateValueTransformer transformer],
+        @"endDate": [MNFBasicDateValueTransformer transformer]
+    };
 }
 
--(NSSet *)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
+- (NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 

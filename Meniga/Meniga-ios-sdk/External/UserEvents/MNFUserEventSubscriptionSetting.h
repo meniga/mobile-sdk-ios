@@ -12,11 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFUserEventSubscriptionSetting : MNFObject
 
-@property (nonatomic,strong,readonly) NSString *settingsIdentifier;
-@property (nonatomic,strong) NSString *value;
-@property (nonatomic,strong,readonly) NSString *dataType;
+@property (nonatomic, strong, readonly) NSString *settingsIdentifier;
+@property (nonatomic, strong) NSString *value;
+@property (nonatomic, strong, readonly) NSString *dataType;
 
-- (MNFJob*)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

@@ -12,15 +12,11 @@
 
 #pragma mark - json delegate
 
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{@"identifier":@"id",
-             @"configurationDescription":@"description"
-             };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier": @"id", @"configurationDescription": @"description" };
 }
--(NSDictionary *)propertyKeysMapToJson {
-    return @{@"identifier":@"id",
-             @"configurationDescription":@"description"
-             };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"identifier": @"id", @"configurationDescription": @"description" };
 }
 
 @end

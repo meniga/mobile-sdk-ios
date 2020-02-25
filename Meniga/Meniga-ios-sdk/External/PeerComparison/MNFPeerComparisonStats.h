@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFPeerComparisonStats : MNFObject
 
-@property (nonatomic,strong,readonly) NSNumber *transactionAmountAverage;
-@property (nonatomic,strong,readonly) NSNumber *amountSumAverage;
-@property (nonatomic,strong,readonly) NSNumber *transactionCountAverage;
+@property (nonatomic, strong, readonly) NSNumber *transactionAmountAverage;
+@property (nonatomic, strong, readonly) NSNumber *amountSumAverage;
+@property (nonatomic, strong, readonly) NSNumber *transactionCountAverage;
 
 @end
 

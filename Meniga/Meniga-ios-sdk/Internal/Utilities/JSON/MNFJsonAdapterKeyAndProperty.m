@@ -10,17 +10,15 @@
 
 @implementation MNFJsonAdapterKeyAndProperty
 
-
-+(instancetype)jsonAdapterKey:(NSString*)theKey value:(id)theValue {
-    
++ (instancetype)jsonAdapterKey:(NSString *)theKey value:(id)theValue {
     MNFJsonAdapterKeyAndProperty *object = [[MNFJsonAdapterKeyAndProperty alloc] init];
     object.propertyKey = theKey;
     object.propertyValue = theValue;
-    
+
     return object;
 }
 
--(NSString*)description {
+- (NSString *)description {
     return [NSString stringWithFormat:@"propertyKey: %@, propertyValue: %@", self.propertyKey, self.propertyValue];
 }
 

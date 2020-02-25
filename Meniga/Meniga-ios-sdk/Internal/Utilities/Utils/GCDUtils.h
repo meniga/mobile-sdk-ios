@@ -10,6 +10,6 @@
 
 @interface GCDUtils : NSObject
 
-+(void)dispatchAfterTime:(float)theTime completion:(void (^)(void))completion;
++ (void)dispatchAfterTime:(float)theTime completion:(void (^)(void))completion;
 
 @end

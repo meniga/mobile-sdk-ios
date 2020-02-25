@@ -11,12 +11,11 @@
 
 @interface MNFNetworkProtocolForTesting : NSURLProtocol
 
-+(void)setError:(NSError *)theError;
++ (void)setError:(NSError *)theError;
 
-+(void)setDelay;
-+(void)removeDelay;
-+(void)setObjectType:(MNFObjectType)type;
-+(void)setResponseData:(NSData*)data;
-
++ (void)setDelay;
++ (void)removeDelay;
++ (void)setObjectType:(MNFObjectType)type;
++ (void)setResponseData:(NSData *)data;
 
 @end

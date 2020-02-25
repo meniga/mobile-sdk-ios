@@ -18,27 +18,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The net amount of all the transactions in the period
  */
-@property (nonatomic,strong,readonly) NSNumber *nettoAmount;
+@property (nonatomic, strong, readonly) NSNumber *nettoAmount;
 
 /**
  The total positive amount of all the transactions in the period.
  */
-@property (nonatomic,strong,readonly) NSNumber *totalPositive;
+@property (nonatomic, strong, readonly) NSNumber *totalPositive;
 
 /**
  The total negative amount of all the transactions in the period.
  */
-@property (nonatomic,strong,readonly) NSNumber *totalNegative;
+@property (nonatomic, strong, readonly) NSNumber *totalNegative;
 
 /**
  The start date of the period.
  */
-@property (nonatomic,strong,readonly) NSDate *date;
+@property (nonatomic, strong, readonly) NSDate *date;
 
 /**
  The transaction ids of all the transactions in the period.
  */
-@property (nonatomic,strong,readonly) NSArray <NSNumber*> *transactionIds;
+@property (nonatomic, strong, readonly) NSArray<NSNumber *> *transactionIds;
 
 @end
 

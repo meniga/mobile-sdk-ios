@@ -7,21 +7,40 @@
 //
 
 #import "MNFAdapterSubPropertyMappingDelegateUppercaseDelegate.h"
-#import "MNFJsonAdapterSubclassedProperty.h"
 #import "MNFAdapterSubTestDelegateObj.h"
+#import "MNFJsonAdapterSubclassedProperty.h"
 
 @implementation MNFAdapterSubPropertyMappingDelegateUppercaseDelegate
 
--(NSDictionary *)propertyKeysMapToJson {
-    return @{ @"uglyTransactionInfo" : @"transactionInfo", @"uglyTransactionId" : @"transactionId", @"uglyComment" : @"comment", @"allUglyComments" : @"allComments" };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{
+        @"uglyTransactionInfo": @"transactionInfo",
+        @"uglyTransactionId": @"transactionId",
+        @"uglyComment": @"comment",
+        @"allUglyComments": @"allComments"
+    };
 }
 
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{ @"uglyTransactionInfo" : @"transactionInfo", @"uglyTransactionId" : @"transactionId", @"uglyComment" : @"comment", @"allUglyComments" : @"allComments" };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{
+        @"uglyTransactionInfo": @"transactionInfo",
+        @"uglyTransactionId": @"transactionId",
+        @"uglyComment": @"comment",
+        @"allUglyComments": @"allComments"
+    };
 }
 
--(NSDictionary*)subclassedProperties {
-    return @{ @"uglyComment" : [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestDelegateObj class] delegate:[[MNFAdapterSubTestDelegateObj alloc] init] option: kMNFAdapterOptionUppercase], @"allUglyComments" : [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestDelegateObj class] delegate:[[MNFAdapterSubTestDelegateObj alloc] init] option: kMNFAdapterOptionUppercase] };
+- (NSDictionary *)subclassedProperties {
+    return @{
+        @"uglyComment":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestDelegateObj class]
+                                                                 delegate:[[MNFAdapterSubTestDelegateObj alloc] init]
+                                                                   option:kMNFAdapterOptionUppercase],
+        @"allUglyComments":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestDelegateObj class]
+                                                                 delegate:[[MNFAdapterSubTestDelegateObj alloc] init]
+                                                                   option:kMNFAdapterOptionUppercase]
+    };
 }
 
 @end

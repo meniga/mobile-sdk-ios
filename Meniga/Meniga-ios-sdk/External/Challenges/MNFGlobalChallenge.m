@@ -9,7 +9,16 @@
 #import "MNFGlobalChallenge.h"
 
 @implementation MNFGlobalChallenge
--(NSSet *)propertiesToIgnoreJsonSerialization {
-    return [NSSet setWithObjects:@"objectstate",@"deleted",@"dirty",@"isNew",@"keyValueStore",@"mutableProperties",@"identifier",@"targetAmount",@"spentAmount", nil];
+- (NSSet *)propertiesToIgnoreJsonSerialization {
+    return [NSSet setWithObjects:@"objectstate",
+                                 @"deleted",
+                                 @"dirty",
+                                 @"isNew",
+                                 @"keyValueStore",
+                                 @"mutableProperties",
+                                 @"identifier",
+                                 @"targetAmount",
+                                 @"spentAmount",
+                                 nil];
 }
 @end

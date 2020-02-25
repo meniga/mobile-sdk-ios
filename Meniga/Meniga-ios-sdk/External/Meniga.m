@@ -7,9 +7,9 @@
 //
 
 #import "Meniga.h"
-#import "MNFSettings.h"
-#import "MNFLogger.h"
 #import "MNFInternalImports.h"
+#import "MNFLogger.h"
+#import "MNFSettings.h"
 
 #define MNF_SDK_VERSION @"1.0.0"
 
@@ -17,160 +17,152 @@
 
 static MNFSettings *s_settings = nil;
 
-+(NSString*)sdkVersion{
-
++ (NSString *)sdkVersion {
     return MNF_SDK_VERSION;
 }
 
-
-+(void)setAuthenticationProvider:(NSObject<MNFAuthenticationProviderProtocol> *)authenticationProvider {
++ (void)setAuthenticationProvider:(NSObject<MNFAuthenticationProviderProtocol> *)authenticationProvider {
     [self p_settings].authenticationProvider = authenticationProvider;
-    MNFLogInfo(@"Setting authentication provider: %@",authenticationProvider);
-    MNFLogDebug(@"Setting authentication provider: %@",authenticationProvider);
-    MNFLogVerbose(@"Setting authentication provider: %@",authenticationProvider);
-    
+    MNFLogInfo(@"Setting authentication provider: %@", authenticationProvider);
+    MNFLogDebug(@"Setting authentication provider: %@", authenticationProvider);
+    MNFLogVerbose(@"Setting authentication provider: %@", authenticationProvider);
 }
-+(NSObject <MNFAuthenticationProviderProtocol> *)authenticationProvider {
++ (NSObject<MNFAuthenticationProviderProtocol> *)authenticationProvider {
     return [self p_settings].authenticationProvider;
 }
 
-+(void)setAuthenticationProvider:(NSObject<MNFAuthenticationProviderProtocol> *)authenticationProvider forService:(MNFServiceName)service {
-    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@",@(service)];
++ (void)setAuthenticationProvider:(NSObject<MNFAuthenticationProviderProtocol> *)authenticationProvider
+                       forService:(MNFServiceName)service {
+    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@", @(service)];
     [[self p_settings].authenticationProvidersForClasses setObject:authenticationProvider forKey:key];
 }
-+(NSObject <MNFAuthenticationProviderProtocol> *)authenticationProviderForService:(MNFServiceName)service {
-    
-    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@",@(service)];
-    NSObject <MNFAuthenticationProviderProtocol> *authenticationProvider = [[self p_settings].authenticationProvidersForClasses objectForKey:key];
++ (NSObject<MNFAuthenticationProviderProtocol> *)authenticationProviderForService:(MNFServiceName)service {
+    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@", @(service)];
+    NSObject<MNFAuthenticationProviderProtocol> *authenticationProvider =
+        [[self p_settings].authenticationProvidersForClasses objectForKey:key];
     if (authenticationProvider == nil) {
         authenticationProvider = [self p_settings].authenticationProvider;
     }
-    
+
     return authenticationProvider;
 }
 
-+(void)setApiURL:(NSString *)apiURL {
++ (void)setApiURL:(NSString *)apiURL {
     [self p_settings].apiURL = apiURL;
-    
+
     MNFLogInfo(@"Meniga iOS SDK Version: %@", [self sdkVersion]);
     MNFLogDebug(@"Meniga iOS SDK Version: %@", [self sdkVersion]);
     MNFLogVerbose(@"Meniga iOS SDK Version: %@", [self sdkVersion]);
-    
-    MNFLogInfo(@"Setting api URL: %@",apiURL);
-    MNFLogDebug(@"Setting api URL: %@",apiURL);
-    MNFLogVerbose(@"Setting api URL: %@",apiURL);
-    
+
+    MNFLogInfo(@"Setting api URL: %@", apiURL);
+    MNFLogDebug(@"Setting api URL: %@", apiURL);
+    MNFLogVerbose(@"Setting api URL: %@", apiURL);
 }
 
-+(NSString*)apiURL {
++ (NSString *)apiURL {
     return [self p_settings].apiURL;
 }
 
-+(void)setApiURL:(NSString *)apiURL forService:(MNFServiceName)service {
-    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@",@(service)];
++ (void)setApiURL:(NSString *)apiURL forService:(MNFServiceName)service {
+    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@", @(service)];
     [[self p_settings].apiURLsForClasses setObject:apiURL forKey:key];
 }
 
-+(NSString*)apiURLForService:(MNFServiceName)service {
-    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@",@(service)];
++ (NSString *)apiURLForService:(MNFServiceName)service {
+    NSString *key = [NSString stringWithFormat:@"MenigaServiceName%@", @(service)];
     NSString *url = [[self p_settings].apiURLsForClasses objectForKey:key];
-    
+
     if (url == nil) {
         url = [self p_settings].apiURL;
     }
     return url;
 }
 
-+(NSString *)apiCulture {
-    
++ (NSString *)apiCulture {
     return [self p_settings].culture;
 }
 
-+(void)setApiCulture:(NSString *)culture {
-    
++ (void)setApiCulture:(NSString *)culture {
     [self p_settings].culture = culture;
-    
 }
 
-+(void)setLogLevel:(MNFLogLevel)logLevel {
++ (void)setLogLevel:(MNFLogLevel)logLevel {
     [self p_settings].logLevel = logLevel;
 }
 
-+(MNFLogLevel)logLevel {
++ (MNFLogLevel)logLevel {
     return [self p_settings].logLevel;
 }
 
-+(void)setTimeZone:(NSTimeZone *)timeZone {
++ (void)setTimeZone:(NSTimeZone *)timeZone {
     [self p_settings].timeZone = timeZone;
 }
 
-+(NSTimeZone*)timeZone {
++ (NSTimeZone *)timeZone {
     return [self p_settings].timeZone;
 }
 
-+(void)setRequestTimeoutInterval:(NSTimeInterval)timeout {
++ (void)setRequestTimeoutInterval:(NSTimeInterval)timeout {
     [self p_settings].requestTimeout = timeout;
 }
 
-+(NSTimeInterval)requestTimeoutInterval {
++ (NSTimeInterval)requestTimeoutInterval {
     return [self p_settings].requestTimeout;
 }
 
-+(void)setResourceTimeoutInterval:(NSTimeInterval)timeoutInterval {
++ (void)setResourceTimeoutInterval:(NSTimeInterval)timeoutInterval {
     [self p_settings].resourceTimeout = timeoutInterval;
 }
 
-+(NSTimeInterval)resourceTimeoutInterval {
++ (NSTimeInterval)resourceTimeoutInterval {
     return [self p_settings].resourceTimeout;
 }
 
-+(void)setSessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration {
++ (void)setSessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration {
     [self p_settings].sessionConfiguration = sessionConfiguration;
 }
 
-+(NSURLSessionConfiguration*)sessionConfiguration {
++ (NSURLSessionConfiguration *)sessionConfiguration {
     return [self p_settings].sessionConfiguration;
 }
 
-+(void)setSessionDelegate:(id<NSURLSessionDelegate>)delegate {
++ (void)setSessionDelegate:(id<NSURLSessionDelegate>)delegate {
     [self p_settings].sessionDelegate = delegate;
 }
 
-+(id<NSURLSessionDelegate>)sessionDelegate {
++ (id<NSURLSessionDelegate>)sessionDelegate {
     return [self p_settings].sessionDelegate;
 }
 
-+(void)setNotificationName:(NSString *)notificationName withNotifiactionCenter:(NSNotificationCenter *)notificationCenter forStatusCode:(NSInteger)statusCode {
-    
++ (void)setNotificationName:(NSString *)notificationName
+     withNotifiactionCenter:(NSNotificationCenter *)notificationCenter
+              forStatusCode:(NSInteger)statusCode {
     if (notificationName == nil || notificationCenter == nil) {
         [[self p_settings].notificationNameForStatusCode removeObjectForKey:@(statusCode)];
         [[self p_settings].notificationCenterForStatusCode removeObjectForKey:@(statusCode)];
-    }
-    else {
+    } else {
         [[self p_settings].notificationNameForStatusCode setObject:notificationName forKey:@(statusCode)];
         [[self p_settings].notificationCenterForStatusCode setObject:notificationCenter forKey:@(statusCode)];
     }
 }
 
-+(NSString*)notificationNameForStatusCode:(NSInteger)statusCode {
-    
++ (NSString *)notificationNameForStatusCode:(NSInteger)statusCode {
     return [self p_settings].notificationNameForStatusCode[@(statusCode)];
 }
 
-+(NSNotificationCenter*)notificationCenterForStatusCode:(NSInteger)statusCode {
-    
++ (NSNotificationCenter *)notificationCenterForStatusCode:(NSInteger)statusCode {
     return [self p_settings].notificationCenterForStatusCode[@(statusCode)];
 }
 
 #pragma mark - Private getters
 
-+(MNFSettings*)p_settings {
++ (MNFSettings *)p_settings {
     if (s_settings == nil) {
         s_settings = [[MNFSettings alloc] init];
         s_settings.logLevel = kMNFLogLevelInfo;
         return s_settings;
     }
-    
+
     return s_settings;
 }
 

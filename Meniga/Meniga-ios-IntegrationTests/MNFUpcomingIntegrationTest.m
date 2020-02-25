@@ -9,10 +9,10 @@
 #import <XCTest/XCTest.h>
 #import "MNFIntegrationTestSetup.h"
 #import "MNFUpcoming.h"
-#import "Meniga.h"
 #import "MNFUpcomingComment.h"
 #import "MNFUpcomingPattern.h"
 #import "MNFUpcomingRecurringPattern.h"
+#import "Meniga.h"
 
 @interface MNFUpcomingIntegrationTest : MNFIntegrationTestSetup
 
@@ -29,198 +29,272 @@
     [super tearDown];
 }
 
--(void)testFetchMultipleUpcoming {
-    
+- (void)testFetchMultipleUpcoming {
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
-    
-    MNFJob *job = [MNFUpcoming createUpcomingWithText:@"Upcoming test" amountInCurrency:@100 currencyCode:@"GBP" date:[NSDate date] accountId:nil categoryId:nil isFlagged:nil isWatched:nil recurringPattern:nil completion:^(NSArray<MNFUpcoming *> * _Nullable upcomings, NSError * _Nullable error) {
-        
-        XCTAssertNotNil(upcomings);
+
+    MNFJob *job = [MNFUpcoming
+        createUpcomingWithText:@"Upcoming test"
+              amountInCurrency:@100
+                  currencyCode:@"GBP"
+                          date:[NSDate date]
+                     accountId:nil
+                    categoryId:nil
+                     isFlagged:nil
+                     isWatched:nil
+              recurringPattern:nil
+                    completion:^(NSArray<MNFUpcoming *> *_Nullable upcomings, NSError *_Nullable error) {
+                        XCTAssertNotNil(upcomings);
+                        XCTAssertNil(error);
+
+                        MNFJob *secondJob =
+                            [MNFUpcoming fetchUpcomingFromDate:[NSDate date]
+                                                        toDate:[NSDate dateWithTimeIntervalSinceNow:10 * 24 * 60 * 60]
+                                                    completion:^(NSArray<MNFUpcoming *> *_Nullable upcomings,
+                                                                 NSError *_Nullable error) {
+                                                        XCTAssertNil(error);
+                                                        XCTAssertNotNil(upcomings);
+                                                        [expectation fulfill];
+                                                    }];
+
+                        [secondJob
+                            handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
+                                XCTAssertNil(error);
+                            }];
+                    }];
+
+    [job handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
         XCTAssertNil(error);
-        
-        MNFJob *secondJob = [MNFUpcoming fetchUpcomingFromDate:[NSDate date] toDate:[NSDate dateWithTimeIntervalSinceNow:10*24*60*60] completion:^(NSArray<MNFUpcoming *> * _Nullable upcomings, NSError * _Nullable error) {
-            XCTAssertNil(error);
-            XCTAssertNotNil(upcomings);
-            [expectation fulfill];
-        }];
-        
-        [secondJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-            XCTAssertNil(error);
-        }];
     }];
-    
-    [job handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-        XCTAssertNil(error);
-    }];
-    
+
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 
--(void)testFetchSingleUpcoming {
+- (void)testFetchSingleUpcoming {
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
-    
-    MNFJob *job = [MNFUpcoming createUpcomingWithText:@"Upcoming test" amountInCurrency:@100 currencyCode:@"GBP" date:[NSDate date] accountId:nil categoryId:nil isFlagged:nil isWatched:nil recurringPattern:nil completion:^(NSArray<MNFUpcoming *> * _Nullable upcomings, NSError * _Nullable error) {
-        
-        XCTAssertNotNil(upcomings);
+
+    MNFJob *job = [MNFUpcoming
+        createUpcomingWithText:@"Upcoming test"
+              amountInCurrency:@100
+                  currencyCode:@"GBP"
+                          date:[NSDate date]
+                     accountId:nil
+                    categoryId:nil
+                     isFlagged:nil
+                     isWatched:nil
+              recurringPattern:nil
+                    completion:^(NSArray<MNFUpcoming *> *_Nullable upcomings, NSError *_Nullable error) {
+                        XCTAssertNotNil(upcomings);
+                        XCTAssertNil(error);
+
+                        MNFJob *secondJob = [MNFUpcoming
+                            fetchUpcomingWithId:[upcomings firstObject].identifier
+                                     completion:^(MNFUpcoming *_Nullable upcoming, NSError *_Nullable error) {
+                                         XCTAssertNil(error);
+                                         XCTAssertNotNil(upcoming);
+                                         [expectation fulfill];
+                                     }];
+
+                        [secondJob
+                            handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
+                                XCTAssertNil(error);
+                            }];
+                    }];
+
+    [job handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
         XCTAssertNil(error);
-        
-        MNFJob *secondJob = [MNFUpcoming fetchUpcomingWithId:[upcomings firstObject].identifier completion:^(MNFUpcoming * _Nullable upcoming, NSError * _Nullable error) {
-            XCTAssertNil(error);
-            XCTAssertNotNil(upcoming);
-            [expectation fulfill];
-        }];
-        
-        [secondJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-            XCTAssertNil(error);
-        }];
     }];
-    
-    [job handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-        XCTAssertNil(error);
-    }];
-    
+
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 
--(void)testDeleteUpcoming {
+- (void)testDeleteUpcoming {
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
-    
-    MNFJob *job = [MNFUpcoming createUpcomingWithText:@"Upcoming test" amountInCurrency:@100 currencyCode:@"GBP" date:[NSDate date] accountId:nil categoryId:nil isFlagged:nil isWatched:nil recurringPattern:nil completion:^(NSArray<MNFUpcoming *> * _Nullable upcomings, NSError * _Nullable error) {
-        
-        XCTAssertNotNil(upcomings);
+
+    MNFJob *job = [MNFUpcoming
+        createUpcomingWithText:@"Upcoming test"
+              amountInCurrency:@100
+                  currencyCode:@"GBP"
+                          date:[NSDate date]
+                     accountId:nil
+                    categoryId:nil
+                     isFlagged:nil
+                     isWatched:nil
+              recurringPattern:nil
+                    completion:^(NSArray<MNFUpcoming *> *_Nullable upcomings, NSError *_Nullable error) {
+                        XCTAssertNotNil(upcomings);
+                        XCTAssertNil(error);
+
+                        MNFJob *secondJob =
+                            [[upcomings firstObject] deleteUpcomingWithCompletion:^(NSError *_Nullable error) {
+                                XCTAssertNil(error);
+                                XCTAssertTrue([upcomings firstObject].isDeleted);
+                                [expectation fulfill];
+                            }];
+
+                        [secondJob
+                            handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
+                                XCTAssertNil(error);
+                            }];
+                    }];
+
+    [job handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
         XCTAssertNil(error);
-        
-        MNFJob *secondJob = [[upcomings firstObject] deleteUpcomingWithCompletion:^(NSError * _Nullable error) {
-            XCTAssertNil(error);
-            XCTAssertTrue([upcomings firstObject].isDeleted);
-            [expectation fulfill];
-        }];
-        
-        [secondJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-            XCTAssertNil(error);
-        }];
     }];
-    
-    [job handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-        XCTAssertNil(error);
-    }];
-    
+
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 
--(void)testSaveUpcoming {
+- (void)testSaveUpcoming {
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
-    
-    MNFJob *job = [MNFUpcoming createUpcomingWithText:@"Upcoming test" amountInCurrency:@100 currencyCode:@"GBP" date:[NSDate date] accountId:nil categoryId:nil isFlagged:nil isWatched:nil recurringPattern:nil completion:^(NSArray<MNFUpcoming *> * _Nullable upcomings, NSError * _Nullable error) {
-        
-        XCTAssertNotNil(upcomings);
+
+    MNFJob *job = [MNFUpcoming
+        createUpcomingWithText:@"Upcoming test"
+              amountInCurrency:@100
+                  currencyCode:@"GBP"
+                          date:[NSDate date]
+                     accountId:nil
+                    categoryId:nil
+                     isFlagged:nil
+                     isWatched:nil
+              recurringPattern:nil
+                    completion:^(NSArray<MNFUpcoming *> *_Nullable upcomings, NSError *_Nullable error) {
+                        XCTAssertNotNil(upcomings);
+                        XCTAssertNil(error);
+
+                        MNFUpcoming *upcoming = [upcomings firstObject];
+                        upcoming.text = @"New text";
+                        XCTAssertTrue(upcoming.isDirty);
+
+                        MNFJob *secondJob = [upcoming saveAllInSeries:NO
+                                                       withCompletion:^(NSError *_Nullable error) {
+                                                           XCTAssertNil(error);
+                                                           XCTAssertTrue(!upcoming.isDirty);
+                                                           XCTAssertEqualObjects(upcoming.text, @"New text");
+                                                           [expectation fulfill];
+                                                       }];
+
+                        [secondJob
+                            handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
+                                XCTAssertNil(error);
+                            }];
+                    }];
+
+    [job handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
         XCTAssertNil(error);
-        
-        MNFUpcoming *upcoming = [upcomings firstObject];
-        upcoming.text = @"New text";
-        XCTAssertTrue(upcoming.isDirty);
-        
-        MNFJob *secondJob = [upcoming saveAllInSeries:NO withCompletion:^(NSError * _Nullable error) {
-            XCTAssertNil(error);
-            XCTAssertTrue(!upcoming.isDirty);
-            XCTAssertEqualObjects(upcoming.text, @"New text");
-            [expectation fulfill];
-        }];
-        
-        [secondJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-            XCTAssertNil(error);
-        }];
     }];
-    
-    [job handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-        XCTAssertNil(error);
-    }];
-    
+
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 
--(void)testPostComment {
+- (void)testPostComment {
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
-    
-    MNFJob *job = [MNFUpcoming createUpcomingWithText:@"Upcoming test" amountInCurrency:@100 currencyCode:@"GBP" date:[NSDate date] accountId:nil categoryId:nil isFlagged:nil isWatched:nil recurringPattern:nil completion:^(NSArray<MNFUpcoming *> * _Nullable upcomings, NSError * _Nullable error) {
-        
-        XCTAssertNotNil(upcomings);
+
+    MNFJob *job = [MNFUpcoming
+        createUpcomingWithText:@"Upcoming test"
+              amountInCurrency:@100
+                  currencyCode:@"GBP"
+                          date:[NSDate date]
+                     accountId:nil
+                    categoryId:nil
+                     isFlagged:nil
+                     isWatched:nil
+              recurringPattern:nil
+                    completion:^(NSArray<MNFUpcoming *> *_Nullable upcomings, NSError *_Nullable error) {
+                        XCTAssertNotNil(upcomings);
+                        XCTAssertNil(error);
+
+                        MNFUpcoming *upcoming = [upcomings firstObject];
+                        upcoming.text = @"New text";
+                        XCTAssertTrue(upcoming.isDirty);
+
+                        MNFJob *secondJob = [upcoming postComment:@"Upcoming comment"
+                                                   withCompletion:^(NSError *_Nullable error) {
+                                                       XCTAssertNil(error);
+                                                       XCTAssertTrue(upcoming.comments.count > 0);
+                                                       MNFUpcomingComment *comment = [upcoming.comments firstObject];
+                                                       XCTAssertEqualObjects(comment.comment, @"Upcoming comment");
+                                                       [expectation fulfill];
+                                                   }];
+
+                        [secondJob
+                            handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
+                                XCTAssertNil(error);
+                            }];
+                    }];
+
+    [job handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
         XCTAssertNil(error);
-        
-        MNFUpcoming *upcoming = [upcomings firstObject];
-        upcoming.text = @"New text";
-        XCTAssertTrue(upcoming.isDirty);
-        
-        MNFJob *secondJob = [upcoming postComment:@"Upcoming comment" withCompletion:^(NSError * _Nullable error) {
-            XCTAssertNil(error);
-            XCTAssertTrue(upcoming.comments.count > 0);
-            MNFUpcomingComment *comment = [upcoming.comments firstObject];
-            XCTAssertEqualObjects(comment.comment, @"Upcoming comment");
-            [expectation fulfill];
-        }];
-        
-        [secondJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-            XCTAssertNil(error);
-        }];
     }];
-    
-    [job handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-        XCTAssertNil(error);
-    }];
-    
+
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 
--(void)testDefaultAccountIds {
+- (void)testDefaultAccountIds {
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
-    
-    
-    [MNFAccount fetchAccountsWithFilter: [[MNFAccountFilter alloc] init] completion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
-        MNFJob *job = [MNFUpcoming setDefaultAccountId:[accounts firstObject].identifier withCompletion:^(NSError * _Nullable error) {
-            XCTAssertNil(error);
-            MNFJob *secondJob = [MNFUpcoming fetchDefaultAccountIdWithCompletion:^(NSNumber * _Nullable accountId, NSError * _Nullable error) {
-                XCTAssertNil(error);
-                XCTAssertEqualObjects([accounts firstObject].identifier, accountId);
-                [expectation fulfill];
-            }];
-            
-            [secondJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-                XCTAssertNil(error);
-            }];
-        }];
-        
-        [job handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-            XCTAssertNil(error);
-        }];
-    }];
-    
+
+    [MNFAccount
+        fetchAccountsWithFilter:[[MNFAccountFilter alloc] init]
+                     completion:^(NSArray<MNFAccount *> *_Nullable accounts, NSError *_Nullable error) {
+                         MNFJob *job = [MNFUpcoming
+                             setDefaultAccountId:[accounts firstObject].identifier
+                                  withCompletion:^(NSError *_Nullable error) {
+                                      XCTAssertNil(error);
+                                      MNFJob *secondJob =
+                                          [MNFUpcoming fetchDefaultAccountIdWithCompletion:^(
+                                                           NSNumber *_Nullable accountId, NSError *_Nullable error) {
+                                              XCTAssertNil(error);
+                                              XCTAssertEqualObjects([accounts firstObject].identifier, accountId);
+                                              [expectation fulfill];
+                                          }];
+
+                                      [secondJob
+                                          handleCompletion:^(
+                                              id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
+                                              XCTAssertNil(error);
+                                          }];
+                                  }];
+
+                         [job handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
+                             XCTAssertNil(error);
+                         }];
+                     }];
+
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 
--(void)testIncludedAccountIds {
+- (void)testIncludedAccountIds {
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
-    
-    [MNFAccount fetchAccountsWithFilter: [[MNFAccountFilter alloc] init] completion:^(NSArray<MNFAccount *> * _Nullable accounts, NSError * _Nullable error) {
-        MNFJob *job = [MNFUpcoming setIncludedAccountIds:[NSString stringWithFormat:@"%@",[accounts firstObject].identifier] withCompletion:^(NSError * _Nullable error) {
-            XCTAssertNil(error);
-            MNFJob *secondJob = [MNFUpcoming fetchIncludedAccountIdsWithCompletion:^(NSArray<NSNumber *> * _Nullable accountIds, NSError * _Nullable error) {
-                XCTAssertNil(error);
-                XCTAssertNotNil(accountIds);
-                XCTAssertTrue(accountIds.count > 0);
-                XCTAssertEqualObjects([accounts firstObject].identifier, [accountIds firstObject]);
-                [expectation fulfill];
-            }];
-            
-            [secondJob handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-                XCTAssertNil(error);
-            }];
-        }];
-        
-        [job handleCompletion:^(id  _Nullable result, id  _Nullable metaData, NSError * _Nullable error) {
-            XCTAssertNil(error);
-        }];
-    }];
-    
+
+    [MNFAccount
+        fetchAccountsWithFilter:[[MNFAccountFilter alloc] init]
+                     completion:^(NSArray<MNFAccount *> *_Nullable accounts, NSError *_Nullable error) {
+                         MNFJob *job = [MNFUpcoming
+                             setIncludedAccountIds:[NSString stringWithFormat:@"%@", [accounts firstObject].identifier]
+                                    withCompletion:^(NSError *_Nullable error) {
+                                        XCTAssertNil(error);
+                                        MNFJob *secondJob = [MNFUpcoming
+                                            fetchIncludedAccountIdsWithCompletion:^(
+                                                NSArray<NSNumber *> *_Nullable accountIds, NSError *_Nullable error) {
+                                                XCTAssertNil(error);
+                                                XCTAssertNotNil(accountIds);
+                                                XCTAssertTrue(accountIds.count > 0);
+                                                XCTAssertEqualObjects([accounts firstObject].identifier,
+                                                                      [accountIds firstObject]);
+                                                [expectation fulfill];
+                                            }];
+
+                                        [secondJob
+                                            handleCompletion:^(
+                                                id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
+                                                XCTAssertNil(error);
+                                            }];
+                                    }];
+
+                         [job handleCompletion:^(id _Nullable result, id _Nullable metaData, NSError *_Nullable error) {
+                             XCTAssertNil(error);
+                         }];
+                     }];
+
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 

@@ -11,9 +11,8 @@
 
 @implementation MNFTransactionSeriesValue
 
-
 #pragma mark - json adapter delegate
--(NSDictionary*)propertyValueTransformers {
-    return @{@"date":[MNFBasicDateValueTransformer transformer]};
+- (NSDictionary *)propertyValueTransformers {
+    return @{ @"date": [MNFBasicDateValueTransformer transformer] };
 }
 @end

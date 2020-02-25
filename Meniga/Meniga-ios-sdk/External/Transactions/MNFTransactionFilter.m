@@ -15,8 +15,7 @@
 
 @implementation MNFTransactionFilter
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         //Defaults to required fields
@@ -42,50 +41,104 @@
 }
 
 #pragma mark - Description
--(NSString*)description {
-    return [NSString stringWithFormat:@"Transaction filter %@ accountIds: %@, accountIdentifiers: %@, counterpartyAccountIdentifiers: %@, categoryIds: %@, categoryTypes: %@, onlyUnread: %@, onlyFlagged: %@, onlyUncertain: %@, onlyUncategorized: %@, onlyUncleared: %@, uncertainOrFlagged: %@, hideExcluded: %@, insertedBefore: %@, periodFrom: %@, periodTo: %@, originalPeriodFrom: %@, originalPeriodTo: %@, amountFrom: %@, amountTo: %@, searchText: %@, transactionDescription: %@, currency: %@, comment: %@, tags: %@, orderBy: %@, parsedDataNameToOrderBy: %@, ascendingOrder: %@, useAbsoluteAmountSearch: %@, useAndSearchForTags: %@, useEqualsSearchForBankId: %@, useAmountInCurrencySearch: %@, useExactDescription: %@, useExactMerchantTexts: %@, useAccentInsensitiveSearch: %@, merchantIds: %@, excludeMerchantIds: %@, merchantTexts: %@, parsedData: %@, parsedDataExactKeys: %@, useParentMerchantIds: %@, excludeMerchantTexts: %@, bankIds: %@, ids: %@, fields: %@",[super description],self.accountIds,self.accountIdentifiers,self.counterpartyAccountIdentifiers,self.categoryIds,self.categoryTypes,self.onlyUnread,self.onlyFlagged,self.onlyUncertain,self.onlyUncategorized, self.onlyUncleared ,self.uncertainOrFlagged,self.hideExcluded,self.insertedBefore,self.periodFrom,self.periodTo,self.originalPeriodFrom,self.originalPeriodTo,self.amountFrom,self.amountTo,self.searchText,self.transactionDescription,self.currency,self.comment,self.tags,self.orderBy,self.parsedDataNameToOrderBy,self.ascendingOrder,self.useAbsoluteAmountSearch,self.useAndSearchForTags,self.useEqualsSearchForBankId,self.useAmountInCurrencySearch,self.useExactDescription,self.useExactMerchantTexts,self.useAccentInsensitiveSearch,self.merchantIds,self.excludeMerchantIds,self.merchantTexts,self.parsedData,self.parsedDataExactKeys,self.useParentMerchantIds,self.excludeMerchantIds,self.bankIds,self.ids,self.fields];
+- (NSString *)description {
+    return [NSString
+        stringWithFormat:
+            @"Transaction filter %@ accountIds: %@, accountIdentifiers: %@, counterpartyAccountIdentifiers: %@, "
+            @"categoryIds: %@, categoryTypes: %@, onlyUnread: %@, onlyFlagged: %@, onlyUncertain: %@, "
+            @"onlyUncategorized: %@, onlyUncleared: %@, uncertainOrFlagged: %@, hideExcluded: %@, insertedBefore: %@, "
+            @"periodFrom: %@, periodTo: %@, originalPeriodFrom: %@, originalPeriodTo: %@, amountFrom: %@, amountTo: "
+            @"%@, searchText: %@, transactionDescription: %@, currency: %@, comment: %@, tags: %@, orderBy: %@, "
+            @"parsedDataNameToOrderBy: %@, ascendingOrder: %@, useAbsoluteAmountSearch: %@, useAndSearchForTags: %@, "
+            @"useEqualsSearchForBankId: %@, useAmountInCurrencySearch: %@, useExactDescription: %@, "
+            @"useExactMerchantTexts: %@, useAccentInsensitiveSearch: %@, merchantIds: %@, excludeMerchantIds: %@, "
+            @"merchantTexts: %@, parsedData: %@, parsedDataExactKeys: %@, useParentMerchantIds: %@, "
+            @"excludeMerchantTexts: %@, bankIds: %@, ids: %@, fields: %@",
+            [super description],
+            self.accountIds,
+            self.accountIdentifiers,
+            self.counterpartyAccountIdentifiers,
+            self.categoryIds,
+            self.categoryTypes,
+            self.onlyUnread,
+            self.onlyFlagged,
+            self.onlyUncertain,
+            self.onlyUncategorized,
+            self.onlyUncleared,
+            self.uncertainOrFlagged,
+            self.hideExcluded,
+            self.insertedBefore,
+            self.periodFrom,
+            self.periodTo,
+            self.originalPeriodFrom,
+            self.originalPeriodTo,
+            self.amountFrom,
+            self.amountTo,
+            self.searchText,
+            self.transactionDescription,
+            self.currency,
+            self.comment,
+            self.tags,
+            self.orderBy,
+            self.parsedDataNameToOrderBy,
+            self.ascendingOrder,
+            self.useAbsoluteAmountSearch,
+            self.useAndSearchForTags,
+            self.useEqualsSearchForBankId,
+            self.useAmountInCurrencySearch,
+            self.useExactDescription,
+            self.useExactMerchantTexts,
+            self.useAccentInsensitiveSearch,
+            self.merchantIds,
+            self.excludeMerchantIds,
+            self.merchantTexts,
+            self.parsedData,
+            self.parsedDataExactKeys,
+            self.useParentMerchantIds,
+            self.excludeMerchantIds,
+            self.bankIds,
+            self.ids,
+            self.fields];
 }
 
 #pragma mark - Json Adapter Delegate
 
--(NSDictionary*)propertyKeysMapToJson{
-    return @{@"transactionDescription" : @"description"
-             };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"transactionDescription": @"description" };
 }
 
--(NSDictionary *)jsonKeysMapToProperties {
-    
-    return @{ @"transactionDescription" : @"description" };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"transactionDescription": @"description" };
 }
 
--(NSDictionary*)propertyValueTransformers {
-    return @{@"ascendingOrder":[MNFNumberToBoolValueTransformer transformer],
-             @"hideExcluded":[MNFNumberToBoolValueTransformer transformer],
-             @"onlyFlagged":[MNFNumberToBoolValueTransformer transformer],
-             @"onlyUncategorized":[MNFNumberToBoolValueTransformer transformer],
-             @"onlyUncertain":[MNFNumberToBoolValueTransformer transformer],
-             @"onlyUnread":[MNFNumberToBoolValueTransformer transformer],
-             @"onlyUncleared":[MNFNumberToBoolValueTransformer transformer],
-             @"uncertainOrFlagged":[MNFNumberToBoolValueTransformer transformer],
-             @"useAbsoluteAmountSearch":[MNFNumberToBoolValueTransformer transformer],
-             @"useAccentInsensitiveSearch":[MNFNumberToBoolValueTransformer transformer],
-             @"useAmountInCurrencySearch":[MNFNumberToBoolValueTransformer transformer],
-             @"useAndSearchForTags":[MNFNumberToBoolValueTransformer transformer],
-             @"useEqualsSearchForBankId":[MNFNumberToBoolValueTransformer transformer],
-             @"useExactDescription":[MNFNumberToBoolValueTransformer transformer],
-             @"useExactMerchantTexts":[MNFNumberToBoolValueTransformer transformer],
-             @"useParentMerchantIds":[MNFNumberToBoolValueTransformer transformer],
-             @"periodFrom":[MNFBasicDateValueTransformer transformer],
-             @"periodTo":[MNFBasicDateValueTransformer transformer]
-             };
+- (NSDictionary *)propertyValueTransformers {
+    return @{
+        @"ascendingOrder": [MNFNumberToBoolValueTransformer transformer],
+        @"hideExcluded": [MNFNumberToBoolValueTransformer transformer],
+        @"onlyFlagged": [MNFNumberToBoolValueTransformer transformer],
+        @"onlyUncategorized": [MNFNumberToBoolValueTransformer transformer],
+        @"onlyUncertain": [MNFNumberToBoolValueTransformer transformer],
+        @"onlyUnread": [MNFNumberToBoolValueTransformer transformer],
+        @"onlyUncleared": [MNFNumberToBoolValueTransformer transformer],
+        @"uncertainOrFlagged": [MNFNumberToBoolValueTransformer transformer],
+        @"useAbsoluteAmountSearch": [MNFNumberToBoolValueTransformer transformer],
+        @"useAccentInsensitiveSearch": [MNFNumberToBoolValueTransformer transformer],
+        @"useAmountInCurrencySearch": [MNFNumberToBoolValueTransformer transformer],
+        @"useAndSearchForTags": [MNFNumberToBoolValueTransformer transformer],
+        @"useEqualsSearchForBankId": [MNFNumberToBoolValueTransformer transformer],
+        @"useExactDescription": [MNFNumberToBoolValueTransformer transformer],
+        @"useExactMerchantTexts": [MNFNumberToBoolValueTransformer transformer],
+        @"useParentMerchantIds": [MNFNumberToBoolValueTransformer transformer],
+        @"periodFrom": [MNFBasicDateValueTransformer transformer],
+        @"periodTo": [MNFBasicDateValueTransformer transformer]
+    };
 }
 
-
--(NSSet *)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
+- (NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 

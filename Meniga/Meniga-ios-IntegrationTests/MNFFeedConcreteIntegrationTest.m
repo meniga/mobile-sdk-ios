@@ -7,10 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "MNFIntegrationAuthProvider.h"
-#import "MNFNetwork.h"
 #import "MENIGAAuthentication.h"
 #import "MNFDemoUser.h"
+#import "MNFIntegrationAuthProvider.h"
+#import "MNFNetwork.h"
 #import "Meniga.h"
 
 @interface MNFFeedConcreteIntegrationTest : XCTestCase
@@ -21,22 +21,22 @@
 
 - (void)setUp {
     [super setUp];
-    
+
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-    
+
     [Meniga setApiURL:@"http://api.test.meniga.net/v1"];
-    
-    [MENIGAAuthentication loginWithUsername:@"ue@meniga.is" password:@"123456" withCompletion:^(NSDictionary *tokenDict, NSError *error) {
-        
-        [MNFDemoUser setTokenDict: [tokenDict objectForKey:@"data"] ];
-        [Meniga setAuthenticationProvider: [[MNFIntegrationAuthProvider alloc] init] ];
-        
-        dispatch_semaphore_signal(semaphore);
-        
-    }];
-    
+
+    [MENIGAAuthentication loginWithUsername:@"ue@meniga.is"
+                                   password:@"123456"
+                             withCompletion:^(NSDictionary *tokenDict, NSError *error) {
+                                 [MNFDemoUser setTokenDict:[tokenDict objectForKey:@"data"]];
+                                 [Meniga setAuthenticationProvider:[[MNFIntegrationAuthProvider alloc] init]];
+
+                                 dispatch_semaphore_signal(semaphore);
+                             }];
+
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    
+
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -50,16 +50,18 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
--(void)testGetFeed {
-    
-    XCTestExpectation *expecation = [self expectationWithDescription: NSStringFromSelector(_cmd) ];
-    
-    [MNFFeed fetchFromDate: [NSDate dateWithTimeIntervalSinceNow:- 30 * 24 * 60 * 60] toDate: [NSDate date] skip:@0 take:@0 withCompletion:^(MNFFeed *feed, NSError *error) {
-       
-//        NSLog(@"the feed is: %@", feed);
-        [expecation fulfill];
-    }];
-    
+- (void)testGetFeed {
+    XCTestExpectation *expecation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
+
+    [MNFFeed fetchFromDate:[NSDate dateWithTimeIntervalSinceNow:-30 * 24 * 60 * 60]
+                    toDate:[NSDate date]
+                      skip:@0
+                      take:@0
+            withCompletion:^(MNFFeed *feed, NSError *error) {
+                //        NSLog(@"the feed is: %@", feed);
+                [expecation fulfill];
+            }];
+
     [self waitForExpectationsWithTimeout:10 handler:nil];
 }
 

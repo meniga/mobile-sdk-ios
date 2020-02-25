@@ -11,25 +11,32 @@
 
 @implementation MNFEventTracking
 
-+(MNFJob*)trackEventWithType:(NSString*)type state:(NSString*)state identifier:(nullable NSNumber*)identifier media:(nullable NSString*)media completion:(nullable MNFErrorOnlyCompletionHandler)completion{
-    
++ (MNFJob *)trackEventWithType:(NSString *)type
+                         state:(NSString *)state
+                    identifier:(nullable NSNumber *)identifier
+                         media:(nullable NSString *)media
+                    completion:(nullable MNFErrorOnlyCompletionHandler)completion {
     NSMutableDictionary *jsonDict = [NSMutableDictionary new];
     jsonDict[@"trackingType"] = type;
     jsonDict[@"trackingState"] = state;
     jsonDict[@"trackerId"] = identifier;
     jsonDict[@"media"] = media;
-    
-    NSData *jsonDate = [MNFJsonAdapter JSONDataFromDictionary:jsonDict];
-    
-    __block MNFJob *job = [self apiRequestWithPath:kMNFApiPathEventTracking pathQuery:nil jsonBody:jsonDate HTTPMethod:kMNFHTTPMethodPOST service:MNFServiceNamePeerComparison completion:^(MNFResponse * _Nullable response) {
-        
-        kObjectBlockDataDebugLog;
-        [MNFObject executeOnMainThreadWithJob:job completion:completion error:response.error];
 
-    }];
-    
+    NSData *jsonDate = [MNFJsonAdapter JSONDataFromDictionary:jsonDict];
+
+    __block MNFJob *job = [self apiRequestWithPath:kMNFApiPathEventTracking
+                                         pathQuery:nil
+                                          jsonBody:jsonDate
+                                        HTTPMethod:kMNFHTTPMethodPOST
+                                           service:MNFServiceNamePeerComparison
+                                        completion:^(MNFResponse *_Nullable response) {
+                                            kObjectBlockDataDebugLog;
+                                            [MNFObject executeOnMainThreadWithJob:job
+                                                                       completion:completion
+                                                                            error:response.error];
+                                        }];
+
     return job;
-    
 }
 
 @end

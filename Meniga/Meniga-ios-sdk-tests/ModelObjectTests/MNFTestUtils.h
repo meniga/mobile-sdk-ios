@@ -12,8 +12,9 @@
 
 @interface MNFTestUtils : NSObject
 
-+(BOOL)validateApiModel:(NSDictionary*)apiModel withModelObject:(id <MNFJsonAdapterDelegate>)modelObject;
-+(BOOL)validateFilterParameters:(NSArray <NSDictionary*>*)filterParameters withModelObject:(id <MNFJsonAdapterDelegate>)modelObject;
-+(BOOL)validateApiSerialization:(NSDictionary*)json withModelObject:(NSObject <MNFJsonAdapterDelegate> *)modelObject;
++ (BOOL)validateApiModel:(NSDictionary *)apiModel withModelObject:(id<MNFJsonAdapterDelegate>)modelObject;
++ (BOOL)validateFilterParameters:(NSArray<NSDictionary *> *)filterParameters
+                 withModelObject:(id<MNFJsonAdapterDelegate>)modelObject;
++ (BOOL)validateApiSerialization:(NSDictionary *)json withModelObject:(NSObject<MNFJsonAdapterDelegate> *)modelObject;
 
 @end

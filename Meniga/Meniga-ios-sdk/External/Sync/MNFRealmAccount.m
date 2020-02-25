@@ -17,22 +17,34 @@
 
 #pragma mark - SDK Serialization
 
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{ @"identifier" : @"id" };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier": @"id" };
 }
 
--(NSDictionary *)propertyKeysMapToJson {
-    return @{ @"identifier" : @"id" };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"identifier": @"id" };
 }
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
-    
-    return [NSSet setWithObjects:@"objectstate", @"mutableProperties", @"keyValueStore", @"deleted", @"isNew", @"dirty", @"identifier", nil];
+- (NSSet *)propertiesToIgnoreJsonSerialization {
+    return [NSSet setWithObjects:@"objectstate",
+                                 @"mutableProperties",
+                                 @"keyValueStore",
+                                 @"deleted",
+                                 @"isNew",
+                                 @"dirty",
+                                 @"identifier",
+                                 nil];
 }
 
--(NSSet *)propertiesToIgnoreJsonDeserialization {
-    
-    return [NSSet setWithObjects:@"objectstate", @"mutableProperties", @"keyValueStore", @"deleted", @"isNew", @"dirty", @"identifier", nil];
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
+    return [NSSet setWithObjects:@"objectstate",
+                                 @"mutableProperties",
+                                 @"keyValueStore",
+                                 @"deleted",
+                                 @"isNew",
+                                 @"dirty",
+                                 @"identifier",
+                                 nil];
 }
 
 @end

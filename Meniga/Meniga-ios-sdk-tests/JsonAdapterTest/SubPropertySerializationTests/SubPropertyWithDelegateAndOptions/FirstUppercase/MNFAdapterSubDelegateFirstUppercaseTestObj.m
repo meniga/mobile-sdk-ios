@@ -10,23 +10,21 @@
 
 @implementation MNFAdapterSubDelegateFirstUppercaseTestObj
 
-+(instancetype)adapterSubDelegateFirstUppercaseTestObjWithCommentId:(NSNumber *)theCommentId commentTitle:(NSString *)theCommentTitle {
-    
++ (instancetype)adapterSubDelegateFirstUppercaseTestObjWithCommentId:(NSNumber *)theCommentId
+                                                        commentTitle:(NSString *)theCommentTitle {
     MNFAdapterSubDelegateFirstUppercaseTestObj *instance = [[MNFAdapterSubDelegateFirstUppercaseTestObj alloc] init];
     instance.UglyCommentId = theCommentId;
     instance.UglyCommentTitle = theCommentTitle;
-    
+
     return instance;
-    
 }
 
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{ @"UglyCommentTitle" : @"CommentTitle", @"UglyCommentId" : @"CommentId" };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"UglyCommentTitle": @"CommentTitle", @"UglyCommentId": @"CommentId" };
 }
 
--(NSDictionary*)propertyKeysMapToJson {
-    return @{ @"UglyCommentTitle" : @"CommentTitle", @"UglyCommentId" : @"CommentId" };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"UglyCommentTitle": @"CommentTitle", @"UglyCommentId": @"CommentId" };
 }
-
 
 @end

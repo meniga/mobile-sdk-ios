@@ -12,17 +12,20 @@
 
 #pragma mark - Json Adapter Delegate
 
--(NSSet *)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
+- (NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
 #pragma mark - Description
--(NSString*)description {
-    return [NSString stringWithFormat:@"Category score %@ categoryId: %@, score: %@",[super description],self.categoryId,self.score];
+- (NSString *)description {
+    return [NSString stringWithFormat:@"Category score %@ categoryId: %@, score: %@",
+                                      [super description],
+                                      self.categoryId,
+                                      self.score];
 }
 
 @end

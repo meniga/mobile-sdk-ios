@@ -11,17 +11,16 @@
 
 @implementation MNFJsonAdapterTestValueTransformerDelegate
 
--(id)initWithName:(NSString *)theName birthday:(NSDate *)theBirthday {
-    
+- (id)initWithName:(NSString *)theName birthday:(NSDate *)theBirthday {
     if (self = [super init]) {
         _name = theName;
         _birthday = theBirthday;
     }
-    
+
     return self;
 }
 
--(id)init {
+- (id)init {
     if (self = [super init]) {
         _name = nil;
         _birthday = nil;
@@ -29,8 +28,8 @@
     return self;
 }
 
--(NSDictionary *)propertyValueTransformers {
-    return @{ @"birthday" : [MNFJsonAdaoterTestTransformer transformer]};
+- (NSDictionary *)propertyValueTransformers {
+    return @{ @"birthday": [MNFJsonAdaoterTestTransformer transformer] };
 }
 
 @end

@@ -11,20 +11,29 @@
 
 @implementation MNFAdapterMainTestObject
 
-+(instancetype)adapterMainTestObjectWithTransactionId:(NSNumber *)theTransactionId transactionInfo:(NSString *)theTransactionInfo comment:(MNFAdapterSubTestObject *)theComment allComments:(NSArray<MNFAdapterSubTestObject *> *)theComments {
-    
++ (instancetype)adapterMainTestObjectWithTransactionId:(NSNumber *)theTransactionId
+                                       transactionInfo:(NSString *)theTransactionInfo
+                                               comment:(MNFAdapterSubTestObject *)theComment
+                                           allComments:(NSArray<MNFAdapterSubTestObject *> *)theComments {
     MNFAdapterMainTestObject *mainObj = [[MNFAdapterMainTestObject alloc] init];
-    
+
     mainObj.transactionId = theTransactionId;
     mainObj.transactionInfo = theTransactionInfo;
     mainObj.comment = theComment;
     mainObj.allComments = theComments;
-    
+
     return mainObj;
 }
 
--(NSDictionary*)subclassedProperties {
-    return @{ @"comment" : [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestObject class] delegate:nil option:kMNFAdapterOptionNoOption], @"allComments" : [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestObject class] delegate:nil option:kMNFAdapterOptionNoOption] };
+- (NSDictionary *)subclassedProperties {
+    return @{
+        @"comment": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestObject class]
+                                                                         delegate:nil
+                                                                           option:kMNFAdapterOptionNoOption],
+        @"allComments": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestObject class]
+                                                                             delegate:nil
+                                                                               option:kMNFAdapterOptionNoOption]
+    };
 }
 
 @end

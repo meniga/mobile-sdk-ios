@@ -15,6 +15,6 @@
  
  @warning Make sure the classes are identical or a crash will occur.
  */
-+(void)updateMNFObject:(id)objectToUpdate withMNFObject:(id)object;
++ (void)updateMNFObject:(id)objectToUpdate withMNFObject:(id)object;
 
 @end

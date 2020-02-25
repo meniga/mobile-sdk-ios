@@ -17,6 +17,9 @@
 @property (nonatomic, strong) MNFAdapterSubTestObject *comment;
 @property (nonatomic, strong) NSArray *allComments;
 
-+(instancetype)adapterMainTestObjectWithTransactionId:(NSNumber*)theTransactionId transactionInfo:(NSString *)theTransactionInfo comment:(MNFAdapterSubTestObject *)theComment allComments:(NSArray <MNFAdapterSubTestObject *> *)theComments;
++ (instancetype)adapterMainTestObjectWithTransactionId:(NSNumber *)theTransactionId
+                                       transactionInfo:(NSString *)theTransactionInfo
+                                               comment:(MNFAdapterSubTestObject *)theComment
+                                           allComments:(NSArray<MNFAdapterSubTestObject *> *)theComments;
 
 @end

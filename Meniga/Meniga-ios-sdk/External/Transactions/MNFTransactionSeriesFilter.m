@@ -13,23 +13,34 @@
 
 #pragma mark - Json Adapter Delegate
 
--(NSDictionary*)propertyValueTransformers {
-    return @{@"overTime":[MNFNumberToBoolValueTransformer transformer],
-             @"includeTransactions":[MNFNumberToBoolValueTransformer transformer],
-             @"includeTransactionIds":[MNFNumberToBoolValueTransformer transformer]};
+- (NSDictionary *)propertyValueTransformers {
+    return @{
+        @"overTime": [MNFNumberToBoolValueTransformer transformer],
+        @"includeTransactions": [MNFNumberToBoolValueTransformer transformer],
+        @"includeTransactionIds": [MNFNumberToBoolValueTransformer transformer]
+    };
 }
 
--(NSSet *)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
+- (NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
 #pragma mark - Description
--(NSString*)description {
-    return [NSString stringWithFormat:@"Transaction series filter %@ transactionFilter: %@, timeResolution: %@, overTime: %@, includeTransactions: %@, includeTransactionIds: %@, seriesSelectors: %@",[super description],self.transactionFilter,self.timeResolution,self.overTime,self.includeTransactions,self.includeTransactionIds,self.seriesSelectors];
+- (NSString *)description {
+    return
+        [NSString stringWithFormat:@"Transaction series filter %@ transactionFilter: %@, timeResolution: %@, overTime: "
+                                   @"%@, includeTransactions: %@, includeTransactionIds: %@, seriesSelectors: %@",
+                                   [super description],
+                                   self.transactionFilter,
+                                   self.timeResolution,
+                                   self.overTime,
+                                   self.includeTransactions,
+                                   self.includeTransactionIds,
+                                   self.seriesSelectors];
 }
 
 @end

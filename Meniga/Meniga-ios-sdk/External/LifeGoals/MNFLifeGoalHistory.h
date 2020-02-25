@@ -15,77 +15,77 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The id of the life goal.
  */
-@property (nonatomic,strong,readonly) NSNumber *lifeGoalId;
+@property (nonatomic, strong, readonly) NSNumber *lifeGoalId;
 
 /**
  The time stamp of the change that generated this record.
  */
-@property (nonatomic,strong,readonly) NSDate *processingDate;
+@property (nonatomic, strong, readonly) NSDate *processingDate;
 
 /**
  The name of the life goal at the time of the change.
  */
-@property (nonatomic,copy,readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSString *name;
 
 /**
  The priority of the life goal at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSNumber *priority;
+@property (nonatomic, strong, readonly) NSNumber *priority;
 
 /**
  The target date of the life goal at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSDate *targetDate;
+@property (nonatomic, strong, readonly) NSDate *targetDate;
 
 /**
  The account balance at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSNumber *accountBalance;
+@property (nonatomic, strong, readonly) NSNumber *accountBalance;
 
 /**
  The id of the icon for the life goal at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSNumber *iconId;
+@property (nonatomic, strong, readonly) NSNumber *iconId;
 
 /**
  The intercept amount of the life goal at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSNumber *interceptAmount;
+@property (nonatomic, strong, readonly) NSNumber *interceptAmount;
 
 /**
  The target amount of the life goal at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSNumber *targetAmount;
+@property (nonatomic, strong, readonly) NSNumber *targetAmount;
 
 /**
  The amount allocated to the life goal at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSNumber *currentAmount;
+@property (nonatomic, strong, readonly) NSNumber *currentAmount;
 
 /**
  The estimated recurring amount for the life goal at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSNumber *recurringAmount;
+@property (nonatomic, strong, readonly) NSNumber *recurringAmount;
 
 /**
  Whether the life goal has been deleted at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSNumber *isDeleted;
+@property (nonatomic, strong, readonly) NSNumber *isDeleted;
 
 /**
  Whether the life goal is achieved at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSNumber *isAchieved;
+@property (nonatomic, strong, readonly) NSNumber *isAchieved;
 
 /**
  Whether the life goal is withdrawn at the time of the change.
  */
-@property (nonatomic,strong,readonly) NSNumber *isWithdrawn;
+@property (nonatomic, strong, readonly) NSNumber *isWithdrawn;
 
 /**
  The life goal data at the time of the change.
  */
-@property (nonatomic,copy,readonly) NSString *lifeGoalData;
+@property (nonatomic, copy, readonly) NSString *lifeGoalData;
 
 @end
 

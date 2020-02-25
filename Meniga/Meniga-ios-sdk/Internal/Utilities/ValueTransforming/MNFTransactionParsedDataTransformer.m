@@ -10,40 +10,36 @@
 
 @implementation MNFTransactionParsedDataTransformer
 
-+(instancetype)transformer {
++ (instancetype)transformer {
     MNFTransactionParsedDataTransformer *trans = [[MNFTransactionParsedDataTransformer alloc] init];
-    
+
     return trans;
 }
 
-+(BOOL)allowsReverseTransformation {
++ (BOOL)allowsReverseTransformation {
     return YES;
 }
 
--(id)transformedValue:(id)value {
-    
+- (id)transformedValue:(id)value {
     if ([value isKindOfClass:[NSDictionary class]]) {
         return value;
-    }
-    else if (![value isKindOfClass:[NSArray class]]) {
+    } else if (![value isKindOfClass:[NSArray class]]) {
         return nil;
     }
-    
+
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    NSArray *parsedData = (NSArray*)value;
-    
+    NSArray *parsedData = (NSArray *)value;
+
     for (NSDictionary *parsedDataEntries in parsedData) {
         id key = parsedDataEntries[@"key"];
         id value = parsedDataEntries[@"value"];
         dictionary[key] = value;
     }
-    
+
     return [dictionary copy];
-    
 }
 
--(id)reverseTransformedValue:(id)value {
-    
+- (id)reverseTransformedValue:(id)value {
     return value;
 }
 

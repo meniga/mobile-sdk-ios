@@ -12,18 +12,18 @@
 @interface MNFKeychain : NSObject
 
 //Encryption key storage
-+(void)saveData:(NSData*)data forKey:(NSString*)key;
-+(id)loadDataForKey:(NSString*)key;
-+(void)deleteDataForKey:(NSString*)key;
++ (void)saveData:(NSData *)data forKey:(NSString *)key;
++ (id)loadDataForKey:(NSString *)key;
++ (void)deleteDataForKey:(NSString *)key;
 
 //Password storage
-+(void)savePassword:(NSString*)password;
-+(NSString*)loadPassword;
-+(void)deletePassword;
++ (void)savePassword:(NSString *)password;
++ (NSString *)loadPassword;
++ (void)deletePassword;
 
 //Token storage
-+(void)saveToken:(NSDictionary*)token;
-+(NSDictionary*)loadToken;
-+(void)deleteToken;
++ (void)saveToken:(NSDictionary *)token;
++ (NSDictionary *)loadToken;
++ (void)deleteToken;
 
 @end

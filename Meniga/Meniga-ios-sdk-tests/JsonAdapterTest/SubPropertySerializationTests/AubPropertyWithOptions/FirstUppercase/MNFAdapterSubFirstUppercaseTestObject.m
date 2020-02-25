@@ -10,14 +10,13 @@
 
 @implementation MNFAdapterSubFirstUppercaseTestObject
 
-+(instancetype)adapterSubFirstUppercaseTestObjWithCommentId:(NSNumber *)theCommentId commentTitle:(NSString *)theCommentTitle {
-    
++ (instancetype)adapterSubFirstUppercaseTestObjWithCommentId:(NSNumber *)theCommentId
+                                                commentTitle:(NSString *)theCommentTitle {
     MNFAdapterSubFirstUppercaseTestObject *instance = [[MNFAdapterSubFirstUppercaseTestObject alloc] init];
     instance.CommentId = theCommentId;
     instance.CommentTitle = theCommentTitle;
-    
+
     return instance;
-    
 }
 
 @end

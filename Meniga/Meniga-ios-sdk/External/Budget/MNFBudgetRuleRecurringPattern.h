@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The monthly interval of the recurrence.
  */
-@property (nonatomic,strong) NSNumber *_Nullable monthInterval;
+@property (nonatomic, strong) NSNumber *_Nullable monthInterval;
 
 @end
 

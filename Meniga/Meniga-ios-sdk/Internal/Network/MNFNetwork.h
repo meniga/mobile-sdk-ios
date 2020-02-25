@@ -16,33 +16,32 @@ typedef void (^MenigaResponseBlock)(MNFResponse *response);
 
 @interface MNFNetwork : NSObject <NSURLSessionDelegate>
 
++ (instancetype)sharedNetwork;
 
-+(instancetype)sharedNetwork;
+- (void)initializeForTesting;
+- (void)flushForTesting;
 
--(void)initializeForTesting;
--(void)flushForTesting;
+- (void)sendRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block;
+- (void)sendRequest:(NSURLRequest *)request overwrite:(BOOL *)overwrite withCompletion:(MenigaResponseBlock)block;
+- (void)sendPriorityRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block;
+- (void)sendDownloadRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block;
 
--(void)sendRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block;
--(void)sendRequest:(NSURLRequest *)request overwrite:(BOOL *)overwrite withCompletion:(MenigaResponseBlock)block;
--(void)sendPriorityRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block;
--(void)sendDownloadRequest:(NSURLRequest *)request withCompletion:(MenigaResponseBlock)block;
+- (void)cancelRequest:(NSURLRequest *)request;
+- (void)cancelRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler;
+- (void)pauseRequest:(NSURLRequest *)request;
+- (void)pauseRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler;
+- (void)resumeRequest:(NSURLRequest *)request;
+- (void)resumeRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler;
 
--(void)cancelRequest:(NSURLRequest *)request;
--(void)cancelRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler;
--(void)pauseRequest:(NSURLRequest *)request;
--(void)pauseRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler;
--(void)resumeRequest:(NSURLRequest *)request;
--(void)resumeRequest:(NSURLRequest *)request withCompletion:(void (^)(void))completionHandler;
+- (void)cancelAllRequests;
+- (void)cancelAllRequestsWithCompletion:(void (^)(void))completionHandler;
+- (void)pauseAllRequests;
+- (void)pauseAllRequestsWithCompletion:(void (^)(void))completionHandler;
+- (void)resumeAllRequests;
+- (void)resumeAllRequestsWithCompletion:(void (^)(void))completionHandler;
 
--(void)cancelAllRequests;
--(void)cancelAllRequestsWithCompletion:(void (^)(void))completionHandler;
--(void)pauseAllRequests;
--(void)pauseAllRequestsWithCompletion:(void (^)(void))completionHandler;
--(void)resumeAllRequests;
--(void)resumeAllRequestsWithCompletion:(void (^)(void))completionHandler;
-
--(void)getAllTasks:(void (^)(NSArray <NSURLSessionDataTask *>* tasks))completion;
--(NSURLSession*)getSession;
+- (void)getAllTasks:(void (^)(NSArray<NSURLSessionDataTask *> *tasks))completion;
+- (NSURLSession *)getSession;
 
 @end
 

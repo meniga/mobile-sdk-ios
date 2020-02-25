@@ -25,12 +25,11 @@
  @discussion This method does not utilize the model objects of the SDK. The MNFResponse returns the deserialized JSON object on success.
  
  */
-+(nonnull MNFJob*)requestWithAPIPath:(nonnull NSString*)path
-                pathQuery:(nullable NSDictionary*)pathQuery
-                 jsonBody:(nullable NSData*)jsonBody
-               HTTPMethod:(nonnull NSString*)httpMethod
-               completion:(nonnull MNFCompletionHandler)completion;
-
++ (nonnull MNFJob *)requestWithAPIPath:(nonnull NSString *)path
+                             pathQuery:(nullable NSDictionary *)pathQuery
+                              jsonBody:(nullable NSData *)jsonBody
+                            HTTPMethod:(nonnull NSString *)httpMethod
+                            completion:(nonnull MNFCompletionHandler)completion;
 
 /**
  @abstract Performs a request to the API with specified path, parameters, JSON payload and HTTP method.
@@ -44,12 +43,11 @@
  @discussion This method does not utilize the model objects of the SDK. The MNFResponse returns the deserialized JSON object on success.
  
  */
-+(nonnull MNFJob*)requestWithBaseUrl:(nonnull NSString*)baseURL
-                             APIPath:(nonnull NSString*)path
-                           pathQuery:(nullable NSDictionary*)pathQuery
-                            jsonBody:(nullable NSData*)jsonBody
-                          HTTPMethod:(nonnull NSString*)httpMethod
-                          completion:(nonnull MNFCompletionHandler)completion;
-
++ (nonnull MNFJob *)requestWithBaseUrl:(nonnull NSString *)baseURL
+                               APIPath:(nonnull NSString *)path
+                             pathQuery:(nullable NSDictionary *)pathQuery
+                              jsonBody:(nullable NSData *)jsonBody
+                            HTTPMethod:(nonnull NSString *)httpMethod
+                            completion:(nonnull MNFCompletionHandler)completion;
 
 @end

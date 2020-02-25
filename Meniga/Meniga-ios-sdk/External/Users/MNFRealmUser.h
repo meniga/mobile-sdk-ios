@@ -24,22 +24,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The user identifier of the realm user.
  */
-@property (nonatomic,copy,readonly) NSString *userIdentifier;
+@property (nonatomic, copy, readonly) NSString *userIdentifier;
 
 /**
  @abstract The realm id.
  */
-@property (nonatomic,strong,readonly) NSNumber *realmId;
+@property (nonatomic, strong, readonly) NSNumber *realmId;
 
 /**
  @abstract The person id.
  */
-@property (nonatomic,strong,readonly) NSNumber *personId;
+@property (nonatomic, strong, readonly) NSNumber *personId;
 
 /**
  @abstract The user id.
  */
-@property (nonatomic,strong,readonly) NSNumber *userId;
+@property (nonatomic, strong, readonly) NSNumber *userId;
 
 ///******************************
 /// @name Fetching
@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of realm users and an error.
  */
-+(MNFJob*)fetchRealmUsersWithCompletion:(nullable MNFMultipleRealmUsersComletionHandler)completion;
++ (MNFJob *)fetchRealmUsersWithCompletion:(nullable MNFMultipleRealmUsersComletionHandler)completion;
 
 ///******************************
 /// @name Deleting
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an error.
  */
--(MNFJob*)deleteRealmUserWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteRealmUserWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

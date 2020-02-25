@@ -12,11 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFURLConstructor : NSObject
 
-+(NSURL *)URLFromBaseUrl:(NSString *)baseURL path:(NSString *)path pathQuery:(nullable NSDictionary *)pathQuery;
++ (NSURL *)URLFromBaseUrl:(NSString *)baseURL path:(NSString *)path pathQuery:(nullable NSDictionary *)pathQuery;
 
-+(NSURL *)URLFromBaseUrl:(NSString *)baseURL path:(NSString *)path pathQuery:(NSDictionary *)pathQuery percentageEncoded:(BOOL)percentageEncoded;
++ (NSURL *)URLFromBaseUrl:(NSString *)baseURL
+                     path:(NSString *)path
+                pathQuery:(NSDictionary *)pathQuery
+        percentageEncoded:(BOOL)percentageEncoded;
 
-+(NSURL *)URLFromBaseUrl:(NSString *)baseURL path:(NSString *)path;
++ (NSURL *)URLFromBaseUrl:(NSString *)baseURL path:(NSString *)path;
 
 @end
 

@@ -22,12 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The target amount for the current global challenge.
  */
-@property (nonatomic,strong,readonly) NSNumber *targetAmount;
+@property (nonatomic, strong, readonly) NSNumber *targetAmount;
 
 /**
  The total spent amount in all categories for the current global challenge.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable spentAmount;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable spentAmount;
 
 @end
 

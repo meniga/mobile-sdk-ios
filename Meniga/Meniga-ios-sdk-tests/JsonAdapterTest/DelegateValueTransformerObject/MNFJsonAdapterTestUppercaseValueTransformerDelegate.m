@@ -11,28 +11,26 @@
 
 @implementation MNFJsonAdapterTestUppercaseValueTransformerDelegate
 
--(id)init {
+- (id)init {
     if (self = [super init]) {
-        
         _NAME = nil;
         _BIRTHDAY = nil;
-        
     }
-    
+
     return self;
 }
 
--(id)initWithName:(NSString *)theName birthday:(NSDate *)theBirthday {
+- (id)initWithName:(NSString *)theName birthday:(NSDate *)theBirthday {
     if (self = [super init]) {
         _NAME = theName;
         _BIRTHDAY = theBirthday;
     }
-    
+
     return self;
 }
 
--(NSDictionary *)propertyValueTransformers {
-    return @{ @"BIRTHDAY" : [MNFJsonAdaoterTestTransformer transformer]};
+- (NSDictionary *)propertyValueTransformers {
+    return @{ @"BIRTHDAY": [MNFJsonAdaoterTestTransformer transformer] };
 }
 
 @end

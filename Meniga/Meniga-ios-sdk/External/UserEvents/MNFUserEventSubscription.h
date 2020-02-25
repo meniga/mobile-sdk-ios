@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFUserEventSubscription : MNFObject
 
-@property (nonatomic,strong,readonly) NSString *channelName;
-@property (nonatomic,strong,readonly) NSNumber *isSubscribed;
-@property (nonatomic,strong,readonly) NSNumber *canUpdateSubscription;
+@property (nonatomic, strong, readonly) NSString *channelName;
+@property (nonatomic, strong, readonly) NSNumber *isSubscribed;
+@property (nonatomic, strong, readonly) NSNumber *canUpdateSubscription;
 
 @end
 

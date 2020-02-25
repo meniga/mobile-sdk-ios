@@ -15,27 +15,20 @@
 
 @implementation MNFOfferTransaction
 
--(NSDictionary *)propertyValueTransformers {
+- (NSDictionary *)propertyValueTransformers {
     return @{
-             @"date" : [MNFBasicDateValueTransformer transformer],
-             @"reimbursementDate" : [MNFBasicDateValueTransformer transformer],
-             @"scheduledReimbursementDate" : [MNFBasicDateValueTransformer transformer]
-             };
+        @"date": [MNFBasicDateValueTransformer transformer],
+        @"reimbursementDate": [MNFBasicDateValueTransformer transformer],
+        @"scheduledReimbursementDate": [MNFBasicDateValueTransformer transformer]
+    };
 }
 
--(NSDictionary *)propertyKeysMapToJson {
-    
-    return @{
-        @"identifier" : @"id"
-        };
-    
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"identifier": @"id" };
 }
 
--(NSDictionary *)jsonKeysMapToProperties {
-    
-    return @{
-             @"identifier" : @"id"
-             };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier": @"id" };
 }
 
 @end

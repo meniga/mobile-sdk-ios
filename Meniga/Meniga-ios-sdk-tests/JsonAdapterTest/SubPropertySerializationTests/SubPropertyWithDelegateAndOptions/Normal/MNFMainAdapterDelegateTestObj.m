@@ -11,28 +11,48 @@
 
 @implementation MNFMainAdapterDelegateTestObj
 
-+(instancetype)adapterDelegateTestObjWithTransactionId:(NSNumber *)theTransactionId transactionInfo:(NSString *)theTransactionInfo comment:(MNFAdapterSubTestDelegateObj *)theComment allComments:(NSArray *)allTheComments {
-    
++ (instancetype)adapterDelegateTestObjWithTransactionId:(NSNumber *)theTransactionId
+                                        transactionInfo:(NSString *)theTransactionInfo
+                                                comment:(MNFAdapterSubTestDelegateObj *)theComment
+                                            allComments:(NSArray *)allTheComments {
     MNFMainAdapterDelegateTestObj *instance = [[MNFMainAdapterDelegateTestObj alloc] init];
     instance.uglyTransactionId = theTransactionId;
     instance.uglyTransactionInfo = theTransactionInfo;
     instance.uglyComment = theComment;
     instance.allUglyComments = allTheComments;
-    
+
     return instance;
-    
 }
 
--(NSDictionary *)propertyKeysMapToJson {
-    return @{ @"uglyTransactionInfo" : @"transactionInfo", @"uglyTransactionId" : @"transactionId", @"uglyComment" : @"comment", @"allUglyComments" : @"allComments" };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{
+        @"uglyTransactionInfo": @"transactionInfo",
+        @"uglyTransactionId": @"transactionId",
+        @"uglyComment": @"comment",
+        @"allUglyComments": @"allComments"
+    };
 }
 
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{ @"uglyTransactionInfo" : @"transactionInfo", @"uglyTransactionId" : @"transactionId", @"uglyComment" : @"comment", @"allUglyComments" : @"allComments" };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{
+        @"uglyTransactionInfo": @"transactionInfo",
+        @"uglyTransactionId": @"transactionId",
+        @"uglyComment": @"comment",
+        @"allUglyComments": @"allComments"
+    };
 }
 
--(NSDictionary*)subclassedProperties {
-    return @{ @"uglyComment" : [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestDelegateObj class] delegate:[[MNFAdapterSubTestDelegateObj alloc] init] option:kMNFAdapterOptionNoOption], @"allUglyComments" : [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestDelegateObj class] delegate:[[MNFAdapterSubTestDelegateObj alloc] init] option:kMNFAdapterOptionNoOption] };
+- (NSDictionary *)subclassedProperties {
+    return @{
+        @"uglyComment":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestDelegateObj class]
+                                                                 delegate:[[MNFAdapterSubTestDelegateObj alloc] init]
+                                                                   option:kMNFAdapterOptionNoOption],
+        @"allUglyComments":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestDelegateObj class]
+                                                                 delegate:[[MNFAdapterSubTestDelegateObj alloc] init]
+                                                                   option:kMNFAdapterOptionNoOption]
+    };
 }
 
 @end

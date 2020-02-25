@@ -24,47 +24,47 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The transaction text for the pattern.
  */
-@property (nonatomic,copy,readonly) NSString *text;
+@property (nonatomic, copy, readonly) NSString *text;
 
 /**
  The amount if the upcoming transaction in the currency of 'CurrencyCode'.
  */
-@property (nonatomic,strong,readonly) NSNumber *amountInCurrency;
+@property (nonatomic, strong, readonly) NSNumber *amountInCurrency;
 
 /**
  The ISO 4217 currency code of the recurring transactions.
  */
-@property (nonatomic,copy,readonly) NSString *currencyCode;
+@property (nonatomic, copy, readonly) NSString *currencyCode;
 
 /**
  The id of the category of the recurring transactions.
  */
-@property (nonatomic,strong,readonly) NSNumber *categoryId;
+@property (nonatomic, strong, readonly) NSNumber *categoryId;
 
 /**
  The id of the account the recurring transactions are expected to be booked from.
  */
-@property (nonatomic,strong,readonly) NSNumber *accountId;
+@property (nonatomic, strong, readonly) NSNumber *accountId;
 
 /**
  Whether the recurring transactions are to be watched.
  */
-@property (nonatomic,strong,readonly) NSNumber *isWatched;
+@property (nonatomic, strong, readonly) NSNumber *isWatched;
 
 /**
  Whether the recurring transactions are to be flagged.
  */
-@property (nonatomic,strong,readonly) NSNumber *isFlagged;
+@property (nonatomic, strong, readonly) NSNumber *isFlagged;
 
 /**
  The recurring type, 'Unknown', 'Detected' or 'Manual'.
  */
-@property (nonatomic,copy,readonly) NSString *type;
+@property (nonatomic, copy, readonly) NSString *type;
 
 /**
  The recurring status, 'Unknown', 'Suggested', 'Accepted' or 'Rejected'.
  */
-@property (nonatomic,copy,readonly) NSString *status;
+@property (nonatomic, copy, readonly) NSString *status;
 
 ///******************************
 /// @name Mutable properties
@@ -78,7 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The date when the pattern finishes repeating.
  */
-@property (nonatomic,strong) NSDate *repeatUntil;
+@property (nonatomic, strong) NSDate *repeatUntil;
 
 ///******************************
 /// @name Fetching
@@ -92,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a recurring pattern and an error.
  */
-+(MNFJob*)fetchWithId:(NSNumber*)identifier completion:(MNFRecurringPatternCompletionHandler)completion;
++ (MNFJob *)fetchWithId:(NSNumber *)identifier completion:(MNFRecurringPatternCompletionHandler)completion;
 
 /**
  Fetches a list of recurring patterns that match the given statuses and types.
@@ -103,7 +103,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a list of recurring patterns and an error.
  */
-+(MNFJob*)fetchRecurringPatternsWithStatuses:(nullable NSString *)statuses types:(nullable NSString *)types completion:(MNFMultipleRecurringPatternsCompletionHandler)completion;
++ (MNFJob *)fetchRecurringPatternsWithStatuses:(nullable NSString *)statuses
+                                         types:(nullable NSString *)types
+                                    completion:(MNFMultipleRecurringPatternsCompletionHandler)completion;
 
 ///******************************
 /// @name Deleting
@@ -118,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @note Remember to deallocate objects that have been deleted from the server.
  */
--(MNFJob*)deleteRecurringPatternWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteRecurringPatternWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

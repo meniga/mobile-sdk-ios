@@ -6,8 +6,8 @@
 //  Copyright © 2016 Meniga. All rights reserved.
 //
 
-#import "MNFObject.h"
 #import "MNFFeedItem.h"
+#import "MNFObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,22 +25,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The feed items in the group.
  */
-@property (nonatomic,copy,readonly) NSArray <MNFFeedItem*> *_Nullable feedItems;
+@property (nonatomic, copy, readonly) NSArray<MNFFeedItem *> *_Nullable feedItems;
 
 /**
  @abstract The sum of all transactions in the group.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable sum;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable sum;
 
 /**
  @abstract The rule by which the feed items are grouped.
  */
-@property (nonatomic,readonly) MNFGroupedBy groupedBy;
+@property (nonatomic, readonly) MNFGroupedBy groupedBy;
 
 /**
  @abstract The date of the group.
  */
-@property (nonatomic,strong,readonly) NSDate *_Nullable date;
+@property (nonatomic, strong, readonly) NSDate *_Nullable date;
 
 ///******************************
 /// @name Initializing
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An instance of MNFFeedItemGroup.
  */
-+(instancetype)groupBy:(MNFGroupedBy)groupedBy withFeedItems:(NSArray*)feedItems;
++ (instancetype)groupBy:(MNFGroupedBy)groupedBy withFeedItems:(NSArray *)feedItems;
 
 @end
 

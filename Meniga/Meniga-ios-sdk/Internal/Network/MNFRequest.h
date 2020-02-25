@@ -12,7 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFRequest : NSObject
 
-+ (NSURLRequest *)urlRequestWithURL:(NSURL *)url httpMethod:(NSString *)httpMethod httpHeaders:(nullable NSDictionary <NSString *,NSString *> *)httpHeaders parameters:(nullable NSData *)parameters;
++ (NSURLRequest *)urlRequestWithURL:(NSURL *)url
+                         httpMethod:(NSString *)httpMethod
+                        httpHeaders:(nullable NSDictionary<NSString *, NSString *> *)httpHeaders
+                         parameters:(nullable NSData *)parameters;
 
 @end
 

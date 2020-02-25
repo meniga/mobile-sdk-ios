@@ -28,7 +28,7 @@
 /**
  @abstract The ids of the merchants
  */
-@property (nonatomic, strong, readonly) NSArray <NSNumber *> *merchantIds;
+@property (nonatomic, strong, readonly) NSArray<NSNumber *> *merchantIds;
 
 /**
  @abstract Expenses listed per categoryId.
@@ -39,6 +39,5 @@
  @abstract Income per categoryId.
  */
 @property (nonatomic, strong, readonly) NSDictionary *incomePerCategory;
-
 
 @end

@@ -15,7 +15,6 @@
 /** A delegate objects can conform to if they want to customize the serialization/deserialization process using delegation. */
 @protocol MNFJsonAdapterDelegate <NSObject>
 
-
 @optional
 
 /**
@@ -26,8 +25,7 @@
  @retun NSDictionary
  
  */
--(NSDictionary *)jsonKeysMapToProperties;
-
+- (NSDictionary *)jsonKeysMapToProperties;
 
 /**
  @description If you want to a property key to be mapped to a new one when you serialize for the json you declare the property name as key and the name you want it mapped to in the value. Example is an object with a property name called name, which he wants mapped to firstName for the serialized json object. you would declare an NSDictionary as such @{ @"name" : @"firstName" }
@@ -37,7 +35,7 @@
  @retun NSDictionary
  
  */
--(NSDictionary *)propertyKeysMapToJson;
+- (NSDictionary *)propertyKeysMapToJson;
 
 /**
  @description If you do not want all the properties of the object to be serialized automatically you can ignore specific properties. Declare the properties you want serialized using NSString in the NSSet.
@@ -46,8 +44,7 @@
  
  @return NSSet
  */
--(NSSet *)propertiesToIgnoreJsonSerialization;
-
+- (NSSet *)propertiesToIgnoreJsonSerialization;
 
 /**
  @description If you do not want all the properties of the object to be deserialized automatically you can ignore specific properties. Declare the properties you want serialized using NSString in the NSSet.
@@ -56,8 +53,7 @@
  
  @return NSSet
  */
--(NSSet *)propertiesToIgnoreJsonDeserialization;
-
+- (NSSet *)propertiesToIgnoreJsonDeserialization;
 
 /**
  @description A delegate method which enables you to declares the properties you want serialized and ignores all other properties. Declare the properties you want serialized using NSString in the NSSet. It still maps the properties using the propertyKeysMapToJson.
@@ -66,8 +62,7 @@
  
  @return NSSet
  */
--(NSSet *)propertiesToSerialize;
-
+- (NSSet *)propertiesToSerialize;
 
 /**
  @description A delegate method which enables you to declares the properties you want deserialized and ignores all other properties. Declare the properties you want deserialized unsing NSString in the NSSet. It still maps the properties using the jsonKeysMapToProperties.
@@ -76,8 +71,7 @@
  
  @return NSSet
  */
--(NSSet *)propertiesToDeserialize;
-
+- (NSSet *)propertiesToDeserialize;
 
 /**
  @description A delegate method which has a key associated with a property of the associated object to serialize, and holds a NSValueTransformer in the dictionary for the given property.
@@ -89,21 +83,20 @@
  @warning if the value transformer does not return the correct type it will cause a runtime exception. The key in the dictionary needs to match the property (case sensitive) or it will be ignored.
  */
 
--(NSDictionary *)propertyValueTransformers;
+- (NSDictionary *)propertyValueTransformers;
 
 /**
  
  @description A delegate method which has a key that represent the property key that you want to be serialized/deserialized
  
  */
--(NSDictionary <NSString *, MNFJsonAdapterSubclassedProperty *> *)subclassedProperties;
-
+- (NSDictionary<NSString *, MNFJsonAdapterSubclassedProperty *> *)subclassedProperties;
 
 /** 
  
  @description A delegate method which returns an object that will be populated with the json information instead of using the default alloc / init on the class object. This is in order to use with f.e. Core Data where you have should not use alloc / init or any other uses where you would like to have a custom initializer for the json adapter populated objects.
  
  */
-+(id)objectToPopulate;
++ (id)objectToPopulate;
 
 @end

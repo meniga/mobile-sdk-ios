@@ -10,19 +10,19 @@
 
 @implementation MNFSeparateFirstUppercaseOptionDelegateObject
 
--(NSDictionary *)propertyKeysMapToJson {
-    return @{ @"UserId" : @"userIdentifier" };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"UserId": @"userIdentifier" };
 }
 
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{ @"UserId" : @"id"};
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"UserId": @"id" };
 }
 
--(NSSet *)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObject:@"Title"];
 }
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
+- (NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObject:@"Title"];
 }
 
