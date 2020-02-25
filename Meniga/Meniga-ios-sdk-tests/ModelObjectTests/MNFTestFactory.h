@@ -10,12 +10,12 @@
 
 @interface MNFTestFactory : NSObject
 
-+(NSDictionary*)apiModelWithDefinition:(NSString*)definition;
-+(NSArray<NSDictionary*>*)filterParametersWithPath:(NSString*)path;
++ (NSDictionary *)apiModelWithDefinition:(NSString *)definition;
++ (NSArray<NSDictionary *> *)filterParametersWithPath:(NSString *)path;
 
-+(NSDictionary*)cashbackapiModelWithDefinition:(NSString*)definition;
-+(NSArray<NSDictionary*>*)cashbackfilterParametersWithPath:(NSString*)path;
++ (NSDictionary *)cashbackapiModelWithDefinition:(NSString *)definition;
++ (NSArray<NSDictionary *> *)cashbackfilterParametersWithPath:(NSString *)path;
 
-+(NSDictionary*)jsonModelWithDefinition:(NSString*)definition;
++ (NSDictionary *)jsonModelWithDefinition:(NSString *)definition;
 
 @end

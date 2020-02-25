@@ -25,32 +25,32 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Description of the realm.
  */
-@property (nonatomic,copy,readonly) NSString *realmDescription;
+@property (nonatomic, copy, readonly) NSString *realmDescription;
 
 /**
  A code that identifies this realm globally.
  */
-@property (nonatomic,copy,readonly) NSString *realmIdentifier;
+@property (nonatomic, copy, readonly) NSString *realmIdentifier;
 
 /**
  The authorization type of this realm. 'None', 'External', 'Internal' or 'ExternalMultifactor'.
  */
-@property (nonatomic,copy,readonly) NSString *authorizationType;
+@property (nonatomic, copy, readonly) NSString *authorizationType;
 
 /**
  The id of a page in the content admin system to link to as a help page for this realm.
  */
-@property (nonatomic,strong,readonly) NSNumber *contentPageId;
+@property (nonatomic, strong, readonly) NSNumber *contentPageId;
 
 /**
  The URL where the external registered takes place.
  */
-@property (nonatomic,copy,readonly) NSString *externalRegistrationUrl;
+@property (nonatomic, copy, readonly) NSString *externalRegistrationUrl;
 
 /**
  Whether to show this realm during signup.
  */
-@property (nonatomic,strong,readonly) NSNumber *showDuringSignup;
+@property (nonatomic, strong, readonly) NSNumber *showDuringSignup;
 
 @end
 

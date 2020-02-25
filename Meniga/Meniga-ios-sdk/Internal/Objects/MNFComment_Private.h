@@ -10,6 +10,6 @@
 
 @interface MNFComment ()
 
-@property (nonatomic,strong,readwrite) NSNumber *transactionId;
+@property (nonatomic, strong, readwrite) NSNumber *transactionId;
 
 @end

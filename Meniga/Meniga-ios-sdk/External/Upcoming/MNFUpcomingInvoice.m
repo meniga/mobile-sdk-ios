@@ -13,22 +13,30 @@
 
 #pragma mark - json adaptor delegate
 
--(NSDictionary*)jsonKeysMapToProperties{
-    return @{@"identifier":@"id",@"invoiceIdentifier":@"identifier"};
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier": @"id", @"invoiceIdentifier": @"identifier" };
 }
 
--(NSDictionary*)propertyValueTransformers {
-    
-    return @{@"issuedDate":[MNFBasicDateValueTransformer transformer],
-             @"dueDate":[MNFBasicDateValueTransformer transformer],
-             @"finalDueDate":[MNFBasicDateValueTransformer transformer],
-             @"bookingDate":[MNFBasicDateValueTransformer transformer]};
+- (NSDictionary *)propertyValueTransformers {
+    return @{
+        @"issuedDate": [MNFBasicDateValueTransformer transformer],
+        @"dueDate": [MNFBasicDateValueTransformer transformer],
+        @"finalDueDate": [MNFBasicDateValueTransformer transformer],
+        @"bookingDate": [MNFBasicDateValueTransformer transformer]
+    };
 }
--(NSSet*)propertiesToIgnoreJsonSerialization {
-    return [NSSet setWithArray:@[@"identifier", @"objectstate",@"description",@"debugDescription",@"superclass",@"mutableProperties"]];
+- (NSSet *)propertiesToIgnoreJsonSerialization {
+    return [NSSet setWithArray:@[
+        @"identifier",
+        @"objectstate",
+        @"description",
+        @"debugDescription",
+        @"superclass",
+        @"mutableProperties"
+    ]];
 }
 
--(NSSet*)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 

@@ -26,72 +26,72 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The identifier of the person corresponding to this user.
  */
-@property (nonatomic,strong,readonly) NSNumber *personId;
+@property (nonatomic, strong, readonly) NSNumber *personId;
 
 /**
  @abstract The preferred culture set for this person.
  */
-@property (nonatomic,copy,readonly) NSString *culture;
+@property (nonatomic, copy, readonly) NSString *culture;
 
 /**
  @abstract The date this person last logged in.
  */
-@property (nonatomic,strong,readonly) NSDate *lastLoginDate;
+@property (nonatomic, strong, readonly) NSDate *lastLoginDate;
 
 /**
  @abstract Whether initial setup has been completed for this user.
  */
-@property (nonatomic,strong,readonly) NSNumber *isInitialSetupDone;
+@property (nonatomic, strong, readonly) NSNumber *isInitialSetupDone;
 
 /**
  @abstract The email for this person.
  */
-@property (nonatomic,copy,readonly) NSString *email;
+@property (nonatomic, copy, readonly) NSString *email;
 
 /**
  @abstract The host where this person last logged in.
  */
-@property (nonatomic,copy,readonly) NSString *lastLoginRemoteHost;
+@property (nonatomic, copy, readonly) NSString *lastLoginRemoteHost;
 
 /**
  @abstract The date this person was created.
  */
-@property (nonatomic,strong,readonly) NSDate *createDate;
+@property (nonatomic, strong, readonly) NSDate *createDate;
 
 /**
  @abstract The id of the terms and condition this person has accepted.
  */
-@property (nonatomic,strong,readonly) NSNumber *termsAndConditionsId;
+@property (nonatomic, strong, readonly) NSNumber *termsAndConditionsId;
 
 /**
  @abstract The date this person acceted the terms and conditions.
  */
-@property (nonatomic,strong,readonly) NSDate *termsAndConditionsAcceptDate;
+@property (nonatomic, strong, readonly) NSDate *termsAndConditionsAcceptDate;
 
 /**
  @abstract The date this perosn opted out of the system.
  */
-@property (nonatomic,strong,readonly) NSDate *optOutDate;
+@property (nonatomic, strong, readonly) NSDate *optOutDate;
 
 /**
  @abstract The users profile.
  */
-@property (nonatomic,strong,readonly) MNFUserProfile *profile;
+@property (nonatomic, strong, readonly) MNFUserProfile *profile;
 
 /**
  @abstract The phone number for this person.
  */
-@property (nonatomic,copy,readonly) NSString *phoneNumber;
+@property (nonatomic, copy, readonly) NSString *phoneNumber;
 
 /**
  @abstract The date when the users password is set to expire.
  */
-@property (nonatomic,strong,readonly) NSDate *passwordExpiryDate;
+@property (nonatomic, strong, readonly) NSDate *passwordExpiryDate;
 
 /**
  @abstract Whether the user should be hidden from search results in admin.
  */
-@property (nonatomic,strong,readonly) NSNumber *hide;
+@property (nonatomic, strong, readonly) NSNumber *hide;
 
 ///******************************
 /// @name Mutable properties
@@ -100,12 +100,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Optional display first name for the current person.
  */
-@property (nonatomic,strong) NSString *_Nullable firstName;
+@property (nonatomic, strong) NSString *_Nullable firstName;
 
 /**
  @abstract Option display surname for the current person.
  */
-@property (nonatomic,strong) NSString *_Nullable lastName;
+@property (nonatomic, strong) NSString *_Nullable lastName;
 
 ///******************************
 /// @name Registering
@@ -121,7 +121,12 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a user and an error.
  */
-+(MNFJob*)registerUserWithEmail:(NSString*)email password:(NSString *)password culture:(NSString*)culture completion:(nullable MNFUserCompletionHandler)completion MNF_DEPRECATED("Use beginRegistration instead and follow with registerUserWithEmail:password:signupToken:culture:completion:");
++ (MNFJob *)registerUserWithEmail:(NSString *)email
+                         password:(NSString *)password
+                          culture:(NSString *)culture
+                       completion:(nullable MNFUserCompletionHandler)completion
+    MNF_DEPRECATED(
+        "Use beginRegistration instead and follow with registerUserWithEmail:password:signupToken:culture:completion:");
 
 /**
  Begin registration of a user with an email.
@@ -131,7 +136,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a user and an error.
  */
-+(MNFJob*)beginRegistrationWithEmail:(NSString*)email completion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (MNFJob *)beginRegistrationWithEmail:(NSString *)email completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Register a user with email, password, signup token and default culture.
@@ -144,7 +149,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a user and an error.
  */
-+(MNFJob*)registerUserWithEmail:(NSString*)email password:(NSString*)password signupToken:(NSString*)signupToken culture:(NSString*)culture completion:(nullable MNFUserCompletionHandler)completion;
++ (MNFJob *)registerUserWithEmail:(NSString *)email
+                         password:(NSString *)password
+                      signupToken:(NSString *)signupToken
+                          culture:(NSString *)culture
+                       completion:(nullable MNFUserCompletionHandler)completion;
 
 ///******************************
 /// @name Fetching
@@ -157,7 +166,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of persons and an error.
  */
-+(MNFJob*)fetchUsersWithCompletion:(nullable MNFMultipleUsersCompletionHandler)completion;
++ (MNFJob *)fetchUsersWithCompletion:(nullable MNFMultipleUsersCompletionHandler)completion;
 
 ///******************************
 /// @name Saving
@@ -170,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an error.
  */
--(MNFJob*)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Deleting
@@ -183,7 +192,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an error.
  */
--(MNFJob*)deleteUserWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteUserWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Refreshing
@@ -196,7 +205,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an error.
  */
--(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Culture
@@ -210,7 +219,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an error.
  */
--(MNFJob*)changeCulture:(NSString*)culture withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)changeCulture:(NSString *)culture withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Opting
@@ -223,7 +232,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an error.
  */
--(MNFJob*)optInWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)optInWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Opts out the current person.
@@ -232,7 +241,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an error.
  */
--(MNFJob*)optOutWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)optOutWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Metadata
@@ -246,7 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of NSDictionary of metadata and an error.
  */
--(MNFJob*)fetchMetaDataForKeys:(NSString*)keys completion:(nullable MNFMultipleMetadataCompletionHandlers)completion;
+- (MNFJob *)fetchMetaDataForKeys:(NSString *)keys completion:(nullable MNFMultipleMetadataCompletionHandlers)completion;
 
 /**
  @abstract Updates user metadata based on the name value.
@@ -257,8 +266,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an error.
  */
--(MNFJob*)updateMetaDataForKey:(NSString*)key value:(NSString*)value completion:(nullable MNFErrorOnlyCompletionHandler)completion;
-
+- (MNFJob *)updateMetaDataForKey:(NSString *)key
+                           value:(NSString *)value
+                      completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

@@ -11,17 +11,12 @@
 @implementation MNFOrganizationRealm
 
 #pragma mark - json delegate
-- (NSDictionary*)jsonKeysMapToProperties {
-    
-    return @{@"identifier" : @"id",
-             @"realmDescription" : @"description",
-             @"realmIdentifier" : @"identifier"};
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier": @"id", @"realmDescription": @"description", @"realmIdentifier": @"identifier" };
 }
 
-- (NSDictionary*)propertyKeysMapToJson {
-    return @{@"identifier" : @"id",
-             @"realmDescription" : @"description",
-             @"realmIdentifier" : @"identifier"};
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"identifier": @"id", @"realmDescription": @"description", @"realmIdentifier": @"identifier" };
 }
 
 @end

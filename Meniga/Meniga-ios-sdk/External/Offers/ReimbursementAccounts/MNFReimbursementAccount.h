@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MNFReimbursementAccountType: MNFObject
+@interface MNFReimbursementAccountType : MNFObject
 
 /**
  @abstract The name of the account type.
@@ -21,21 +21,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFReimbursementAccount : MNFObject
 
-@property (nonatomic,strong,readonly) NSNumber *isActive;
-@property (nonatomic,strong,readonly) NSNumber *isVerified;
+@property (nonatomic, strong, readonly) NSNumber *isActive;
+@property (nonatomic, strong, readonly) NSNumber *isVerified;
 @property (nonatomic, strong, nullable, readonly) NSString *name;
 @property (nonatomic, strong, nullable, readonly) NSString *accountType;
 @property (nonatomic, strong, nullable, readonly) NSString *accountInfo;
 
-+(MNFJob*)fetchReimbursementAccountsIncludesInactive:(NSNumber *)includesInactive completion:(nullable MNFMultipleReimbursementAccountsCompletionHandler)completion MNF_DEPRECATED("Use method with skip and take instead.");
-+(MNFJob*)fetchReimbursementAccountsIncludesInactive:(NSNumber *)includesInactive skip:(nullable NSNumber*)skip take:(nullable NSNumber*)take completion:(nullable MNFMultipleReimbursementAccountsCompletionHandler)completion;
++ (MNFJob *)fetchReimbursementAccountsIncludesInactive:(NSNumber *)includesInactive
+                                            completion:
+                                                (nullable MNFMultipleReimbursementAccountsCompletionHandler)completion
+    MNF_DEPRECATED("Use method with skip and take instead.");
++ (MNFJob *)fetchReimbursementAccountsIncludesInactive:(NSNumber *)includesInactive
+                                                  skip:(nullable NSNumber *)skip
+                                                  take:(nullable NSNumber *)take
+                                            completion:
+                                                (nullable MNFMultipleReimbursementAccountsCompletionHandler)completion;
 
-+(MNFJob *)fetchReimbursementAccountWithId:(NSNumber *)identifier completion:(MNFRemibursementAccountCompletionHandler)completion;
++ (MNFJob *)fetchReimbursementAccountWithId:(NSNumber *)identifier
+                                 completion:(MNFRemibursementAccountCompletionHandler)completion;
 
++ (MNFJob *)createReimbursementAccountWithName:(NSString *)theAccountName
+                                   accountType:(NSString *)theAccountType
+                                   accountInfo:(NSString *)theAccountInfo
+                                withCompletion:(nullable MNFRemibursementAccountCompletionHandler)completion;
 
-+(MNFJob*)createReimbursementAccountWithName:(NSString *)theAccountName accountType:(NSString *)theAccountType accountInfo:(NSString *)theAccountInfo withCompletion:(nullable MNFRemibursementAccountCompletionHandler)completion;
-
-+(MNFJob*)fetchReimbursementAccountTypesWithCompletion:(nullable MNFMultipleReimbursementAccountTypesCompletionHandler)completion;
++ (MNFJob *)fetchReimbursementAccountTypesWithCompletion:
+    (nullable MNFMultipleReimbursementAccountTypesCompletionHandler)completion;
 
 @end
 

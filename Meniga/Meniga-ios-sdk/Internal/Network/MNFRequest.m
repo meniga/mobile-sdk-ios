@@ -10,17 +10,18 @@
 #import "MNFNetwork.h"
 #import "Meniga.h"
 
-
 @implementation MNFRequest
 
-+ (NSURLRequest *)urlRequestWithURL:(NSURL *)url httpMethod:(NSString *)httpMethod httpHeaders:(nullable NSDictionary <NSString *,NSString *> *)httpHeaders parameters:(nullable NSData *)postdata {
-    
++ (NSURLRequest *)urlRequestWithURL:(NSURL *)url
+                         httpMethod:(NSString *)httpMethod
+                        httpHeaders:(nullable NSDictionary<NSString *, NSString *> *)httpHeaders
+                         parameters:(nullable NSData *)postdata {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = httpMethod;
     request.HTTPBody = postdata;
-    
+
     [request setAllHTTPHeaderFields:httpHeaders];
-    
+
     return [request copy];
 }
 

@@ -12,17 +12,27 @@
 
 #pragma mark - Json Adapter Delegate
 
--(NSSet *)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
+- (NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
 #pragma mark - Description
--(NSString*)description {
-    return [NSString stringWithFormat:@"Merchant address %@, city: %@, country: %@, countryCode: %@, latitude: %@, longitude: %@, postalCode: %@, streetLine1: %@, streetLine2: %@",[super description],self.city,self.country,self.countryCode,self.latitude,self.longitude,self.postalCode,self.streetLine1,self.streetLine2];
+- (NSString *)description {
+    return [NSString stringWithFormat:@"Merchant address %@, city: %@, country: %@, countryCode: %@, latitude: %@, "
+                                      @"longitude: %@, postalCode: %@, streetLine1: %@, streetLine2: %@",
+                                      [super description],
+                                      self.city,
+                                      self.country,
+                                      self.countryCode,
+                                      self.latitude,
+                                      self.longitude,
+                                      self.postalCode,
+                                      self.streetLine1,
+                                      self.streetLine2];
 }
 
 @end

@@ -26,37 +26,36 @@ NS_ASSUME_NONNULL_BEGIN
  
  @discussion Each feed item represents a list of transactions on the same date.
  */
-@property (nonatomic,strong,readonly) NSArray <MNFFeedItem *> *_Nullable feedItems;
+@property (nonatomic, strong, readonly) NSArray<MNFFeedItem *> *_Nullable feedItems;
 
 /**
  @abstract Whether the server feed has more data to be fetched.
  */
-@property (nonatomic,readonly) BOOL hasMoreData;
+@property (nonatomic, readonly) BOOL hasMoreData;
 /**
  @abstract The starting date of the feed.
  */
-@property (nonatomic,strong,readonly) NSDate *from;
+@property (nonatomic, strong, readonly) NSDate *from;
 
 /**
  @abstract The final date of the feed.
  */
-@property (nonatomic,strong,readonly) NSDate *to;
+@property (nonatomic, strong, readonly) NSDate *to;
 
 /**
  @abstract If not all items were returned within the specified time range, this field will indicate the date of the last returned item. Else it will be nil. This could happen either if a take value has been passed or the backend hard limit have been reached.
  */
-@property (nonatomic,strong,readonly) NSDate *actualEndDate;
+@property (nonatomic, strong, readonly) NSDate *actualEndDate;
 
 /**
  @abstract Indicates whether there exists more pages when paginating.
  */
-@property (nonatomic,readonly) BOOL hasMorePages;
+@property (nonatomic, readonly) BOOL hasMorePages;
 
 /**
  @abstract Use this value to explicitly state which feed items you would like to show in you. Make the value nil in order to display all topic ids. Defaults to nil.
  */
-@property (nonatomic, strong, nullable) NSArray <NSString *> *topicNamesToDisplay;
-
+@property (nonatomic, strong, nullable) NSArray<NSString *> *topicNamesToDisplay;
 
 ///******************************
 /// @name Pagination
@@ -68,21 +67,21 @@ NS_ASSUME_NONNULL_BEGIN
  @return An MNFJob containing an error or nil.
  @warning Should only be used if take has been used when fetching the feed object
  */
--(MNFJob*)appendPageWithCompletion:(MNFFeedItemsCompletionHandler)completion;
+- (MNFJob *)appendPageWithCompletion:(MNFFeedItemsCompletionHandler)completion;
 
 /**
  @description Replaces the existing feedItems in the feed object with the next page of feed items.
  
  @return An MNFJob containing an error or nil.
  */
--(MNFJob*)nextPageWithCompletion:(void (^)(NSError  * _Nullable error))completion;
+- (MNFJob *)nextPageWithCompletion:(void (^)(NSError *_Nullable error))completion;
 
 /**
  @description Replaces the existing feedItems in the feed object with the previous page of feed items.
  
  @return An MNFJob containing an error or nil.
  */
--(MNFJob*)prevPageWithCompletion:(void (^)(NSError * _Nullable error))completion;
+- (MNFJob *)prevPageWithCompletion:(void (^)(NSError *_Nullable error))completion;
 
 ///******************************
 /// @name Fetching
@@ -99,7 +98,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an MNFFeed or an error.
  */
-+(MNFJob*)fetchFromDate:(NSDate *)from toDate:(NSDate *)to skip:(nullable NSNumber *)skip take:(nullable NSNumber *)take withCompletion:(nullable MNFFeedCompletionHandler)completion;
++ (MNFJob *)fetchFromDate:(NSDate *)from
+                   toDate:(NSDate *)to
+                     skip:(nullable NSNumber *)skip
+                     take:(nullable NSNumber *)take
+           withCompletion:(nullable MNFFeedCompletionHandler)completion;
 
 /**
  @description Fetches the user feed from the server between two dates.
@@ -114,7 +117,13 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an MNFFeed or an error.
  */
-+(MNFJob*)fetchFromDate:(NSDate *)from toDate:(NSDate *)to skip:(nullable NSNumber *)skip take:(nullable NSNumber *)take type:(nullable NSString*)type eventTypeIdentifiers:(nullable NSString*)eventTypeIdentifiers withCompletion:(MNFFeedCompletionHandler)completion;
++ (MNFJob *)fetchFromDate:(NSDate *)from
+                   toDate:(NSDate *)to
+                     skip:(nullable NSNumber *)skip
+                     take:(nullable NSNumber *)take
+                     type:(nullable NSString *)type
+     eventTypeIdentifiers:(nullable NSString *)eventTypeIdentifiers
+           withCompletion:(MNFFeedCompletionHandler)completion;
 
 ///******************************
 /// @name Appending
@@ -128,7 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing the server result or an error.
  */
--(MNFJob*)appendDays:(NSNumber*)days withCompletion:(nullable MNFFeedItemsCompletionHandler)completion;
+- (MNFJob *)appendDays:(NSNumber *)days withCompletion:(nullable MNFFeedItemsCompletionHandler)completion;
 
 ///******************************
 /// @name Refresh
@@ -143,7 +152,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing the server results or an error.
  */
--(MNFJob*)refreshFromServerFromDate:(NSDate*)from toDate:(NSDate*)to withCompletion:(nullable void (^)(NSArray <MNFFeedItem *> *refreshedObjects, NSArray <MNFFeedItem *> *itemsToReplace, NSError *error))completion;
+- (MNFJob *)refreshFromServerFromDate:(NSDate *)from
+                               toDate:(NSDate *)to
+                       withCompletion:(nullable void (^)(NSArray<MNFFeedItem *> *refreshedObjects,
+                                                         NSArray<MNFFeedItem *> *itemsToReplace,
+                                                         NSError *error))completion;
 
 ///******************************
 /// @name Fetch feed types
@@ -156,7 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an array of strings and an error.
  */
-+(MNFJob*)fetchFeedTypesWithCompletion:(nullable MNFFeedTypesCompletionHandler)completion;
++ (MNFJob *)fetchFeedTypesWithCompletion:(nullable MNFFeedTypesCompletionHandler)completion;
 
 ///******************************
 /// @name Fetch feed types by id
@@ -173,7 +186,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an array of strings and an error.
  */
-+(MNFJob*)fetchFeedItemWithFeedType:(NSString*)type identifier:(NSNumber*)identifier withCompletion:(nullable MNFSingleFeedItemCompletionHandler)completion;
++ (MNFJob *)fetchFeedItemWithFeedType:(NSString *)type
+                           identifier:(NSNumber *)identifier
+                       withCompletion:(nullable MNFSingleFeedItemCompletionHandler)completion;
 
 ///******************************
 /// @name Fetch scheduled events
@@ -189,7 +204,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of scheduled events and an error.
  */
-+(MNFJob*)fetchScheduledEventsOfType:(NSString*)type fromDate:(NSDate*)from toDate:(NSDate*)to withCompletion:(nullable MNFMultipleScheduledEventsCompletionHandler)completion;
++ (MNFJob *)fetchScheduledEventsOfType:(NSString *)type
+                              fromDate:(NSDate *)from
+                                toDate:(NSDate *)to
+                        withCompletion:(nullable MNFMultipleScheduledEventsCompletionHandler)completion;
 
 ///******************************
 /// @name Grouping
@@ -198,12 +216,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Groups all feed items by date into feed item groups.
  */
--(void)groupByDate;
+- (void)groupByDate;
 
 /**
  @abstract Ungroups feed item groups back into a list of feed items.
  */
--(void)ungroup;
+- (void)ungroup;
 
 @end
 

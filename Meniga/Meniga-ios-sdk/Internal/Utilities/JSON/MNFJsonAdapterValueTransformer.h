@@ -13,12 +13,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFJsonAdapterValueTransformer : NSValueTransformer
 
-+(instancetype)transformerWithClass:(Class)theClass delegate:(nullable id <MNFJsonAdapterDelegate>)theDelegate option:(MNFAdapterOption)theOption;
++ (instancetype)transformerWithClass:(Class)theClass
+                            delegate:(nullable id<MNFJsonAdapterDelegate>)theDelegate
+                              option:(MNFAdapterOption)theOption;
 
--(instancetype)initWithClass:(Class)theClass delegate:(nullable id <MNFJsonAdapterDelegate> )theDelegate option:(MNFAdapterOption)theOption;
+- (instancetype)initWithClass:(Class)theClass
+                     delegate:(nullable id<MNFJsonAdapterDelegate>)theDelegate
+                       option:(MNFAdapterOption)theOption;
 
--(nullable id)transformedValue:(nullable id)value error:(NSError **)theError;
--(nullable id)reverseTransformedValue:(nullable id)value error:(NSError **)theError;
+- (nullable id)transformedValue:(nullable id)value error:(NSError **)theError;
+- (nullable id)reverseTransformedValue:(nullable id)value error:(NSError **)theError;
 
 @end
 

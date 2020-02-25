@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The name of the account authorization type.
  */
-@property (nonatomic,copy,readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSString *name;
 
 @end
 

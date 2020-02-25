@@ -17,6 +17,9 @@
 @property (nonatomic, strong) MNFAdapterSubUppercaseTestObject *COMMENT;
 @property (nonatomic, strong) NSArray *ALLCOMMENTS;
 
-+(instancetype)adapterMainUppercaseTestObjWithTransactionId:(NSNumber *)theTransactionId transactionInfo:(NSString *)theTransactionInfo comment:(MNFAdapterSubUppercaseTestObject *)theComment allComments:(NSArray *)allTheComments;
++ (instancetype)adapterMainUppercaseTestObjWithTransactionId:(NSNumber *)theTransactionId
+                                             transactionInfo:(NSString *)theTransactionInfo
+                                                     comment:(MNFAdapterSubUppercaseTestObject *)theComment
+                                                 allComments:(NSArray *)allTheComments;
 
 @end

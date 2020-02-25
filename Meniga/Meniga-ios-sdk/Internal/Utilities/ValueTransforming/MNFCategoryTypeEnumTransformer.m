@@ -12,27 +12,21 @@
 
 @implementation MNFCategoryTypeEnumTransformer
 
-+(instancetype)transformer {
-    
++ (instancetype)transformer {
     MNFCategoryTypeEnumTransformer *enumTrans = [[MNFCategoryTypeEnumTransformer alloc] init];
-    
+
     return enumTrans;
-    
 }
 
-
--(id)transformedValue:(id)value {
-    
+- (id)transformedValue:(id)value {
     if (value != nil && [value isKindOfClass:[NSString class]] == YES) {
-        
         NSString *categoryTypeName = (NSString *)value;
-        
+
         NSNumber *categoryTypeNumber = [NSStringUtils createCategoryTypeIdFromString:categoryTypeName];
 
         return categoryTypeNumber;
-        
     }
-    
+
     return nil;
 }
 

@@ -7,21 +7,21 @@
 //
 
 #import "MNFFeedItem.h"
-#import "MNFFeedItem_Private.h"
 #import "MNFFeed.h"
+#import "MNFFeedItem_Private.h"
+#import "MNFInternalImports.h"
 #import "MNFTransaction.h"
 #import "MNFUserEvent.h"
-#import "MNFInternalImports.h"
 
 @implementation MNFFeedItem
 
 @synthesize model;
 
-#pragma  mark - Delegate methods
--(NSDictionary*)propertyValueTransformers {
-    return @{@"date":[MNFBasicDateValueTransformer transformer]};
+#pragma mark - Delegate methods
+- (NSDictionary *)propertyValueTransformers {
+    return @{ @"date": [MNFBasicDateValueTransformer transformer] };
 }
--(NSSet*)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"model", nil];
 }
 

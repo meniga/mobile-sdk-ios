@@ -11,8 +11,8 @@
 
 @interface NSStringUtils : NSObject
 
-+(NSString *)stringWithOption:(MNFAdapterOption)adapterOption fromString:(NSString*)string;
-+(NSString *)randomStringWithLength: (int) len;
-+(NSNumber *)createCategoryTypeIdFromString:(NSString*)string;
++ (NSString *)stringWithOption:(MNFAdapterOption)adapterOption fromString:(NSString *)string;
++ (NSString *)randomStringWithLength:(int)len;
++ (NSNumber *)createCategoryTypeIdFromString:(NSString *)string;
 
 @end

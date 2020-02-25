@@ -7,14 +7,22 @@
 //
 
 #import "MNFAdapterSubPropertyFirstUppercaseOptionDelegate.h"
-#import "MNFJsonAdapterSubclassedProperty.h"
 #import "MNFAdapterSubTestObject.h"
+#import "MNFJsonAdapterSubclassedProperty.h"
 
 @implementation MNFAdapterSubPropertyFirstUppercaseOptionDelegate
 
--(NSDictionary*)subclassedProperties {
-    return @{ @"comment" : [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestObject class] delegate:nil option:kMNFAdapterOptionFirstLetterUppercase], @"allComments" : [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestObject class] delegate:nil option:kMNFAdapterOptionFirstLetterUppercase] };
+- (NSDictionary *)subclassedProperties {
+    return @{
+        @"comment":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestObject class]
+                                                                 delegate:nil
+                                                                   option:kMNFAdapterOptionFirstLetterUppercase],
+        @"allComments":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubTestObject class]
+                                                                 delegate:nil
+                                                                   option:kMNFAdapterOptionFirstLetterUppercase]
+    };
 }
-
 
 @end

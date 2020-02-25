@@ -15,6 +15,6 @@
 @property (nonatomic, strong) NSString *Name;
 @property (nonatomic, strong) NSDate *Birthday;
 
--(id)initWithName:(NSString *)theName birthday:(NSDate *)theBirthday;
+- (id)initWithName:(NSString *)theName birthday:(NSDate *)theBirthday;
 
 @end

@@ -12,12 +12,12 @@
 
 #pragma mark - json adaptor delegate methods
 
--(NSDictionary*)jsonKeysMapToProperties{
-    return @{@"merchantIdentifier":@"id"};
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"merchantIdentifier": @"id" };
 }
 
--(NSDictionary*)propertyKeysMapToJson{
-    return @{@"merchantIdentifier":@"id"};
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"merchantIdentifier": @"id" };
 }
 
 @end

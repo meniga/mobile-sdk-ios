@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) NSDictionary *messageData;
 
-@property (nonatomic,strong,readonly) NSDictionary *dataItem;
+@property (nonatomic, strong, readonly) NSDictionary *dataItem;
 
 /**
  Fetch a user event with an identifier.
@@ -125,8 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a user event and an error.
  */
-+(MNFJob*)fetchWithId:(NSNumber*)identifier completion:(nullable MNFUserEventCompletionHandler)completion;
-
++ (MNFJob *)fetchWithId:(NSNumber *)identifier completion:(nullable MNFUserEventCompletionHandler)completion;
 
 /**
  Fetch a list of user events.
@@ -139,7 +138,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a list of user events and an error.
  */
-+(MNFJob*)fetchFromDate:(nullable NSDate *)from toDate:(nullable NSDate*)to topicName:(nullable NSString*)topicName typeIdentifiers:(nullable NSString*)typeIdentifier completion:(nullable MNFMultipleUserEventsCompletionHandler)completion;
++ (MNFJob *)fetchFromDate:(nullable NSDate *)from
+                   toDate:(nullable NSDate *)to
+                topicName:(nullable NSString *)topicName
+          typeIdentifiers:(nullable NSString *)typeIdentifier
+               completion:(nullable MNFMultipleUserEventsCompletionHandler)completion;
 
 /**
  Subscribe to a list of user events on a given channel.
@@ -150,7 +153,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
-+ (MNFJob *)subscribeToUserEvents:(NSArray <NSString *> *)userEventTypeIdentifiers onChannel:(NSString *)channelName withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (MNFJob *)subscribeToUserEvents:(NSArray<NSString *> *)userEventTypeIdentifiers
+                        onChannel:(NSString *)channelName
+                   withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Unsubscribe from a list of user events on a given channel.
@@ -162,7 +167,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
-+ (MNFJob *)unsubscribeFromUserEvents:(NSArray <NSString *> *)userEventTypeIdentifiers onChannel:(NSString *)channelName withReason:(nullable NSString *)unsubscriptionReason completion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (MNFJob *)unsubscribeFromUserEvents:(NSArray<NSString *> *)userEventTypeIdentifiers
+                            onChannel:(NSString *)channelName
+                           withReason:(nullable NSString *)unsubscriptionReason
+                           completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Fetch a list of all feed event type identifiers.
@@ -171,7 +179,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a list of event types and an error.
  */
-+ (MNFJob *)fetchEventTypesWithCompletion:(nullable void (^)(NSArray <NSString *> *_Nullable eventTypes, NSError *_Nullable error))completion;
++ (MNFJob *)fetchEventTypesWithCompletion:(nullable void (^)(NSArray<NSString *> *_Nullable eventTypes,
+                                                             NSError *_Nullable error))completion;
 
 @end
 

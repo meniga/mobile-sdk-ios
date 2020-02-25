@@ -11,5 +11,4 @@
 
 @interface MNFSeparateNormalOptionUpdateDelegateObject : NSObject <MNFJsonAdapterDelegate>
 
-
 @end

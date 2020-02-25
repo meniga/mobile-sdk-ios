@@ -11,13 +11,11 @@
 
 @implementation MNFObjectUpdater
 
-+(void)updateMNFObject:(id)objectToUpdate withMNFObject:(id)object {
-    
-    NSAssert([objectToUpdate isKindOfClass: [object class]] == YES, @"Updating object with incompatible class");
-    
-    NSDictionary *updateDict = [MNFJsonAdapter JSONDictFromObject: object option: 0 error: nil];
-    [MNFJsonAdapter refreshObject: objectToUpdate withJsonDict: updateDict option: 0 error: nil];
-    
++ (void)updateMNFObject:(id)objectToUpdate withMNFObject:(id)object {
+    NSAssert([objectToUpdate isKindOfClass:[object class]] == YES, @"Updating object with incompatible class");
+
+    NSDictionary *updateDict = [MNFJsonAdapter JSONDictFromObject:object option:0 error:nil];
+    [MNFJsonAdapter refreshObject:objectToUpdate withJsonDict:updateDict option:0 error:nil];
 }
 
 @end

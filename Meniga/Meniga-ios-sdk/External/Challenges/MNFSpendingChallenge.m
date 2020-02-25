@@ -11,8 +11,20 @@
 
 @implementation MNFSpendingChallenge
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
-    return [NSSet setWithObjects:@"objectstate",@"mutableProperties",@"deleted",@"dirty",@"isNew",@"keyValueStore",@"identifier",@"categoryIds",@"targetPercentage",@"spentAmount",@"recurringInterval",@"numberOfParticipants", nil];
+- (NSSet *)propertiesToIgnoreJsonSerialization {
+    return [NSSet setWithObjects:@"objectstate",
+                                 @"mutableProperties",
+                                 @"deleted",
+                                 @"dirty",
+                                 @"isNew",
+                                 @"keyValueStore",
+                                 @"identifier",
+                                 @"categoryIds",
+                                 @"targetPercentage",
+                                 @"spentAmount",
+                                 @"recurringInterval",
+                                 @"numberOfParticipants",
+                                 nil];
 }
 
 @end

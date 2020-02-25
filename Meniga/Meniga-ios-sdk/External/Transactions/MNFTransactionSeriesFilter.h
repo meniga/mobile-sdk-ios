@@ -22,34 +22,34 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The transaction filter used to filter all transactions into a subset.
  */
-@property (nonatomic,strong) MNFTransactionFilter *transactionFilter;
+@property (nonatomic, strong) MNFTransactionFilter *transactionFilter;
 
 /**
  @abstract The time resolution of the series. (None/Day/Week/Month/Year).
  */
-@property (nonatomic,strong) NSString *timeResolution;
+@property (nonatomic, strong) NSString *timeResolution;
 
 /**
  @abstract Whether or not the series should be over time or just a list containing a single object with the whole period aggregated.
  */
-@property (nonatomic,strong) NSNumber *overTime;
+@property (nonatomic, strong) NSNumber *overTime;
 
 /**
  @abstract Whether or not the transactions used to create the series should be returned.
  */
-@property (nonatomic,strong) NSNumber *includeTransactions;
+@property (nonatomic, strong) NSNumber *includeTransactions;
 
 /**
  @abstract Whether or not the ids of the transactions used to create the series should be returned.
  */
-@property (nonatomic,strong) NSNumber *includeTransactionIds;
+@property (nonatomic, strong) NSNumber *includeTransactionIds;
 
 /**
  @abstract The filters used to select which transactions to use to generate the requested series.
  
  @discussion One filter should be used per series requested. En empty filter returns series for all the transactions in the subset.
  */
-@property (nonatomic,strong) NSArray <MNFTransactionFilter*> *seriesSelectors;
+@property (nonatomic, strong) NSArray<MNFTransactionFilter *> *seriesSelectors;
 
 @end
 

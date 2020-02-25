@@ -10,6 +10,6 @@
 
 @interface MNFNumberToStringValueTransformer : NSValueTransformer
 
-+(instancetype)transformer;
++ (instancetype)transformer;
 
 @end

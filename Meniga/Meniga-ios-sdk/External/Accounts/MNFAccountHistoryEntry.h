@@ -20,27 +20,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The account id of the history entry.
  */
-@property (nonatomic,strong,readonly) NSNumber *accountId;
+@property (nonatomic, strong, readonly) NSNumber *accountId;
 
 /**
  @abstract The balance of the history entry.
  */
-@property (nonatomic,strong,readonly) NSNumber *balance;
+@property (nonatomic, strong, readonly) NSNumber *balance;
 
 /**
  The balance of the history entry in the users currency.
  */
-@property (nonatomic,strong,readonly) NSNumber *balanceInUserCurrency;
+@property (nonatomic, strong, readonly) NSNumber *balanceInUserCurrency;
 
 /**
  @abstract The date of the history entry.
  */
-@property (nonatomic,strong,readonly) NSDate *balanceDate;
+@property (nonatomic, strong, readonly) NSDate *balanceDate;
 
 /**
  @abstract Whether the entry has been generated with default values.
  */
-@property (nonatomic,strong,readonly) NSNumber *isDefault;
+@property (nonatomic, strong, readonly) NSNumber *isDefault;
 
 @end
 

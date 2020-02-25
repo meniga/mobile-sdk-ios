@@ -13,19 +13,25 @@
 
 #pragma mark - json adaptor delegate
 
--(NSDictionary*)jsonKeysMapToProperties{
-    return @{@"identifier":@"id"};
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier": @"id" };
 }
 
--(NSDictionary*)propertyValueTransformers {
-    
-    return @{@"date":[MNFBasicDateValueTransformer transformer]};
+- (NSDictionary *)propertyValueTransformers {
+    return @{ @"date": [MNFBasicDateValueTransformer transformer] };
 }
--(NSSet*)propertiesToIgnoreJsonSerialization {
-    return [NSSet setWithArray:@[@"identifier", @"objectstate",@"description",@"debugDescription",@"superclass",@"mutableProperties"]];
+- (NSSet *)propertiesToIgnoreJsonSerialization {
+    return [NSSet setWithArray:@[
+        @"identifier",
+        @"objectstate",
+        @"description",
+        @"debugDescription",
+        @"superclass",
+        @"mutableProperties"
+    ]];
 }
 
--(NSSet*)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 

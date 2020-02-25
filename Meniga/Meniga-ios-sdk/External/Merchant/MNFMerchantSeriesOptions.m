@@ -10,8 +10,7 @@
 
 @implementation MNFMerchantSeriesOptions
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.maxMerchants = @10;

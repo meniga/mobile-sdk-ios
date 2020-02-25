@@ -12,5 +12,4 @@
 
 @interface MNFIntegrationTestSetup : XCTestCase
 
-
 @end

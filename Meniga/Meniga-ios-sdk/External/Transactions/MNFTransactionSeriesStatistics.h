@@ -22,17 +22,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The current month total amount for this series.
  */
-@property (nonatomic,strong,readonly) NSNumber *currentMonthTotal;
+@property (nonatomic, strong, readonly) NSNumber *currentMonthTotal;
 
 /**
  The total amount for this series.
  */
-@property (nonatomic,strong,readonly) NSNumber *total;
+@property (nonatomic, strong, readonly) NSNumber *total;
 
 /**
  The average amount for each value in this series.
  */
-@property (nonatomic,strong,readonly) NSNumber *average;
+@property (nonatomic, strong, readonly) NSNumber *average;
 
 @end
 

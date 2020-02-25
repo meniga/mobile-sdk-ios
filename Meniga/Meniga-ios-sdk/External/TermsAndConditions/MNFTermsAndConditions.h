@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MNFTermsAndConditionType.h"
 #import "MNFObject.h"
+#import "MNFTermsAndConditionType.h"
 
 @interface MNFTermsAndConditions : MNFObject
 
@@ -47,15 +47,15 @@
  */
 @property (nonatomic, strong) NSDate *modifiedAt;
 
++ (MNFJob *)fetchTermsAndConditionsWithCompletion:(MNFMultipleTermsAndConditionsCompletionHandler)completion;
 
-+(MNFJob *)fetchTermsAndConditionsWithCompletion:(MNFMultipleTermsAndConditionsCompletionHandler)completion;
++ (MNFJob *)fetchTermsAndConditionsWithId:(NSNumber *)identifier
+                               completion:(MNFTermsAndConditionsCompletionHandler)completion;
 
-+(MNFJob *)fetchTermsAndConditionsWithId:(NSNumber *)identifier completion:(MNFTermsAndConditionsCompletionHandler)completion;
++ (MNFJob *)acceptTermsAndConditionsWithId:(NSNumber *)identifier completion:(MNFErrorOnlyCompletionHandler)completion;
 
-+(MNFJob *)acceptTermsAndConditionsWithId:(NSNumber*)identifier completion:(MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)acceptTermsAndConditionsWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
 
--(MNFJob *)acceptTermsAndConditionsWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
-
--(MNFJob *)declineTermsAndConditionsWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)declineTermsAndConditionsWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
 
 @end

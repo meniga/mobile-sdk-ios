@@ -7,17 +7,19 @@
 //
 
 #import "MNFSyncAuthenticationChallenge.h"
-#import "MNFSyncAuthRequiredParameter.h"
 #import "MNFJsonAdapter.h"
 #import "MNFJsonAdapterSubclassedProperty.h"
+#import "MNFSyncAuthRequiredParameter.h"
 
 @implementation MNFSyncAuthenticationChallenge
 
 #pragma mark - json delegates
--(NSDictionary  *)subclassedProperties {
+- (NSDictionary *)subclassedProperties {
     return @{
-             @"requiredParameters": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass: [MNFSyncAuthRequiredParameter class] option: kMNFAdapterOptionNoOption]
-             };
+        @"requiredParameters":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFSyncAuthRequiredParameter class]
+                                                                   option:kMNFAdapterOptionNoOption]
+    };
 }
 
 @end

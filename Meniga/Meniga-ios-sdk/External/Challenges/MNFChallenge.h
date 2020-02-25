@@ -19,37 +19,37 @@ NS_ASSUME_NONNULL_BEGIN
 /// @name Immutable properties
 ///******************************
 
-@property (nonatomic,strong,readonly) NSString *_Nullable challengeId;
+@property (nonatomic, strong, readonly) NSString *_Nullable challengeId;
 
 /**
  Whether the challenge has been accepted.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable accepted;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable accepted;
 
 /**
  The date the challenge was accepted. Nil if the challenge has not been accepted.
  */
-@property (nonatomic,strong,readonly) NSDate *_Nullable acceptedDate;
+@property (nonatomic, strong, readonly) NSDate *_Nullable acceptedDate;
 
 /**
  The topic id of the challenge.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable topicId;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable topicId;
 
 /**
  The type of the challenge. 'Meter', 'Spending, 'Savings' or 'Custom'.
  */
-@property (nonatomic,copy,readonly) NSString *_Nullable type;
+@property (nonatomic, copy, readonly) NSString *_Nullable type;
 
 /**
  The model for the challenge
  */
-@property (nonatomic,strong,readonly) NSObject <MNFJsonAdapterDelegate> *_Nullable challengeModel;
+@property (nonatomic, strong, readonly) NSObject<MNFJsonAdapterDelegate> *_Nullable challengeModel;
 
-@property (nonatomic,strong,readonly) NSNumber *_Nullable enabled;
-@property (nonatomic,strong,readonly) NSNumber *parentTopicId;
-@property (nonatomic,strong,readonly) NSDate *parentStartDate;
-@property (nonatomic,strong,readonly) NSDate *parentEndDate;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable enabled;
+@property (nonatomic, strong, readonly) NSNumber *parentTopicId;
+@property (nonatomic, strong, readonly) NSDate *parentStartDate;
+@property (nonatomic, strong, readonly) NSDate *parentEndDate;
 
 ///******************************
 /// @name Mutable properties
@@ -60,35 +60,35 @@ NS_ASSUME_NONNULL_BEGIN
  
  @warning This property is only mutable for type 'CustomSpending.
  */
-@property (nonatomic,copy) NSString *_Nullable title;
+@property (nonatomic, copy) NSString *_Nullable title;
 
 /**
  The text description of the challenge.
  
  @warning This property is only mutable for type 'CustomSpending.
  */
-@property (nonatomic,copy) NSString *_Nullable challengeDescription;
+@property (nonatomic, copy) NSString *_Nullable challengeDescription;
 
 /**
  The start date of the challenge.
  
  @warning This property is only mutable for type 'CustomSpending.
  */
-@property (nonatomic,strong) NSDate *_Nullable startDate;
+@property (nonatomic, strong) NSDate *_Nullable startDate;
 
 /**
  The end date of the challenge
  
  @warning This property is only mutable for type 'CustomSpending.
  */
-@property (nonatomic,strong) NSDate *_Nullable endDate;
+@property (nonatomic, strong) NSDate *_Nullable endDate;
 
 /**
  The url of the icon to display with this challenge.
  
  @warning This property is only mutable for type 'CustomSpending.
  */
-@property (nonatomic,strong) NSString *_Nullable iconUrl;
+@property (nonatomic, strong) NSString *_Nullable iconUrl;
 
 /**
  Fetches a challenge with a given identifier.
@@ -98,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a list of challenges or an error.
  */
-+(MNFJob*)fetchChallengeWithId:(NSNumber *)identifier completion:(nullable MNFChallengesCompletionHandler)completion;
++ (MNFJob *)fetchChallengeWithId:(NSNumber *)identifier completion:(nullable MNFChallengesCompletionHandler)completion;
 
 /**
  Fetches challenges, optionally including only accepted and/or expired challenges.
@@ -108,7 +108,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a list of challenges or an error.
  */
-+(MNFJob*)fetchChallengesWithIncludeExpired:(nullable NSNumber*)includeExpired excludeSuggested:(nullable NSNumber*)excludeSuggested excludeAccepted:(nullable NSNumber*)excludeAccepted includeDisable:(nullable NSNumber*)includeDisabled completion:(nullable MNFMultipleChallengesCompletionHandler)completion;
++ (MNFJob *)fetchChallengesWithIncludeExpired:(nullable NSNumber *)includeExpired
+                             excludeSuggested:(nullable NSNumber *)excludeSuggested
+                              excludeAccepted:(nullable NSNumber *)excludeAccepted
+                               includeDisable:(nullable NSNumber *)includeDisabled
+                                   completion:(nullable MNFMultipleChallengesCompletionHandler)completion;
 
 /**
  Fetches a list of previously completed recurring system challenges. When a recurring suggested challenge is accepted a copy of it is created in the system. When fetching challenges you will only see the current recurring challenge. In order to see previously accepted and completed copies of that challenge you should use this method to retrieve them.
@@ -119,7 +123,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a list of challenges and an error.
  */
--(MNFJob*)fetchChallengeHistoryWithSkip:(nullable NSNumber*)skip take:(nullable NSNumber*)take completion:(nullable MNFMultipleChallengesCompletionHandler)completion;
+- (MNFJob *)fetchChallengeHistoryWithSkip:(nullable NSNumber *)skip
+                                     take:(nullable NSNumber *)take
+                               completion:(nullable MNFMultipleChallengesCompletionHandler)completion;
 
 /**
  Accepts a challenge.
@@ -130,7 +136,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)acceptChallengeWithTargetAmount:(nullable NSNumber*)targetAmount waitTime:(nullable NSNumber*)waitTime completion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)acceptChallengeWithTargetAmount:(nullable NSNumber *)targetAmount
+                                   waitTime:(nullable NSNumber *)waitTime
+                                 completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Saves changes made to the challenge to the server.
@@ -139,7 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Deletes a challenge from the server.
@@ -150,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @warning The challenge must have been accepted by the user.
  */
--(MNFJob*)deleteWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Refreshes a challenge with data from the server.
@@ -159,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Resumes a previously enabled challenge.
@@ -168,7 +176,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)enableWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)enableWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Pauses a previously accepted challenge. For suggested challenges not accepted yet an acceptance is made but in disabled state. Disabled challenges can be re-enabled by using the enable endpoint.
@@ -177,7 +185,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)disableWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)disableWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Create a new challenge.
@@ -192,13 +200,13 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a challenge and an error.
  */
-+(MNFJob*)challengeWithTitle:(nullable NSString*)title
-                 description:(nullable NSString*)description
-                   startDate:(nullable NSDate*)startDate
-                     endDate:(nullable NSDate*)endDate
-                     iconUrl:(nullable NSString*)iconUrl
-                    typeData:(nullable NSDictionary*)typeData
-                  completion:(nullable MNFChallengesCompletionHandler)completion;
++ (MNFJob *)challengeWithTitle:(nullable NSString *)title
+                   description:(nullable NSString *)description
+                     startDate:(nullable NSDate *)startDate
+                       endDate:(nullable NSDate *)endDate
+                       iconUrl:(nullable NSString *)iconUrl
+                      typeData:(nullable NSDictionary *)typeData
+                    completion:(nullable MNFChallengesCompletionHandler)completion;
 
 /**
  Fetch a list of icon identifiers used to fetch icon image data.
@@ -208,7 +216,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a list of strings and an error.
  */
-+(MNFJob*)fetchIconIdentifiersWithFormat:(nullable NSString*)format completion:(nullable MNFChallengeIconIdentifiersCompletionHandler)completion;
++ (MNFJob *)fetchIconIdentifiersWithFormat:(nullable NSString *)format
+                                completion:(nullable MNFChallengeIconIdentifiersCompletionHandler)completion;
 
 /**
  Fetch a challenge icon resource with a give identifier.
@@ -218,7 +227,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing image data and an error.
  */
-+(MNFJob*)fetchIconWithIdentifier:(NSString *)iconIdentifier completion:(nullable MNFChallengeIconImageDataCompletionHandler)completion;
++ (MNFJob *)fetchIconWithIdentifier:(NSString *)iconIdentifier
+                         completion:(nullable MNFChallengeIconImageDataCompletionHandler)completion;
 
 @end
 

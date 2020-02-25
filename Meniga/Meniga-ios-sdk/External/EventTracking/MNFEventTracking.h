@@ -12,11 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFEventTracking : MNFObject
 
-+(MNFJob*)trackEventWithType:(NSString*)type
-                       state:(NSString*)state
-                  identifier:(nullable NSNumber*)identifier
-                       media:(nullable NSString*)media
-                  completion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (MNFJob *)trackEventWithType:(NSString *)type
+                         state:(NSString *)state
+                    identifier:(nullable NSNumber *)identifier
+                         media:(nullable NSString *)media
+                    completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

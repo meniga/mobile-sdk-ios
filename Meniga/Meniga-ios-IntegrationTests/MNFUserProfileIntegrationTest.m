@@ -24,33 +24,31 @@
     [super tearDown];
 }
 
--(void)testFetchUserProfile {
-    
+- (void)testFetchUserProfile {
     __weak XCTestExpectation *expectation = [self expectationWithDescription:NSStringFromSelector(_cmd)];
     // MARK: NOTE User profile sends back empty dictionary
-    MNFJob *job = [MNFUserProfile fetchWithCompletion:^(MNFUserProfile * _Nullable userProfile, NSError * _Nullable error) {
-        
-//        NSLog(@"user profile is: %@", userProfile);
-        
+    MNFJob *job =
+        [MNFUserProfile fetchWithCompletion:^(MNFUserProfile *_Nullable userProfile, NSError *_Nullable error) {
+            //        NSLog(@"user profile is: %@", userProfile);
+
+            XCTAssertNotNil(userProfile);
+            XCTAssertNotNil(userProfile.personId);
+            XCTAssertNotNil(userProfile.created);
+
+            XCTAssertNil(error);
+
+            [expectation fulfill];
+        }];
+
+    [job handleCompletion:^(MNFUserProfile *_Nullable userProfile, id _Nullable metaData, NSError *_Nullable error) {
         XCTAssertNotNil(userProfile);
         XCTAssertNotNil(userProfile.personId);
         XCTAssertNotNil(userProfile.created);
 
-        XCTAssertNil(error);
-        
-        [expectation fulfill];
-    }];
-    
-    [job handleCompletion:^(MNFUserProfile * _Nullable userProfile, id  _Nullable metaData, NSError * _Nullable error) {
-        
-        XCTAssertNotNil(userProfile);
-        XCTAssertNotNil(userProfile.personId);
-        XCTAssertNotNil(userProfile.created);
-        
         XCTAssertNil(metaData);
         XCTAssertNil(error);
     }];
-    
+
     [self waitForExpectationsWithTimeout:kMNFIntegrationTestWaitTime handler:nil];
 }
 

@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param metaData The metadata returned from the request.
  @param error The error of the request.
  */
-typedef void(^MNFJobCompletionHandler)(id _Nullable result, id _Nullable metaData, NSError * _Nullable error);
+typedef void (^MNFJobCompletionHandler)(id _Nullable result, id _Nullable metaData, NSError *_Nullable error);
 
 @class MNFJob;
 
@@ -34,7 +34,10 @@ typedef void(^MNFJobCompletionHandler)(id _Nullable result, id _Nullable metaDat
  @param metaData The metaData of the request.
  @param error The error of the request.
  */
--(void)job:(MNFJob*)job didCompleteWithResult:(id _Nullable)result metaData:(id _Nullable)metaData error:(NSError* _Nullable)error;
+- (void)job:(MNFJob *)job
+    didCompleteWithResult:(id _Nullable)result
+                 metaData:(id _Nullable)metaData
+                    error:(NSError *_Nullable)error;
 /**
  @abstract A method for handling a job completion on the main thread.
  @discussion Requests are performed using NSURLSession which normally uses a background thread to perform it's requests. This method forces the execution of completion to be performed on the main thread and is useful when handling ui action upon completion.
@@ -42,19 +45,22 @@ typedef void(^MNFJobCompletionHandler)(id _Nullable result, id _Nullable metaDat
  @param metaData The metaData of the request.
  @param error The error of the request.
  */
--(void)job:(MNFJob*)job didCompleteOnMainThreadWithResult:(id _Nullable)result metaData:(id _Nullable)metaData error:(NSError* _Nullable)error;
+- (void)job:(MNFJob *)job
+    didCompleteOnMainThreadWithResult:(id _Nullable)result
+                             metaData:(id _Nullable)metaData
+                                error:(NSError *_Nullable)error;
 /**
  @abstract A method for handling a job cancellation.
  */
--(void)jobDidCancel:(MNFJob*)job;
+- (void)jobDidCancel:(MNFJob *)job;
 /**
  @abstract A method for handling a job pausing.
  */
--(void)jobDidPause:(MNFJob*)job;
+- (void)jobDidPause:(MNFJob *)job;
 /**
  @abstract A method for handling a job resuming.
  */
--(void)jobDidResume:(MNFJob*)job;
+- (void)jobDidResume:(MNFJob *)job;
 //CHECK: did cancel
 @end
 
@@ -72,19 +78,19 @@ typedef void(^MNFJobCompletionHandler)(id _Nullable result, id _Nullable metaDat
 /**
  @abstract A delegate for the job to call MNFJobDelegate protocol methods on. All methods in the protocol are optional.
  */
-@property (nonatomic,strong) id <MNFJobDelegate> delegate;
+@property (nonatomic, strong) id<MNFJobDelegate> delegate;
 /**
  @abstract The result of the jobs request.
  */
-@property (nonatomic,strong,readonly) id result;
+@property (nonatomic, strong, readonly) id result;
 /**
  @abstract Any metadata returned by the jobs request.
  */
-@property (nonatomic,strong,readonly) id metaData;
+@property (nonatomic, strong, readonly) id metaData;
 /**
  @abstract The error returned by the jobs request.
  */
-@property (nonatomic,strong,readonly) NSError *error;
+@property (nonatomic, strong, readonly) NSError *error;
 /**
  @abstract Whether the job has been cancelled.
  */
@@ -107,28 +113,28 @@ typedef void(^MNFJobCompletionHandler)(id _Nullable result, id _Nullable metaDat
  @discussion Requests are performed using NSURLSession which normally uses a background thread to perform it's requests. Therefore this method is performed on the current thread the request is performed on.
  @param completion A completion block returning a result, metadata and an error.
  */
--(void)handleCompletion:(MNFJobCompletionHandler)completion;
+- (void)handleCompletion:(MNFJobCompletionHandler)completion;
 /**
  @abstract A method for handling a job completion on the main thread.
  @discussion Requests are performed using NSURLSession which normally uses a background thread to perform it's requests. This method forces the execution of completion to be performed on the main thread and is useful when handling ui action upon completion.
  @param completion A completion block returning a reuslt, metadata and an error.
  */
--(void)handleMainThreadCompletion:(MNFJobCompletionHandler)completion;
+- (void)handleMainThreadCompletion:(MNFJobCompletionHandler)completion;
 /**
  @abstract A method for handling a job cancellation.
  @param completion A completion block which fires when the url session has finished cancelling the request.
  */
--(void)cancelWithCompletion:(void (^)(void))completion;
+- (void)cancelWithCompletion:(void (^)(void))completion;
 /**
  @abstract A method for handling a job pausing.
  @param completion A completion block which fires when the url session has finished pausing the request.
  */
--(void)pauseWithCompletion:(void (^)(void))completion;
+- (void)pauseWithCompletion:(void (^)(void))completion;
 /**
  @abstract A method for handling a job resuming.
  @param completion A completion block which fires when the url session has finished resuming the request.
  */
--(void)resumeWithCompletion:(void (^)(void))completion;
+- (void)resumeWithCompletion:(void (^)(void))completion;
 
 @end
 

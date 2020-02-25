@@ -25,12 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The invoice information for the upcoming transaction.
  */
-@property (nonatomic,strong,readonly) MNFUpcomingInvoice *invoice;
+@property (nonatomic, strong, readonly) MNFUpcomingInvoice *invoice;
 
 /**
  The scheduled payment information for the upcoming transaction.
  */
-@property (nonatomic,strong,readonly) MNFUpcomingScheduledPayment *scheduledPayment;
+@property (nonatomic, strong, readonly) MNFUpcomingScheduledPayment *scheduledPayment;
 
 @end
 

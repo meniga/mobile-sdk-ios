@@ -10,17 +10,17 @@
 
 @interface MNFObjectState : NSObject
 
-@property(nonatomic, readonly)NSDictionary *serverData;
+@property (nonatomic, readonly) NSDictionary *serverData;
 
--(instancetype)initForClass:(id)theClass withServerData:(NSDictionary*)dictionary;
-+(instancetype)stateForClass:(id)theClass withServerData:(NSDictionary *)dictionary;
+- (instancetype)initForClass:(id)theClass withServerData:(NSDictionary *)dictionary;
++ (instancetype)stateForClass:(id)theClass withServerData:(NSDictionary *)dictionary;
 
--(void)setState:(NSDictionary*)state;
+- (void)setState:(NSDictionary *)state;
 
--(void)clearState;
+- (void)clearState;
 
--(id)stateValueForKey:(NSString*)key;
+- (id)stateValueForKey:(NSString *)key;
 
--(void)setStateValue:(id)value forKey:(NSString*)key;
+- (void)setStateValue:(id)value forKey:(NSString *)key;
 
 @end

@@ -10,45 +10,45 @@
 
 @implementation MNFJsonAdapterTestObjectsDelegateSpecificProperties
 
--(id)init {
+- (id)init {
     if (self = [super init]) {
         _userId = nil;
         _postId = nil;
         _body = nil;
         _title = nil;
     }
-    
+
     return self;
 }
 
-+(instancetype)initWithUserId:(NSNumber *)userId postId:(NSNumber *)thePostId body:(NSString *)theBody title:(NSString *)theTitle {
-    
++ (instancetype)initWithUserId:(NSNumber *)userId
+                        postId:(NSNumber *)thePostId
+                          body:(NSString *)theBody
+                         title:(NSString *)theTitle {
     MNFJsonAdapterTestObjectsDelegateSpecificProperties *instance = [[self alloc] init];
-    
+
     instance.userId = userId;
     instance.postId = thePostId;
     instance.body = theBody;
     instance.title = theTitle;
-    
+
     return instance;
 }
 
--(NSSet *)propertiesToDeserialize {
+- (NSSet *)propertiesToDeserialize {
     return [NSSet setWithObjects:@"postId", @"userId", nil];
 }
 
--(NSSet *)propertiesToSerialize {
+- (NSSet *)propertiesToSerialize {
     return [NSSet setWithObjects:@"userId", @"postId", nil];
 }
 
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{ @"postId" : @"id"
-              };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"postId": @"id" };
 }
 
-
--(NSDictionary *)propertyKeysMapToJson {
-    return @{ @"postId" : @"id" };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"postId": @"id" };
 }
 
 @end

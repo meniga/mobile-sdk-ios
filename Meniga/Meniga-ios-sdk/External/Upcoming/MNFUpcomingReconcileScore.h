@@ -22,22 +22,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The id of the upcoming transaction.
  */
-@property (nonatomic,strong,readonly) NSNumber *upcomingId;
+@property (nonatomic, strong, readonly) NSNumber *upcomingId;
 
 /**
  The id of the real transaction.
  */
-@property (nonatomic,strong,readonly) NSNumber *transactionId;
+@property (nonatomic, strong, readonly) NSNumber *transactionId;
 
 /**
  The calculated confidence score from the system.
  */
-@property (nonatomic,strong,readonly) NSNumber *confidenceScore;
+@property (nonatomic, strong, readonly) NSNumber *confidenceScore;
 
 /**
  Whether the user has confirmed the match.
  */
-@property (nonatomic,strong,readonly) NSNumber *isConfirmed;
+@property (nonatomic, strong, readonly) NSNumber *isConfirmed;
 
 @end
 

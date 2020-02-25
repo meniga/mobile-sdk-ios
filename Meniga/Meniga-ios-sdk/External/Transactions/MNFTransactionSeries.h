@@ -29,27 +29,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The time resolution of the series. (None/Day/Week/Month/Year).
  */
-@property (nonatomic,copy,readonly) NSString *timeResolution;
+@property (nonatomic, copy, readonly) NSString *timeResolution;
 
 /**
  @abstract Statistics for the series over time. Only returned if overTime on the series filter is set to true.
  */
-@property (nonatomic,copy,readonly) MNFTransactionSeriesStatistics *statistics;
+@property (nonatomic, copy, readonly) MNFTransactionSeriesStatistics *statistics;
 
 /**
  @abstract The values for the transaction series.
  */
-@property (nonatomic,copy,readonly) NSArray <MNFTransactionSeriesValue*> *values;
+@property (nonatomic, copy, readonly) NSArray<MNFTransactionSeriesValue *> *values;
 
 /**
  @abstract The transactions used to create the series. Only returned if includeTransactions on the series filter is set to true.
  */
-@property (nonatomic,copy,readonly) NSArray <MNFTransaction*> *transactions;
+@property (nonatomic, copy, readonly) NSArray<MNFTransaction *> *transactions;
 
 /**
  @abstract The ids of the transactions used to create the series. Only returned if includeTransactionIds on the series filter is set to true.
  */
-@property (nonatomic,copy,readonly) NSArray <NSNumber*> *transactionIds;
+@property (nonatomic, copy, readonly) NSArray<NSNumber *> *transactionIds;
 
 ///******************************
 /// @name Fetching
@@ -63,7 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a transaction series and an error.
  */
-+(MNFJob*)fetchTransactionSeriesWithTransactionSeriesFilter:(MNFTransactionSeriesFilter*)seriesFilter withCompletion:(nullable MNFTransactionSeriesCompletionHandler)completion;
++ (MNFJob *)fetchTransactionSeriesWithTransactionSeriesFilter:(MNFTransactionSeriesFilter *)seriesFilter
+                                               withCompletion:
+                                                   (nullable MNFTransactionSeriesCompletionHandler)completion;
 
 @end
 

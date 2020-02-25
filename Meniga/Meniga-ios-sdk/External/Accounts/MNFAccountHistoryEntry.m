@@ -12,24 +12,32 @@
 @implementation MNFAccountHistoryEntry
 
 #pragma mark - json delegates
--(NSDictionary*)jsonKeysMapToProperties {
-    return @{@"identifier":@"id"};
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"identifier": @"id" };
 }
 
--(NSDictionary*)propertyValueTransformers {
-    return @{@"balanceDate":[MNFBasicDateValueTransformer transformer]};
+- (NSDictionary *)propertyValueTransformers {
+    return @{ @"balanceDate": [MNFBasicDateValueTransformer transformer] };
 }
 
--(NSSet *)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
--(NSSet *)propertiesToIgnoreJsonSerialization {
+- (NSSet *)propertiesToIgnoreJsonSerialization {
     return [NSSet setWithObjects:@"objectstate", nil];
 }
 
 #pragma mark - Description
--(NSString*)description {
-    return [NSString stringWithFormat:@"Account history entry %@ identifier: %@, accountId: %@, balance: %@, balanceDate: %@, isDefault: %@",[super description],self.identifier,self.accountId,self.balance,self.balanceDate,self.isDefault];
+- (NSString *)description {
+    return [NSString
+        stringWithFormat:
+            @"Account history entry %@ identifier: %@, accountId: %@, balance: %@, balanceDate: %@, isDefault: %@",
+            [super description],
+            self.identifier,
+            self.accountId,
+            self.balance,
+            self.balanceDate,
+            self.isDefault];
 }
 @end

@@ -11,17 +11,16 @@
 
 @interface MNFObjectState ()
 
-@property(nonatomic, readwrite)NSMutableDictionary *serverData;
-@property(nonatomic, strong, readwrite)id targetClass;
+@property (nonatomic, readwrite) NSMutableDictionary *serverData;
+@property (nonatomic, strong, readwrite) id targetClass;
 
 @end
 
-@implementation MNFObjectState{
+@implementation MNFObjectState {
     NSMutableDictionary *_serverData;
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         _serverData = [[NSMutableDictionary alloc] init];
@@ -29,49 +28,45 @@
     return self;
 }
 
--(instancetype)initForClass:(id)theClass withServerData:(NSDictionary *)dictionary{
-    
+- (instancetype)initForClass:(id)theClass withServerData:(NSDictionary *)dictionary {
     self = [self init];
     if (self) {
         [self setState:dictionary];
         _targetClass = theClass;
     }
-    
+
     return self;
-    
 }
 
-+(instancetype)stateForClass:(id)theClass withServerData:(NSDictionary *)dictionary{
-    return [[self alloc]initForClass:theClass withServerData:dictionary];
++ (instancetype)stateForClass:(id)theClass withServerData:(NSDictionary *)dictionary {
+    return [[self alloc] initForClass:theClass withServerData:dictionary];
 }
 
--(id)stateValueForKey:(NSString *)key{
+- (id)stateValueForKey:(NSString *)key {
     return _serverData[key];
 }
 
--(void)setStateValue:(id)value forKey:(NSString *)key{
+- (void)setStateValue:(id)value forKey:(NSString *)key {
     if ([self stateValueForKey:key] == nil) {
         MNFLogDebug(@"Setting new state vale: %@ for key: %@", value, key);
         _serverData[key] = value;
     }
 }
 
--(void)clearState{
+- (void)clearState {
     _serverData = nil;
 }
 
-
 #pragma mark - accessors
 
--(void)setState:(NSDictionary *)state{
+- (void)setState:(NSDictionary *)state {
     if (state != nil) {
         _serverData = [state mutableCopy];
     }
 }
 
--(NSDictionary*)serverData{
+- (NSDictionary *)serverData {
     return [_serverData copy];
 }
-
 
 @end

@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger,MNFCachePolicy) {
+typedef NS_ENUM(NSUInteger, MNFCachePolicy) {
     MNFCachePolicyNetworkOnly,
     MNFCachePolicyNetworkFirst,
     MNFCachePolicyPersistenceFirst
@@ -37,7 +37,7 @@ typedef NS_ENUM(NSUInteger,MNFCachePolicy) {
  @discussion The authentication provider must implement the MNFAuthenticationProviderProtocol. This protocol injects headers for authentication in every URL request.
  The default implementation uses the users email and password for authentication. They must be provided when the user logs in.
  */
-@property (nonatomic) NSObject <MNFAuthenticationProviderProtocol> *authenticationProvider;
+@property (nonatomic) NSObject<MNFAuthenticationProviderProtocol> *authenticationProvider;
 
 /**
  @abstract The local encryption policy for the Meniga framework.
@@ -62,7 +62,7 @@ typedef NS_ENUM(NSUInteger,MNFCachePolicy) {
  
  @discussion This property must be set prior to initialization of the Meniga framework. The default is nil and therefore no URL requests will give a response without this property being set.
  */
-@property (nonatomic,strong) NSString *apiURL;
+@property (nonatomic, strong) NSString *apiURL;
 
 /**
  @abstract Culture to provide to the Accept-Language.
@@ -81,16 +81,16 @@ typedef NS_ENUM(NSUInteger,MNFCachePolicy) {
  */
 @property (nonatomic) MNFLogLevel logLevel;
 
-@property (nonatomic,strong) NSTimeZone *timeZone;
+@property (nonatomic, strong) NSTimeZone *timeZone;
 @property (nonatomic) NSTimeInterval requestTimeout;
 @property (nonatomic) NSTimeInterval resourceTimeout;
-@property (nonatomic,strong) NSURLSessionConfiguration *sessionConfiguration;
-@property (nonatomic,weak) id <NSURLSessionDelegate> sessionDelegate;
+@property (nonatomic, strong) NSURLSessionConfiguration *sessionConfiguration;
+@property (nonatomic, weak) id<NSURLSessionDelegate> sessionDelegate;
 
-@property (nonatomic,strong) NSMutableDictionary *apiURLsForClasses;
-@property (nonatomic,strong) NSMutableDictionary *authenticationProvidersForClasses;
-@property (nonatomic,strong) NSMutableDictionary *notificationCenterForStatusCode;
-@property (nonatomic,strong) NSMutableDictionary *notificationNameForStatusCode;
+@property (nonatomic, strong) NSMutableDictionary *apiURLsForClasses;
+@property (nonatomic, strong) NSMutableDictionary *authenticationProvidersForClasses;
+@property (nonatomic, strong) NSMutableDictionary *notificationCenterForStatusCode;
+@property (nonatomic, strong) NSMutableDictionary *notificationNameForStatusCode;
 
 @end
 

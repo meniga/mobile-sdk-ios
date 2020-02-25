@@ -12,10 +12,11 @@
 @implementation MNFLifeGoalHistory
 
 #pragma mark - json adaptor delegate methods
--(NSDictionary*)propertyValueTransformers {
-    
-    return @{@"processingDate":[MNFBasicDateValueTransformer transformer],
-             @"targetDate":[MNFBasicDateValueTransformer transformer]};
+- (NSDictionary *)propertyValueTransformers {
+    return @{
+        @"processingDate": [MNFBasicDateValueTransformer transformer],
+        @"targetDate": [MNFBasicDateValueTransformer transformer]
+    };
 }
 
 @end

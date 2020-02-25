@@ -10,9 +10,9 @@
 
 @interface MNFRealmAccount : MNFObject
 
-@property (nonatomic,copy,readonly) NSString *name;
-@property (nonatomic,copy,readonly) NSString *accountIdentifier;
-@property (nonatomic,strong,readonly) NSNumber *accountTypeId;
-@property (nonatomic,strong,readonly) NSNumber *accountExists;
+@property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSString *accountIdentifier;
+@property (nonatomic, strong, readonly) NSNumber *accountTypeId;
+@property (nonatomic, strong, readonly) NSNumber *accountExists;
 
 @end

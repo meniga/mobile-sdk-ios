@@ -10,26 +10,28 @@
 
 @implementation MNFJsonAdapterTestObjectPropertiesFirstUppercase
 
--(id)init {
+- (id)init {
     if (self = [super init]) {
         _UserId = nil;
         _PostId = nil;
         _Body = nil;
         _Title = nil;
     }
-    
+
     return self;
 }
 
-+(instancetype)initWithUserId:(NSNumber *)userId postId:(NSNumber *)thePostId body:(NSString *)theBody title:(NSString *)theTitle {
-    
++ (instancetype)initWithUserId:(NSNumber *)userId
+                        postId:(NSNumber *)thePostId
+                          body:(NSString *)theBody
+                         title:(NSString *)theTitle {
     MNFJsonAdapterTestObjectPropertiesFirstUppercase *instance = [[self alloc] init];
-    
+
     instance.UserId = userId;
     instance.PostId = thePostId;
     instance.Body = theBody;
     instance.Title = theTitle;
-    
+
     return instance;
 }
 

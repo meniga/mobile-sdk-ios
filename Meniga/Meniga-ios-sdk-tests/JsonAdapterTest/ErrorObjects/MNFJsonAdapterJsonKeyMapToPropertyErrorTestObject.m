@@ -10,46 +10,45 @@
 
 @implementation MNFJsonAdapterJsonKeyMapToPropertyErrorTestObject
 
--(id)init {
+- (id)init {
     if (self = [super init]) {
         _userId = nil;
         _postId = nil;
         _body = nil;
         _title = nil;
     }
-    
+
     return self;
 }
 
-+(instancetype)initWithUserId:(NSNumber *)userId postId:(NSNumber *)thePostId body:(NSString *)theBody title:(NSString *)theTitle {
-    
++ (instancetype)initWithUserId:(NSNumber *)userId
+                        postId:(NSNumber *)thePostId
+                          body:(NSString *)theBody
+                         title:(NSString *)theTitle {
     MNFJsonAdapterJsonKeyMapToPropertyErrorTestObject *instance = [[self alloc] init];
-    
+
     instance.userId = userId;
     instance.postId = thePostId;
     instance.body = theBody;
     instance.title = theTitle;
-    
+
     return instance;
 }
 
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{ @"nonExistingProperty" : @"id"
-              };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"nonExistingProperty": @"id" };
 }
 
--(NSSet *)propertiesToIgnoreJsonDeserialization {
+- (NSSet *)propertiesToIgnoreJsonDeserialization {
     return [NSSet setWithObjects:@"body", nil];
 }
 
-
-
--(NSSet *)propertiesToIgnoreJsonSerialization {
-    return  [NSSet setWithObject:@"userId"];
+- (NSSet *)propertiesToIgnoreJsonSerialization {
+    return [NSSet setWithObject:@"userId"];
 }
 
--(NSDictionary *)propertyKeysMapToJson {
-    return @{ @"postId" : @"id" };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"postId": @"id" };
 }
 
 @end

@@ -20,24 +20,24 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The transactions in the group.
  */
-@property (nonatomic,copy,readonly) NSArray *  _Nullable transactions;
+@property (nonatomic, copy, readonly) NSArray *_Nullable transactions;
 
 /**
  @abstract The sum of the transactions in the group.
  */
-@property (nonatomic,strong,readonly) NSNumber * _Nullable sum;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable sum;
 
 /**
  @abstract The rule by which the transactions are grouped.
  */
-@property (nonatomic,readonly) MNFGroupedBy groupedBy;
+@property (nonatomic, readonly) MNFGroupedBy groupedBy;
 
 /**
  @abstract The identifier of the group.
  
  @discussion If transactions are grouped by categories this will be the categoryId with NSNumber format. If transactions are grouped by date this will be the date with NSDate format.
  */
-@property (nonatomic,strong,readonly) id  _Nullable groupId;
+@property (nonatomic, strong, readonly) id _Nullable groupId;
 
 /**
  @abstract Initializes a transaction group object with a list of transactions. The list has to be sorted and grouped beforehand.
@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An instance of MNFTransactionGroup.
  */
-+(instancetype)groupBy:(MNFGroupedBy)groupedBy WithTransactions:(NSArray*)transactions;
++ (instancetype)groupBy:(MNFGroupedBy)groupedBy WithTransactions:(NSArray *)transactions;
 
 @end
 

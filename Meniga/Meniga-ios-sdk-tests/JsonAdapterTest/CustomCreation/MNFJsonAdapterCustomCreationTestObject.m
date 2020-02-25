@@ -10,34 +10,35 @@
 
 @implementation MNFJsonAdapterCustomCreationTestObject
 
--(id)init {
+- (id)init {
     if (self = [super init]) {
         _userId = nil;
         _postId = nil;
         _body = nil;
         _title = nil;
     }
-    
+
     return self;
 }
 
-+(instancetype)initWithUserId:(NSNumber *)userId postId:(NSNumber *)thePostId body:(NSString *)theBody title:(NSString *)theTitle {
-    
++ (instancetype)initWithUserId:(NSNumber *)userId
+                        postId:(NSNumber *)thePostId
+                          body:(NSString *)theBody
+                         title:(NSString *)theTitle {
     MNFJsonAdapterCustomCreationTestObject *instance = [[self alloc] init];
-    
+
     instance.userId = userId;
     instance.postId = thePostId;
     instance.body = theBody;
     instance.title = theTitle;
-    
+
     return instance;
 }
 
-+(id)objectToPopulate {
++ (id)objectToPopulate {
     MNFJsonAdapterCustomCreationTestObject *object = [[MNFJsonAdapterCustomCreationTestObject alloc] init];
     object.propertySetAtCustomInitialization = @"Great Stuff!";
     return object;
 }
-
 
 @end

@@ -10,12 +10,11 @@
 
 @interface MNFPredicateExpression : NSObject
 
-@property(nonatomic, strong, readonly)NSString *key;
-@property(nonatomic, readonly)NSPredicateOperatorType operatorType;
-@property(nonatomic, strong, readonly)id value;
+@property (nonatomic, strong, readonly) NSString *key;
+@property (nonatomic, readonly) NSPredicateOperatorType operatorType;
+@property (nonatomic, strong, readonly) id value;
 
-
-+(instancetype)expressionWithPredicate:(NSComparisonPredicate*)predicate;
-+(NSArray*)expressionsWithPredicates:(NSArray<NSComparisonPredicate*>*)predicate;
++ (instancetype)expressionWithPredicate:(NSComparisonPredicate *)predicate;
++ (NSArray *)expressionsWithPredicates:(NSArray<NSComparisonPredicate *> *)predicate;
 
 @end

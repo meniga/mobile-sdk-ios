@@ -12,26 +12,26 @@
 
 + (instancetype)transformer {
     MNFNumberToBoolValueTransformer *transformer = [[self alloc] init];
-    
+
     return transformer;
 }
 
--(id)transformedValue:(id)value {
+- (id)transformedValue:(id)value {
     if (value == nil || value == [NSNull null] || ![value isKindOfClass:[NSNumber class]]) {
         return value;
     }
-    
+
     if ([value isEqualToString:@"false"] || [value isEqualToString:@"NO"]) {
         return @NO;
     }
     return @YES;
 }
 
--(id)reverseTransformedValue:(id)value {
+- (id)reverseTransformedValue:(id)value {
     if (value == nil || value == [NSNull null] || ![value isKindOfClass:[NSNumber class]]) {
         return value;
     }
-    
+
     if ([value intValue] == 0) {
         return @"false";
     }

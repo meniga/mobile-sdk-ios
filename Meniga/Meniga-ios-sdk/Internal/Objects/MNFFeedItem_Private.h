@@ -11,5 +11,5 @@
 #import "MNFTransaction.h"
 
 @interface MNFFeedItem ()
-@property (nonatomic,strong,readwrite) NSObject *model;
+@property (nonatomic, strong, readwrite) NSObject *model;
 @end

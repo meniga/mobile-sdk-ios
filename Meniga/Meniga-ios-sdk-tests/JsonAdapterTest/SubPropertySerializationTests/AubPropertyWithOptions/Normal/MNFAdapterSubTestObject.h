@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSString *commentTitle;
 @property (nonatomic, strong) NSNumber *commentId;
 
-+(instancetype)adapterSubTestObjectWithCommentId:(NSNumber *)theCommentId commentTitle:(NSString *)theCommentTitle;
++ (instancetype)adapterSubTestObjectWithCommentId:(NSNumber *)theCommentId commentTitle:(NSString *)theCommentTitle;
 
 @end

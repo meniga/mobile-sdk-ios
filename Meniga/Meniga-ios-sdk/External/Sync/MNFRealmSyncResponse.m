@@ -8,18 +8,22 @@
 
 #import "MNFRealmSyncResponse.h"
 #import "MNFAccountSyncStatus.h"
-#import "MNFSyncAuthenticationChallenge.h"
 #import "MNFJsonAdapter.h"
 #import "MNFJsonAdapterSubclassedProperty.h"
+#import "MNFSyncAuthenticationChallenge.h"
 
 @implementation MNFRealmSyncResponse
 
 #pragma mark - json delegates
--(NSDictionary <NSString *, MNFJsonAdapterSubclassedProperty *> *)subclassedProperties {
+- (NSDictionary<NSString *, MNFJsonAdapterSubclassedProperty *> *)subclassedProperties {
     return @{
-             @"authenticationChallenge": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass: [MNFSyncAuthenticationChallenge class] option:kMNFAdapterOptionNoOption],
-             @"accountSyncStatuses": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass: [MNFAccountSyncStatus class] option:kMNFAdapterOptionNoOption]
-             };
+        @"authenticationChallenge":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFSyncAuthenticationChallenge class]
+                                                                   option:kMNFAdapterOptionNoOption],
+        @"accountSyncStatuses":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAccountSyncStatus class]
+                                                                   option:kMNFAdapterOptionNoOption]
+    };
 }
 
 @end

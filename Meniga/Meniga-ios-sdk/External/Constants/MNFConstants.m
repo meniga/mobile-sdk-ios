@@ -15,5 +15,4 @@ NSString *const kMNFRepaymentAccountInfoLedgerKey = @"ledger";
 NSString *const kMNFRepaymentAccountInfoSocialSecurityNumberKey = @"socialSecurityNumber";
 NSString *const kMNFRepaymentAccountInfoBankNumberKey = @"bankNumber";
 
-
 NSString *const kMNFErrorMessageJSONKey = @"message";

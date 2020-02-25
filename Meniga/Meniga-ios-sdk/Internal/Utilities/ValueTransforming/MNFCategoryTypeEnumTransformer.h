@@ -10,6 +10,6 @@
 
 @interface MNFCategoryTypeEnumTransformer : NSValueTransformer
 
-+(instancetype)transformer;
++ (instancetype)transformer;
 
 @end

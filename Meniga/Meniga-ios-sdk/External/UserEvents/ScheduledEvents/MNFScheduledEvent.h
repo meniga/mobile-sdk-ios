@@ -13,10 +13,7 @@ NS_ASSUME_NONNULL_BEGIN;
 
 @class MNFTransactionDayOverview;
 
-typedef NS_ENUM(NSInteger, MNFScheduleInterval) {
-    Weekly,
-    Monthly
-};
+typedef NS_ENUM(NSInteger, MNFScheduleInterval) { Weekly, Monthly };
 
 @interface MNFScheduledEvent : MNFObject
 
@@ -68,7 +65,7 @@ typedef NS_ENUM(NSInteger, MNFScheduleInterval) {
 /**
  @abstract A list of transactions per day over the scheduled period with additional data about each day that can be presented to the user in various forms. Look at MNFTransactionDayOverview object for more information about its properties.
  */
-@property (nonatomic, strong, readonly) NSArray <MNFTransactionDayOverview *> *transactionsPerDay;
+@property (nonatomic, strong, readonly) NSArray<MNFTransactionDayOverview *> *transactionsPerDay;
 
 /**
  @abstract The topic id of the scheduled event.
@@ -100,9 +97,9 @@ typedef NS_ENUM(NSInteger, MNFScheduleInterval) {
  */
 @property (nonatomic, strong, readonly) NSString *typeName;
 
-+ (MNFJob*)fetchWithId:(NSNumber *)identifier completion:(nullable MNFScheduledEventCompletionHandler)completion;
++ (MNFJob *)fetchWithId:(NSNumber *)identifier completion:(nullable MNFScheduledEventCompletionHandler)completion;
 
-- (MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

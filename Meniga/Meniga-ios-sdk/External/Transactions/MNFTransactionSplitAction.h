@@ -24,28 +24,29 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The identifier of the corresponding rule.
  */
-@property (nonatomic,strong) NSNumber *transactionRuleId;
+@property (nonatomic, strong) NSNumber *transactionRuleId;
 
 /**
  @abstract Split ratio.
  */
-@property (nonatomic,strong) NSNumber * _Nullable ratio;
+@property (nonatomic, strong) NSNumber *_Nullable ratio;
 
 /**
  @abstract Split amount that should be applied by the corresponding rule.
  */
-@property (nonatomic,strong) NSNumber *amount;
+@property (nonatomic, strong) NSNumber *amount;
 
 /**
  @abstract The category id in which to put the split transaction.
  */
-@property (nonatomic,strong) NSNumber *categoryId;
-
+@property (nonatomic, strong) NSNumber *categoryId;
 
 /**
  @abstract A convenience initializer to simply create a transaction split action. The transaction rule id and identifyer are populated by the server once it has been created.
  */
-+(instancetype)transactionSplitActionWithRatio:(NSNumber *)ratio amount:(NSNumber *)amount categoryId:(NSNumber *)categoryId;
++ (instancetype)transactionSplitActionWithRatio:(NSNumber *)ratio
+                                         amount:(NSNumber *)amount
+                                     categoryId:(NSNumber *)categoryId;
 
 @end
 

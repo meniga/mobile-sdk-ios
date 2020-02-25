@@ -11,14 +11,12 @@
 
 @implementation MNFIntegrationAuthProvider
 
--(NSDictionary *)getHeaders {
-
-    NSString *authString = [NSString stringWithFormat:@"Bearer %@", [[MNFDemoUser tokenDictionary] objectForKey:@"accessToken"] ];
-    return @{ @"X-XSRF-Header" : @"true",
-             @"Content-type" : @"application/json",
-             @"Authorization" : authString };
+- (NSDictionary *)getHeaders {
+    NSString *authString =
+        [NSString stringWithFormat:@"Bearer %@", [[MNFDemoUser tokenDictionary] objectForKey:@"accessToken"]];
+    return @{ @"X-XSRF-Header": @"true", @"Content-type": @"application/json", @"Authorization": authString };
 }
--(NSArray <NSHTTPCookie*> *)getCookies {
+- (NSArray<NSHTTPCookie *> *)getCookies {
     return nil;
 }
 

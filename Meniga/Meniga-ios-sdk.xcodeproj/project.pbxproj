@@ -19,6 +19,17 @@
 			name = Framework;
 			productName = Framework;
 		};
+		84013D9A24051491003576F2 /* Clang-format */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 84013D9D24051491003576F2 /* Build configuration list for PBXAggregateTarget "Clang-format" */;
+			buildPhases = (
+				848968E9240514B8008A7551 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Clang-format";
+			productName = "Clang-format";
+		};
 		D2F088B78A0B76A3FE3F6CB8919C97E6 /* Documentation */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 1EC77A8A8524759EA0E6A385C6361958 /* Build configuration list for PBXAggregateTarget "Documentation" */;
@@ -2210,6 +2221,10 @@
 					2044B0831B5CF9599570DDD04FA1AAD7 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
+					84013D9A24051491003576F2 = {
+						CreatedOnToolsVersion = 11.3.1;
+						ProvisioningStyle = Automatic;
+					};
 					8700D726F8A23F7169AEDA1061796BF7 = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -2240,6 +2255,7 @@
 				2044B0831B5CF9599570DDD04FA1AAD7 /* Framework */,
 				D2F088B78A0B76A3FE3F6CB8919C97E6 /* Documentation */,
 				31DE38682069099D00B1DC4E /* Api-validation-tests */,
+				84013D9A24051491003576F2 /* Clang-format */,
 			);
 		};
 /* End PBXProject section */
@@ -2299,6 +2315,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		848968E9240514B8008A7551 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./clang-format/clang_format_xcode.sh Meniga-ios-sdk Meniga-ios-sdk-tests Meniga-ios-IntegrationTests\n";
+		};
 		95DE744119BAFC92E07FA8D486EE1A34 /* Build Framework */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2325,7 +2358,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "jazzy \\\n--objc \\\n--clean \\\n--sdk iphonesimulator \\\n--author Meniga \\\n--author_url \"https://www.meniga.com\" \\\n--module-version 0.9.1 \\\n--copyright \"Meniga\" \\\n--umbrella-header \"${PROJECT_DIR}/MenigaDocs.h\" \\\n--framework-root . \\\n--module Meniga \\\n--skip-undocumented \\\n--hide-documentation-coverage \\\n--output docs";
+			shellScript = "jazzy \\\n--objc \\\n--clean \\\n--sdk iphonesimulator \\\n--author Meniga \\\n--author_url \"https://www.meniga.com\" \\\n--module-version 0.9.1 \\\n--copyright \"Meniga\" \\\n--umbrella-header \"${PROJECT_DIR}/MenigaDocs.h\" \\\n--framework-root . \\\n--module Meniga \\\n--skip-undocumented \\\n--hide-documentation-coverage \\\n--output docs\n";
 		};
 		CEF23B0340839D049BDA76DA219FEB3F /* Build MultiPlatform */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2864,6 +2897,22 @@
 			};
 			name = Debug;
 		};
+		84013D9B24051491003576F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		84013D9C24051491003576F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C109E0E9B9CAF898DD51D2DDDD5496B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9B605F19C2ACBD72A12EE17D52C7FA5 /* SDKConfigLib.xcconfig */;
@@ -2940,6 +2989,15 @@
 			buildConfigurations = (
 				811B21DAD62C44221AD679B9072B9C0E /* Debug */,
 				4FF4C2FA3CA917A8100F19F7709BD761 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84013D9D24051491003576F2 /* Build configuration list for PBXAggregateTarget "Clang-format" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84013D9B24051491003576F2 /* Debug */,
+				84013D9C24051491003576F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

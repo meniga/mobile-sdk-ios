@@ -10,6 +10,6 @@
 
 @interface MNFJsonAdaoterTestTransformer : NSValueTransformer
 
-+(instancetype)transformer;
++ (instancetype)transformer;
 
 @end

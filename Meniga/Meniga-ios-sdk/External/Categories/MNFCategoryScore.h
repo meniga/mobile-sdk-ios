@@ -22,12 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The id of the category.
  */
-@property (nonatomic,strong,readonly) NSNumber *categoryId;
+@property (nonatomic, strong, readonly) NSNumber *categoryId;
 
 /**
  @abstract The likelyhood score of the category ranging from 0 (zero likelyhood) to 1 (highest likelyhood).
  */
-@property (nonatomic,strong,readonly) NSNumber *score;
+@property (nonatomic, strong, readonly) NSNumber *score;
 
 @end
 

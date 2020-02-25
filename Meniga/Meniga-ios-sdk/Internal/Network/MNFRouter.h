@@ -13,7 +13,7 @@
 
 @interface MNFRouter : NSObject
 
-+(MNFJob *)routeRequest:(NSURLRequest*)request withCompletion:(MNFCompletionHandler)completion;
-+(MNFJob*)routeRequest:(NSURLRequest*)request;
++ (MNFJob *)routeRequest:(NSURLRequest *)request withCompletion:(MNFCompletionHandler)completion;
++ (MNFJob *)routeRequest:(NSURLRequest *)request;
 
 @end

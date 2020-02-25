@@ -10,6 +10,6 @@
 
 @interface MNFBasicDateValueTransformer : NSValueTransformer
 
-+(instancetype)transformer;
++ (instancetype)transformer;
 
 @end

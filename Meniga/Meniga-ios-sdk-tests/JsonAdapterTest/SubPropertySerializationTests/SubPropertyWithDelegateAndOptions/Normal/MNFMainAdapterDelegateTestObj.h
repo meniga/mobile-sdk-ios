@@ -18,6 +18,9 @@
 @property (nonatomic, strong) MNFAdapterSubTestDelegateObj *uglyComment;
 @property (nonatomic, strong) NSArray *allUglyComments;
 
-+(instancetype)adapterDelegateTestObjWithTransactionId:(NSNumber *)theTransactionId transactionInfo:(NSString *)theTransactionInfo comment:(MNFAdapterSubTestDelegateObj *)theComment allComments:(NSArray *)allTheComments;
++ (instancetype)adapterDelegateTestObjWithTransactionId:(NSNumber *)theTransactionId
+                                        transactionInfo:(NSString *)theTransactionInfo
+                                                comment:(MNFAdapterSubTestDelegateObj *)theComment
+                                            allComments:(NSArray *)allTheComments;
 
 @end

@@ -8,51 +8,59 @@
 
 #import <XCTest/XCTest.h>
 
+#import "MNFHTTPMethods.h"
 #import "MNFNetwork.h"
 #import "MNFResponse.h"
 #import "MNFURLConstructor.h"
-#import "MNFHTTPMethods.h"
 #import "MNFURLRequestConstants.h"
 //#import "MNFCryptor.h"
 #import "MNFNetworkProtocolForTesting.h"
 #import "MNFObjectTypes.h"
 
-@interface MNFNetworkTest : XCTestCase 
+@interface MNFNetworkTest : XCTestCase
 
 @end
 
 @implementation MNFNetworkTest
 
--(void)setUp {
+- (void)setUp {
     [super setUp];
     [[MNFNetwork sharedNetwork] initializeForTesting];
 }
--(void)tearDown {
+- (void)tearDown {
     [[MNFNetwork sharedNetwork] flushForTesting];
     [super tearDown];
 }
 
--(void)testInitialize {
+- (void)testInitialize {
     XCTAssertNoThrow([MNFNetwork sharedNetwork]);
 }
--(void)testSendRequest {
+- (void)testSendRequest {
     [MNFNetworkProtocolForTesting removeDelay];
-    [MNFNetworkProtocolForTesting setResponseData: [NSJSONSerialization dataWithJSONObject: @{ @"TestResponse" : @"NetworkTest", @"TestNumber" : @10 } options: 0 error: nil] ];
+    [MNFNetworkProtocolForTesting
+        setResponseData:[NSJSONSerialization dataWithJSONObject:@{ @"TestResponse": @"NetworkTest", @"TestNumber": @10 }
+                                                        options:0
+                                                          error:nil]];
     [MNFNetworkProtocolForTesting setObjectType:MNFNetworkObject];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Description"];
     NSURL *url = [MNFURLConstructor URLFromBaseUrl:@"http://www.menigais.test.meniga.net" path:kMNFGetUserProfile];
-    
-    NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"X-XSRF-Header",@"application/json",@"Content-type",nil];
-    NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:kMNFHTTPMethodGET httpHeaders:headers parameters:nil];
-    
-    [[MNFNetwork sharedNetwork] sendRequest:request withCompletion:^(MNFResponse *response){
-        NSDictionary *testDict = @{@"TestResponse":@"NetworkTest",@"TestNumber":@10};
-        XCTAssertEqualObjects(response.error, nil);
-        XCTAssertTrue(response.statusCode == 200);
-        XCTAssertEqualObjects(response.result, testDict);
-        [expectation fulfill];
-    }];
-    
+
+    NSDictionary *headers = [NSDictionary
+        dictionaryWithObjectsAndKeys:@"true", @"X-XSRF-Header", @"application/json", @"Content-type", nil];
+    NSURLRequest *request = [MNFRequest urlRequestWithURL:url
+                                               httpMethod:kMNFHTTPMethodGET
+                                              httpHeaders:headers
+                                               parameters:nil];
+
+    [[MNFNetwork sharedNetwork] sendRequest:request
+                             withCompletion:^(MNFResponse *response) {
+                                 NSDictionary *testDict = @{@"TestResponse": @"NetworkTest", @"TestNumber": @10};
+                                 XCTAssertEqualObjects(response.error, nil);
+                                 XCTAssertTrue(response.statusCode == 200);
+                                 XCTAssertEqualObjects(response.result, testDict);
+                                 [expectation fulfill];
+                             }];
+
     [self waitForExpectationsWithTimeout:10 handler:nil];
 }
 
@@ -107,24 +115,24 @@
 //    NSURL *url = [MNFURLConstructor URLFromBaseUrl:@"http://www.menigais.net" path:kMNFGetUserProfile];
 //    NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"X-XSRF-Header",nil];
 //    NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:kMNFHTTPMethodGET httpHeaders:headers parameters:nil];
-//    
+//
 //    [MNFNetwork sendRequest:request withCompletion:^(MNFResponse *response){
-//        
+//
 //    }];
-//    
+//
 //    url = [MNFURLConstructor URLFromBaseUrl:@"http://www.menigais.net" path:kMNFGetTransactions];
 //    request = [MNFRequest urlRequestWithURL:url httpMethod:kMNFHTTPMethodGET httpHeaders:headers parameters:nil];
-//    
+//
 //    [MNFNetwork sendRequest:request withCompletion:^(MNFResponse *response){
-//        
+//
 //    }];
-//    
+//
 //    [MNFNetwork cancelAllRequestsWithCompletion:^{
-//        
+//
 //        [MNFNetwork getAllTasks:^(NSArray *tasks) {
-//            
+//
 //            XCTAssert([tasks count] == 0);
-//            
+//
 //        }];
 //    }];
 //}
@@ -134,18 +142,18 @@
 //    NSURL *url = [MNFURLConstructor URLFromBaseUrl:@"http://www.menigais.net" path:kMNFGetUserProfile];
 //    NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"X-XSRF-Header",nil];
 //    NSURLRequest *request = [MNFRequest urlRequestWithURL:url httpMethod:kMNFHTTPMethodGET httpHeaders:headers parameters:nil];
-//    
+//
 //    [MNFNetwork sendRequest:request withCompletion:^(MNFResponse *response){
-//        
+//
 //    }];
-//    
+//
 //    url = [MNFURLConstructor URLFromBaseUrl:@"http://www.menigais.net" path:kMNFGetTransactions];
 //    request = [MNFRequest urlRequestWithURL:url httpMethod:kMNFHTTPMethodGET httpHeaders:headers parameters:nil];
-//    
+//
 //    [MNFNetwork sendRequest:request withCompletion:^(MNFResponse *response){
-//        
+//
 //    }];
-//    
+//
 //    [MNFNetwork pauseAllRequestsWithCompletion:^{
 //        [MNFNetwork getAllTasks:^(NSArray *tasks) {
 //            for (NSURLSessionDataTask *dataTask in tasks) {

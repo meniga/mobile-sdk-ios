@@ -11,21 +11,31 @@
 
 @implementation MNFAdapterMainFirstUppercaseTestObj
 
-+(instancetype)adapterMainFirstUppercaseTestObjWithTransactionId:(NSNumber *)theTransacitonId transactionInfo:(NSString *)theTransactionInfo comment:(MNFAdapterSubFirstUppercaseTestObject *)theComment allComments:(NSArray *)theComments {
-    
++ (instancetype)adapterMainFirstUppercaseTestObjWithTransactionId:(NSNumber *)theTransacitonId
+                                                  transactionInfo:(NSString *)theTransactionInfo
+                                                          comment:(MNFAdapterSubFirstUppercaseTestObject *)theComment
+                                                      allComments:(NSArray *)theComments {
     MNFAdapterMainFirstUppercaseTestObj *instance = [[MNFAdapterMainFirstUppercaseTestObj alloc] init];
-    
+
     instance.TransactionId = theTransacitonId;
     instance.TransactionInfo = theTransactionInfo;
     instance.Comment = theComment;
     instance.AllComments = theComments;
-    
+
     return instance;
-    
 }
 
--(NSDictionary*)subclassedProperties {
-    return @{ @"Comment" : [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubFirstUppercaseTestObject class] delegate:nil option:kMNFAdapterOptionFirstLetterLowercase], @"AllComments" : [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubFirstUppercaseTestObject class] delegate:nil option:kMNFAdapterOptionFirstLetterLowercase] };
+- (NSDictionary *)subclassedProperties {
+    return @{
+        @"Comment":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubFirstUppercaseTestObject class]
+                                                                 delegate:nil
+                                                                   option:kMNFAdapterOptionFirstLetterLowercase],
+        @"AllComments":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAdapterSubFirstUppercaseTestObject class]
+                                                                 delegate:nil
+                                                                   option:kMNFAdapterOptionFirstLetterLowercase]
+    };
 }
 
 @end

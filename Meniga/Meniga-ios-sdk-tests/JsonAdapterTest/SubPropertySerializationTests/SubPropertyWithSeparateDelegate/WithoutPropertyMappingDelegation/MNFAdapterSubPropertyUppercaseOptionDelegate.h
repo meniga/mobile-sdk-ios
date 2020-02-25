@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "MNFJsonAdapterDelegate.h"
 
-
 @interface MNFAdapterSubPropertyUppercaseOptionDelegate : NSObject <MNFJsonAdapterDelegate>
 
 @end

@@ -10,13 +10,12 @@
 
 @implementation GCDUtils
 
-+(void)dispatchAfterTime:(float)theTime completion:(void (^)(void))completion {
++ (void)dispatchAfterTime:(float)theTime completion:(void (^)(void))completion {
     [completion copy];
-    
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(theTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         completion();
     });
-    
 }
 
 @end

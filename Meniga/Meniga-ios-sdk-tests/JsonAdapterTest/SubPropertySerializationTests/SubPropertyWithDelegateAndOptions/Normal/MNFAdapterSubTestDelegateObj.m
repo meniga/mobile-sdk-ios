@@ -10,24 +10,21 @@
 
 @implementation MNFAdapterSubTestDelegateObj
 
-+(instancetype)adapterSubTestDelegateObjWithCommentId:(NSNumber *)theCommentId commentTitle:(NSString *)theCommentTitle {
-    
++ (instancetype)adapterSubTestDelegateObjWithCommentId:(NSNumber *)theCommentId
+                                          commentTitle:(NSString *)theCommentTitle {
     MNFAdapterSubTestDelegateObj *instance = [[MNFAdapterSubTestDelegateObj alloc] init];
     instance.uglyCommentId = theCommentId;
     instance.uglyCommentTitle = theCommentTitle;
-    
+
     return instance;
-    
 }
 
--(NSDictionary *)jsonKeysMapToProperties {
-    return @{ @"uglyCommentTitle" : @"commentTitle", @"uglyCommentId" : @"commentId" };
+- (NSDictionary *)jsonKeysMapToProperties {
+    return @{ @"uglyCommentTitle": @"commentTitle", @"uglyCommentId": @"commentId" };
 }
 
--(NSDictionary*)propertyKeysMapToJson {
-    return @{ @"uglyCommentTitle" : @"commentTitle", @"uglyCommentId" : @"commentId" };
+- (NSDictionary *)propertyKeysMapToJson {
+    return @{ @"uglyCommentTitle": @"commentTitle", @"uglyCommentId": @"commentId" };
 }
-
-
 
 @end

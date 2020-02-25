@@ -15,11 +15,14 @@
 
 #pragma mark - json adaptor delegate
 
--(NSDictionary*)subclassedProperties {
+- (NSDictionary *)subclassedProperties {
     return @{
-             @"invoice":[MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFUpcomingInvoice class] option: kMNFAdapterOptionNoOption],
-             @"scheduledPayment":[MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFUpcomingScheduledPayment class] option:kMNFAdapterOptionNoOption]
-             };
+        @"invoice": [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFUpcomingInvoice class]
+                                                                           option:kMNFAdapterOptionNoOption],
+        @"scheduledPayment":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFUpcomingScheduledPayment class]
+                                                                   option:kMNFAdapterOptionNoOption]
+    };
 }
 
 @end

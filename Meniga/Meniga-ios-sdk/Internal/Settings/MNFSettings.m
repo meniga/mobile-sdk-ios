@@ -7,13 +7,12 @@
 //
 
 #import "MNFSettings.h"
-#import "MNFResponse.h"
 #import "MNFLogger.h"
+#import "MNFResponse.h"
 
 @implementation MNFSettings
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.apiURLsForClasses = [NSMutableDictionary dictionary];
@@ -25,11 +24,10 @@
     return self;
 }
 
--(void)setLogLevel:(MNFLogLevel)logLevel {
+- (void)setLogLevel:(MNFLogLevel)logLevel {
     _logLevel = logLevel;
-    
+
     [MNFLogger setLogLevel:logLevel];
-    
 }
 
 @end

@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSString *propertyKey;
 @property (nonatomic, strong) id propertyValue;
 
-+(instancetype)jsonAdapterKey:(NSString*)theKey value:(id)theValue;
++ (instancetype)jsonAdapterKey:(NSString *)theKey value:(id)theValue;
 
 @end

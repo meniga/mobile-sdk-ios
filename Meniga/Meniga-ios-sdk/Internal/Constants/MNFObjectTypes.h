@@ -26,5 +26,4 @@ typedef enum : NSUInteger {
     MNFTagObject
 } MNFObjectType;
 
-
 #endif

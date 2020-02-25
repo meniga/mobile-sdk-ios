@@ -18,6 +18,10 @@
 @property (nonatomic, strong) MNFAdapterSubDelegateFirstUppercaseTestObj *UglyComment;
 @property (nonatomic, strong) NSArray *AllUglyComments;
 
-+(instancetype)adapterDelegateFirstUppercaseTestObjWithTransactionId:(NSNumber *)theTransactionId transactionInfo:(NSString *)theTransactionInfo comment:(MNFAdapterSubDelegateFirstUppercaseTestObj *)theComment allComments:(NSArray *)allTheComments;
++ (instancetype)
+    adapterDelegateFirstUppercaseTestObjWithTransactionId:(NSNumber *)theTransactionId
+                                          transactionInfo:(NSString *)theTransactionInfo
+                                                  comment:(MNFAdapterSubDelegateFirstUppercaseTestObj *)theComment
+                                              allComments:(NSArray *)allTheComments;
 
 @end

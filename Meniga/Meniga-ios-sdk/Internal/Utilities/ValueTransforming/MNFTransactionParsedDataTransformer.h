@@ -10,6 +10,6 @@
 
 @interface MNFTransactionParsedDataTransformer : NSValueTransformer
 
-+(instancetype)transformer;
++ (instancetype)transformer;
 
 @end

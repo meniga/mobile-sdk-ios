@@ -8,7 +8,7 @@
 
 #import "MNFObject.h"
 
-@class MNFAccountSyncStatus,MNFSyncAuthenticationChallenge;
+@class MNFAccountSyncStatus, MNFSyncAuthenticationChallenge;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,47 +26,47 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The realm credentials id.
  */
-@property (nonatomic,strong,readonly) NSNumber *realmCredentialsId;
+@property (nonatomic, strong, readonly) NSNumber *realmCredentialsId;
 
 /**
  @abstract The realm credentials display name.
  */
-@property (nonatomic,copy,readonly) NSString *realmCredentialsDisplayName;
+@property (nonatomic, copy, readonly) NSString *realmCredentialsDisplayName;
 
 /**
  @abstract The organization identifier the realm belongs to.
  */
-@property (nonatomic,strong,readonly) NSNumber *organizationId;
+@property (nonatomic, strong, readonly) NSNumber *organizationId;
 
 /**
  @abstract The organization name the realm belongs to.
  */
-@property (nonatomic,copy,readonly) NSString *organizationName;
+@property (nonatomic, copy, readonly) NSString *organizationName;
 
 /**
  @abstract The organization bank code identifier the realm belongs to.
  */
-@property (nonatomic,copy,readonly) NSString *organizationBankCode;
+@property (nonatomic, copy, readonly) NSString *organizationBankCode;
 
 /**
  @abstract The list of sync statuses for each account the user has in the realm.
  */
-@property (nonatomic,copy,readonly) NSArray <MNFAccountSyncStatus*> *accountSyncStatuses;
+@property (nonatomic, copy, readonly) NSArray<MNFAccountSyncStatus *> *accountSyncStatuses;
 
 /**
  @abstract An authentication challenge to the user or null if no response is needed.
  */
-@property (nonatomic,strong,readonly) MNFSyncAuthenticationChallenge *authenticationChallenge;
+@property (nonatomic, strong, readonly) MNFSyncAuthenticationChallenge *authenticationChallenge;
 
 /**
  @abstract Whether the synchronization session is done for this realm.
  */
-@property (nonatomic,strong,readonly) NSNumber *isSyncDone;
+@property (nonatomic, strong, readonly) NSNumber *isSyncDone;
 
 /**
  @abstract Id of the realm.
  */
-@property (nonatomic,strong,readonly) NSNumber *realmId;
+@property (nonatomic, strong, readonly) NSNumber *realmId;
 
 @end
 
