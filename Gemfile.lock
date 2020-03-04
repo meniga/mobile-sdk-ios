@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/meniga/menigit
+  revision: a804621f41778448641d44c1d3d90fc8d2d29157
+  specs:
+    fastlane-plugin-menigit (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -209,6 +215,7 @@ PLATFORMS
 DEPENDENCIES
   cocoapods
   fastlane
+  fastlane-plugin-menigit!
 
 BUNDLED WITH
    2.0.2
