@@ -9,18 +9,8 @@ stages:
 jobs:
   include:
     - stage: test
-      name: "Unit tests"
       script:
-      - |
-        xcodebuild \
-        -project Meniga/Meniga-ios-sdk.xcodeproj \
-        -scheme Meniga-ios-sdk \
-        -sdk iphonesimulator \
-        -destination 'platform=iOS Simulator,name=iPhone 8' \
-        test
-      
-    - script: bundle exec pod lib lint
-      name:  "Validate podspec"
+      - bundle exec fastlane tests
 
     - stage: deploy
       name: "Release podspec"
