@@ -60,8 +60,9 @@ Deploy MenigaSDK to cocoapods trunk,
 fastlane ios tests
 ```
 Run tests:
-		- Validate podspec
-		- Mobile-ios-sdk unit tests
+    - Validate podspec
+    - synx - to check if xcodeproj has proper group structure
+    - Mobile-ios-sdk unit tests
 	
 
 ----
