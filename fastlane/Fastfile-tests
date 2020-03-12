@@ -1,0 +1,18 @@
+platform :ios do
+
+	desc %(Run tests:
+		- Validate podspec
+		- Mobile-ios-sdk unit tests
+	)
+	lane :tests do 
+        pod_lib_lint
+
+		run_tests(
+			project: "Meniga/Meniga-ios-sdk.xcodeproj",
+			scheme: "Meniga-ios-sdk",
+			device: "iPhone 8",
+			clean: true	  
+		)
+	end
+
+end

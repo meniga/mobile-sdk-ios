@@ -1,0 +1,12 @@
+platform :ios do
+  
+    desc "Build framework under path Meniga/compiled"
+    lane :build_framework do
+      xcodebuild(
+        scheme: "Framework",
+        project: "Meniga/Meniga-ios-sdk.xcodeproj"
+      )
+    end
+  
+  end
+  

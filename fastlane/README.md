@@ -16,6 +16,11 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
+### ios build_framework
+```
+fastlane ios build_framework
+```
+Build framework under path Meniga/compiled
 ### ios deploy
 ```
 fastlane ios deploy
@@ -46,15 +51,18 @@ Deploy MenigaSDK to cocoapods trunk,
    * Push podspec to Trunk specs
    * Merge branch into master
   Options:  
-  - gh_user - Username fotr github account 
-  - gh_user_email - Email that be use to create commit 
+  - gh_user - Username for github account 
+  - gh_user_email - Commit email address 
   - gh_token - Access token for gh_user_name github account 
   
-### ios build_framework
+### ios tests
 ```
-fastlane ios build_framework
+fastlane ios tests
 ```
-Build framework under path Meniga/compiled
+Run tests:
+		- Validate podspec
+		- Mobile-ios-sdk unit tests
+	
 
 ----
 
