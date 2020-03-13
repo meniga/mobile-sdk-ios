@@ -61,9 +61,15 @@ fastlane ios tests
 ```
 Run tests:
     - Validate podspec
+    - run-clang-format - to check Objective-c files formatting
     - synx - to check if xcodeproj has proper group structure
     - Mobile-ios-sdk unit tests
-	
+  
+### ios format
+```
+fastlane ios format
+```
+Format Objective-C code
 
 ----
 

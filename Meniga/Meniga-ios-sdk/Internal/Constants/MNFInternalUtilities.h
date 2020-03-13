@@ -13,12 +13,10 @@
 
 #endif /* MNFUtilities_h */
 
-
 //Weakify - strongify
 #define MNFweakify(var) __weak typeof(var) MNFWeak_##var = var;
 
-#define MNFstrongify(var) \
-_Pragma("clang diagnostic push") \
-_Pragma("clang diagnostic ignored \"-Wshadow\"") \
-__strong typeof(var) var = MNFWeak_##var; \
-_Pragma("clang diagnostic pop")
+#define MNFstrongify(var)                                                                                        \
+    _Pragma("clang diagnostic push") _Pragma("clang diagnostic ignored \"-Wshadow\"") __strong typeof(var) var = \
+        MNFWeak_##var;                                                                                           \
+    _Pragma("clang diagnostic pop")
