@@ -1,18 +1,30 @@
 platform :ios do
 
-	desc %(Run tests:
-		- Validate podspec
-		- Mobile-ios-sdk unit tests
-	)
-	lane :tests do 
-        pod_lib_lint
+  desc %(Run tests:
+    - Validate podspec
+    - synx - to check if xcodeproj has proper group structure
+    - Mobile-ios-sdk unit tests
+  )
+  lane :tests do 
+    pod_lib_lint
 
-		run_tests(
-			project: "Meniga/Meniga-ios-sdk.xcodeproj",
-			scheme: "Meniga-ios-sdk",
-			device: "iPhone 8",
-			clean: true	  
-		)
-	end
+    project = "Meniga/Meniga-ios-sdk.xcodeproj"
 
+    synx(
+      xcodeproj: project,
+      exclusion: "Podspec metadata"
+    )
+
+    ensure_no_changes(
+      path: project,
+      show_diff: true
+    )
+
+    run_tests(
+      project: project,
+      scheme: "Meniga-ios-sdk",
+      device: "iPhone 8",
+      clean: true
+    )
+  end
 end
