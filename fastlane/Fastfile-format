@@ -1,0 +1,18 @@
+platform :ios do
+
+  desc %(Format Objective-C code)
+  lane :format do
+    files = []
+    Dir.chdir("..") do
+      files = Dir.glob("Meniga/Meniga-ios-*/**/*.{h,m}")
+    end
+              
+    clang_format(
+      clang_format_path: "Meniga/clang-format/clang-format",
+      inplace: true,
+      style: "file",
+      verbose: true,
+      files: files
+    )
+  end
+end

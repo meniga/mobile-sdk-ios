@@ -2,5 +2,6 @@
 #
 # Ensure this file is checked in to source control!
 
-gem 'fastlane-plugin-menigit', git: 'https://github.com/meniga/menigit'
+gem 'fastlane-plugin-menigit'
 gem 'fastlane-plugin-synx', git: 'https://github.com/afonsograca/fastlane-plugin-synx'
+gem 'fastlane-plugin-clang_format'

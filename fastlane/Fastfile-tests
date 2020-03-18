@@ -2,11 +2,23 @@ platform :ios do
 
   desc %(Run tests:
     - Validate podspec
+    - run-clang-format - to check Objective-c files formatting
     - synx - to check if xcodeproj has proper group structure
     - Mobile-ios-sdk unit tests
   )
   lane :tests do 
     pod_lib_lint
+
+    run_clang_format(
+      script_path: "Meniga/clang-format/run-clang-format.py",
+      extensions: "h,m",
+      paths: [
+        "Meniga/Meniga-ios-sdk",
+        "Meniga/Meniga-ios-sdk-tests",
+        "Meniga/Meniga-ios-IntegrationTests"
+        ],
+      executable: "Meniga/clang-format/clang-format"
+    )
 
     project = "Meniga/Meniga-ios-sdk.xcodeproj"
 
