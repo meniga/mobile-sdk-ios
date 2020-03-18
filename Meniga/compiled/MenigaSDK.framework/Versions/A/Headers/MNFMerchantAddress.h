@@ -18,42 +18,42 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The city of the address.
  */
-@property (nonatomic,copy,readonly) NSString *city;
+@property (nonatomic, copy, readonly) NSString *city;
 
 /**
  @abstract The country of the address.
  */
-@property (nonatomic,copy,readonly) NSString *country;
+@property (nonatomic, copy, readonly) NSString *country;
 
 /**
  @abstract The country code of the address.
  */
-@property (nonatomic,copy,readonly) NSString *countryCode;
+@property (nonatomic, copy, readonly) NSString *countryCode;
 
 /**
  @abstract The latitude of the address.
  */
-@property (nonatomic,copy,readonly) NSString *latitude;
+@property (nonatomic, copy, readonly) NSString *latitude;
 
 /**
  @abstract The longitude of the address.
  */
-@property (nonatomic,copy,readonly) NSString *longitude;
+@property (nonatomic, copy, readonly) NSString *longitude;
 
 /**
  @abstract The postal code of the address.
  */
-@property (nonatomic,copy,readonly) NSString *postalCode;
+@property (nonatomic, copy, readonly) NSString *postalCode;
 
 /**
  @abstract The first street line of the address.
  */
-@property (nonatomic,copy,readonly) NSString *streetLine1;
+@property (nonatomic, copy, readonly) NSString *streetLine1;
 
 /**
  @abstract The second street line of the address.
  */
-@property (nonatomic,copy,readonly) NSString *streetLine2;
+@property (nonatomic, copy, readonly) NSString *streetLine2;
 
 @end
 

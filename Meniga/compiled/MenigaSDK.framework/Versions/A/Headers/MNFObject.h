@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MNFJob.h"
 #import "MNFConstants.h"
+#import "MNFJob.h"
 #import "MNFJsonAdapterDelegate.h"
 
 @class MNFJob, MNFObjectState;
@@ -27,29 +27,29 @@ NS_ASSUME_NONNULL_BEGIN
  
  @discussion This identifier is common to all objects that are serialized from the server.
  */
-@property (nonatomic,strong, readonly) NSNumber *identifier;
+@property (nonatomic, strong, readonly) NSNumber *identifier;
 
 /**
  @abstract Whether the object is dirty and needs to be saved to the server.
  */
-@property(nonatomic, readonly, getter=isDirty) BOOL dirty;
+@property (nonatomic, readonly, getter=isDirty) BOOL dirty;
 
 /**
  @abstract Whether the object has been deleted from the server.
  */
-@property(nonatomic, readonly, getter=isDeleted) BOOL deleted;
+@property (nonatomic, readonly, getter=isDeleted) BOOL deleted;
 
 /**
  @abstract Whether the object has yet to be created on the server.
  
  @discussion Only user created objects are marked as new and need to be created on the server. Once they are created the object is no longer marked as new.
  */
-@property(nonatomic, readonly) BOOL isNew;
+@property (nonatomic, readonly) BOOL isNew;
 
 /**
  @abstract Reverts the object to the last fetched server data
  */
--(void)revert;
+- (void)revert;
 
 @end
 

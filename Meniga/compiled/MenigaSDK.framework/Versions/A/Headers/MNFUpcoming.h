@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
+typedef NS_ENUM(NSInteger, MNFUpcomingPaymentStatus) {
     MNFUpcomingPaymentStatusOpen = 0,
     MNFUpcomingPaymentStatusOnHold,
     MNFUpcomingPaymentStatusPaid,
@@ -35,47 +35,47 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
 /**
  An identifier that connects invoices to scheduled payments to transactions in the external system.
  */
-@property (nonatomic,copy,readonly) NSString *bankReference;
+@property (nonatomic, copy, readonly) NSString *bankReference;
 
 /**
  The amount of the upcoming transaction in system currency.
  */
-@property (nonatomic,strong,readonly) NSNumber *amount;
+@property (nonatomic, strong, readonly) NSNumber *amount;
 
 /**
  The id of the actual transaction once booked.
  */
-@property (nonatomic,strong,readonly) NSNumber *transactionId;
+@property (nonatomic, strong, readonly) NSNumber *transactionId;
 
 /**
  The id of the invoice this upcoming transaction is based on.
  */
-@property (nonatomic,strong,readonly) NSNumber *invoiceId;
+@property (nonatomic, strong, readonly) NSNumber *invoiceId;
 
 /**
  The id of the scheduled payment this upcoming transaction is based on.
  */
-@property (nonatomic,strong,readonly) NSNumber *scheduledPaymentId;
+@property (nonatomic, strong, readonly) NSNumber *scheduledPaymentId;
 
 /**
  A list of comments related to the upcoming transaction.
  */
-@property (nonatomic,copy,readonly) NSArray <MNFUpcomingComment *> *comments;
+@property (nonatomic, copy, readonly) NSArray<MNFUpcomingComment *> *comments;
 
 /**
  A list of possible reconcile matches.
  */
-@property (nonatomic,copy,readonly) NSArray <MNFUpcomingReconcileScore *> *reconcileScores;
+@property (nonatomic, copy, readonly) NSArray<MNFUpcomingReconcileScore *> *reconcileScores;
 
 /**
  Details of the upcoming transaction. Only set when explicitly requested for.
  */
-@property (nonatomic,strong,readonly) MNFUpcomingDetails *details;
+@property (nonatomic, strong, readonly) MNFUpcomingDetails *details;
 
 /**
  The recurring pattern this upcoming transaction was created from.
  */
-@property (nonatomic,strong,readonly) MNFUpcomingRecurringPattern *recurringPattern;
+@property (nonatomic, strong, readonly) MNFUpcomingRecurringPattern *recurringPattern;
 
 ///******************************
 /// @name Mutable properties
@@ -84,47 +84,47 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
 /**
  The title or subject of the transaction.
  */
-@property (nonatomic,copy) NSString *text;
+@property (nonatomic, copy) NSString *text;
 
 /**
  The amount for the upcoming transaction in the currency of the 'CurrencyCode'.
  */
-@property (nonatomic,strong) NSNumber *amountInCurrency;
+@property (nonatomic, strong) NSNumber *amountInCurrency;
 
 /**
  The ISO 4217 currency code of the 'AmountInCurrency'.
  */
-@property (nonatomic,copy) NSString *currencyCode;
+@property (nonatomic, copy) NSString *currencyCode;
 
 /**
  The expected payment date of the upcoming transaction.
  */
-@property (nonatomic,strong) NSDate *date;
+@property (nonatomic, strong) NSDate *date;
 
 /**
  Whether the upcoming transaction is flagged by the user.
  */
-@property (nonatomic,strong) NSNumber *isFlagged;
+@property (nonatomic, strong) NSNumber *isFlagged;
 
 /**
  Whether the upcoming transaction is added to the watched list.
  */
-@property (nonatomic,strong) NSNumber *isWatched;
+@property (nonatomic, strong) NSNumber *isWatched;
 
 /**
  The id of the account the upcoming transaction is expected to be booked from.
  */
-@property (nonatomic,strong) NSNumber *accountId;
+@property (nonatomic, strong) NSNumber *accountId;
 
 /**
  The id of the category this upcoming transaction has been categorized as.
  */
-@property (nonatomic,strong) NSNumber *categoryId;
+@property (nonatomic, strong) NSNumber *categoryId;
 
 /**
  The payment status of the upcoming payment. Either 'Open','Paid' or 'OnHold'.
  */
-@property (nonatomic,copy) NSString *paymentStatus;
+@property (nonatomic, copy) NSString *paymentStatus;
 
 ///******************************
 /// @name Fetching
@@ -138,7 +138,7 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @return MNFJob A job containing a result, metadata and an error.
  */
-+(MNFJob*)fetchUpcomingWithId:(NSNumber*)upcomingId completion:(nullable MNFUpcomingCompletionHandler)completion;
++ (MNFJob *)fetchUpcomingWithId:(NSNumber *)upcomingId completion:(nullable MNFUpcomingCompletionHandler)completion;
 
 /**
  Fetches a list of upcoming transactions in the given time period.
@@ -149,7 +149,9 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @return MNFJob A job containing a list of upcoming transactions, metadata and an error.
  */
-+(MNFJob*)fetchUpcomingFromDate:(NSDate*)fromDate toDate:(NSDate*)toDate completion:(nullable MNFMultipleUpcomingCompletionHandler)completion;
++ (MNFJob *)fetchUpcomingFromDate:(NSDate *)fromDate
+                           toDate:(NSDate *)toDate
+                       completion:(nullable MNFMultipleUpcomingCompletionHandler)completion;
 
 /**
  Fetches a list of upcoming transactions in the given time period and filtered by optional parameters.
@@ -165,7 +167,14 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @return MNFJob A job containing a list of upcoming transactions, metadata and an error.
  */
-+(MNFJob*)fetchUpcomingFromDate:(NSDate*)fromDate toDate:(NSDate*)toDate accountIds:(nullable NSString *)accountIds includeDetails:(BOOL)includeDetails watchedOnly:(BOOL)watchedOnly recurringPatternId:(nullable NSNumber*)recurringPatternId paymentStatus:(MNFUpcomingPaymentStatus)paymentStatus completion:(nullable MNFMultipleUpcomingCompletionHandler)completion;
++ (MNFJob *)fetchUpcomingFromDate:(NSDate *)fromDate
+                           toDate:(NSDate *)toDate
+                       accountIds:(nullable NSString *)accountIds
+                   includeDetails:(BOOL)includeDetails
+                      watchedOnly:(BOOL)watchedOnly
+               recurringPatternId:(nullable NSNumber *)recurringPatternId
+                    paymentStatus:(MNFUpcomingPaymentStatus)paymentStatus
+                       completion:(nullable MNFMultipleUpcomingCompletionHandler)completion;
 
 ///******************************
 /// @name Creating
@@ -187,7 +196,16 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @return MNFJob A job containing a list of upcoming transactions, metadata and an error.
  */
-+(MNFJob*)createUpcomingWithText:(NSString*)text amountInCurrency:(NSNumber*)amountInCurrency currencyCode:(nullable NSString *)currencyCode date:(NSDate*)date accountId:(nullable NSNumber*)accountId categoryId:(nullable NSNumber*)categoryId isFlagged:(nullable NSNumber*)isFlagged isWatched:(nullable NSNumber*)isWatched recurringPattern:(nullable MNFUpcomingRecurringPattern*)recurringPattern completion:(nullable MNFMultipleUpcomingCompletionHandler)completion;
++ (MNFJob *)createUpcomingWithText:(NSString *)text
+                  amountInCurrency:(NSNumber *)amountInCurrency
+                      currencyCode:(nullable NSString *)currencyCode
+                              date:(NSDate *)date
+                         accountId:(nullable NSNumber *)accountId
+                        categoryId:(nullable NSNumber *)categoryId
+                         isFlagged:(nullable NSNumber *)isFlagged
+                         isWatched:(nullable NSNumber *)isWatched
+                  recurringPattern:(nullable MNFUpcomingRecurringPattern *)recurringPattern
+                        completion:(nullable MNFMultipleUpcomingCompletionHandler)completion;
 
 ///******************************
 /// @name Deleting
@@ -202,7 +220,7 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @note Remember to deallocate objects that have been deleted on the server.
  */
--(MNFJob*)deleteUpcomingWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteUpcomingWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Saving
@@ -218,7 +236,7 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @note Remember to revert an object if saving is unsuccessful to be in sync with the server data.
  */
--(MNFJob*)saveAllInSeries:(BOOL)allInSeries withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveAllInSeries:(BOOL)allInSeries withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Comment
@@ -232,7 +250,7 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)postComment:(NSString *)comment withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)postComment:(NSString *)comment withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Accounts
@@ -245,7 +263,7 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @return MNFJob A job containing the default account id and an error.
  */
-+(MNFJob*)fetchDefaultAccountIdWithCompletion:(nullable MNFDefaultAccountIdCompletionHandler)completion;
++ (MNFJob *)fetchDefaultAccountIdWithCompletion:(nullable MNFDefaultAccountIdCompletionHandler)completion;
 
 /**
  Sets the default account id.
@@ -255,7 +273,7 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @return MNFJob A job containing an error.
  */
-+(MNFJob*)setDefaultAccountId:(NSNumber *)accountId withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (MNFJob *)setDefaultAccountId:(NSNumber *)accountId withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Fetches all the account ids for accounts that are included in the cash flow predicted accounts' balances.
@@ -264,7 +282,7 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @return MNFJob A job containing a list of account ids and an error.
  */
-+(MNFJob*)fetchIncludedAccountIdsWithCompletion:(nullable MNFMultipleAccountIdsCompletionHandler)completion;
++ (MNFJob *)fetchIncludedAccountIdsWithCompletion:(nullable MNFMultipleAccountIdsCompletionHandler)completion;
 
 /**
  Sets the account ids of the accounts to be included in the cash flow predicted accounts' balances.
@@ -274,7 +292,8 @@ typedef NS_ENUM(NSInteger,MNFUpcomingPaymentStatus) {
  
  @return MNFJob A job containing an error.
  */
-+(MNFJob*)setIncludedAccountIds:(NSString*)accountIds withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (MNFJob *)setIncludedAccountIds:(NSString *)accountIds
+                   withCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

@@ -22,22 +22,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The date of a specific entry.
  */
-@property (nonatomic,strong,readonly) NSDate *date;
+@property (nonatomic, strong, readonly) NSDate *date;
 
 /**
  The balance at the end of the day.
  */
-@property (nonatomic,strong,readonly) NSNumber *endOfDayBalance;
+@property (nonatomic, strong, readonly) NSNumber *endOfDayBalance;
 
 /**
  The upcoming income total for that day.
  */
-@property (nonatomic,strong,readonly) NSNumber *income;
+@property (nonatomic, strong, readonly) NSNumber *income;
 
 /**
  The upcoming expenses for that day.
  */
-@property (nonatomic,strong,readonly) NSNumber *expenses;
+@property (nonatomic, strong, readonly) NSNumber *expenses;
 
 @end
 

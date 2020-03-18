@@ -26,8 +26,7 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
     kMenigaJsonErrorIgnoredPropertyKeyNotFound = -10,
     kMenigaJsonErrorMapPropertyKeyNotFound = -20,
     kMenigaJsonErrorRestrictedPropertyUsed = -30
-} ;
-
+};
 
 /** 
  A class to automatically serialize and deserialize model objects from json dictionaries which can be customized using the MNFJsonAdapterDelegate on the model objects you want to serialize and deserialize.
@@ -49,8 +48,10 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @return id (of type theClass passed as parameter)
  
  */
-+(id)objectOfClass:(Class)theClass jsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
-
++ (id)objectOfClass:(Class)theClass
+           jsonDict:(NSDictionary *)theJsonDict
+             option:(MNFAdapterOption)theAdapterOption
+              error:(NSError **)theError;
 
 /**
  @description Deserializes a single object of type Class which is initialized with the json dictionary. If you do not want the object of type Class being deserialized to conform to the delegate pass in a delegate object you want to use for delegation. If none is used it assumes an object of type Class will be the receiver for the delegate.
@@ -66,7 +67,11 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @return id (of type theClass passed as parameter)
  
  */
-+(id)objectOfClass:(Class)theClass delegate:(id <MNFJsonAdapterDelegate> )theDelegate jsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError *__autoreleasing *)theError;
++ (id)objectOfClass:(Class)theClass
+           delegate:(id<MNFJsonAdapterDelegate>)theDelegate
+           jsonDict:(NSDictionary *)theJsonDict
+             option:(MNFAdapterOption)theAdapterOption
+              error:(NSError *__autoreleasing *)theError;
 
 /**
  @description Deserializes an array of objects of type Class which is initialized with an array of NSDictionaries. By default the Class being will be used as the delegate object, if you want to use a different object as the delegate look at the method that has the delegate: parameter added to its signature.
@@ -81,7 +86,10 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @return id (of type theClass passed as parameter)
  
  */
-+(NSArray *)objectsOfClass:(Class)theClass jsonArray:(NSArray *)theJsonArray option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
++ (NSArray *)objectsOfClass:(Class)theClass
+                  jsonArray:(NSArray *)theJsonArray
+                     option:(MNFAdapterOption)theAdapterOption
+                      error:(NSError **)theError;
 
 /**
  @description Deserializes an array of objects of type Class which is initialized with an array of NSDictionaries. If you do not now want the object of type Class being deserialized to conform to the delegate pass in a delegate object you want to use for delegation. If none is used it assumes an object of type Class will be the receiver for the delegate.
@@ -97,7 +105,11 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @return id (of type theClass passed as parameter)
  
  */
-+(NSArray *)objectsOfClass:(Class)theClass delegate:(id <MNFJsonAdapterDelegate>)theDelegate jsonArray:(NSArray *)theJsonArray option:(MNFAdapterOption)theAdapterOption error:(NSError *__autoreleasing *)theError;
++ (NSArray *)objectsOfClass:(Class)theClass
+                   delegate:(id<MNFJsonAdapterDelegate>)theDelegate
+                  jsonArray:(NSArray *)theJsonArray
+                     option:(MNFAdapterOption)theAdapterOption
+                      error:(NSError *__autoreleasing *)theError;
 
 /**
  @description Updates an object's property values with the matching values from an NSDictionary.
@@ -110,7 +122,10 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @param theError An error the user can send by reference if something goes wrong in the deserialization. Currently not used.
  
  */
-+(BOOL)refreshObject:(NSObject <MNFJsonAdapterDelegate> *)theModel withJsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
++ (BOOL)refreshObject:(NSObject<MNFJsonAdapterDelegate> *)theModel
+         withJsonDict:(NSDictionary *)theJsonDict
+               option:(MNFAdapterOption)theAdapterOption
+                error:(NSError **)theError;
 
 /**
  @description Updates an object's property values with the matching values from an NSDictionary. If you do not now want the object of type Class being deserialized to conform to the delegate pass in a delegate object you want to use for delegation. If none is used it assumes an object of type Class will be the receiver for the delegate.
@@ -124,8 +139,11 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @param theError An error the user can send by reference if something goes wrong in the deserialization. Currently not used.
   
  */
-+(BOOL)refreshObject:(NSObject *)theModel delegate:(id <MNFJsonAdapterDelegate>)theDelegate jsonDict:(NSDictionary *)theJsonDict option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
-
++ (BOOL)refreshObject:(NSObject *)theModel
+             delegate:(id<MNFJsonAdapterDelegate>)theDelegate
+             jsonDict:(NSDictionary *)theJsonDict
+               option:(MNFAdapterOption)theAdapterOption
+                error:(NSError **)theError;
 
 #pragma mark - Serialization
 
@@ -143,7 +161,9 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @warning The error parameter is currently not used and all of the model objects in the array have to be of the same class.
  */
 
-+(NSArray *)JSONArrayFromArray:(NSArray *)theModels option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
++ (NSArray *)JSONArrayFromArray:(NSArray *)theModels
+                         option:(MNFAdapterOption)theAdapterOption
+                          error:(NSError **)theError;
 
 /**
  @description Returns an array of model objects in the given array serialized to NSDictionaries using a separated delegate object.
@@ -159,7 +179,10 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  
  @warning The error parameter is currently not used and all of the model objects in the array have to be of the same class.
  */
-+(NSArray *)JSONArrayFromArray:(NSArray *)theModels delegate:(id <MNFJsonAdapterDelegate>)theDelegate option:(MNFAdapterOption)theAdapterOption error:(NSError *__autoreleasing *)theError;
++ (NSArray *)JSONArrayFromArray:(NSArray *)theModels
+                       delegate:(id<MNFJsonAdapterDelegate>)theDelegate
+                         option:(MNFAdapterOption)theAdapterOption
+                          error:(NSError *__autoreleasing *)theError;
 
 /**  
  @description Returns a dictionary from the model object by using the MNFJsonAdapterDelegate you can map them to custom keys as well as ignore them to be serialized to a json server.
@@ -173,8 +196,9 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @retun NSDictionary
  
   */
-+(NSDictionary *)JSONDictFromObject:(id <MNFJsonAdapterDelegate>)theModel option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
-
++ (NSDictionary *)JSONDictFromObject:(id<MNFJsonAdapterDelegate>)theModel
+                              option:(MNFAdapterOption)theAdapterOption
+                               error:(NSError **)theError;
 
 /**
  @description Returns a dictionary from the model object by using the MNFJsonAdapterDelegate you can map them to custom keys as well as ignore them to be serialized to a json server.
@@ -187,7 +211,10 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  
  @retun NSDictionary
  */
-+(NSDictionary *)JSONDictFromObject:(id)theModel delegate:(id <MNFJsonAdapterDelegate>)theDelegate option:(MNFAdapterOption)theAdapterOption error:(NSError *__autoreleasing *)theError;
++ (NSDictionary *)JSONDictFromObject:(id)theModel
+                            delegate:(id<MNFJsonAdapterDelegate>)theDelegate
+                              option:(MNFAdapterOption)theAdapterOption
+                               error:(NSError *__autoreleasing *)theError;
 
 /**
  @description Returns NSData from the model object by using the MNFJsonAdapterDelegate you can map them to custom keys as well as ignore them to be serialized to a json server. This method transforms the NSDictionary from JSONDictFromObject: straight to NSData using NSJSONSerialization.
@@ -201,7 +228,9 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  @retun NSData
  
  */
-+(NSData *)JSONDataFromObject:(id <MNFJsonAdapterDelegate>)theModel option:(MNFAdapterOption)theAdapterOption error:(NSError **)theError;
++ (NSData *)JSONDataFromObject:(id<MNFJsonAdapterDelegate>)theModel
+                        option:(MNFAdapterOption)theAdapterOption
+                         error:(NSError **)theError;
 
 /**
  @description Returns NSData from the model object by using the MNFJsonAdapterDelegate you can map them to custom keys as well as ignore them to be serialized to a json server. This method transforms the NSDictionary from JSONDictFromObject: straight to NSData using NSJSONSerialization.
@@ -214,8 +243,10 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  
  @retun NSData
  */
-+(NSData *)JSONDataFromObject:(id)theModel delegate:(id <MNFJsonAdapterDelegate>)theDelegate option:(MNFAdapterOption)theAdapterOption error:(NSError *__autoreleasing *)theError;
-
++ (NSData *)JSONDataFromObject:(id)theModel
+                      delegate:(id<MNFJsonAdapterDelegate>)theDelegate
+                        option:(MNFAdapterOption)theAdapterOption
+                         error:(NSError *__autoreleasing *)theError;
 
 #pragma mark - convenience methods
 
@@ -228,7 +259,7 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  
  @return NSData
  */
-+(NSData *)JSONDataFromDictionary:(NSDictionary *)theDictionary;
++ (NSData *)JSONDataFromDictionary:(NSDictionary *)theDictionary;
 
 /**
  @description Returns NSDictionary from NSData using NSJSONSerialization.
@@ -239,6 +270,6 @@ typedef NS_ENUM(NSInteger, MenigaJsonErrorCodes) {
  
  @return NSDictionary
  */
-+(id)objectFromJSONData:(NSData *)theJSONData;
++ (id)objectFromJSONData:(NSData *)theJSONData;
 
 @end

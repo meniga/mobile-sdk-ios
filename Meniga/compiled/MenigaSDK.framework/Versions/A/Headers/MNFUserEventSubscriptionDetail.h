@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFUserEventSubscriptionDetail : MNFObject
 
-@property (nonatomic,strong,readonly) NSString *userEventTypeIdentifier;
-@property (nonatomic,strong,readonly) NSArray <MNFUserEventSubscription *> *subscriptions;
-@property (nonatomic,strong,readonly) NSArray <MNFUserEventSubscriptionSetting *> *settings;
-@property (nonatomic,strong,readonly) NSArray <MNFUserEventSubscriptionDetail *> *children;
+@property (nonatomic, strong, readonly) NSString *userEventTypeIdentifier;
+@property (nonatomic, strong, readonly) NSArray<MNFUserEventSubscription *> *subscriptions;
+@property (nonatomic, strong, readonly) NSArray<MNFUserEventSubscriptionSetting *> *settings;
+@property (nonatomic, strong, readonly) NSArray<MNFUserEventSubscriptionDetail *> *children;
 
 + (MNFJob *)fetchSubscriptionDetailsWithCompletion:(nullable MNFUserEventSubscriptionDetailCompletionHandler)completion;
 

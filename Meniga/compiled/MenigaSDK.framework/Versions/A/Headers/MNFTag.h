@@ -26,7 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, readonly) NSString *name;
 
-
 ///******************************
 /// @name Fetching
 ///******************************
@@ -39,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an MNFTag and an error.
  */
-+(MNFJob*)fetchWithId:(NSNumber *)tagId completion:(nullable MNFTagCompletionHandler)completion;
++ (MNFJob *)fetchWithId:(NSNumber *)tagId completion:(nullable MNFTagCompletionHandler)completion;
 
 /**
  @abstract Fetches a list of all tags created by the user.
@@ -48,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an array of tags and an error.
  */
-+(MNFJob*)fetchTagsWithCompletion:(nullable MNFMultipleTagsCompletionHandler)completion;
++ (MNFJob *)fetchTagsWithCompletion:(nullable MNFMultipleTagsCompletionHandler)completion;
 
 /**
  @abstract Fetches a list of the most popular tags used by the user.
@@ -58,7 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of tags and an error.
  */
-+(MNFJob*)fetchPopularTagsWithCount:(NSNumber*)count completion:(nullable MNFMultipleTagsCompletionHandler)completion;
++ (MNFJob *)fetchPopularTagsWithCount:(NSNumber *)count
+                           completion:(nullable MNFMultipleTagsCompletionHandler)completion;
 
 @end
 

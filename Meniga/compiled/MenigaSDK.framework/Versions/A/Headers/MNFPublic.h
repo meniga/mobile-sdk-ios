@@ -6,8 +6,8 @@
 //  Copyright © 2017 Meniga. All rights reserved.
 //
 
-#import "MNFObject.h"
 #import "MNFCurrency.h"
+#import "MNFObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,60 +23,60 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The default culture name.
  */
-@property (nonatomic,copy,readonly) NSString *defaultCultureName;
+@property (nonatomic, copy, readonly) NSString *defaultCultureName;
 
 /**
  The system currency.
  */
-@property (nonatomic,copy,readonly) NSString *systemCurrency;
+@property (nonatomic, copy, readonly) NSString *systemCurrency;
 
 /**
  The number format.
  */
-@property (nonatomic,copy,readonly) NSString *numberFormat;
+@property (nonatomic, copy, readonly) NSString *numberFormat;
 
 /**
  The currency format.
  */
-@property (nonatomic,copy,readonly) NSString *currencyFormat;
+@property (nonatomic, copy, readonly) NSString *currencyFormat;
 
 /**
  The cluster node name.
  */
-@property (nonatomic,copy,readonly) NSString *clusterNodeName MNF_DEPRECATED("No longer returned with this resource.");
+@property (nonatomic, copy, readonly) NSString *clusterNodeName MNF_DEPRECATED("No longer returned with this resource.")
+    ;
 
 /**
  The currency budget round off.
  */
-@property (nonatomic,strong,readonly) NSNumber *currencyRoundOff;
+@property (nonatomic, strong, readonly) NSNumber *currencyRoundOff;
 
 /**
  The currency decimal digits.
  */
-@property (nonatomic,strong,readonly) NSNumber *currencyDecimalDigits;
+@property (nonatomic, strong, readonly) NSNumber *currencyDecimalDigits;
 
 /**
  The available currencies.
  */
-@property (nonatomic,copy,readonly) NSArray <MNFCurrency*> *currencies;
+@property (nonatomic, copy, readonly) NSArray<MNFCurrency *> *currencies;
 
 /**
  The current culture.
  */
-@property (nonatomic,copy,readonly) NSString *currentCulture MNF_DEPRECATED("No longer returned with this resource.");
+@property (nonatomic, copy, readonly) NSString *currentCulture MNF_DEPRECATED("No longer returned with this resource.");
 
 /**
  The current currency group symbol.
  */
-@property (nonatomic,copy,readonly) NSString *currencyGroupSymbol;
+@property (nonatomic, copy, readonly) NSString *currencyGroupSymbol;
 
 /**
  The current currency decimal symbol.
  */
-@property (nonatomic,copy,readonly) NSString *currencyDecimalSymbol;
+@property (nonatomic, copy, readonly) NSString *currencyDecimalSymbol;
 
-+(MNFJob*)fetchPublicSettingsWithCompletion:(nullable MNFPublicCompletionHandler)completion;
-
++ (MNFJob *)fetchPublicSettingsWithCompletion:(nullable MNFPublicCompletionHandler)completion;
 
 @end
 

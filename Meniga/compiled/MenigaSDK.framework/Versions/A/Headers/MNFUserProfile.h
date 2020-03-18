@@ -24,22 +24,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The server identifier for the user.
  */
-@property (nonatomic,strong,readonly)    NSNumber *personId;
+@property (nonatomic, strong, readonly) NSNumber *personId;
 
 /**
  @abstract Whether the user has saved his profile information.
  */
-@property (nonatomic,strong,readonly)    NSNumber *hasSavedProfile;
+@property (nonatomic, strong, readonly) NSNumber *hasSavedProfile;
 
 /**
  @abstract The time the user was created.
  */
-@property (nonatomic,strong,readonly)    NSDate *created;
+@property (nonatomic, strong, readonly) NSDate *created;
 
 /**
  The display currency of the user.
  */
-@property (nonatomic,copy,readonly) NSString *currencyCode;
+@property (nonatomic, copy, readonly) NSString *currencyCode;
 
 ///******************************
 /// @name Mutable properties
@@ -48,57 +48,57 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The gender of the user.
  */
-@property (nonatomic,strong)             NSNumber *gender;
+@property (nonatomic, strong) NSNumber *gender;
 
 /**
  @abstract The birth year of the user.
  */
-@property (nonatomic,strong)             NSDate *birthYear;
+@property (nonatomic, strong) NSDate *birthYear;
 
 /**
  @abstract The postal code of the user.
  */
-@property (nonatomic,copy)             NSString *postalCode;
+@property (nonatomic, copy) NSString *postalCode;
 
 /**
  @abstract The number of people in the user's family.
  */
-@property (nonatomic,strong)             NSNumber *numberInFamily;
+@property (nonatomic, strong) NSNumber *numberInFamily;
 
 /**
  @abstract The user's number of kids.
  */
-@property (nonatomic,strong)             NSNumber *numberOfKids;
+@property (nonatomic, strong) NSNumber *numberOfKids;
 
 /**
  @abstract The user's number of cars.
  */
-@property (nonatomic,strong)             NSNumber *numberOfCars;
+@property (nonatomic, strong) NSNumber *numberOfCars;
 
 /**
  @abstract The user's income Id.
  */
-@property (nonatomic,strong)             NSNumber *incomeId;
+@property (nonatomic, strong) NSNumber *incomeId;
 
 /**
  @abstract The user's apartment's number of rooms.
  */
-@property (nonatomic,strong)             NSNumber *apartmentRooms;
+@property (nonatomic, strong) NSNumber *apartmentRooms;
 
 /**
  @abstract The user's apartment type.
  */
-@property (nonatomic,strong)             NSNumber *apartmentType;
+@property (nonatomic, strong) NSNumber *apartmentType;
 
 /**
  @abstract The user's apartment's size.
  */
-@property (nonatomic,strong)             NSNumber *apartmentSize;
+@property (nonatomic, strong) NSNumber *apartmentSize;
 
 /**
  @abstract The user's apartment's size key.
  */
-@property (nonatomic,strong)             NSNumber *apartmentSizeKey;
+@property (nonatomic, strong) NSNumber *apartmentSizeKey;
 
 ///******************************
 /// @name Fetching
@@ -111,7 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a user profile and an error.
  */
-+(MNFJob*)fetchWithCompletion:(nullable MNFUserProfileCompletionHandler)completion;
++ (MNFJob *)fetchWithCompletion:(nullable MNFUserProfileCompletionHandler)completion;
 
 ///******************************
 /// @name Saving
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing an error.
  */
--(MNFJob*)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

@@ -6,8 +6,8 @@
 //  Copyright © 2015 Meniga. All rights reserved.
 //
 
-#import "MNFObject.h"
 #import "MNFConstants.h"
+#import "MNFObject.h"
 
 @class MNFTransactionFilter;
 @class MNFTransactionGroup;
@@ -29,27 +29,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract current page
  */
-@property(nonatomic, strong, readonly) NSNumber * _Nullable pageNumber;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable pageNumber;
 /**
  @abstract Total number of pages
  */
-@property(nonatomic, strong, readonly) NSNumber * _Nullable numberOfPages;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable numberOfPages;
 /**
  @abstract Transactions on current page
  */
-@property(nonatomic, copy, readonly) NSArray <MNFTransaction *> * _Nullable transactions;
+@property (nonatomic, copy, readonly) NSArray<MNFTransaction *> *_Nullable transactions;
 /**
  @abstract Total count of transactions
  */
-@property(nonatomic, strong, readonly) NSNumber * _Nullable numberOfTransactions;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable numberOfTransactions;
 /**
  @abstract Total sum of the "amount" key for all transactions
  */
-@property(nonatomic, strong, readonly) NSNumber * _Nullable sumOfTransactions;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable sumOfTransactions;
 /**
  @abstract number of transactions per page
  */
-@property(nonatomic, strong, readonly) NSNumber * _Nullable transactionsPerPage;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable transactionsPerPage;
 
 ///******************************
 /// @name Fetching
@@ -65,7 +65,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return an MNFJob containing a transaction page or an error.
  */
-+(MNFJob*)fetchWithTransactionFilter:(MNFTransactionFilter*)filter page:(nullable NSNumber*)page transactionsPerPage:(nullable NSNumber*)transactionsPerPage completion:(nullable MNFTransactionPageCompletionHandler)completion;
++ (MNFJob *)fetchWithTransactionFilter:(MNFTransactionFilter *)filter
+                                  page:(nullable NSNumber *)page
+                   transactionsPerPage:(nullable NSNumber *)transactionsPerPage
+                            completion:(nullable MNFTransactionPageCompletionHandler)completion;
 
 ///******************************
 /// @name Next page
@@ -78,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing either a @YES result or an error.
  */
--(MNFJob*)appendNextPageWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)appendNextPageWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Replaces the transaction list with the next page of transactions. Updates pageNumber.
@@ -87,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing either a @YES result or an error.
  */
--(MNFJob*)nextPageWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)nextPageWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Refreshing
@@ -97,12 +100,12 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract Refreshes and reorders the transaction list. Reccommended to use after a significant transaction update
  @param error An error that may occur when refreshing a transaction page.
  */
--(BOOL)refreshTransactionListWithError:(NSError **)error MNF_DEPRECATED("Please use -refreshTransactionList instead");
+- (BOOL)refreshTransactionListWithError:(NSError **)error MNF_DEPRECATED("Please use -refreshTransactionList instead");
 
 /**
  @abstract Refreshes and reorders the transaction list. Reccommended to use after a significant transaction update
  */
--(void)refreshTransactionList;
+- (void)refreshTransactionList;
 
 /**
  @abstract Refreshes the transaction list with data from the server.
@@ -111,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Grouping
@@ -120,23 +123,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Groups all transactions by date into transaction groups which is cached and can be accessed by using transactionsGroupedByDate method.
  */
--(void)groupByDate;
+- (void)groupByDate;
 
 /**
  @abstract The transaction groups for all the transactions grouped by date. Make sure you have called the group by date method after any additional fetches on the transaction page.
  */
--(NSArray <MNFTransactionGroup *> *)transactionsGroupedByDate;
+- (NSArray<MNFTransactionGroup *> *)transactionsGroupedByDate;
 
 /**
  @abstract Groups all transactions by categoryId into transaction groups.
  */
--(void)groupByCategory;
+- (void)groupByCategory;
 
 /**
  @abstract The transactions for all the transactions grouped by category. Make sure you have called the group by category method after any additional fetches on the transaction page.
  */
--(nullable NSArray <MNFTransactionGroup *> *)transactionsGroupedByCategory;
-
+- (nullable NSArray<MNFTransactionGroup *> *)transactionsGroupedByCategory;
 
 @end
 

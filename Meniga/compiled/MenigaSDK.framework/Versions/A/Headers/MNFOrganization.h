@@ -27,42 +27,42 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The name of the organization
  */
-@property (nonatomic,copy,readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSString *name;
 
 /**
  An alternative name of the organization.
  */
-@property (nonatomic,copy,readonly) NSString *altName;
+@property (nonatomic, copy, readonly) NSString *altName;
 
 /**
  A code that identifies this organization globally, such as Swift code.
  */
-@property (nonatomic,copy,readonly) NSString *organizationIdentifier;
+@property (nonatomic, copy, readonly) NSString *organizationIdentifier;
 
 /**
  Used to order accounts for display.
  */
-@property (nonatomic,strong,readonly) NSNumber *orderIndex;
+@property (nonatomic, strong, readonly) NSNumber *orderIndex;
 
 /**
  The file path for the icon.
  */
-@property (nonatomic,copy,readonly) NSString *iconFilename;
+@property (nonatomic, copy, readonly) NSString *iconFilename;
 
 /**
  The id of icon file.
  */
-@property (nonatomic,strong,readonly) NSNumber *imageDataId;
+@property (nonatomic, strong, readonly) NSNumber *imageDataId;
 
 /**
  The base64 encoded image data.
  */
-@property (nonatomic,copy,readonly) NSString *imageData;
+@property (nonatomic, copy, readonly) NSString *imageData;
 
 /**
  Realms belonging to this organization.
  */
-@property (nonatomic,copy,readonly) NSArray <MNFOrganizationRealm*> *realms;
+@property (nonatomic, copy, readonly) NSArray<MNFOrganizationRealm *> *realms;
 
 ///******************************
 /// @name Fetching
@@ -76,7 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an organization and an error.
  */
-+ (MNFJob*)fetchOrganizationsWithNameSearch:(nullable NSString *)nameSearch completion:(nullable MNFOrganizationsCompletionHandler)completion;
++ (MNFJob *)fetchOrganizationsWithNameSearch:(nullable NSString *)nameSearch
+                                  completion:(nullable MNFOrganizationsCompletionHandler)completion;
 
 @end
 

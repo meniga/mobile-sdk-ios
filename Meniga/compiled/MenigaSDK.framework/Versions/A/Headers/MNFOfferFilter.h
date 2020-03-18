@@ -13,19 +13,20 @@
 /**
  @abstract List of offer states to filer on. Expected values: all, activated, available, declined and expired. By default nil.
  */
-@property (nonatomic, strong, readwrite, nullable) NSArray <NSString *> *offerStates;
+@property (nonatomic, strong, readwrite, nullable) NSArray<NSString *> *offerStates;
 
 /**
  @abstrct Retrieves specific offer ids.
  
  @warning The offerStates and expiredWithCasbackOnly will be ignored when this parameter is set. By default nil.
  */
-@property (nonatomic, strong, readwrite, nullable) NSArray <NSString *> *offerIds;
+@property (nonatomic, strong, readwrite, nullable) NSArray<NSString *> *offerIds;
 
 /**
  @abstract Expired offers without any repayment transactions will be excluded when this parameter is set to true. By default it is false.
  */
-@property (nonatomic, strong, readwrite, nullable) NSNumber *expiredWithCashbackOnly MNF_DEPRECATED("Use expiredWithRedemptionsOnly instead");
+@property (nonatomic, strong, readwrite, nullable)
+    NSNumber *expiredWithCashbackOnly MNF_DEPRECATED("Use expiredWithRedemptionsOnly instead");
 
 /**
  Whether to exclude offers without any redemption transactions.

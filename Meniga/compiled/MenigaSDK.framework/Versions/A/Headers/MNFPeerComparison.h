@@ -7,21 +7,21 @@
 //
 
 #import "MNFObject.h"
-#import "MNFPeerComparisonStats.h"
 #import "MNFPeerComparisonMerchants.h"
+#import "MNFPeerComparisonStats.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MNFPeerComparison : MNFObject
 
-@property (nonatomic,copy,readonly) NSArray <NSNumber*> *categoryIds;
-@property (nonatomic,copy,readonly) NSArray <NSString*> *months;
-@property (nonatomic,copy,readonly) MNFPeerComparisonStats *user;
-@property (nonatomic,copy,readonly) MNFPeerComparisonStats *community;
-@property (nonatomic,copy,readonly) NSArray <MNFPeerComparisonMerchants*> *userMerchants;
-@property (nonatomic,copy,readonly) NSArray <MNFPeerComparisonMerchants*> *communityMerchants;
-@property (nonatomic,copy,readonly) NSString *status;
-@property (nonatomic,copy,readonly) NSString *statusMessage;
+@property (nonatomic, copy, readonly) NSArray<NSNumber *> *categoryIds;
+@property (nonatomic, copy, readonly) NSArray<NSString *> *months;
+@property (nonatomic, copy, readonly) MNFPeerComparisonStats *user;
+@property (nonatomic, copy, readonly) MNFPeerComparisonStats *community;
+@property (nonatomic, copy, readonly) NSArray<MNFPeerComparisonMerchants *> *userMerchants;
+@property (nonatomic, copy, readonly) NSArray<MNFPeerComparisonMerchants *> *communityMerchants;
+@property (nonatomic, copy, readonly) NSString *status;
+@property (nonatomic, copy, readonly) NSString *statusMessage;
 
 /**
  Fetches a list of peer comparison statistics for the user.
@@ -35,21 +35,21 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of peer comparison objects and an error.
  */
-+(MNFJob*)fetchPeerComparisonWithCategoryIds:(nullable NSString*)categoryIds
-                                 excludeUser:(nullable NSNumber*)excludeUser
-                              previousMonths:(nullable NSNumber*)previousMonths
-                             groupCategories:(nullable NSNumber*)groupCategories
-                                   segmentBy:(nullable NSNumber*)segmentBy
-                                  completion:(nullable MNFPeerComparisonCompletionHandler)completion;
++ (MNFJob *)fetchPeerComparisonWithCategoryIds:(nullable NSString *)categoryIds
+                                   excludeUser:(nullable NSNumber *)excludeUser
+                                previousMonths:(nullable NSNumber *)previousMonths
+                               groupCategories:(nullable NSNumber *)groupCategories
+                                     segmentBy:(nullable NSNumber *)segmentBy
+                                    completion:(nullable MNFPeerComparisonCompletionHandler)completion;
 
-+(MNFJob*)fetchTopMerchantsWithLimit:(nullable NSNumber*)limit
-                              rankBy:(nullable NSNumber*)rankBy
-                         excludeUser:(nullable NSNumber*)excludeUser
-                         categoryIds:(nullable NSString*)categoryIds
-                      previousMonths:(nullable NSNumber*)previousMonths
-                     groupCategories:(nullable NSNumber*)groupCategories
-                           segmentBy:(nullable NSNumber*)segmentBy
-                          completion:(nullable MNFPeerComparisonCompletionHandler)completion;
++ (MNFJob *)fetchTopMerchantsWithLimit:(nullable NSNumber *)limit
+                                rankBy:(nullable NSNumber *)rankBy
+                           excludeUser:(nullable NSNumber *)excludeUser
+                           categoryIds:(nullable NSString *)categoryIds
+                        previousMonths:(nullable NSNumber *)previousMonths
+                       groupCategories:(nullable NSNumber *)groupCategories
+                             segmentBy:(nullable NSNumber *)segmentBy
+                            completion:(nullable MNFPeerComparisonCompletionHandler)completion;
 
 @end
 

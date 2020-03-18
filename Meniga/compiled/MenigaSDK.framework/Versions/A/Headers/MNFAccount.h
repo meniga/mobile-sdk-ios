@@ -6,8 +6,8 @@
 //  Copyright © 2015 Meniga. All rights reserved.
 //
 
-#import "MNFObject.h"
 #import "MNFAccountFilter.h"
+#import "MNFObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,151 +34,151 @@ NS_ASSUME_NONNULL_BEGIN
  
  @discussion This value is an identifier for the account set by the originating bank. This identifier is used when getting account statements.
  */
-@property (nonatomic,copy,readonly) NSString *accountIdentifier;
+@property (nonatomic, copy, readonly) NSString *accountIdentifier;
 
 /**
  @abstract The realm identifier of an account.
  */
-@property (nonatomic,copy,readonly) NSString *realmIdentifier;
+@property (nonatomic, copy, readonly) NSString *realmIdentifier;
 
 /**
  @abstract The account type identifier of an account.
  
  @discussion This value is an identifier for the type (savings, checking, etc.) of an account.
  */
-@property (nonatomic,strong,readonly) NSNumber *accountTypeId;
+@property (nonatomic, strong, readonly) NSNumber *accountTypeId;
 
 /**
  @abstract The balance of an account.
  */
-@property (nonatomic,strong,readonly) NSNumber *balance;
+@property (nonatomic, strong, readonly) NSNumber *balance;
 
 /**
  The balance of an account in the users currency.
  */
-@property (nonatomic,strong,readonly) NSNumber *balanceInUserCurrency;
+@property (nonatomic, strong, readonly) NSNumber *balanceInUserCurrency;
 
 /**
  @abstract The currency code of the account. Expressed in a ISO 4217 string.
  */
-@property (nonatomic,strong,readonly) NSString *currencyCode;
+@property (nonatomic, strong, readonly) NSString *currencyCode;
 
 /**
  @abstract The limit or overdraft of an account.
  */
-@property (nonatomic,strong,readonly) NSNumber *limit;
+@property (nonatomic, strong, readonly) NSNumber *limit;
 
 /**
  The limit or overdraft of an account in the users currency.
  */
-@property (nonatomic,strong,readonly) NSNumber *limitInUserCurrency;
+@property (nonatomic, strong, readonly) NSNumber *limitInUserCurrency;
 
 /**
  @abstract The account class of an account.
  
  @description This value is for example used for displaying an image for an account in CSS.
  */
-@property (nonatomic,copy,readonly) NSString *accountClass;
+@property (nonatomic, copy, readonly) NSString *accountClass;
 
 /**
  @abstract The organization name of an account.
  */
-@property (nonatomic,copy,readonly) NSString *organizationName;
+@property (nonatomic, copy, readonly) NSString *organizationName;
 
 /**
  @abstract The organization identifier for an account.
  
  @discussion This value is a code that identifies the organization associated with this account globally, such as Swift code.
  */
-@property (nonatomic,copy,readonly) NSString *organizationIdentifier;
+@property (nonatomic, copy, readonly) NSString *organizationIdentifier;
 
 /**
  @abstract The realm credentials identifier for an account.
  
  @discussion This value is an identifier for an online bank user that owns the account.
  */
-@property (nonatomic,strong,readonly) NSNumber *realmCredentialsId;
+@property (nonatomic, strong, readonly) NSNumber *realmCredentialsId;
 
 /**
  @abstract The account authorization type for an account.
  
  @discussion This value indicates the type of account authorization during account aggregation.
  */
-@property (nonatomic,copy,readonly) NSString *accountAuthorizationType;
+@property (nonatomic, copy, readonly) NSString *accountAuthorizationType;
 
 /**
  @abstract Whether an account issues transactions to be imported manually or not.
  */
-@property (nonatomic,strong,readonly) NSNumber *isImportAccount;
+@property (nonatomic, strong, readonly) NSNumber *isImportAccount;
 
 /**
  @abstract The last update time of an account.
  
  @discussion This value indicates when the account was last updated on the server.
  */
-@property (nonatomic,strong,readonly) NSDate *lastUpdate;
+@property (nonatomic, strong, readonly) NSDate *lastUpdate;
 
 /**
  @abstract The identifier of the person who owns the account.
  */
-@property (nonatomic,strong,readonly) NSNumber *personId;
+@property (nonatomic, strong, readonly) NSNumber *personId;
 
 /**
  @abstract The email of the person who owns the account.
  */
-@property (nonatomic,copy,readonly) NSString *userEmail;
+@property (nonatomic, copy, readonly) NSString *userEmail;
 
 /**
  @abstract The time the account was created.
  */
-@property (nonatomic,strong,readonly) NSDate *createDate;
+@property (nonatomic, strong, readonly) NSDate *createDate;
 
 /**
  @abstract The category of the account.
  
  @discussion Indicates if the account is a checking, savings or credit account.
  */
-@property (nonatomic,copy,readonly) NSString *accountCategory;
+@property (nonatomic, copy, readonly) NSString *accountCategory;
 
 /**
  @abstract Whether the account is inactive.
  */
-@property (nonatomic,strong,readonly) NSNumber *inactive;
+@property (nonatomic, strong, readonly) NSNumber *inactive;
 
 /**
  @abstract The time when the user added this account to the PFM database.
  */
-@property (nonatomic,strong,readonly) NSDate *attachedToUserDate;
+@property (nonatomic, strong, readonly) NSDate *attachedToUserDate;
 
 /**
  @abstract Whether automatic synchronization is paused for the account
  */
-@property (nonatomic,strong,readonly) NSNumber *synchronizationIsPaused;
+@property (nonatomic, strong, readonly) NSNumber *synchronizationIsPaused;
 
 /**
  @abstract Whether the account is used for budget calculations.
  */
-@property (nonatomic,strong,readonly) NSNumber *hasInactiveBudget;
+@property (nonatomic, strong, readonly) NSNumber *hasInactiveBudget;
 
 /**
  @abstract Whether transactions from the account are not used in the transaction list.
  */
-@property (nonatomic,strong,readonly) NSNumber *hasInactiveTransactions;
+@property (nonatomic, strong, readonly) NSNumber *hasInactiveTransactions;
 
 /**
  @abstract The custom meta data of the account.
  */
-@property (nonatomic,copy,readonly) NSArray<NSDictionary *> *metadata;
+@property (nonatomic, copy, readonly) NSArray<NSDictionary *> *metadata;
 
 /**
  The account role external.
  */
-@property (nonatomic,copy,readonly) NSString *accountRoleExternal;
+@property (nonatomic, copy, readonly) NSString *accountRoleExternal;
 
 /**
  The account status external.
  */
-@property (nonatomic,copy,readonly) NSString *accountStatusExternal;
+@property (nonatomic, copy, readonly) NSString *accountStatusExternal;
 
 ///******************************
 /// @name Mutable properties
@@ -189,29 +189,29 @@ NS_ASSUME_NONNULL_BEGIN
  
  @discussion The name can be set by the user or the originating bank.
  */
-@property (nonatomic,copy) NSString *name;
+@property (nonatomic, copy) NSString *name;
 
 /**
  @abstract The order identifier for an account.
  
  @discussion Accounts are ordered in ascending order by this order key.
  */
-@property (nonatomic,strong) NSNumber *orderId;
+@property (nonatomic, strong) NSNumber *orderId;
 
 /**
  @abstract Whether the account should be hidden in overview.
  */
-@property (nonatomic,strong) NSNumber *isHidden;
+@property (nonatomic, strong) NSNumber *isHidden;
 
 /**
  @abstract Whether the account is excluded from all calculations.
  */
-@property (nonatomic,strong) NSNumber *isDisabled;
+@property (nonatomic, strong) NSNumber *isDisabled;
 
 /**
  @abstract The emergency fund balance limit of the account.
  */
-@property (nonatomic,strong) NSNumber *emergencyFundBalanceLimit;
+@property (nonatomic, strong) NSNumber *emergencyFundBalanceLimit;
 
 ///******************************
 /// @name Fetching
@@ -225,7 +225,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a result, metadata and error.
  */
-+(MNFJob*)fetchWithId:(NSNumber *)identifier completion:(nullable MNFAccountCompletionHandler)completion;
++ (MNFJob *)fetchWithId:(NSNumber *)identifier completion:(nullable MNFAccountCompletionHandler)completion;
 
 /**
  @abstract Fetches all accounts for the user.
@@ -234,7 +234,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an array of MNFAccount instances or an error.
  */
-+(MNFJob*)fetchAccountsWithFilter:(nullable MNFAccountFilter *)filter completion:(nullable MNFMultipleAccountsCompletionHandler)completion;
++ (MNFJob *)fetchAccountsWithFilter:(nullable MNFAccountFilter *)filter
+                         completion:(nullable MNFMultipleAccountsCompletionHandler)completion;
 
 ///******************************
 /// @name Saving
@@ -247,7 +248,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a result and an error.
  */
--(MNFJob*)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Refreshing
@@ -260,7 +261,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Deleting
@@ -273,7 +274,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a result or an error. The result will always be nil.
  */
--(MNFJob*)deleteAccountWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteAccountWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Account types
@@ -286,7 +287,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an array of account types or an error.
  */
-+(MNFJob*)fetchAccountCategoriesWithCompletion:(nullable MNFMultipleAccountCategoriesCompletionHandler)completion;
++ (MNFJob *)fetchAccountCategoriesWithCompletion:(nullable MNFMultipleAccountCategoriesCompletionHandler)completion;
 
 /**
  @abstract Fetches a list of all available account authorization types.
@@ -295,7 +296,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an array of account authorization types or an error.
  */
-+(MNFJob*)fetchAccountAuthorizationTypesWithCompletion:(nullable MNFMultipleAccountAuthorizationTypesCompletionHandler)completion;
++ (MNFJob *)fetchAccountAuthorizationTypesWithCompletion:
+    (nullable MNFMultipleAccountAuthorizationTypesCompletionHandler)completion;
 
 /**
  @abstract Fetches a list of all realm account types.
@@ -304,7 +306,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of realm account types and an error.
  */
-+(MNFJob*)fetchAccountTypesWithCompletion:(nullable MNFMultipleAccountTypesCompletionHandler)completion MNF_DEPRECATED("Please use fetch method in MNFAccountType.h instead.");
++ (MNFJob *)fetchAccountTypesWithCompletion:(nullable MNFMultipleAccountTypesCompletionHandler)completion
+    MNF_DEPRECATED("Please use fetch method in MNFAccountType.h instead.");
 
 ///******************************
 /// @name Metadata
@@ -317,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of NSdictionary of metadata and an error.
  */
--(MNFJob*)fetchMetadataWithCompletion:(nullable MNFMultipleMetadataCompletionHandlers)completion;
+- (MNFJob *)fetchMetadataWithCompletion:(nullable MNFMultipleMetadataCompletionHandlers)completion;
 
 /**
  @abstract Fetches account metadata for the account.
@@ -326,7 +329,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of NSdictionary of metadata and an error.
  */
--(MNFJob*)fetchMetadataForKey:(NSString*)key withCompletion:(nullable MNFMetadataValueCompletionHandler)completion;
+- (MNFJob *)fetchMetadataForKey:(NSString *)key withCompletion:(nullable MNFMetadataValueCompletionHandler)completion;
 
 /**
  @abstract Creates or updates metadata for the defined key.
@@ -337,7 +340,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an NSNumber with a boolean true or an error.
  */
--(MNFJob*)setMetadataValue:(NSString*)value forKey:(NSString<NSCopying>*)aKey completion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)setMetadataValue:(NSString *)value
+                      forKey:(NSString<NSCopying> *)aKey
+                  completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Fetches account balance history entries.
@@ -350,9 +355,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of balance history entries and an error.
  */
--(MNFJob*)fetchHistoryFromDate:(NSDate*)fromDate toDate:(NSDate*)toDate sortBy:(nullable NSString*)sortBy ascending:(BOOL)ascending completion:(nullable MNFMultipleAccountHistoryCompletionHandler)completion;
-
-//#endif
+- (MNFJob *)fetchHistoryFromDate:(NSDate *)fromDate
+                          toDate:(NSDate *)toDate
+                          sortBy:(nullable NSString *)sortBy
+                       ascending:(BOOL)ascending
+                      completion:(nullable MNFMultipleAccountHistoryCompletionHandler)completion;
 
 @end
 

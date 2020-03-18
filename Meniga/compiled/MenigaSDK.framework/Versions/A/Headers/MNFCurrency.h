@@ -22,37 +22,37 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The currency code in ISO 4217.
  */
-@property (nonatomic,copy,readonly) NSString *code;
+@property (nonatomic, copy, readonly) NSString *code;
 
 /**
  Whether the currency is the default system currency.
  */
-@property (nonatomic,strong,readonly) NSNumber *isDefault;
+@property (nonatomic, strong, readonly) NSNumber *isDefault;
 
 /**
  The currency name.
  */
-@property (nonatomic,copy,readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSString *name;
 
 /**
  The currency number format.
  */
-@property (nonatomic,copy,readonly) NSString *format;
+@property (nonatomic, copy, readonly) NSString *format;
 
 /**
  The currency display format.
  */
-@property (nonatomic,copy,readonly) NSString *currencyFormat;
+@property (nonatomic, copy, readonly) NSString *currencyFormat;
 
 /**
  The round off of the amount in currency.
  */
-@property (nonatomic,strong,readonly) NSNumber *roundOff;
+@property (nonatomic, strong, readonly) NSNumber *roundOff;
 
 /**
  Whether the currency is applicable as a user currency.
  */
-@property (nonatomic,strong,readonly) NSNumber *isUserCurrency;
+@property (nonatomic, strong, readonly) NSNumber *isUserCurrency;
 
 @end
 

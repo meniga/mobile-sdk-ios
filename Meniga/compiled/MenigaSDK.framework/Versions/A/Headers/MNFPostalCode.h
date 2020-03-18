@@ -22,20 +22,20 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The postal code.
  */
-@property (nonatomic,copy,readonly) NSString *postalCode;
+@property (nonatomic, copy, readonly) NSString *postalCode;
 
 /**
  A list of areas that are available for community comparison for the current postal code.
  */
-@property (nonatomic,copy,readonly) NSArray *filterAreas;
+@property (nonatomic, copy, readonly) NSArray *filterAreas;
 
 /**
  A list of all areas connected to the current postal code. Only returned when all postal codes are fetched.
  */
-@property (nonatomic,copy,readonly) NSArray *allAreas;
+@property (nonatomic, copy, readonly) NSArray *allAreas;
 
-+(MNFJob*)fetchPostalCode:(NSString*)postalCode withCompletion:(nullable MNFPostalCodeCompletionHandler)completion;
-+(MNFJob*)fetchPostalCodesWithCompletion:(nullable MNFMultiplePostalCodesCompletionHandler)completion;
++ (MNFJob *)fetchPostalCode:(NSString *)postalCode withCompletion:(nullable MNFPostalCodeCompletionHandler)completion;
++ (MNFJob *)fetchPostalCodesWithCompletion:(nullable MNFMultiplePostalCodesCompletionHandler)completion;
 
 @end
 

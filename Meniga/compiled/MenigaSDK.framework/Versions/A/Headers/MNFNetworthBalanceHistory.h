@@ -14,27 +14,27 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract ID of the networth account
  @discussion The Meniga AccountID of the account from which this balance belongs to.
  */
-@property(nonatomic, strong, readonly)NSNumber *accountId;
+@property (nonatomic, strong, readonly) NSNumber *accountId;
 /**
  @abstract Balance of the networth account
  @discussion Balance at the time of last update.
  */
-@property(nonatomic, strong)NSNumber *balance;
+@property (nonatomic, strong) NSNumber *balance;
 /**
  @abstract Date of the balance of the networth account
  @discussion The time at which the balance was recorded.
  */
-@property(nonatomic, strong)NSDate *balanceDate;
+@property (nonatomic, strong) NSDate *balanceDate;
 /**
  @abstract Whether the balance history has been created with default values.
  @discussion Indicates if the entry has been generated with default values. This happens when there is missing months (in the database) between the start and end date ranges sent in by the client.
  */
-@property(nonatomic, strong, readonly)NSNumber *isDefault;
+@property (nonatomic, strong, readonly) NSNumber *isDefault;
 
 /**
  The balance of the networth account in user currency.
  */
-@property (nonatomic,strong,readonly) NSNumber *balanceInUserCurrency;
+@property (nonatomic, strong, readonly) NSNumber *balanceInUserCurrency;
 
 /**
  @abstract Deletes the object on the remote.
@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return Returns an MNFJob with a result or error.
  */
--(MNFJob*)deleteWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Saves the object to the remote.
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion Only the mutable properties of the object will be updated.
  @return Returns an MNFJob with a result or error.
  */
--(MNFJob*)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

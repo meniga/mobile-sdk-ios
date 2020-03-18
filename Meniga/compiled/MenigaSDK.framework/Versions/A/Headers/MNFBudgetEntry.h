@@ -22,32 +22,32 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The date and time the entry was last edited.
  */
-@property (nonatomic,strong,readonly) NSDate * _Nullable updatedAt;
+@property (nonatomic, strong, readonly) NSDate *_Nullable updatedAt;
 
 /**
  The id of the budget the entry is in.
  */
-@property (nonatomic,strong,readonly) NSNumber * _Nullable budgetId;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable budgetId;
 
 /**
  The generation type for the entry if iti is in a planning budget.
  */
-@property (nonatomic,strong,readonly) NSNumber * _Nullable generationType;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable generationType;
 
 /**
  The spent amount in the associated categories if the entry is current.
  */
-@property (nonatomic,strong,readonly) NSNumber * _Nullable spentAmount;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable spentAmount;
 
 /**
  The id of the associated rule.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable ruleId;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable ruleId;
 
 /**
  The number of transactions.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable transactionCount;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable transactionCount;
 
 ///******************************
 /// @name Mutable properties
@@ -56,22 +56,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The target amount for the budget entry.
  */
-@property (nonatomic,strong) NSNumber * _Nullable targetAmount;
+@property (nonatomic, strong) NSNumber *_Nullable targetAmount;
 
 /**
  The start date for the budget entry.
  */
-@property (nonatomic,strong) NSDate * _Nullable startDate;
+@property (nonatomic, strong) NSDate *_Nullable startDate;
 
 /**
  The end date for the budget entry.
  */
-@property (nonatomic,strong) NSDate * _Nullable endDate;
+@property (nonatomic, strong) NSDate *_Nullable endDate;
 
 /**
  The category ids associated with the budget entry.
  */
-@property (nonatomic,copy) NSArray <NSNumber*> * _Nullable categoryIds;
+@property (nonatomic, copy) NSArray<NSNumber *> *_Nullable categoryIds;
 
 ///******************************
 /// @name Saving
@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Deleting
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)deleteWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Refreshing
@@ -110,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

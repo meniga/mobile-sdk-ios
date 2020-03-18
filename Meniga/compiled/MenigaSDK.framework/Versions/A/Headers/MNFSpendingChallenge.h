@@ -22,27 +22,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The category ids of the categories for this challenge.
  */
-@property (nonatomic,copy,readonly) NSArray *_Nullable categoryIds;
+@property (nonatomic, copy, readonly) NSArray *_Nullable categoryIds;
 
 /**
  The target spending percentage of this challenge.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable targetPercentage;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable targetPercentage;
 
 /**
  The spend amount of this challenge.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable spentAmount;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable spentAmount;
 
 /**
  The interval with which this challenge repeates.
  */
-@property (nonatomic,strong,readonly) NSString *_Nullable recurringInterval;
+@property (nonatomic, strong, readonly) NSString *_Nullable recurringInterval;
 
 /**
  The number of participants in this challenge.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable numberOfParticipants;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable numberOfParticipants;
 
 ///******************************
 /// @name Mutable properties
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The target spending amount of this challenge.
  */
-@property (nonatomic,strong) NSNumber *_Nullable targetAmount;
+@property (nonatomic, strong) NSNumber *_Nullable targetAmount;
 
 @end
 

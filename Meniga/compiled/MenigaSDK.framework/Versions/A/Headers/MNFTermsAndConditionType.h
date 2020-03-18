@@ -15,9 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *termsAndConditionTypeDescription;
 
-+(MNFJob *)fetchTermsAndConditionTypes:(MNFMultipleTermsAndConditionTypesCompletionHandler)completion;
++ (MNFJob *)fetchTermsAndConditionTypes:(MNFMultipleTermsAndConditionTypesCompletionHandler)completion;
 
-+(MNFJob *)fetchTermsAndConditionWithIdentifier:(NSNumber *)identifier completion:(MNFTermsAndConditionTypeCompletionHandler)completion;
++ (MNFJob *)fetchTermsAndConditionWithIdentifier:(NSNumber *)identifier
+                                      completion:(MNFTermsAndConditionTypeCompletionHandler)completion;
 
 @end
 

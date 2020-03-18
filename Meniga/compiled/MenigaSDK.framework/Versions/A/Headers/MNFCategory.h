@@ -25,53 +25,51 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  */
 @interface MNFCategory : MNFObject {
-@protected
+  @protected
     NSArray *_children;
 }
 
 /**
  @abstract The default name of a parent category when presented as 'other' category
  */
-@property (nonatomic,strong,readonly) NSString *otherCategoryName;
+@property (nonatomic, strong, readonly) NSString *otherCategoryName;
 
 /**
  @abstract Whether the category is a public category or a user created category.
  */
-@property (nonatomic,strong,readonly) NSNumber *isSystemCategory;
-
+@property (nonatomic, strong, readonly) NSNumber *isSystemCategory;
 
 /**
  @abstract The category rank.
  */
-@property (nonatomic,strong,readonly) NSString *categoryRank;
+@property (nonatomic, strong, readonly) NSString *categoryRank;
 
 /**
  @abstract The budget generation type.
  */
-@property (nonatomic,strong,readonly) NSNumber *budgetGenerationType;
+@property (nonatomic, strong, readonly) NSNumber *budgetGenerationType;
 
 /**
  @abstract A list of the category's children.
  */
-@property (nonatomic,strong,readonly) NSArray *children;
+@property (nonatomic, strong, readonly) NSArray *children;
 
 /**
  @abstract The category context identifier.
  
  @discussion Indicates what context the category belongs to; normal or small business user.
  */
-@property (nonatomic,strong,readonly) NSNumber *categoryContextId;
+@property (nonatomic, strong, readonly) NSNumber *categoryContextId;
 
 /**
  @abstract The ascending order of the category.
  */
-@property (nonatomic,strong,readonly) NSNumber *orderId;
+@property (nonatomic, strong, readonly) NSNumber *orderId;
 
 /**
  @abstract Additional data for displaying the category.
  */
-@property (nonatomic,strong,readonly) NSString *displayData;
-
+@property (nonatomic, strong, readonly) NSString *displayData;
 
 // Mutable state
 
@@ -97,7 +95,6 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  */
 @property (nonatomic, readwrite) MNFCategoryTypeId categoryTypeId;
 
-
 /**
  @description Fetches a category with a given identifier from the server.
  
@@ -108,7 +105,9 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return MNFJob containing the result as an NSArray of MNFCategories or an error if applicable.
  */
-+(MNFJob*)fetchWithId:(NSNumber *)identifier culture:(nullable NSString*)theCulture completion:(nullable MNFCategoryCompletionHandler)completion;
++ (MNFJob *)fetchWithId:(NSNumber *)identifier
+                culture:(nullable NSString *)theCulture
+             completion:(nullable MNFCategoryCompletionHandler)completion;
 
 /**
  @description Fetches all user created categories
@@ -119,7 +118,8 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  @return MNFJob containing the results as an NSArrary of MNFCategories or an error if applicable.
 
  */
-+(MNFJob*)fetchUserCreatedCategoriesWithCulture:(nullable NSString*)theCulture completion:(nullable MNFMultipleCategoriesCompletionHandler)completion;
++ (MNFJob *)fetchUserCreatedCategoriesWithCulture:(nullable NSString *)theCulture
+                                       completion:(nullable MNFMultipleCategoriesCompletionHandler)completion;
 
 /**
  @description Fetches all system categories.
@@ -129,7 +129,8 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return MNFJob containing the results as an NSArray of MNFCategories or an error if applicable.
  */
-+(MNFJob*)fetchSystemCategoriesWithCulture:(nullable NSString*)theCulture completion:(nullable MNFMultipleCategoriesCompletionHandler)completion;
++ (MNFJob *)fetchSystemCategoriesWithCulture:(nullable NSString *)theCulture
+                                  completion:(nullable MNFMultipleCategoriesCompletionHandler)completion;
 
 /**
  @description Fetches all categories both system and user categories.
@@ -139,7 +140,8 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return MNFJob containing the results as an NSArray of MNFCategories or an error if applicable.
  */
-+(MNFJob*)fetchCategoriesWithCulture:(nullable NSString*)theCulture completion:(nullable MNFMultipleCategoriesCompletionHandler)completion;
++ (MNFJob *)fetchCategoriesWithCulture:(nullable NSString *)theCulture
+                            completion:(nullable MNFMultipleCategoriesCompletionHandler)completion;
 
 /**
  @description Fetches all categories and creates the tree structure for the categories
@@ -149,7 +151,8 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return MNFJob containing the results as an NSArray of MNFCategories or an error if applicable
  */
-+(MNFJob*)fetchCategoryTreeWithCulture:(nullable NSString*)theCulture completion:(nullable MNFMultipleCategoriesCompletionHandler)completion;
++ (MNFJob *)fetchCategoryTreeWithCulture:(nullable NSString *)theCulture
+                              completion:(nullable MNFMultipleCategoriesCompletionHandler)completion;
 
 /**
  @description Fetches the category types.
@@ -158,7 +161,7 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return A job returning an NSArray of MNFCategoryType instances.
  */
-+(MNFJob*)fetchCategoryTypesWithCompletion:(nullable MNFMultipleCategoryTypesCompletionHandler)completion;
++ (MNFJob *)fetchCategoryTypesWithCompletion:(nullable MNFMultipleCategoryTypesCompletionHandler)completion;
 
 /**
  @description Creates a user category and returns it with a completion block. User categories can be distinguished by system categories using the isSystemCategory parameter.
@@ -170,7 +173,10 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return An MNFCategory sent in the completion block or an error if one occurred.
  */
-+(MNFJob*)createUserParentCategoryWithName:(NSString *)theName isFixedExpense:(nullable NSNumber*)isFixedExpense categoryType:(MNFCategoryTypeId)theCategoryType completion:(nullable MNFCategoryCompletionHandler)completion;
++ (MNFJob *)createUserParentCategoryWithName:(NSString *)theName
+                              isFixedExpense:(nullable NSNumber *)isFixedExpense
+                                categoryType:(MNFCategoryTypeId)theCategoryType
+                                  completion:(nullable MNFCategoryCompletionHandler)completion;
 
 /**
  @description Creates a user category and returns it with a completion block. User categories can be distinguished by system categories using the isSystemCategory parameter.
@@ -183,7 +189,11 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return An MNFCategory sent in the completion block or an error if one occurred.
  */
-+(MNFJob*)createUserChildCategoryWithName:(NSString *)theName isFixedExpense:(nullable NSNumber *)isFixedExpense parentCategoryType:(MNFCategoryTypeId)theParentCategoryType parentCategoryId:(NSNumber *)theParentCategoryId completion:(nullable MNFCategoryCompletionHandler)completion;
++ (MNFJob *)createUserChildCategoryWithName:(NSString *)theName
+                             isFixedExpense:(nullable NSNumber *)isFixedExpense
+                         parentCategoryType:(MNFCategoryTypeId)theParentCategoryType
+                           parentCategoryId:(NSNumber *)theParentCategoryId
+                                 completion:(nullable MNFCategoryCompletionHandler)completion;
 
 /**
  @description Saves changes to the user category to the server. Or if it is a new category, it creates it on the server and updates it.
@@ -192,7 +202,7 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return MNFJob A job containing the server result and an error.
  */
--(MNFJob*)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /** 
  @description Refreshes the given category by fetching it from the server.
@@ -203,7 +213,7 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return MNFJob containing an NSError if the refresh failed.
  */
--(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @description Deletes the user category from the server.
@@ -214,7 +224,9 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @warning Remember to deallocate objects that have been deleted from the server.
  */
--(MNFJob*)deleteCategoryWithConnectedRules:(nullable NSNumber*)deleteConnectedRules moveTransactionsToNewCategoryId:(nullable NSNumber *)theNewCategoryId completion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteCategoryWithConnectedRules:(nullable NSNumber *)deleteConnectedRules
+             moveTransactionsToNewCategoryId:(nullable NSNumber *)theNewCategoryId
+                                  completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @description Creates a category tree from a list of categories.
@@ -223,7 +235,7 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return A category tree made from the categories provided.
  */
-+ (NSArray <MNFCategory *> *)categoryTreeFromCategories:(NSArray <MNFCategory *> *)categories;
++ (NSArray<MNFCategory *> *)categoryTreeFromCategories:(NSArray<MNFCategory *> *)categories;
 
 /**
  @description Creates a flat list of categories from a category tree.
@@ -232,7 +244,7 @@ typedef NS_ENUM(NSInteger, MNFCategoryTypeId) {
  
  @return A flat list of categories made from the category tree provided.
  */
-+ (NSArray<MNFCategory *> *)categoriesFromCategoryTree:(NSArray <MNFCategory *> *)categoryTree;
++ (NSArray<MNFCategory *> *)categoriesFromCategoryTree:(NSArray<MNFCategory *> *)categoryTree;
 
 @end
 

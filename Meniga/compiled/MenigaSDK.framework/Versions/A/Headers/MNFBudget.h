@@ -6,9 +6,9 @@
 //  Copyright © 2016 Meniga. All rights reserved.
 //
 
-#import "MNFObject.h"
 #import "MNFBudgetEntry.h"
 #import "MNFBudgetFilter.h"
+#import "MNFObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,27 +24,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The type of the budget. 'Planning' or 'Budget'.
 */
-@property (nonatomic,copy,readonly) NSString * _Nullable type;
+@property (nonatomic, copy, readonly) NSString *_Nullable type;
 
 /**
  The period for the budget if the budget is a planning budget. 'Month.
  */
-@property (nonatomic,copy,readonly) NSString * _Nullable period;
+@property (nonatomic, copy, readonly) NSString *_Nullable period;
 
 /**
  The offset of the budget if the budget is a planning budget.
  */
-@property (nonatomic,copy,readonly) NSNumber * _Nullable offset;
+@property (nonatomic, copy, readonly) NSNumber *_Nullable offset;
 
 /**
  The creation date of the budget.
  */
-@property (nonatomic,strong,readonly) NSDate * _Nullable created;
+@property (nonatomic, strong, readonly) NSDate *_Nullable created;
 
 /**
  The budget entries.
  */
-@property (nonatomic,copy,readonly) NSArray <MNFBudgetEntry*> * _Nullable entries;
+@property (nonatomic, copy, readonly) NSArray<MNFBudgetEntry *> *_Nullable entries;
 
 ///******************************
 /// @name Mutable properties
@@ -53,17 +53,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The name of the budget.
  */
-@property (nonatomic,copy) NSString * _Nullable name;
+@property (nonatomic, copy) NSString *_Nullable name;
 
 /**
  The text description of the budget.
  */
-@property (nonatomic,copy) NSString * _Nullable budgetDescription;
+@property (nonatomic, copy) NSString *_Nullable budgetDescription;
 
 /**
  The account ids of the accounts for the budget.
  */
-@property (nonatomic,copy) NSArray * _Nullable accountIds;
+@property (nonatomic, copy) NSArray *_Nullable accountIds;
 
 ///******************************
 /// @name Fetching
@@ -79,7 +79,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a list of budgets and an error.
  */
-+(MNFJob*)fetchBudgetsWithIds:(nullable NSString *)ids accountIds:(nullable NSString *)accountIds type:(nullable NSString*)type completion:(nullable MNFMultipleBudgetCompletionHandler)completion;
++ (MNFJob *)fetchBudgetsWithIds:(nullable NSString *)ids
+                     accountIds:(nullable NSString *)accountIds
+                           type:(nullable NSString *)type
+                     completion:(nullable MNFMultipleBudgetCompletionHandler)completion;
 
 /**
  Fetches a single budget with a given identifier.
@@ -90,7 +93,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a budget and an error.
  */
-+(MNFJob*)fetchBudgetWithId:(NSNumber*)identifier filter:(nullable MNFBudgetFilter*)filter completion:(nullable MNFBudgetCompletionHandler)completion;
++ (MNFJob *)fetchBudgetWithId:(NSNumber *)identifier
+                       filter:(nullable MNFBudgetFilter *)filter
+                   completion:(nullable MNFBudgetCompletionHandler)completion;
 
 ///******************************
 /// @name Creating
@@ -107,13 +112,13 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a budget and an error.
  */
-+(MNFJob*)budgetWithName:(nullable NSString*)name
-                    type:(nullable NSString*)type
-             description:(nullable NSString*)budgetDescription
-              accountIds:(nullable NSArray*)accountIds
-                  period:(nullable NSString*)period
-                  offset:(nullable NSNumber*)offset
-              completion:(nullable MNFBudgetCompletionHandler)completion;
++ (MNFJob *)budgetWithName:(nullable NSString *)name
+                      type:(nullable NSString *)type
+               description:(nullable NSString *)budgetDescription
+                accountIds:(nullable NSArray *)accountIds
+                    period:(nullable NSString *)period
+                    offset:(nullable NSNumber *)offset
+                completion:(nullable MNFBudgetCompletionHandler)completion;
 
 ///******************************
 /// @name Saving
@@ -126,7 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)saveWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Deleting
@@ -139,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)deleteWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)deleteWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Refreshing
@@ -152,7 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)refreshWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 ///******************************
 /// @name Fetching entries
@@ -166,7 +171,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a list of entries and an error.
  */
--(MNFJob*)fetchBudgetEntriesWithFilter:(nullable MNFBudgetFilter*)filter completion:(nullable MNFMultipleBudgetEntriesCompletionHandler)completion;
+- (MNFJob *)fetchBudgetEntriesWithFilter:(nullable MNFBudgetFilter *)filter
+                              completion:(nullable MNFMultipleBudgetEntriesCompletionHandler)completion;
 
 /**
  Fetches a budget entry with a given identifier.
@@ -176,7 +182,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a budget entry and an error.
  */
-- (MNFJob*)fetchBudgetEntryWithId:(NSNumber*)identifier completion:(nullable MNFBudgetEntryCompletionHandler)completion;
+- (MNFJob *)fetchBudgetEntryWithId:(NSNumber *)identifier
+                        completion:(nullable MNFBudgetEntryCompletionHandler)completion;
 
 ///******************************
 /// @name Creating entries
@@ -192,7 +199,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing a list of entries and an error.
  */
--(MNFJob*)createBudgetEntries:(NSArray<MNFBudgetEntry*>*)entries completion:(nullable MNFMultipleBudgetEntriesCompletionHandler)completion;
+- (MNFJob *)createBudgetEntries:(NSArray<MNFBudgetEntry *> *)entries
+                     completion:(nullable MNFMultipleBudgetEntriesCompletionHandler)completion;
 
 ///******************************
 /// @name Resetting
@@ -205,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)resetWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)resetWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

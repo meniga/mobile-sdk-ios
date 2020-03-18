@@ -22,27 +22,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The category ids of the categories for this challenge.
  */
-@property (nonatomic,copy) NSArray *_Nullable categoryIds;
+@property (nonatomic, copy) NSArray *_Nullable categoryIds;
 
 /**
  The target spending amount of this challenge.
  */
-@property (nonatomic,strong) NSNumber *_Nullable targetAmount;
+@property (nonatomic, strong) NSNumber *_Nullable targetAmount;
 
 /**
  The spend amount of this challenge.
  */
-@property (nonatomic,strong,readonly) NSNumber *_Nullable spentAmount;
+@property (nonatomic, strong, readonly) NSNumber *_Nullable spentAmount;
 
 /**
  Any custom metadata that describes this challenge.
  */
-@property (nonatomic,copy) NSString *_Nullable metaData;
+@property (nonatomic, copy) NSString *_Nullable metaData;
 
 /**
  The interval with which this challenge repeates.
  */
-@property (nonatomic,strong,readonly) NSString *_Nullable recurringInterval;
+@property (nonatomic, strong, readonly) NSString *_Nullable recurringInterval;
 
 @end
 

@@ -20,14 +20,14 @@
  
  @return NSDictionary A dictionary of headers.
  */
--(NSDictionary*)getHeaders;
+- (NSDictionary *)getHeaders;
 
 /**
  @description Gets the cookies provided in an authentication provider and adds them to every URL request.
  
  @return NSArray An array of NSHTTPCookie.
  */
--(NSArray <NSHTTPCookie*> *)getCookies;
+- (NSArray<NSHTTPCookie *> *)getCookies;
 
 @optional
 
@@ -37,7 +37,6 @@
  @param preRequest The request to be made before any modification.
  @param completion A completion block returning a new request to be used. This request can be the same requeste as preRequest or a modified version of it.
  */
--(void)prepareRequest:(NSURLRequest*)preRequest withCompletion:(void (^)(NSURLRequest *postRequest))completion;
-
+- (void)prepareRequest:(NSURLRequest *)preRequest withCompletion:(void (^)(NSURLRequest *postRequest))completion;
 
 @end

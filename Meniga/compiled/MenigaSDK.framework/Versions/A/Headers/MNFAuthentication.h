@@ -22,12 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The access token.
  */
-@property (nonatomic,copy,readonly) NSString *accessToken;
+@property (nonatomic, copy, readonly) NSString *accessToken;
 
 /**
  The refresh token.
  */
-@property (nonatomic,copy,readonly) NSString *refreshToken;
+@property (nonatomic, copy, readonly) NSString *refreshToken;
 
 ///******************************
 /// @name Authenticating
@@ -42,7 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an authentication object and an error.
  */
-+ (MNFJob*)authenticateWithEmail:(NSString*)email password:(NSString*)password completion:(nullable MNFAuthenticationCompletionHandler)completion;
++ (MNFJob *)authenticateWithEmail:(NSString *)email
+                         password:(NSString *)password
+                       completion:(nullable MNFAuthenticationCompletionHandler)completion;
 
 /**
  Authenticate with an email and password pair.
@@ -55,7 +57,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an authentication object and an error.
  */
-+ (MNFJob*)authenticateWithEmail:(NSString*)email password:(NSString*)password clientId:(nullable NSString*)clientId clientSecret:(nullable NSString*)clientSecret completion:(nullable MNFAuthenticationCompletionHandler)completion;
++ (MNFJob *)authenticateWithEmail:(NSString *)email
+                         password:(NSString *)password
+                         clientId:(nullable NSString *)clientId
+                     clientSecret:(nullable NSString *)clientSecret
+                       completion:(nullable MNFAuthenticationCompletionHandler)completion;
 
 /**
  Perform post authentication tasks. Should be called after a user is successfully authenticated.
@@ -67,7 +73,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
-+ (MNFJob*)authenticateAfterWithUserIdentifier:(nullable NSString*)userIdentifier realmIdentifier:(nullable NSString*)realmIdentifier parameters:(nullable NSDictionary*)parameters completion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (MNFJob *)authenticateAfterWithUserIdentifier:(nullable NSString *)userIdentifier
+                                realmIdentifier:(nullable NSString *)realmIdentifier
+                                     parameters:(nullable NSDictionary *)parameters
+                                     completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  Authenticate with an SSO token of a specified type.
@@ -78,7 +87,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an authentication object and an error.
  */
-+ (MNFJob*)authenticateWithSSOToken:(NSString *)token ofType:(NSString*)type withCompletion:(nullable MNFAuthenticationCompletionHandler)completion;
++ (MNFJob *)authenticateWithSSOToken:(NSString *)token
+                              ofType:(NSString *)type
+                      withCompletion:(nullable MNFAuthenticationCompletionHandler)completion;
 
 /**
  Refresh authentication tokens by providing a refresh token.
@@ -88,7 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an authentication object and an error.
  */
-+ (MNFJob*)refreshTokensWithRefreshToken:(NSString *)refreshToken completion:(nullable MNFAuthenticationCompletionHandler)completion;
++ (MNFJob *)refreshTokensWithRefreshToken:(NSString *)refreshToken
+                               completion:(nullable MNFAuthenticationCompletionHandler)completion;
 
 /**
  Refresh authentication tokens by providing a refresh token.
@@ -101,7 +113,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an authentication object and an error.
  */
-+ (MNFJob*)refreshTokensWithRefreshToken:(NSString *)refreshToken clientId:(nullable NSString *)clientId clientSecret:(nullable NSString*)clientSecret subject:(nullable NSString*)subject completion:(nullable MNFAuthenticationCompletionHandler)completion;
++ (MNFJob *)refreshTokensWithRefreshToken:(NSString *)refreshToken
+                                 clientId:(nullable NSString *)clientId
+                             clientSecret:(nullable NSString *)clientSecret
+                                  subject:(nullable NSString *)subject
+                               completion:(nullable MNFAuthenticationCompletionHandler)completion;
 
 /**
  Refresh authentication tokens using the tokens of this authentication object.
@@ -110,7 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
-- (MNFJob*)refreshTokensWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)refreshTokensWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 @end
 

@@ -6,10 +6,10 @@
 //  Copyright © 2016 Meniga. All rights reserved.
 //
 
+#import "MNFMerchantLocation.h"
 #import "MNFObject.h"
 #import "MNFOfferFilter.h"
 #import "MNFOfferRelevanceHook.h"
-#import "MNFMerchantLocation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,7 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract A description of the offer for the user.
  */
 @property (nonatomic, copy, readonly) NSString *offerDescription;
-
 
 /**
  @abstract An identifier for the brand the offer is promoting for.
@@ -156,7 +155,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, readonly) NSNumber *activateOfferOnFirstPurchase;
 
-
 // MARK: Need to investigate the format of the relevance hook
 /**
  @abstract The reason why you got this offer.
@@ -178,11 +176,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, readonly) NSNumber *offerSimilarBrandsSpendingRatio;
 
-
 /**
  @abstract The location of the merchant
  */
-@property (nonatomic, strong, readonly) NSArray <MNFMerchantLocation *> *merchantLocations;
+@property (nonatomic, strong, readonly) NSArray<MNFMerchantLocation *> *merchantLocations;
 
 /**
  @bastract A web uri for the merchant behind the offer.
@@ -207,7 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Whether the offer has been seen by the user.
  */
-@property (nonatomic,strong,readonly) NSNumber *seen;
+@property (nonatomic, strong, readonly) NSNumber *seen;
 
 /**
  @abstract Fetches an object with a given identifier from the server.
@@ -217,7 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an MNFOffer and error.
  */
-+(MNFJob*)fetchWithId:(NSNumber *)identifier completion:(nullable MNFOfferCompletionHandler)completion;
++ (MNFJob *)fetchWithId:(NSNumber *)identifier completion:(nullable MNFOfferCompletionHandler)completion;
 
 /**
  @bastract Fetches an offer based on the token.
@@ -227,7 +224,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return A MNFJob containing the offer as a result or an error if applicable.
  */
-+(MNFJob*)fetchWithToken:(NSString *)theToken completion:(nullable MNFOfferCompletionHandler)completion;
++ (MNFJob *)fetchWithToken:(NSString *)theToken completion:(nullable MNFOfferCompletionHandler)completion;
 
 /**
  @abstract Fetch Offers with a filter where you can skip a certain amount and take a certain amount for every request to the server.
@@ -239,7 +236,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an array of offers or an error.
  */
-+(MNFJob*)fetchOffersWithFilter:(nullable MNFOfferFilter *)offerFilter take:(nullable NSNumber *)take skip:(nullable NSNumber *)skip completion:(nullable MNFMultipleOffersCompletionHandler)completion;
++ (MNFJob *)fetchOffersWithFilter:(nullable MNFOfferFilter *)offerFilter
+                             take:(nullable NSNumber *)take
+                             skip:(nullable NSNumber *)skip
+                       completion:(nullable MNFMultipleOffersCompletionHandler)completion;
 
 /**
  @abstract Activate an offer with a token.
@@ -249,8 +249,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
-+(MNFJob*)activateOfferWithToken:(NSString *)theToken completion:(nullable MNFErrorOnlyCompletionHandler)completion;
-
++ (MNFJob *)activateOfferWithToken:(NSString *)theToken completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Fetch nearby merchant locations for offer.
@@ -264,7 +263,12 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return An MNFJob containing a list of merchant locations and an error.
  */
-+(MNFJob *)fetchMerchantLocationsWithOfferId:(NSNumber *)offerId latitude:(NSNumber *)latitude longitude:(NSNumber *)longitude radiusKm:(NSNumber *)radiusKm limitLocations:(NSNumber *)limitLocations completion:(nullable MNFMultipleMerchantLocationsCompletionHandler)completion;
++ (MNFJob *)fetchMerchantLocationsWithOfferId:(NSNumber *)offerId
+                                     latitude:(NSNumber *)latitude
+                                    longitude:(NSNumber *)longitude
+                                     radiusKm:(NSNumber *)radiusKm
+                               limitLocations:(NSNumber *)limitLocations
+                                   completion:(nullable MNFMultipleMerchantLocationsCompletionHandler)completion;
 
 /**
  @abstract Activates or de-activates offers component for the user.
@@ -274,7 +278,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
-+(MNFJob*)enableOffers:(BOOL)enable completion:(nullable MNFErrorOnlyCompletionHandler)completion;
++ (MNFJob *)enableOffers:(BOOL)enable completion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Method used to accept the terms and conditions for the offer component.
@@ -283,8 +287,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
-+(MNFJob*)acceptOffersTermsAndConditionsWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
-
++ (MNFJob *)acceptOffersTermsAndConditionsWithCompletion:(nullable MNFErrorOnlyCompletionHandler)completion;
 
 //MARK: Instance Methods
 
@@ -295,7 +298,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an array of similar brands or an error.
  */
--(MNFJob*)fetchSimilarBrandSpendingWithCompletion:(nullable MNFOfferSimilarBrandSpendingCompletionHandler)completion;
+- (MNFJob *)fetchSimilarBrandSpendingWithCompletion:(nullable MNFOfferSimilarBrandSpendingCompletionHandler)completion;
 
 /**
  @abstract Fetches all the transactions that have been redeemed for the given offer.
@@ -304,7 +307,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an array of offer transactions or an error.
  */
--(MNFJob*)fetchRedeemedTransactionsWithCompletion:(MNFMultipleOfferTransactionsCompletionHandler)completion;
+- (MNFJob *)fetchRedeemedTransactionsWithCompletion:(MNFMultipleOfferTransactionsCompletionHandler)completion;
 
 /**
  @abstract Used to activate/accept or de-activate/decline the offer.
@@ -314,18 +317,17 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return MNFJob A job containing an error.
  */
--(MNFJob*)activateOffer:(BOOL)activate completion:(MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)activateOffer:(BOOL)activate completion:(MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Mark the offer as seen for analytics on the backend. This method is not used for local or backend state. As prior stated this is purely for analytics.
  */
--(MNFJob *)markAsSeenWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
+- (MNFJob *)markAsSeenWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
 
 /**
  @abstract Updates the object with the latest data from the server.
  */
--(MNFJob *)refreshWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
-
+- (MNFJob *)refreshWithCompletion:(MNFErrorOnlyCompletionHandler)completion;
 
 @end
 
