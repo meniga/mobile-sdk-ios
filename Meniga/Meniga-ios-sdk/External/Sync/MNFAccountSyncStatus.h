@@ -61,6 +61,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy, readonly) NSString *accountStatus;
 
+/**
+ @abstract The status of the account synchronization. Available values:  Success, ConsentNotFound, AccountNotFound, TooManyRequests, ProviderNotFound, ProviderDisabled or SyncFailed
+ */
+@property (nonatomic, copy, readonly) NSString *status;
+
 @end
 
 NS_ASSUME_NONNULL_END

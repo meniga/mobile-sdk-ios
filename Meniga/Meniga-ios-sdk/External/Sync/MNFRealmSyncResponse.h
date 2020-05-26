@@ -68,6 +68,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, readonly) NSNumber *realmId;
 
+/**
+ @abstract The end time of the synchronization.
+ */
+@property (nonatomic, strong, readonly) NSDate *realmSyncEndDate;
+
+/**
+ @abstract The start time of the synchronization.
+ */
+@property (nonatomic, strong, readonly) NSDate *realmSyncStartDate;
+
 @end
 
 NS_ASSUME_NONNULL_END
