@@ -78,6 +78,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, readonly) NSDate *realmSyncStartDate;
 
+/**
+ @abstract The status of the synchronization. Available values:  Success or SyncFailed
+ */
+@property (nonatomic, copy, readonly) NSString *status;
+
 @end
 
 NS_ASSUME_NONNULL_END

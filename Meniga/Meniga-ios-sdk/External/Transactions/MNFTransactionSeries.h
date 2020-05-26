@@ -51,6 +51,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy, readonly) NSArray<NSNumber *> *transactionIds;
 
+@property (nonatomic, copy, readonly) NSString *currency;
+
 ///******************************
 /// @name Fetching
 ///******************************

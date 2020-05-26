@@ -8,6 +8,7 @@
 
 #import "MNFRealmAccount.h"
 #import "MNFJsonAdapter.h"
+#import "MNFJsonAdapterSubclassedProperty.h"
 
 @interface MNFRealmAccount () <MNFJsonAdapterDelegate>
 
@@ -16,6 +17,14 @@
 @implementation MNFRealmAccount
 
 #pragma mark - SDK Serialization
+
+- (NSDictionary<NSString *, MNFJsonAdapterSubclassedProperty *> *)subclassedProperties {
+    return @{
+        @"accountParameters":
+            [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFRealmAccountParameter class]
+                                                                   option:kMNFAdapterOptionNoOption]
+    };
+}
 
 - (NSDictionary *)jsonKeysMapToProperties {
     return @{ @"identifier": @"id" };
