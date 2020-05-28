@@ -22,14 +22,12 @@ platform :ios do
 
     project = "Meniga/Meniga-ios-sdk.xcodeproj"
 
-    synx(
-      xcodeproj: project,
-      exclusion: "Podspec metadata"
-    )
+    run_synx
 
     ensure_no_changes(
       path: project,
-      show_diff: true
+      show_diff: true,
+      error_message: "Project structure is different than synx output. Run `fastlane ios format` to synchronize project with file structure."
     )
 
     run_tests(
