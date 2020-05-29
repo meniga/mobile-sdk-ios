@@ -34,6 +34,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, readonly) NSNumber *average;
 
+/**
+The total Amount for the whole transaction series. Nonzero only when IncludeTotalsInCurrency is true.
+ */
+@property (nonatomic, copy, readonly) NSNumber *totalInCurrency;
+
+/**
+The average amount of the transaction series. Nonzero only when IncludeTotalsInCurrency is true.
+ */
+@property (nonatomic, copy, readonly) NSNumber *averageInCurrency;
+
 @end
 
 NS_ASSUME_NONNULL_END

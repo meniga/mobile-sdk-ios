@@ -70,6 +70,11 @@ Run tests:
 fastlane ios format
 ```
 Format Objective-C code
+### ios run_synx
+```
+fastlane ios run_synx
+```
+
 
 ----
 

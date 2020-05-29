@@ -8,6 +8,7 @@
 
 #import "MNFRealmSyncResponse.h"
 #import "MNFAccountSyncStatus.h"
+#import "MNFBasicDateValueTransformer.h"
 #import "MNFJsonAdapter.h"
 #import "MNFJsonAdapterSubclassedProperty.h"
 #import "MNFSyncAuthenticationChallenge.h"
@@ -23,6 +24,13 @@
         @"accountSyncStatuses":
             [MNFJsonAdapterSubclassedProperty subclassedPropertyWithClass:[MNFAccountSyncStatus class]
                                                                    option:kMNFAdapterOptionNoOption]
+    };
+}
+
+- (NSDictionary *)propertyValueTransformers {
+    return @{
+        @"realmSyncEndDate": [MNFBasicDateValueTransformer transformer],
+        @"realmSyncStartDate": [MNFBasicDateValueTransformer transformer]
     };
 }
 

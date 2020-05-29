@@ -2,6 +2,8 @@ platform :ios do
 
   desc %(Format Objective-C code)
   lane :format do
+    run_synx
+
     files = []
     Dir.chdir("..") do
       files = Dir.glob("Meniga/Meniga-ios-*/**/*.{h,m}")
@@ -13,6 +15,13 @@ platform :ios do
       style: "file",
       verbose: true,
       files: files
+    )
+  end
+
+  lane :run_synx do
+    synx(
+      xcodeproj: "Meniga/Meniga-ios-sdk.xcodeproj",
+      exclusion: "Podspec metadata"
     )
   end
 end

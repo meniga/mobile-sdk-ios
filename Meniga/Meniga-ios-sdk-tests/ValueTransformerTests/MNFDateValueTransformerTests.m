@@ -19,6 +19,7 @@
     NSString *_dateFormatFour;
 
     NSDateFormatter *_dateFormatter;
+    NSTimeZone *_cachedTimeZone;
 }
 
 @end
@@ -28,17 +29,19 @@
 - (void)setUp {
     [super setUp];
 
-    // Put setup code here. This method is called before the invocation of each test method in the class.
     _dateFormatOne = @"yyyy-MM-dd'T'HH':'mm':'ss";
     _dateFormatTwo = @"yyyy-MM-dd'T'HH':'mm':'ss'.'S";
     _dateFormatThree = @"yyyy-MM-dd'T'HH':'mm':'ss'.'SS";
     _dateFormatFour = @"yyyy-MM-dd'T'HH':'mm':'ss'.'SSS";
 
     _dateFormatter = [[NSDateFormatter alloc] init];
+    _cachedTimeZone = [NSTimeZone defaultTimeZone];
+    [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [NSTimeZone setDefaultTimeZone:_cachedTimeZone];
+
     [super tearDown];
 }
 
@@ -81,7 +84,7 @@
     XCTAssertTrue(dateComponentsTwo.year == 2016);
     XCTAssertTrue(dateComponentsTwo.month == 3);
     XCTAssertTrue(dateComponentsTwo.day == 8);
-    XCTAssertTrue(dateComponentsTwo.hour == 13);
+    XCTAssertEqual(dateComponentsTwo.hour, 13);
     XCTAssertTrue(dateComponentsTwo.minute == 27);
     XCTAssertTrue(dateComponentsTwo.second == 2);
     XCTAssertTrue(dateComponentsTwo.nanosecond == 849999904);
@@ -96,7 +99,7 @@
     XCTAssertTrue(dateComponentsThree.year == 2016);
     XCTAssertTrue(dateComponentsThree.month == 3);
     XCTAssertTrue(dateComponentsThree.day == 8);
-    XCTAssertTrue(dateComponentsThree.hour == 13);
+    XCTAssertEqual(dateComponentsThree.hour, 13);
     XCTAssertTrue(dateComponentsThree.minute == 27);
     XCTAssertTrue(dateComponentsThree.second == 2);
     XCTAssertTrue(dateComponentsThree.nanosecond = 849999904);
@@ -109,7 +112,7 @@
     XCTAssertTrue(dateComponentsFour.year == 2016);
     XCTAssertTrue(dateComponentsFour.month == 3);
     XCTAssertTrue(dateComponentsFour.day == 8);
-    XCTAssertTrue(dateComponentsFour.hour == 13);
+    XCTAssertEqual(dateComponentsFour.hour, 13);
     XCTAssertTrue(dateComponentsFour.minute == 27);
     XCTAssertTrue(dateComponentsFour.second == 02);
     XCTAssertTrue(dateComponentsFour.nanosecond = 849999904);
@@ -132,7 +135,7 @@
     XCTAssertTrue(dateComponentsTwo.year == 2016);
     XCTAssertTrue(dateComponentsTwo.month == 3);
     XCTAssertTrue(dateComponentsTwo.day == 8);
-    XCTAssertTrue(dateComponentsTwo.hour == 13);
+    XCTAssertEqual(dateComponentsTwo.hour, 13);
     XCTAssertTrue(dateComponentsTwo.minute == 27);
     XCTAssertTrue(dateComponentsTwo.second == 2);
     XCTAssertTrue(dateComponentsTwo.nanosecond == 816999912);
@@ -147,7 +150,7 @@
     XCTAssertTrue(dateComponentsThree.year == 2016);
     XCTAssertTrue(dateComponentsThree.month == 3);
     XCTAssertTrue(dateComponentsThree.day == 8);
-    XCTAssertTrue(dateComponentsThree.hour == 13);
+    XCTAssertEqual(dateComponentsThree.hour, 13);
     XCTAssertTrue(dateComponentsThree.minute == 27);
     XCTAssertTrue(dateComponentsThree.second == 2);
     XCTAssertTrue(dateComponentsThree.nanosecond = 816999912);
@@ -160,7 +163,7 @@
     XCTAssertTrue(dateComponentsFour.year == 2016);
     XCTAssertTrue(dateComponentsFour.month == 3);
     XCTAssertTrue(dateComponentsFour.day == 8);
-    XCTAssertTrue(dateComponentsFour.hour == 13);
+    XCTAssertEqual(dateComponentsFour.hour, 13);
     XCTAssertTrue(dateComponentsFour.minute == 27);
     XCTAssertTrue(dateComponentsFour.second == 02);
     XCTAssertTrue(dateComponentsFour.nanosecond = 816999912);
@@ -183,7 +186,7 @@
     XCTAssertTrue(dateComponentsTwo.year == 2016);
     XCTAssertTrue(dateComponentsTwo.month == 3);
     XCTAssertTrue(dateComponentsTwo.day == 8);
-    XCTAssertTrue(dateComponentsTwo.hour == 13);
+    XCTAssertEqual(dateComponentsTwo.hour, 13);
     XCTAssertTrue(dateComponentsTwo.minute == 27);
     XCTAssertTrue(dateComponentsTwo.second == 2);
     XCTAssertTrue(dateComponentsTwo.nanosecond == 799999952);
@@ -197,7 +200,7 @@
     XCTAssertTrue(dateComponentsThree.year == 2016);
     XCTAssertTrue(dateComponentsThree.month == 3);
     XCTAssertTrue(dateComponentsThree.day == 8);
-    XCTAssertTrue(dateComponentsThree.hour == 13);
+    XCTAssertEqual(dateComponentsThree.hour, 13);
     XCTAssertTrue(dateComponentsThree.minute == 27);
     XCTAssertTrue(dateComponentsThree.second == 2);
     XCTAssertTrue(dateComponentsThree.nanosecond = 799999952);
@@ -210,7 +213,7 @@
     XCTAssertTrue(dateComponentsFour.year == 2016);
     XCTAssertTrue(dateComponentsFour.month == 3);
     XCTAssertTrue(dateComponentsFour.day == 8);
-    XCTAssertTrue(dateComponentsFour.hour == 13);
+    XCTAssertEqual(dateComponentsFour.hour, 13);
     XCTAssertTrue(dateComponentsFour.minute == 27);
     XCTAssertTrue(dateComponentsFour.second == 02);
     XCTAssertTrue(dateComponentsFour.nanosecond = 799999952);
@@ -233,7 +236,7 @@
     XCTAssertTrue(dateComponentsTwo.year == 2016);
     XCTAssertTrue(dateComponentsTwo.month == 3);
     XCTAssertTrue(dateComponentsTwo.day == 8);
-    XCTAssertTrue(dateComponentsTwo.hour == 13);
+    XCTAssertEqual(dateComponentsTwo.hour, 13);
     XCTAssertTrue(dateComponentsTwo.minute == 27);
     XCTAssertTrue(dateComponentsTwo.second == 2);
     XCTAssertTrue(dateComponentsTwo.nanosecond == 888000011);
@@ -248,7 +251,7 @@
     XCTAssertTrue(dateComponentsThree.year == 2016);
     XCTAssertTrue(dateComponentsThree.month == 3);
     XCTAssertTrue(dateComponentsThree.day == 8);
-    XCTAssertTrue(dateComponentsThree.hour == 13);
+    XCTAssertEqual(dateComponentsThree.hour, 13);
     XCTAssertTrue(dateComponentsThree.minute == 27);
     XCTAssertTrue(dateComponentsThree.second == 2);
     XCTAssertTrue(dateComponentsThree.nanosecond = 888000011);
@@ -261,7 +264,7 @@
     XCTAssertTrue(dateComponentsFour.year == 2016);
     XCTAssertTrue(dateComponentsFour.month == 3);
     XCTAssertTrue(dateComponentsFour.day == 8);
-    XCTAssertTrue(dateComponentsFour.hour == 13);
+    XCTAssertEqual(dateComponentsFour.hour, 13);
     XCTAssertTrue(dateComponentsFour.minute == 27);
     XCTAssertTrue(dateComponentsFour.second == 2);
     XCTAssertTrue(dateComponentsFour.nanosecond = 888000011);
@@ -282,7 +285,7 @@
     XCTAssertTrue(dateComponents.year == 2016);
     XCTAssertTrue(dateComponents.month == 3);
     XCTAssertTrue(dateComponents.day == 8);
-    XCTAssertTrue(dateComponents.hour == 13);
+    XCTAssertEqual(dateComponents.hour, 13);
     XCTAssertTrue(dateComponents.minute == 27);
     XCTAssertTrue(dateComponents.second = 2);
     XCTAssertTrue(dateComponents.nanosecond == 0);
@@ -301,7 +304,7 @@
     XCTAssertTrue(dateComponents.year == 2016);
     XCTAssertTrue(dateComponents.month == 3);
     XCTAssertTrue(dateComponents.day == 8);
-    XCTAssertTrue(dateComponents.hour == 13);
+    XCTAssertEqual(dateComponents.hour, 13);
     XCTAssertTrue(dateComponents.minute == 27);
     XCTAssertTrue(dateComponents.second = 2);
     XCTAssertTrue(dateComponents.nanosecond / 100000000 == 8);
@@ -320,7 +323,7 @@
     XCTAssertTrue(dateComponents.year == 2016);
     XCTAssertTrue(dateComponents.month == 3);
     XCTAssertTrue(dateComponents.day == 8);
-    XCTAssertTrue(dateComponents.hour == 13);
+    XCTAssertEqual(dateComponents.hour, 13);
     XCTAssertTrue(dateComponents.minute == 27);
     XCTAssertTrue(dateComponents.second = 2);
     XCTAssertTrue(dateComponents.nanosecond / 10000000 == 33);
@@ -339,7 +342,7 @@
     XCTAssertTrue(dateComponents.year == 2016);
     XCTAssertTrue(dateComponents.month == 3);
     XCTAssertTrue(dateComponents.day == 8);
-    XCTAssertTrue(dateComponents.hour == 13);
+    XCTAssertEqual(dateComponents.hour, 13);
     XCTAssertTrue(dateComponents.minute == 27);
     XCTAssertTrue(dateComponents.second = 2);
     XCTAssertTrue(dateComponents.nanosecond / 1000000 == 347);

@@ -257,6 +257,8 @@
 		7CD6C5CBF45FCE25F9BFD21A35AE7377 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319DAEA4B6150AB2A487A95E9429C78C /* SystemConfiguration.framework */; };
 		7D897B9E59C8E007CB6A7106B83F44D3 /* MNFUpcomingScheduledPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 13753DA68839C55C3166FF1744C0862B /* MNFUpcomingScheduledPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		847EF087992FFDA571A8892094C991FF /* MNFUserEventSubscriptionDetail.h in Headers */ = {isa = PBXBuildFile; fileRef = 12307494AB9DBE81DB67CC682225692F /* MNFUserEventSubscriptionDetail.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84B13CED247FD0580019C895 /* MNFRealmAccountParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 84B13CEB247FD0580019C895 /* MNFRealmAccountParameter.h */; };
+		84B13CEE247FD0580019C895 /* MNFRealmAccountParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B13CEC247FD0580019C895 /* MNFRealmAccountParameter.m */; };
 		84BB523124000D7400F749AE /* MNFNetworkURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB523024000D7400F749AE /* MNFNetworkURLProtocol.h */; };
 		84BB5235240011B700F749AE /* MNFNetworkProtocolForTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB5233240011B700F749AE /* MNFNetworkProtocolForTesting.m */; };
 		84BB5236240011B700F749AE /* MNFNetworkProtocolForTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB5234240011B700F749AE /* MNFNetworkProtocolForTesting.h */; };
@@ -693,6 +695,8 @@
 		83D321D42CC06D385772197E1E976AB0 /* MNFAdapterMainFirstUppercaseTestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFAdapterMainFirstUppercaseTestObj.h; sourceTree = "<group>"; };
 		83E0B394F5E235ADEE64E9ABD18BE3DF /* MNFNetworkProtocolForTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFNetworkProtocolForTesting.m; sourceTree = "<group>"; };
 		8457C9851728350A99655927F685A936 /* MNFBudgetFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFBudgetFilter.h; sourceTree = "<group>"; };
+		84B13CEB247FD0580019C895 /* MNFRealmAccountParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFRealmAccountParameter.h; sourceTree = "<group>"; };
+		84B13CEC247FD0580019C895 /* MNFRealmAccountParameter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFRealmAccountParameter.m; sourceTree = "<group>"; };
 		84BB523024000D7400F749AE /* MNFNetworkURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFNetworkURLProtocol.h; sourceTree = "<group>"; };
 		84BB5233240011B700F749AE /* MNFNetworkProtocolForTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFNetworkProtocolForTesting.m; sourceTree = "<group>"; };
 		84BB5234240011B700F749AE /* MNFNetworkProtocolForTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFNetworkProtocolForTesting.h; sourceTree = "<group>"; };
@@ -1782,6 +1786,8 @@
 				6491E09F022A312D4DB559446319006D /* MNFAccountSyncStatus.m */,
 				745270B3FB01DC2A70557EEBE7729140 /* MNFRealmAccount.h */,
 				636B4B4465E3AE2B4A2D45D1247B82CF /* MNFRealmAccount.m */,
+				84B13CEB247FD0580019C895 /* MNFRealmAccountParameter.h */,
+				84B13CEC247FD0580019C895 /* MNFRealmAccountParameter.m */,
 				3C49ED533D2F9C022897C6137C6F077B /* MNFRealmSyncResponse.h */,
 				4DBCB89A91BC669B974A755EC350BEB5 /* MNFRealmSyncResponse.m */,
 				63DB47559F71C9C6F1D359A625FBF6BC /* MNFSyncAuthRequiredParameter.h */,
@@ -2092,6 +2098,7 @@
 				D23C5C6EB2F193D2C916F8B2B20FB0C5 /* MNFTag.h in Headers */,
 				9C4FAFD43E2917B5D78CB8C21661B429 /* MNFTermsAndConditionType.h in Headers */,
 				4F4A433E279F4B208DFDAD0F0CC8C345 /* MNFTermsAndConditions.h in Headers */,
+				84B13CED247FD0580019C895 /* MNFRealmAccountParameter.h in Headers */,
 				15CE1293EB1CF10C22EE510B894593D4 /* MNFTransaction.h in Headers */,
 				9AEE85D349BDDAB96CC84465A656B9B3 /* MNFTransactionDayOverview.h in Headers */,
 				9FAF731EFD2509BFC2081719FDA1E0B1 /* MNFTransactionFilter.h in Headers */,
@@ -2440,6 +2447,7 @@
 				90F70D448BA27BBF419318451670172F /* MNFCategoryType.m in Sources */,
 				6CB8910BF015FBC3C39A03BD8BC8568F /* MNFCategoryTypeEnumTransformer.m in Sources */,
 				3182D3F920B44CF900A03C6E /* MNFTransactionParsedDataTransformer.m in Sources */,
+				84B13CEE247FD0580019C895 /* MNFRealmAccountParameter.m in Sources */,
 				68B8D57D20C03791003979F2 /* MNFEventTracking.m in Sources */,
 				A03DB07E384B3A54CBD59E08272C5E3F /* MNFChallenge.m in Sources */,
 				13CF4FC0865A9D9715B6FFCBD9D3FE9F /* MNFComment.m in Sources */,
