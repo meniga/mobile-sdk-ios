@@ -98,7 +98,7 @@
     return job;
 }
 
-+ (MNFJob *)fetchWithTransactionFilter:(MNFTransactionFilter<MNFJsonAdapterDelegate> *)filter
++ (MNFJob *)fetchWithTransactionFilter:(MNFTransactionFilter *)filter
                             completion:(MNFMultipleTransactionsCompletionHandler)completion {
     [completion copy];
 

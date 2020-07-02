@@ -278,6 +278,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (MNFJob *)fetchSplitWithCompletion:(nullable MNFMultipleTransactionsCompletionHandler)completion;
 
+/**
+@abstract Fetches all transactions with applied filter.
+ 
+@param filter MNFTransactionFilter object.
+
+@param completion A completion block returning a list of transactions and an error.
+
+@return An MNFJob containing a list of transactions and an error.
+*/
+
++ (MNFJob *)fetchWithTransactionFilter:(MNFTransactionFilter *)filter
+                            completion:(MNFMultipleTransactionsCompletionHandler)completion;
+
 ///************************************
 /// @name Creating
 ///************************************
