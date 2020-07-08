@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @discussion This value is an identifier for an online bank user that owns the account.
  */
-@property (nonatomic, strong, readonly) NSNumber *realmCredentialsId;
+@property (nonatomic, strong, readonly, nullable) NSNumber *realmCredentialsId;
 
 /**
  @abstract The account authorization type for an account.
@@ -116,12 +116,12 @@ NS_ASSUME_NONNULL_BEGIN
  
  @discussion This value indicates when the account was last updated on the server.
  */
-@property (nonatomic, strong, readonly) NSDate *lastUpdate;
+@property (nonatomic, strong, readonly, nullable) NSDate *lastUpdate;
 
 /**
  @abstract The identifier of the person who owns the account.
  */
-@property (nonatomic, strong, readonly) NSNumber *personId;
+@property (nonatomic, strong, readonly, nullable) NSNumber *personId;
 
 /**
  @abstract The email of the person who owns the account.
@@ -131,7 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The time the account was created.
  */
-@property (nonatomic, strong, readonly) NSDate *createDate;
+@property (nonatomic, strong, readonly, nullable) NSDate *createDate;
 
 /**
  @abstract The category of the account.
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract The time when the user added this account to the PFM database.
  */
-@property (nonatomic, strong, readonly) NSDate *attachedToUserDate;
+@property (nonatomic, strong, readonly, nullable) NSDate *attachedToUserDate;
 
 /**
  @abstract Whether automatic synchronization is paused for the account
@@ -206,12 +206,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @abstract Whether the account is excluded from all calculations.
  */
-@property (nonatomic, strong) NSNumber *isDisabled;
+@property (nonatomic, strong, nullable) NSNumber *isDisabled;
 
 /**
  @abstract The emergency fund balance limit of the account.
  */
-@property (nonatomic, strong) NSNumber *emergencyFundBalanceLimit;
+@property (nonatomic, strong, nullable) NSNumber *emergencyFundBalanceLimit;
 
 ///******************************
 /// @name Fetching
