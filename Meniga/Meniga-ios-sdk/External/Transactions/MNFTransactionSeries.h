@@ -69,6 +69,11 @@ NS_ASSUME_NONNULL_BEGIN
                                                withCompletion:
                                                    (nullable MNFTransactionSeriesCompletionHandler)completion;
 
++ (MNFJob *)fetchTransactionSeriesWithTransactionSeriesFilter:(MNFTransactionSeriesFilter *)seriesFilter
+                                                  withInclude:(nullable NSArray *)include
+                                                andCompletion:
+                                                    (nullable MNFTransactionSeriesCompletionHandler)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

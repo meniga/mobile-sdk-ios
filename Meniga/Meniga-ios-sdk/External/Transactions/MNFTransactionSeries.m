@@ -20,7 +20,10 @@
 @implementation MNFTransactionSeries
 
 + (MNFJob *)fetchTransactionSeriesWithTransactionSeriesFilter:(MNFTransactionSeriesFilter *)seriesFilter
-                                               withCompletion:(MNFTransactionSeriesCompletionHandler)completion {
+                                                  withInclude:(NSArray *)include
+                                                andCompletion:(MNFTransactionSeriesCompletionHandler)completion
+
+{
     [completion copy];
 
     NSDictionary *transactionSeriesFilter = [MNFJsonAdapter JSONDictFromObject:seriesFilter
@@ -28,6 +31,9 @@
                                                                          error:nil];
 
     NSString *path = [NSString stringWithFormat:@"%@/series", kMNFApiPathTransactions];
+
+    NSMutableDictionary *queryPath = [NSMutableDictionary dictionary];
+    [queryPath setValue:include forKey:@"include"];
 
     NSMutableArray *modifiedSeriesSelector = [NSMutableArray array];
 
@@ -57,7 +63,7 @@
 
     __block MNFJob *job = [self
         apiRequestWithPath:path
-                 pathQuery:nil
+                 pathQuery:queryPath
                   jsonBody:jsonData
                 HTTPMethod:kMNFHTTPMethodPOST
                    service:MNFServiceNameTransactions
@@ -128,6 +134,13 @@
                 }];
 
     return job;
+}
+
++ (MNFJob *)fetchTransactionSeriesWithTransactionSeriesFilter:(MNFTransactionSeriesFilter *)seriesFilter
+                                               withCompletion:(MNFTransactionSeriesCompletionHandler)completion {
+    return [MNFTransactionSeries fetchTransactionSeriesWithTransactionSeriesFilter:seriesFilter
+                                                                       withInclude:nil
+                                                                     andCompletion:completion];
 }
 
 #pragma mark - Description
