@@ -290,8 +290,8 @@ NS_ASSUME_NONNULL_BEGIN
 @return An MNFJob containing a list of transactions and an error.
 */
 
-- (MNFJob *)fetchSplitWithInclude:(NSArray *)include andCompletion:(MNFMultipleTransactionsCompletionHandler)completion;
-
+- (MNFJob *)fetchSplitWithInclude:(nullable NSArray *)include
+                    andCompletion:(nullable MNFMultipleTransactionsCompletionHandler)completion;
 /**
 @abstract Fetches all transactions with applied filter.
  
@@ -304,6 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (MNFJob *)fetchWithTransactionFilter:(MNFTransactionFilter *)filter
                             completion:(MNFMultipleTransactionsCompletionHandler)completion;
+
 
 ///************************************
 /// @name Creating
