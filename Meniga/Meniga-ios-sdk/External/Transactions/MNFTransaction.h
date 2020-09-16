@@ -305,7 +305,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (MNFJob *)fetchWithTransactionFilter:(MNFTransactionFilter *)filter
                             completion:(MNFMultipleTransactionsCompletionHandler)completion;
 
-
 ///************************************
 /// @name Creating
 ///************************************
