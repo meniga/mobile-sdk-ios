@@ -279,6 +279,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (MNFJob *)fetchSplitWithCompletion:(nullable MNFMultipleTransactionsCompletionHandler)completion;
 
 /**
+@abstract Fetches all split transactions relating to the transaction.
+
+@discussion If the transaction is a parent the list will return the transaction and all it's split children. If it is a child the list will return the parent transaction, the child itself and any other children of the parent.
+ 
+@param include A query parameter that tells which related resources should be included in the response as 'included' data. Supported resources are "Account" and "Merchant", e.g. "Account,Merchant" to get both resources included
+
+@param completion A completion block returning a list of transactions and an error.
+
+@return An MNFJob containing a list of transactions and an error.
+*/
+
+- (MNFJob *)fetchSplitWithInclude:(NSArray *)include andCompletion:(MNFMultipleTransactionsCompletionHandler)completion;
+
+/**
 @abstract Fetches all transactions with applied filter.
  
 @param filter MNFTransactionFilter object.

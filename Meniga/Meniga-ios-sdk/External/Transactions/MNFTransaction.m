@@ -177,13 +177,20 @@
 }
 
 - (MNFJob *)fetchSplitWithCompletion:(MNFMultipleTransactionsCompletionHandler)completion {
+    return [self fetchSplitWithInclude:nil andCompletion:completion];
+}
+
+- (MNFJob *)fetchSplitWithInclude:(NSArray *)include
+                    andCompletion:(MNFMultipleTransactionsCompletionHandler)completion {
     [completion copy];
 
     NSString *path = [NSString stringWithFormat:@"%@/%@/split", kMNFApiPathTransactions, [self.identifier stringValue]];
+    NSMutableDictionary *queryPath = [NSMutableDictionary dictionary];
+    [queryPath setValue:include forKey:@"include"];
 
     __block MNFJob *job = [[self class]
         apiRequestWithPath:path
-                 pathQuery:nil
+                 pathQuery:queryPath
                   jsonBody:nil
                 HTTPMethod:kMNFHTTPMethodGET
                    service:MNFServiceNameTransactions
