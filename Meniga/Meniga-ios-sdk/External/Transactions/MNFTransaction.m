@@ -209,8 +209,8 @@
                                 includedMerchants =
                                     [MNFJsonAdapter objectOfClass:[MNFMerchant class]
                                                          jsonDict:[response.includedObjects objectForKey:@"merchant"]
-                                                            option:0
-                                                             error:nil];
+                                                           option:0
+                                                            error:nil];
                             }
 
                             if ([[response.includedObjects objectForKey:@"account"]
@@ -218,8 +218,8 @@
                                 includedAccounts =
                                     [MNFJsonAdapter objectOfClass:[MNFAccount class]
                                                          jsonDict:[response.includedObjects objectForKey:@"account"]
-                                                            option:0
-                                                             error:nil];
+                                                           option:0
+                                                            error:nil];
                             }
 
                             for (MNFTransaction *transaction in transactions) {
