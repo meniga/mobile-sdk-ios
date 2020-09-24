@@ -204,33 +204,27 @@
                             NSArray<MNFMerchant *> *includedMerchants;
                             NSArray<MNFAccount *> *includedAccounts;
 
-                            if ([[response.includedObjects objectForKey:@"merchants"] isKindOfClass:[NSArray class]]) {
+                            if ([[response.includedObjects objectForKey:@"merchant"]
+                                    isKindOfClass:[NSDictionary class]]) {
                                 includedMerchants =
                                     [MNFJsonAdapter objectsOfClass:[MNFMerchant class]
-                                                         jsonArray:[response.includedObjects objectForKey:@"merchants"]
+                                                         jsonArray:[response.includedObjects objectForKey:@"merchant"]
                                                             option:0
                                                              error:nil];
                             }
 
-                            if ([[response.includedObjects objectForKey:@"accounts"] isKindOfClass:[NSArray class]]) {
+                            if ([[response.includedObjects objectForKey:@"account"]
+                                    isKindOfClass:[NSDictionary class]]) {
                                 includedAccounts =
                                     [MNFJsonAdapter objectsOfClass:[MNFAccount class]
-                                                         jsonArray:[response.includedObjects objectForKey:@"accounts"]
+                                                         jsonArray:[response.includedObjects objectForKey:@"account"]
                                                             option:0
                                                              error:nil];
                             }
 
                             for (MNFTransaction *transaction in transactions) {
-                                transaction.merchant = [[includedMerchants
-                                    filteredArrayUsingPredicate:[NSPredicate
-                                                                    predicateWithFormat:@"SELF.identifier == %@",
-                                                                                        transaction.merchantId]]
-                                    firstObject];
-                                transaction.account = [[includedAccounts
-                                    filteredArrayUsingPredicate:[NSPredicate
-                                                                    predicateWithFormat:@"SELF.identifier == %@",
-                                                                                        transaction.accountId]]
-                                    firstObject];
+                                transaction.merchant = includedMerchants.firstObject;
+                                transaction.account = includedAccounts.firstObject;
 
                                 for (MNFComment *comment in transaction.comments) {
                                     comment.transactionId = transaction.identifier;
