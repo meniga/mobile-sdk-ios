@@ -201,14 +201,14 @@
                         if ([response.result isKindOfClass:[NSArray class]]) {
                             NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
 
-                            NSArray<MNFMerchant *> *includedMerchants;
-                            NSArray<MNFAccount *> *includedAccounts;
+                            MNFMerchant *includedMerchants;
+                            MNFAccount *includedAccounts;
 
                             if ([[response.includedObjects objectForKey:@"merchant"]
                                     isKindOfClass:[NSDictionary class]]) {
                                 includedMerchants =
-                                    [MNFJsonAdapter objectsOfClass:[MNFMerchant class]
-                                                         jsonArray:[response.includedObjects objectForKey:@"merchant"]
+                                    [MNFJsonAdapter objectOfClass:[MNFMerchant class]
+                                                         jsonDict:[response.includedObjects objectForKey:@"merchant"]
                                                             option:0
                                                              error:nil];
                             }
@@ -216,15 +216,15 @@
                             if ([[response.includedObjects objectForKey:@"account"]
                                     isKindOfClass:[NSDictionary class]]) {
                                 includedAccounts =
-                                    [MNFJsonAdapter objectsOfClass:[MNFAccount class]
-                                                         jsonArray:[response.includedObjects objectForKey:@"account"]
+                                    [MNFJsonAdapter objectOfClass:[MNFAccount class]
+                                                         jsonDict:[response.includedObjects objectForKey:@"account"]
                                                             option:0
                                                              error:nil];
                             }
 
                             for (MNFTransaction *transaction in transactions) {
-                                transaction.merchant = includedMerchants.firstObject;
-                                transaction.account = includedAccounts.firstObject;
+                                transaction.merchant = includedMerchants;
+                                transaction.account = includedAccounts;
 
                                 for (MNFComment *comment in transaction.comments) {
                                     comment.transactionId = transaction.identifier;
