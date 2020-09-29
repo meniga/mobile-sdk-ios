@@ -297,8 +297,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  An array of strings specifying which related resources should be included in the response as 'included' data. Supported resources are "Account" and "Merchant", e.g. "Account,Merchant" to get both resources included
  */
-@property (nonatomic, strong) NSArray<NSString *> *_Nullable include;
 
+@property (nonatomic, strong) NSArray<NSString *> *_Nullable include DEPRECATED_MSG_ATTRIBUTE(
+    "use fetchTransactionSeriesWithTransactionSeriesFilter:withInclude:andCompletion: instead.");
 @end
 
 NS_ASSUME_NONNULL_END

@@ -69,6 +69,21 @@ NS_ASSUME_NONNULL_BEGIN
                                                withCompletion:
                                                    (nullable MNFTransactionSeriesCompletionHandler)completion;
 
+/**
+ @abstract Fetches a transaction series from the server.
+ 
+ @param seriesFilter The transaction series filter used to create the series.
+ @param include query parameter that tells which related resources should be included in the response as 'included' data. Supported resources are "Account" and "Merchant", e.g. "Account,Merchant" to get both resources included
+ @param completion A completion block returning a transaction series and an error.
+ 
+ @return An MNFJob containing a transaction series and an error.
+ */
+
++ (MNFJob *)fetchTransactionSeriesWithTransactionSeriesFilter:(MNFTransactionSeriesFilter *)seriesFilter
+                                                  withInclude:(nullable NSArray *)include
+                                                andCompletion:
+                                                    (nullable MNFTransactionSeriesCompletionHandler)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END
