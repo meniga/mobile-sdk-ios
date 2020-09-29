@@ -201,12 +201,12 @@
                         if ([response.result isKindOfClass:[NSArray class]]) {
                             NSArray *transactions = [MNFTransaction initWithServerResults:response.result];
 
-                            MNFMerchant *includedMerchants;
-                            MNFAccount *includedAccounts;
+                            MNFMerchant *includedMerchant;
+                            MNFAccount *includedAccount;
 
                             if ([[response.includedObjects objectForKey:@"merchant"]
                                     isKindOfClass:[NSDictionary class]]) {
-                                includedMerchants =
+                                includedMerchant =
                                     [MNFJsonAdapter objectOfClass:[MNFMerchant class]
                                                          jsonDict:[response.includedObjects objectForKey:@"merchant"]
                                                            option:0
@@ -215,7 +215,7 @@
 
                             if ([[response.includedObjects objectForKey:@"account"]
                                     isKindOfClass:[NSDictionary class]]) {
-                                includedAccounts =
+                                includedAccount =
                                     [MNFJsonAdapter objectOfClass:[MNFAccount class]
                                                          jsonDict:[response.includedObjects objectForKey:@"account"]
                                                            option:0
@@ -223,8 +223,8 @@
                             }
 
                             for (MNFTransaction *transaction in transactions) {
-                                transaction.merchant = includedMerchants;
-                                transaction.account = includedAccounts;
+                                transaction.merchant = includedMerchant;
+                                transaction.account = includedAccount;
 
                                 for (MNFComment *comment in transaction.comments) {
                                     comment.transactionId = transaction.identifier;
