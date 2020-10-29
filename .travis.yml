@@ -1,16 +1,10 @@
 language: objective-c
 osx_image: xcode10.2
 stages:
-- name: test
 - name: deploy
   if: repo = meniga/mobile-sdk-ios AND type = push AND branch =~ release/*
 jobs:
   include:
-  - stage: test
-    script:
-    - bundle exec fastlane tests
-    after_success:
-    - bash <(curl -s https://codecov.io/bash)
   - stage: deploy
     name: Release podspec
     install:
