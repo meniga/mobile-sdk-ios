@@ -1,3 +1,6 @@
+![Tests](https://github.com/meniga/mobile-sdk-ios/workflows/Tests/badge.svg)
+[![codecov](https://codecov.io/gh/meniga/mobile-sdk-ios/branch/master/graph/badge.svg?token=rkF6XQrAJa)](https://codecov.io/gh/meniga/mobile-sdk-ios)
+
 ![Meniga](https://github.com/meniga/mobile-sdk-ios/raw/master/logo.png)
 
 Meniga helps banks use data to accelerate innovation and meaningful engagement by providing RESTful APIs on top of Meniga software products to improve and personalize the online banking experience for both individuals and corporate customers.
