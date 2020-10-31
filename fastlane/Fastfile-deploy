@@ -5,7 +5,7 @@ platform :ios do
   desc %(Deploy MenigaSDK to cocoapods trunk
   Steps:
    * Bump version in podspec
-   * Commit framework and podspec changes
+   * Commit podspec changes
    * Create version tag
    * Push commit and tag to remote
    * Push podspec to Trunk specs
