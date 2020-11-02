@@ -1,12 +1,9 @@
-import("Fastfile-build")
-
 podspecFile = "MenigaSDK.podspec"
 
 platform :ios do
 
   desc %(Deploy MenigaSDK to cocoapods trunk
   Steps:
-   * Create compiled framework
    * Bump version in podspec
    * Commit framework and podspec changes
    * Create version tag
@@ -21,7 +18,6 @@ platform :ios do
     end
     version = options[:version]
 
-    build_framework
     update_podspec_version(
       version: version
     )
@@ -35,7 +31,6 @@ platform :ios do
   desc %(Deploy MenigaSDK to cocoapods trunk, 
   lane developed to run on release branch from CI server
   Steps:
-   * Create compiled framework
    * Bump podspec version
    * Commit framework and podspec changes as MenigaBuildsson
    * Create version tag
@@ -70,7 +65,6 @@ platform :ios do
 
     version = branch_name.partition("release/")[2]
 
-    build_framework
     update_podspec_version(
       version: version
     )
@@ -118,7 +112,7 @@ platform :ios do
     prefix = options[:prefix]
 
     git_commit(
-      path: ["./Meniga/compiled/MenigaSDK.framework/*", "./#{podspecFile}"],
+      path: ["./#{podspecFile}"],
       message: "#{prefix}Bump version to #{version}"
     )
     add_git_tag(

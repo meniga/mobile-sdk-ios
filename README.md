@@ -10,7 +10,6 @@ Developers for institutions implementing the Meniga REST API can usi this sdk to
 
 ## Installation
 
-### Installation with Cocoapods-->
 You can easily integrate the Meniga SDK using [Cocoapods](http://cocoapods.org). If you do not have Cocoapods installed on your machine simply run
 
 ```bash
@@ -31,11 +30,8 @@ $ pod install
 
 in your project directory where the podfile is located.
 
-### Building from source
-To build the Meniga SDK from source you can clone or download the github repository. Then open the Meniga-ios-sdk xcode project and build the framework target. This should create a framework file in the compiled folder in the project directory. You should in fact already have this file when you download the source code so no need to build it again unless you have made changes to the source code.
-
 ## Requirements
-This SDK supports at minimum iOS version 8.0 and was programmed using Xcode version 9.2
+This SDK supports at minimum iOS version 8.0.
 
 ## Swift
 If you are writing swift code you should be able to use this SDK with the use of a bridging header. Please see the documentation for further detail.

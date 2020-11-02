@@ -12,22 +12,16 @@ Install _fastlane_ using
 ```
 [sudo] gem install fastlane -NV
 ```
-or alternatively using `brew cask install fastlane`
+or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
-### ios build_framework
-```
-fastlane ios build_framework
-```
-Build framework under path Meniga/compiled
 ### ios deploy
 ```
 fastlane ios deploy
 ```
 Deploy MenigaSDK to cocoapods trunk
   Steps:
-   * Create compiled framework
    * Bump version in podspec
    * Commit framework and podspec changes
    * Create version tag
@@ -43,7 +37,6 @@ fastlane ios ci_deploy
 Deploy MenigaSDK to cocoapods trunk, 
   lane developed to run on release branch from CI server
   Steps:
-   * Create compiled framework
    * Bump podspec version
    * Commit framework and podspec changes as MenigaBuildsson
    * Create version tag
