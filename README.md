@@ -1,5 +1,6 @@
 ![Tests](https://github.com/meniga/mobile-sdk-ios/workflows/Tests/badge.svg)
 [![codecov](https://codecov.io/gh/meniga/mobile-sdk-ios/branch/master/graph/badge.svg?token=rkF6XQrAJa)](https://codecov.io/gh/meniga/mobile-sdk-ios)
+[![](https://img.shields.io/cocoapods/v/MenigaSDK.svg?style=flat)](https://cocoapods.org/pods/MenigaSDK)
 
 ![Meniga](https://github.com/meniga/mobile-sdk-ios/raw/master/logo.png)
 
