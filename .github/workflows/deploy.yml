@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Number version to release'
+        required: true
+
+jobs:
+  build:
+    name: Deploy pod to cocoapods
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 0 
+      - name: Cache bundler gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Bundler
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Deploy
+        env:
+            COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN}}
+        run: |
+          bundle exec fastlane deploy \
+          version:${{ github.event.inputs.version }}

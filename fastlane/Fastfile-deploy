@@ -5,7 +5,7 @@ platform :ios do
   desc %(Deploy MenigaSDK to cocoapods trunk
   Steps:
    * Bump version in podspec
-   * Commit framework and podspec changes
+   * Commit podspec changes
    * Create version tag
    * Push commit and tag to remote
    * Push podspec to Trunk specs
@@ -26,78 +26,6 @@ platform :ios do
     )
     push_to_git_remote
     push_podspec
-  end
-
-  desc %(Deploy MenigaSDK to cocoapods trunk, 
-  lane developed to run on release branch from CI server
-  Steps:
-   * Bump podspec version
-   * Commit framework and podspec changes as MenigaBuildsson
-   * Create version tag
-   * Push commit and tag to remote
-   * Push podspec to Trunk specs
-   * Merge branch into master
-  Options:  
-  - gh_user - Username for github account 
-  - gh_user_email - Commit email address 
-  - gh_token - Access token for gh_user_name github account 
-  )
-  lane :ci_deploy do |options|
-    branch_name = git_branch
-    if !branch_name.match("release/*")
-      raise "ci_deploy should be run only from release branch!".red
-    end
-
-    if !options[:gh_user]
-      raise "gh_user not specified!".red
-    end
-    gh_user = options[:gh_user]
-
-    if !options[:gh_user_email]
-      raise "gh_user_email not specified!".red
-    end
-    gh_user_email = options[:gh_user_email]
-
-    if !options[:gh_token]
-      raise "gh_token not specified!".red
-    end
-    gh_token = options[:gh_token]
-
-    version = branch_name.partition("release/")[2]
-
-    update_podspec_version(
-      version: version
-    )
-
-    set_git_config_user(
-      name: gh_user,
-      email: gh_user_email
-    )
-
-    create_deploy_commit(
-      version: version,
-      prefix: "[auto][skip ci] "
-    )
-    
-    remoteName =  "originWithToken"
-    add_git_remote(
-      remote: remoteName,
-      path: "https://#{gh_user}:#{gh_token}@github.com/meniga/mobile-sdk-ios.git"
-    )
-    push_to_git_remote(
-      remote: remoteName
-    )
-    
-    push_podspec
-
-    push_to_git_remote(
-      remote: remoteName,
-      remote_branch: "master",
-    )
-
-    remove_git_remote(
-      remote: remoteName
-    )
   end
 
   private_lane :update_podspec_version do |options|
