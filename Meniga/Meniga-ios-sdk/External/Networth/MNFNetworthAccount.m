@@ -42,7 +42,7 @@
     NSMutableDictionary *jsonQuery = [NSMutableDictionary dictionary];
     jsonQuery[@"startDate"] = [transformer reverseTransformedValue:startDate];
     jsonQuery[@"endDate"] = [transformer reverseTransformedValue:endDate];
-    jsonQuery[@"userInterpolation"] = boolString;
+    jsonQuery[@"useInterpolation"] = boolString;
     jsonQuery[@"skip"] = skip;
     jsonQuery[@"take"] = take;
 
