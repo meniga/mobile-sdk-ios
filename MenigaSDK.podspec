@@ -13,7 +13,9 @@ The Meniga mobile sdk for Objective-C provides a convenient way to interact with
     s.license           = { :type => 'MIT', :file => 'LICENSE' }
     s.authors           = { 'Meniga' => 'meniga@meniga.is' }
     s.source            = { :git => "https://github.com/meniga/mobile-sdk-ios.git", :tag => s.version }
-    s.social_media_url  = 'https://twitter.com/meniga'
+    
+    # Uncomment after this issue fix https://github.com/CocoaPods/CocoaPods/issues/10291
+    # s.social_media_url  = 'https://twitter.com/meniga'
 
     s.ios.deployment_target = '8.0'
 
