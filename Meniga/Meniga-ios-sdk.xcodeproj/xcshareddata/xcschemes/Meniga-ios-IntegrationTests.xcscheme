@@ -11,15 +11,6 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "31FF9CC51BE0C986005DB295"
-            BuildableName = "Meniga-ios-sdk-testapp.app"
-            BlueprintName = "Meniga-ios-sdk-testapp"
-            ReferencedContainer = "container:../Meniga-ios-sdk-testapp/Meniga-ios-sdk-testapp.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">

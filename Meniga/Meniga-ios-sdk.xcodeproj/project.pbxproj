@@ -6,21 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		D2F088B78A0B76A3FE3F6CB8919C97E6 /* Documentation */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 1EC77A8A8524759EA0E6A385C6361958 /* Build configuration list for PBXAggregateTarget "Documentation" */;
-			buildPhases = (
-				97AE80C5F79C3C272711912F669EF27C /* Create documentation */,
-			);
-			dependencies = (
-				3FD77A0EF0E1CE3FDBDAFC2A3FCF9373 /* PBXTargetDependency */,
-			);
-			name = Documentation;
-			productName = Framework;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		013E52B94B0B64CD9652D36168D9B15A /* Meniga.h in Headers */ = {isa = PBXBuildFile; fileRef = A436588B0167D4F9774162C92D195F05 /* Meniga.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01462C3261AB32AECC55831FD4E5365B /* MNFUpcomingBalanceDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D9D88B8C65661F1FA21815D4A4153 /* MNFUpcomingBalanceDate.m */; };
@@ -403,13 +388,6 @@
 			remoteInfo = "Meniga-ios-sdk";
 		};
 		31DE386A2069099D00B1DC4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9E428DDD98FF79472828772278CC722 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8E03D8140795B770CC2DE09029DD4AE3;
-			remoteInfo = "Meniga-ios-sdk";
-		};
-		3E4AC4F7085B93F95AE12A972D4873FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C9E428DDD98FF79472828772278CC722 /* Project object */;
 			proxyType = 1;
@@ -2222,7 +2200,6 @@
 				8E03D8140795B770CC2DE09029DD4AE3 /* Meniga-ios-sdk */,
 				8700D726F8A23F7169AEDA1061796BF7 /* Meniga-ios-sdk-tests */,
 				D878330A5EAE847393CCE5E58EC3530A /* Meniga-ios-IntegrationTests */,
-				D2F088B78A0B76A3FE3F6CB8919C97E6 /* Documentation */,
 				31DE38682069099D00B1DC4E /* Api-validation-tests */,
 			);
 		};
@@ -2296,20 +2273,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport FRAMEWORK_LOCN=\"${BUILT_PRODUCTS_DIR}/${MNF_SDK_NAME}.framework\"\n\n# Create the path to the real Headers die\nmkdir -p \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n# Create the required symlinks\n/bin/ln -sfh A \"${FRAMEWORK_LOCN}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${FRAMEWORK_LOCN}/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \\\n\"${FRAMEWORK_LOCN}/${PRODUCT_NAME}\"\n\n# Copy the public headers into the framework\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/Headers\"";
-		};
-		97AE80C5F79C3C272711912F669EF27C /* Create documentation */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Create documentation";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "jazzy \\\n--objc \\\n--clean \\\n--sdk iphonesimulator \\\n--author Meniga \\\n--author_url \"https://www.meniga.com\" \\\n--module-version 0.9.1 \\\n--copyright \"Meniga\" \\\n--umbrella-header \"${PROJECT_DIR}/MenigaDocs.h\" \\\n--framework-root . \\\n--module Meniga \\\n--skip-undocumented \\\n--hide-documentation-coverage \\\n--output docs\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2547,11 +2510,6 @@
 			target = 8E03D8140795B770CC2DE09029DD4AE3 /* Meniga-ios-sdk */;
 			targetProxy = 31DE386A2069099D00B1DC4E /* PBXContainerItemProxy */;
 		};
-		3FD77A0EF0E1CE3FDBDAFC2A3FCF9373 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8E03D8140795B770CC2DE09029DD4AE3 /* Meniga-ios-sdk */;
-			targetProxy = 3E4AC4F7085B93F95AE12A972D4873FB /* PBXContainerItemProxy */;
-		};
 		C9D5419E80D62803F3EF66A57BC8ECCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8E03D8140795B770CC2DE09029DD4AE3 /* Meniga-ios-sdk */;
@@ -2732,15 +2690,6 @@
 			};
 			name = Release;
 		};
-		3C681781C6995C7413015C933EA96862 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-			};
-			name = Release;
-		};
 		3E256FA3E0690053321A9973F7EF04B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2843,28 +2792,9 @@
 			};
 			name = Debug;
 		};
-		CF58CB1AC3E1F20A279182AF748CFDDC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_OPTIMIZATION_LEVEL = s;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1EC77A8A8524759EA0E6A385C6361958 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CF58CB1AC3E1F20A279182AF748CFDDC /* Debug */,
-				3C681781C6995C7413015C933EA96862 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		31DE38AC2069099D00B1DC4E /* Build configuration list for PBXNativeTarget "Api-validation-tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

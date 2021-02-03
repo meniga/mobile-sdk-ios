@@ -1,0 +1,15 @@
+objc: true
+clean: true
+sdk: iphonesimulator
+author: Meniga
+author_url: "https://www.meniga.com"
+copyright: "Meniga"
+umbrella_header: "Meniga/Meniga-ios-sdk/External/MenigaDocs.h"
+framework_root: Meniga
+module: Meniga
+skip_undocumented: true
+hide_documentation_coverage: true
+output: Meniga/docs
+github_url: https://github.com/meniga/mobile-sdk-ios/
+theme: fullwidth
+

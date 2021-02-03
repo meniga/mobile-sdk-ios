@@ -1,0 +1,14 @@
+podspecFile = "MenigaSDK.podspec"
+
+platform :ios do
+
+  desc %(Generate documentation)
+  lane :generate_docs do |options|
+    if !options[:version]
+      raise "No version specified!".red
+    end
+    version = options[:version]
+    sh("jazzy --config ../jazzy.yaml --module-version #{version}")
+  end
+
+end
