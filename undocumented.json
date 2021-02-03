@@ -1,0 +1,894 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Accounts/MNFAccountFilter.h",
+      "line": 12,
+      "symbol": "MNFAccountFilter",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Categories/MNFCategory.h",
+      "line": 13,
+      "symbol": "MNFCategoryTypeId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Categories/MNFCategory.h",
+      "line": 13,
+      "symbol": "MNFCategoryTypeId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Categories/MNFCategory.h",
+      "line": 29,
+      "symbol": "MNFCategory._children",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Challenges/MNFChallenge.h",
+      "line": 49,
+      "symbol": "MNFChallenge.enabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Challenges/MNFChallenge.h",
+      "line": 50,
+      "symbol": "MNFChallenge.parentTopicId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Challenges/MNFChallenge.h",
+      "line": 51,
+      "symbol": "MNFChallenge.parentStartDate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Challenges/MNFChallenge.h",
+      "line": 52,
+      "symbol": "MNFChallenge.parentEndDate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 74,
+      "symbol": "MNFCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 77,
+      "symbol": "MNFMetadataValueCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 78,
+      "symbol": "MNFMetadataCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 79,
+      "symbol": "MNFMultipleMetadataCompletionHandlers",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 82,
+      "symbol": "MNFFetchMultipleCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 85,
+      "symbol": "MNFDateCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 88,
+      "symbol": "MNFErrorOnlyCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 91,
+      "symbol": "MNFFetchObjectsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 94,
+      "symbol": "MNFTransactionCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 95,
+      "symbol": "MNFMultipleTransactionsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 97,
+      "symbol": "MNFTransactionRuleCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 98,
+      "symbol": "MNFMultipleTransactionRulesCompleitonHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 100,
+      "symbol": "MNFTransactionSuggestionsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 104,
+      "symbol": "MNFTransactionPageCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 106,
+      "symbol": "MNFTransactionSeriesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 110,
+      "symbol": "MNFCategoryCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 111,
+      "symbol": "MNFMultipleCategoriesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 113,
+      "symbol": "MNFMultipleCategoryTypesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 117,
+      "symbol": "MNFAccountCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 118,
+      "symbol": "MNFMultipleAccountsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 120,
+      "symbol": "MNFMultipleAccountHistoryCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 122,
+      "symbol": "MNFMultipleAccountCategoriesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 124,
+      "symbol": "MNFMultipleAccountAuthorizationTypesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 126,
+      "symbol": "MNFMultipleAccountTypesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 128,
+      "symbol": "MNFAccountTypeCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 131,
+      "symbol": "MNFMultipleNetworthAccountsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 133,
+      "symbol": "MNFSingleNetworthAccountsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 135,
+      "symbol": "MNFMultipleNetworthBalanceHistoryCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 137,
+      "symbol": "MNFSingleNetworthBalanceHistoryCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 141,
+      "symbol": "MNFTagCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 142,
+      "symbol": "MNFMultipleTagsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 145,
+      "symbol": "MNFUserCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 146,
+      "symbol": "MNFMultipleUsersCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 147,
+      "symbol": "MNFUserProfileCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 148,
+      "symbol": "MNFMultipleRealmUsersComletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 152,
+      "symbol": "MNFSynchronizationCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 154,
+      "symbol": "MNFIsSyncNeededCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 155,
+      "symbol": "MNFSyncAuthenticationCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 157,
+      "symbol": "MNFMultipleRealmAccountCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 161,
+      "symbol": "MNFMerchantCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 162,
+      "symbol": "MNFMultipleMerchantsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 165,
+      "symbol": "MNFMerchantSeriesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 169,
+      "symbol": "MNFOfferCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 170,
+      "symbol": "MNFMultipleOffersCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 173,
+      "symbol": "MNFMultipleOfferTransactionsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 175,
+      "symbol": "MNFOfferSimilarBrandSpendingCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 178,
+      "symbol": "MNFRedemptionsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 181,
+      "symbol": "MNFMultipleReimbursementAccountsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 183,
+      "symbol": "MNFRemibursementAccountCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 185,
+      "symbol": "MNFMultipleReimbursementAccountTypesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 187,
+      "symbol": "MNFMultipleMerchantLocationsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 191,
+      "symbol": "MNFFeedCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 192,
+      "symbol": "MNFFeedItemsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 193,
+      "symbol": "MNFFeedTypesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 194,
+      "symbol": "MNFScheduledEventCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 196,
+      "symbol": "MNFMultipleScheduledEventsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 198,
+      "symbol": "MNFSingleFeedItemCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 201,
+      "symbol": "MNFUpcomingCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 202,
+      "symbol": "MNFMultipleUpcomingCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 204,
+      "symbol": "MNFRecurringPatternCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 206,
+      "symbol": "MNFMultipleRecurringPatternsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 208,
+      "symbol": "MNFDefaultAccountIdCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 209,
+      "symbol": "MNFMultipleAccountIdsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 211,
+      "symbol": "MNFBalancesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 212,
+      "symbol": "MNFThresholdCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 213,
+      "symbol": "MNFMultipleThresholdsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 217,
+      "symbol": "MNFChallengesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 218,
+      "symbol": "MNFMultipleChallengesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 220,
+      "symbol": "MNFChallengeIconIdentifiersCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 222,
+      "symbol": "MNFChallengeIconImageDataCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 225,
+      "symbol": "MNFBudgetCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 226,
+      "symbol": "MNFMultipleBudgetCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 227,
+      "symbol": "MNFMultipleBudgetEntriesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 229,
+      "symbol": "MNFBudgetEntryCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 230,
+      "symbol": "MNFMultipleBudgetRulesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 234,
+      "symbol": "MNFLifeGoalCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 235,
+      "symbol": "MNFMultipleLifeGoalsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 237,
+      "symbol": "MNFLifeGoalHistoryCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 239,
+      "symbol": "MNFLifeGoalAccountInfoCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 243,
+      "symbol": "MNFMediaCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 246,
+      "symbol": "MNFPeerComparisonCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 250,
+      "symbol": "MNFTermsAndConditionsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 252,
+      "symbol": "MNFMultipleTermsAndConditionsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 255,
+      "symbol": "MNFMultipleTermsAndConditionTypesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 257,
+      "symbol": "MNFTermsAndConditionTypeCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 261,
+      "symbol": "MNFPublicCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 262,
+      "symbol": "MNFPostalCodeCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 263,
+      "symbol": "MNFMultiplePostalCodesCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 267,
+      "symbol": "MNFOrganizationsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 271,
+      "symbol": "MNFAuthenticationCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 275,
+      "symbol": "MNFUserEventSubscriptionDetailCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 277,
+      "symbol": "MNFUserEventCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 278,
+      "symbol": "MNFMultipleUserEventsCompletionHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 282,
+      "symbol": "kMNFRepaymentAccountInfoBankAccountNumberKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 283,
+      "symbol": "kMNFRepaymentAccountInfoLedgerKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 284,
+      "symbol": "kMNFRepaymentAccountInfoSocialSecurityNumberKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 285,
+      "symbol": "kMNFRepaymentAccountInfoBankNumberKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 288,
+      "symbol": "kMNFErrorMessageJSONKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 291,
+      "symbol": "MNFMenigaErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 293,
+      "symbol": "MNFErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 293,
+      "symbol": "MNFErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 330,
+      "symbol": "MNFLogLevel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 330,
+      "symbol": "MNFLogLevel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 358,
+      "symbol": "MNFGroupedBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 358,
+      "symbol": "MNFGroupedBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 373,
+      "symbol": "MNFServiceName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Constants/MNFConstants.h",
+      "line": 373,
+      "symbol": "MNFServiceName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Networth/MNFNetworthBalanceHistory.h",
+      "line": 12,
+      "symbol": "MNFNetworthBalanceHistory",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Sync/MNFSynchronization.h",
+      "line": 86,
+      "symbol": "MNFSynchronization.+synchronizeRealmUserWithId:timeout:interval:completin:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Sync/MNFSynchronization.h",
+      "line": 125,
+      "symbol": "MNFSynchronization.+startSynchronizationForRealmUserWithId:waitTime:completion:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Transactions/MNFTransaction.h",
+      "line": 52,
+      "symbol": "MNFTransaction.accuracy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Transactions/MNFTransactionSeries.h",
+      "line": 54,
+      "symbol": "MNFTransactionSeries.currency",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Upcoming/MNFUpcoming.h",
+      "line": 13,
+      "symbol": "MNFUpcomingPaymentStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Upcoming/MNFUpcoming.h",
+      "line": 13,
+      "symbol": "MNFUpcomingPaymentStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/UserEvents/MNFUserEvent.h",
+      "line": 74,
+      "symbol": "MNFUserEvent.templateId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/UserEvents/MNFUserEvent.h",
+      "line": 116,
+      "symbol": "MNFUserEvent.messageData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/UserEvents/MNFUserEvent.h",
+      "line": 118,
+      "symbol": "MNFUserEvent.dataItem",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/External/Utilities/MNFAPIRequest.h",
+      "line": 15,
+      "symbol": "MNFAPIRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/Meniga/Meniga-ios-sdk/Internal/Network/MNFResponse.h",
+      "line": 13,
+      "symbol": "MNFResponse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/mobile-sdk-ios/mobile-sdk-ios/fastlane"
+}

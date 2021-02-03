@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MNFTransactionPage Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/MNFTransactionPage" class="dashAnchor"></a>
+    <a title="MNFTransactionPage Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Meniga 1.1.18 Docs</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Meniga Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MNFTransactionPage Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccount.html">MNFAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccountAuthorizationType.html">MNFAccountAuthorizationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccountCategory.html">MNFAccountCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccountHistoryEntry.html">MNFAccountHistoryEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccountSyncStatus.html">MNFAccountSyncStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccountType.html">MNFAccountType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFBudget.html">MNFBudget</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFBudgetEntry.html">MNFBudgetEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFBudgetFilter.html">MNFBudgetFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFCategory.html">MNFCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFCategoryScore.html">MNFCategoryScore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFCategoryType.html">MNFCategoryType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFChallenge.html">MNFChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFComment.html">MNFComment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFCustomChallenge.html">MNFCustomChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFFeed.html">MNFFeed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFFeedItem.html">MNFFeedItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFFeedItemGroup.html">MNFFeedItemGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFGlobalChallenge.html">MNFGlobalChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFJob.html">MNFJob</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFMerchant.html">MNFMerchant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFMerchantAddress.html">MNFMerchantAddress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFNetworthAccount.html">MNFNetworthAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFObject.html">MNFObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFRealmSyncResponse.html">MNFRealmSyncResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFRealmUser.html">MNFRealmUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFSpendingChallenge.html">MNFSpendingChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFSyncAuthRequiredParameter.html">MNFSyncAuthRequiredParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFSyncAuthenticationChallenge.html">MNFSyncAuthenticationChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFSynchronization.html">MNFSynchronization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTag.html">MNFTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransaction.html">MNFTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionFilter.html">MNFTransactionFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionGroup.html">MNFTransactionGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionPage.html">MNFTransactionPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionRule.html">MNFTransactionRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionSeries.html">MNFTransactionSeries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionSeriesFilter.html">MNFTransactionSeriesFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionSplitAction.html">MNFTransactionSplitAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcoming.html">MNFUpcoming</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingBalance.html">MNFUpcomingBalance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingBalanceDate.html">MNFUpcomingBalanceDate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingComment.html">MNFUpcomingComment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingDetails.html">MNFUpcomingDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingInvoice.html">MNFUpcomingInvoice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingPattern.html">MNFUpcomingPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingReconcileScore.html">MNFUpcomingReconcileScore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingScheduledPayment.html">MNFUpcomingScheduledPayment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingThreshold.html">MNFUpcomingThreshold</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUser.html">MNFUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUserEvent.html">MNFUserEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUserProfile.html">MNFUserProfile</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/MNFAuthenticationProviderProtocol.html">MNFAuthenticationProviderProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MNFJobDelegate.html">MNFJobDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MNFJsonAdapterDelegate.html">MNFJsonAdapterDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:MNFJob.h@T@MNFJobCompletionHandler">MNFJobCompletionHandler</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MNFTransactionPage</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MNFTransactionPage</span> <span class="p">:</span> <span class="nc"><a href="../Classes/MNFObject.html">MNFObject</a></span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MNFTransactionPage</span> <span class="p">:</span> <span class="kt"><a href="../Classes/MNFObject.html">MNFObject</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>The MNFTransactionPage class encapsulated transaction page json data form the server in an object.</p>
+
+<p>A transaction page should no be directly initialized but instead should be constructed with data from the server.
+The response from the server will be automatically converted to an MNFTransactionPage object.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Immutable%20properties"></a>
+                <a name="//apple_ref/objc/Section/Immutable properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Immutable%20properties"></a>
+                  <h3 class="section-name"><p>Immutable properties</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(py)pageNumber"></a>
+                    <a name="//apple_ref/objc/Property/pageNumber" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(py)pageNumber">pageNumber</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract current page</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">pageNumber</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">pageNumber</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(py)numberOfPages"></a>
+                    <a name="//apple_ref/objc/Property/numberOfPages" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(py)numberOfPages">numberOfPages</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Total number of pages</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">numberOfPages</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">numberOfPages</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(py)transactions"></a>
+                    <a name="//apple_ref/objc/Property/transactions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(py)transactions">transactions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Transactions on current page</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/MNFTransaction.html">MNFTransaction</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">transactions</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">transactions</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/MNFTransaction.html">MNFTransaction</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(py)numberOfTransactions"></a>
+                    <a name="//apple_ref/objc/Property/numberOfTransactions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(py)numberOfTransactions">numberOfTransactions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Total count of transactions</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">numberOfTransactions</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">numberOfTransactions</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(py)sumOfTransactions"></a>
+                    <a name="//apple_ref/objc/Property/sumOfTransactions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(py)sumOfTransactions">sumOfTransactions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Total sum of the &ldquo;amount&rdquo; key for all transactions</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sumOfTransactions</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sumOfTransactions</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(py)transactionsPerPage"></a>
+                    <a name="//apple_ref/objc/Property/transactionsPerPage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(py)transactionsPerPage">transactionsPerPage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract number of transactions per page</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">transactionsPerPage</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">transactionsPerPage</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Fetching"></a>
+                <a name="//apple_ref/objc/Section/Fetching" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Fetching"></a>
+                  <h3 class="section-name"><p>Fetching</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(cm)fetchWithTransactionFilter:page:transactionsPerPage:completion:"></a>
+                    <a name="//apple_ref/objc/Method/+fetchWithTransactionFilter:page:transactionsPerPage:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(cm)fetchWithTransactionFilter:page:transactionsPerPage:completion:">+fetchWithTransactionFilter:<wbr>page:<wbr>transactionsPerPage:<wbr>completion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Fetching a transaction page using a filter.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/MNFJob.html">MNFJob</a></span> <span class="o">*</span><span class="p">)</span>
+    <span class="nf">fetchWithTransactionFilter</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/MNFTransactionFilter.html">MNFTransactionFilter</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">filter</span>
+                          <span class="nf">page</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">page</span>
+           <span class="nf">transactionsPerPage</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">transactionsPerPage</span>
+                    <span class="nf">completion</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">MNFTransactionPageCompletionHandler</span><span class="p">)</span>
+                                   <span class="n">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">fetch</span><span class="p">(</span><span class="n">with</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Classes/MNFTransactionFilter.html">MNFTransactionFilter</a></span><span class="p">,</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?,</span> <span class="nv">transactionsPerPage</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kt">MNFTransactionPageCompletionHandler</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MNFJob.html">MNFJob</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a transaction filter</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>page</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The page to fetch. Defaults to zero</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transactionsPerPage</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of transactions on each page. Defaults to 25</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A completion block returning a transaction page and an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an MNFJob containing a transaction page or an error.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Next%20page"></a>
+                <a name="//apple_ref/objc/Section/Next page" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Next%20page"></a>
+                  <h3 class="section-name"><p>Next page</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(im)appendNextPageWithCompletion:"></a>
+                    <a name="//apple_ref/objc/Method/-appendNextPageWithCompletion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(im)appendNextPageWithCompletion:">-appendNextPageWithCompletion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Appends the next page of transactions to the current transaction list. Updates pageNumber.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/MNFJob.html">MNFJob</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">appendNextPageWithCompletion</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nullable</span> <span class="n">MNFErrorOnlyCompletionHandler</span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">appendNextPage</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kt">MNFErrorOnlyCompletionHandler</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MNFJob.html">MNFJob</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A completion block returning an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An MNFJob containing either a @YES result or an error.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(im)nextPageWithCompletion:"></a>
+                    <a name="//apple_ref/objc/Method/-nextPageWithCompletion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(im)nextPageWithCompletion:">-nextPageWithCompletion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Replaces the transaction list with the next page of transactions. Updates pageNumber.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/MNFJob.html">MNFJob</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">nextPageWithCompletion</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nullable</span> <span class="n">MNFErrorOnlyCompletionHandler</span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">nextPage</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kt">MNFErrorOnlyCompletionHandler</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MNFJob.html">MNFJob</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A completion block returning an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An MNFJob containing either a @YES result or an error.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Refreshing"></a>
+                <a name="//apple_ref/objc/Section/Refreshing" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Refreshing"></a>
+                  <h3 class="section-name"><p>Refreshing</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(im)refreshTransactionListWithError:"></a>
+                    <a name="//apple_ref/objc/Method/-refreshTransactionListWithError:" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)MNFTransactionPage(im)refreshTransactionListWithError:">-refreshTransactionListWithError:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Please use -refreshTransactionList instead</p>
+
+                      </div>
+                      <div class="abstract">
+                        <p>@abstract Refreshes and reorders the transaction list. Reccommended to use after a significant transaction update</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">refreshTransactionListWithError</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">refreshTransactionListWithError</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An error that may occur when refreshing a transaction page.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(im)refreshTransactionList"></a>
+                    <a name="//apple_ref/objc/Method/-refreshTransactionList" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(im)refreshTransactionList">-refreshTransactionList</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Refreshes and reorders the transaction list. Reccommended to use after a significant transaction update</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">refreshTransactionList</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">refreshTransactionList</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(im)refreshWithCompletion:"></a>
+                    <a name="//apple_ref/objc/Method/-refreshWithCompletion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(im)refreshWithCompletion:">-refreshWithCompletion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Refreshes the transaction list with data from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/MNFJob.html">MNFJob</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">refreshWithCompletion</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nullable</span> <span class="n">MNFErrorOnlyCompletionHandler</span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">refresh</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kt">MNFErrorOnlyCompletionHandler</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MNFJob.html">MNFJob</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A completion block returning an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>MNFJob A job containing an error.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Grouping"></a>
+                <a name="//apple_ref/objc/Section/Grouping" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Grouping"></a>
+                  <h3 class="section-name"><p>Grouping</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(im)groupByDate"></a>
+                    <a name="//apple_ref/objc/Method/-groupByDate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(im)groupByDate">-groupByDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Groups all transactions by date into transaction groups which is cached and can be accessed by using transactionsGroupedByDate method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">groupByDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">groupByDate</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(im)transactionsGroupedByDate"></a>
+                    <a name="//apple_ref/objc/Method/-transactionsGroupedByDate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(im)transactionsGroupedByDate">-transactionsGroupedByDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract The transaction groups for all the transactions grouped by date. Make sure you have called the group by date method after any additional fetches on the transaction page.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/MNFTransactionGroup.html">MNFTransactionGroup</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">transactionsGroupedByDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transactionsGroupedByDate</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/MNFTransactionGroup.html">MNFTransactionGroup</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(im)groupByCategory"></a>
+                    <a name="//apple_ref/objc/Method/-groupByCategory" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(im)groupByCategory">-groupByCategory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract Groups all transactions by categoryId into transaction groups.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">groupByCategory</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">groupByCategory</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFTransactionPage(im)transactionsGroupedByCategory"></a>
+                    <a name="//apple_ref/objc/Method/-transactionsGroupedByCategory" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFTransactionPage(im)transactionsGroupedByCategory">-transactionsGroupedByCategory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@abstract The transactions for all the transactions grouped by category. Make sure you have called the group by category method after any additional fetches on the transaction page.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/MNFTransactionGroup.html">MNFTransactionGroup</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">transactionsGroupedByCategory</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transactionsGroupedByCategory</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/MNFTransactionGroup.html">MNFTransactionGroup</a></span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Meniga</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

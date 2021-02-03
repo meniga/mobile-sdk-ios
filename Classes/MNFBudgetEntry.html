@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MNFBudgetEntry Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/MNFBudgetEntry" class="dashAnchor"></a>
+    <a title="MNFBudgetEntry Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Meniga 1.1.18 Docs</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Meniga Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MNFBudgetEntry Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccount.html">MNFAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccountAuthorizationType.html">MNFAccountAuthorizationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccountCategory.html">MNFAccountCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccountHistoryEntry.html">MNFAccountHistoryEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccountSyncStatus.html">MNFAccountSyncStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFAccountType.html">MNFAccountType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFBudget.html">MNFBudget</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFBudgetEntry.html">MNFBudgetEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFBudgetFilter.html">MNFBudgetFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFCategory.html">MNFCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFCategoryScore.html">MNFCategoryScore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFCategoryType.html">MNFCategoryType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFChallenge.html">MNFChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFComment.html">MNFComment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFCustomChallenge.html">MNFCustomChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFFeed.html">MNFFeed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFFeedItem.html">MNFFeedItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFFeedItemGroup.html">MNFFeedItemGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFGlobalChallenge.html">MNFGlobalChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFJob.html">MNFJob</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFMerchant.html">MNFMerchant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFMerchantAddress.html">MNFMerchantAddress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFNetworthAccount.html">MNFNetworthAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFObject.html">MNFObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFRealmSyncResponse.html">MNFRealmSyncResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFRealmUser.html">MNFRealmUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFSpendingChallenge.html">MNFSpendingChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFSyncAuthRequiredParameter.html">MNFSyncAuthRequiredParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFSyncAuthenticationChallenge.html">MNFSyncAuthenticationChallenge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFSynchronization.html">MNFSynchronization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTag.html">MNFTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransaction.html">MNFTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionFilter.html">MNFTransactionFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionGroup.html">MNFTransactionGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionPage.html">MNFTransactionPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionRule.html">MNFTransactionRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionSeries.html">MNFTransactionSeries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionSeriesFilter.html">MNFTransactionSeriesFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFTransactionSplitAction.html">MNFTransactionSplitAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcoming.html">MNFUpcoming</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingBalance.html">MNFUpcomingBalance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingBalanceDate.html">MNFUpcomingBalanceDate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingComment.html">MNFUpcomingComment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingDetails.html">MNFUpcomingDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingInvoice.html">MNFUpcomingInvoice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingPattern.html">MNFUpcomingPattern</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingReconcileScore.html">MNFUpcomingReconcileScore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingScheduledPayment.html">MNFUpcomingScheduledPayment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUpcomingThreshold.html">MNFUpcomingThreshold</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUser.html">MNFUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUserEvent.html">MNFUserEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MNFUserProfile.html">MNFUserProfile</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/MNFAuthenticationProviderProtocol.html">MNFAuthenticationProviderProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MNFJobDelegate.html">MNFJobDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MNFJsonAdapterDelegate.html">MNFJsonAdapterDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:MNFJob.h@T@MNFJobCompletionHandler">MNFJobCompletionHandler</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MNFBudgetEntry</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MNFBudgetEntry</span> <span class="p">:</span> <span class="nc"><a href="../Classes/MNFObject.html">MNFObject</a></span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MNFBudgetEntry</span> <span class="p">:</span> <span class="kt"><a href="../Classes/MNFObject.html">MNFObject</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>The MNFBudgetEntry class represents a single budget entry.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Immutable%20properties"></a>
+                <a name="//apple_ref/objc/Section/Immutable properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Immutable%20properties"></a>
+                  <h3 class="section-name"><p>Immutable properties</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(py)updatedAt"></a>
+                    <a name="//apple_ref/objc/Property/updatedAt" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(py)updatedAt">updatedAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The date and time the entry was last edited.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">updatedAt</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">updatedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(py)budgetId"></a>
+                    <a name="//apple_ref/objc/Property/budgetId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(py)budgetId">budgetId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The id of the budget the entry is in.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">budgetId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">budgetId</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(py)generationType"></a>
+                    <a name="//apple_ref/objc/Property/generationType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(py)generationType">generationType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The generation type for the entry if iti is in a planning budget.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">generationType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">generationType</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(py)spentAmount"></a>
+                    <a name="//apple_ref/objc/Property/spentAmount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(py)spentAmount">spentAmount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The spent amount in the associated categories if the entry is current.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">spentAmount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">spentAmount</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(py)ruleId"></a>
+                    <a name="//apple_ref/objc/Property/ruleId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(py)ruleId">ruleId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The id of the associated rule.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">ruleId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">ruleId</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(py)transactionCount"></a>
+                    <a name="//apple_ref/objc/Property/transactionCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(py)transactionCount">transactionCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of transactions.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">transactionCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">transactionCount</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Mutable%20properties"></a>
+                <a name="//apple_ref/objc/Section/Mutable properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Mutable%20properties"></a>
+                  <h3 class="section-name"><p>Mutable properties</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(py)targetAmount"></a>
+                    <a name="//apple_ref/objc/Property/targetAmount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(py)targetAmount">targetAmount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The target amount for the budget entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">targetAmount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">targetAmount</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(py)startDate"></a>
+                    <a name="//apple_ref/objc/Property/startDate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(py)startDate">startDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The start date for the budget entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">startDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">startDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(py)endDate"></a>
+                    <a name="//apple_ref/objc/Property/endDate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(py)endDate">endDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The end date for the budget entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">endDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">endDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(py)categoryIds"></a>
+                    <a name="//apple_ref/objc/Property/categoryIds" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(py)categoryIds">categoryIds</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The category ids associated with the budget entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSNumber</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">categoryIds</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">categoryIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSNumber</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Saving"></a>
+                <a name="//apple_ref/objc/Section/Saving" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Saving"></a>
+                  <h3 class="section-name"><p>Saving</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(im)saveWithCompletion:"></a>
+                    <a name="//apple_ref/objc/Method/-saveWithCompletion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(im)saveWithCompletion:">-saveWithCompletion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Saves changes to a budget.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/MNFJob.html">MNFJob</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">saveWithCompletion</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nullable</span> <span class="n">MNFErrorOnlyCompletionHandler</span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">save</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kt">MNFErrorOnlyCompletionHandler</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MNFJob.html">MNFJob</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A completion block returning an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>MNFJob A job containing an error.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Deleting"></a>
+                <a name="//apple_ref/objc/Section/Deleting" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Deleting"></a>
+                  <h3 class="section-name"><p>Deleting</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(im)deleteWithCompletion:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteWithCompletion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(im)deleteWithCompletion:">-deleteWithCompletion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes a budget.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/MNFJob.html">MNFJob</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">deleteWithCompletion</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nullable</span> <span class="n">MNFErrorOnlyCompletionHandler</span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kt">MNFErrorOnlyCompletionHandler</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MNFJob.html">MNFJob</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A completion block returning an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>MNFJob A job containing an error.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Refreshing"></a>
+                <a name="//apple_ref/objc/Section/Refreshing" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Refreshing"></a>
+                  <h3 class="section-name"><p>Refreshing</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MNFBudgetEntry(im)refreshWithCompletion:"></a>
+                    <a name="//apple_ref/objc/Method/-refreshWithCompletion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MNFBudgetEntry(im)refreshWithCompletion:">-refreshWithCompletion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Refreshes a budget.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/MNFJob.html">MNFJob</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">refreshWithCompletion</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nullable</span> <span class="n">MNFErrorOnlyCompletionHandler</span><span class="p">)</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">refresh</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kt">MNFErrorOnlyCompletionHandler</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MNFJob.html">MNFJob</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A completion block returning an error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>MNFJob A job containing an error.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Meniga</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
