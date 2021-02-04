@@ -34,3 +34,14 @@ jobs:
         run: |
           bundle exec fastlane deploy \
           version:${{ github.event.inputs.version }}
+      - name: Generate documentation
+        run: |
+          bundle exec fastlane generate_docs \
+          version:${{ github.event.inputs.version }}
+      - name: 🚀 Deploy documentation to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          BRANCH: gh-pages
+          FOLDER: Meniga/docs
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLEAN: true
