@@ -1,6 +1,5 @@
 default_platform(:ios)
 
 import("Fastfile-deploy")
-import("Fastfile-docs")
 import("Fastfile-tests")
 import("Fastfile-format")
