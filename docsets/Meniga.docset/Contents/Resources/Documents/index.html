@@ -239,64 +239,40 @@
         <section class="section">
           <div class="section-content top-matter">
             
-            <h1 id='fastlane-documentation' class='heading'>fastlane documentation</h1>
-<h1 id='installation' class='heading'>Installation</h1>
+            <p><img src="https://github.com/meniga/mobile-sdk-ios/workflows/Tests/badge.svg" alt="Tests">
+<a href="https://codecov.io/gh/meniga/mobile-sdk-ios"><img src="https://codecov.io/gh/meniga/mobile-sdk-ios/branch/master/graph/badge.svg?token=rkF6XQrAJa" alt="codecov"></a>
+<a href="https://cocoapods.org/pods/MenigaSDK"><img src="https://img.shields.io/cocoapods/v/MenigaSDK.svg?style=flat" alt=""></a></p>
 
-<p>Make sure you have the latest version of the Xcode command line tools installed:</p>
-<pre class="highlight plaintext"><code>xcode-select --install
+<p><img src="https://github.com/meniga/mobile-sdk-ios/raw/master/logo.png" alt="Meniga"></p>
+
+<p>Meniga helps banks use data to accelerate innovation and meaningful engagement by providing RESTful APIs on top of Meniga software products to improve and personalize the online banking experience for both individuals and corporate customers.</p>
+<h2 id='getting-started' class='heading'>Getting started</h2>
+
+<p>Developers for institutions implementing the Meniga REST API can usi this sdk to communicate easily with the sdk and perform api operations. Please follow the setup guide in the documentation for further detail. Individuals making personalized implementations can point the sdk to their bank or financial institution&rsquo;s API URL to use their own data. You must however obtain some authentication information and pass it along to the sdk. See the <a href="https://meniga.github.io/mobile-sdk-ios/">documentation</a> for further detail.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>You can easily integrate the Meniga SDK using <a href="http://cocoapods.org">Cocoapods</a>. If you do not have Cocoapods installed on your machine simply run</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>gem install cocoapods
 </code></pre>
 
-<p>Install <em>fastlane</em> using</p>
-<pre class="highlight plaintext"><code>[sudo] gem install fastlane -NV
+<p>to get started. Next simply add</p>
+<pre class="highlight plaintext"><code>pod 'MenigaSDK'
 </code></pre>
 
-<p>or alternatively using <code>brew install fastlane</code></p>
-<h1 id='available-actions' class='heading'>Available Actions</h1>
-<h2 id='ios' class='heading'>iOS</h2>
-<h3 id='ios-deploy' class='heading'>ios deploy</h3>
-<pre class="highlight plaintext"><code>fastlane ios deploy
+<p>to your podfile and then run</p>
+<pre class="highlight plaintext"><code>$ pod install
 </code></pre>
 
-<p>Deploy MenigaSDK to cocoapods trunk
-  Steps:</p>
+<p>in your project directory where the podfile is located.</p>
+<h2 id='requirements' class='heading'>Requirements</h2>
 
-<ul>
-<li>Bump version in podspec</li>
-<li>Commit podspec changes</li>
-<li>Create version tag</li>
-<li>Push commit and tag to remote</li>
-<li>Push podspec to Trunk specs</li>
-<li>Generate documentation
-Options:<br>
-<div class="aside aside-version">
-    <p class="aside-title">Version</p>
-    version - new version number to release
+<p>This SDK supports at minimum iOS version 8.0.</p>
+<h2 id='swift' class='heading'>Swift</h2>
 
-</div></li>
-</ul>
-<h3 id='ios-tests' class='heading'>ios tests</h3>
-<pre class="highlight plaintext"><code>fastlane ios tests
-</code></pre>
+<p>If you are writing swift code you should be able to use this SDK with the use of a bridging header. Please see the documentation for further detail.</p>
+<h2 id='license' class='heading'>License</h2>
 
-<p>Run tests:
-    - Validate podspec
-    - run-clang-format - to check Objective-c files formatting
-    - synx - to check if xcodeproj has proper group structure
-    - Mobile-ios-sdk unit tests</p>
-<h3 id='ios-format' class='heading'>ios format</h3>
-<pre class="highlight plaintext"><code>fastlane ios format
-</code></pre>
-
-<p>Format Objective-C code</p>
-<h3 id='ios-run_synx' class='heading'>ios run_synx</h3>
-<pre class="highlight plaintext"><code>fastlane ios run_synx
-</code></pre>
-
-<hr>
-
-<p>This README.md is auto-generated and will be re-generated every time <a href="https://fastlane.tools">fastlane</a> is run.
-More information about fastlane can be found on <a href="https://fastlane.tools">fastlane.tools</a>.
-The documentation of fastlane can be found on <a href="https://docs.fastlane.tools">docs.fastlane.tools</a>.</p>
+<p>The Meniga SDK for Objective-C is published under the MIT license.</p>
 
           </div>
         </section>
