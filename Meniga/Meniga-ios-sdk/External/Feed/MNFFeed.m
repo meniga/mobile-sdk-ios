@@ -7,17 +7,9 @@
 //
 
 #import "MNFFeed.h"
-#import "MNFComment.h"
-#import "MNFComment_Private.h"
-#import "MNFConstants.h"
-#import "MNFFeedItem.h"
 #import "MNFFeedItemGroup.h"
-#import "MNFFeedItem_Private.h"
+#import "MNFFeedItemsFactory.h"
 #import "MNFInternalImports.h"
-#import "MNFObject_Private.h"
-#import "MNFOffer.h"
-#import "MNFScheduledEvent.h"
-#import "MNFUserEvent.h"
 
 @interface MNFFeed () <MNFJsonAdapterDelegate>
 @property (nonatomic, strong, readwrite) NSArray *feedItems;
@@ -47,7 +39,6 @@
           eventTypeIdentifiers:nil
                 withCompletion:completion];
 }
-
 + (MNFJob *)fetchFromDate:(NSDate *)from
                    toDate:(NSDate *)to
                      skip:(NSNumber *)skip
@@ -65,6 +56,7 @@
     jsonQuery[@"skip"] = skip;
     jsonQuery[@"take"] = take;
     jsonQuery[@"type"] = type;
+    jsonQuery[@"include"] = @[@"Merchant", @"Account"];
     jsonQuery[@"eventTypeIdentifiers"] = eventTypeIdentifiers;
 
     __block MNFJob *job = [self
@@ -78,18 +70,10 @@
 
                     if (response.error == nil) {
                         if ([response.result isKindOfClass:[NSArray class]]) {
-                            NSMutableArray *array = [NSMutableArray array];
-
-                            for (NSDictionary *dict in response.result) {
-                                MNFFeedItem *feedItem = [self p_createFeedItemWithModelFromData:dict];
-
-                                [array addObject:feedItem];
-                            }
-
                             MNFFeed *feed = [[MNFFeed alloc] initNeutral];
                             feed.from = from;
                             feed.to = to;
-                            feed.feedItems = [array copy];
+                            feed.feedItems = [MNFFeedItemsFactory createFeedItemsWithModelFromResponse:response];
                             feed.take = take;
                             feed.skip = skip;
 
@@ -144,18 +128,11 @@
 
                     if (response.error == nil) {
                         if ([response.result isKindOfClass:[NSArray class]]) {
-                            NSMutableArray *newItems = [NSMutableArray array];
-
-                            for (NSDictionary *dict in response.result) {
-                                MNFFeedItem *feedItem = [[self class] p_createFeedItemWithModelFromData:dict];
-
-                                [newItems addObject:feedItem];
-                            }
-
                             [self updateFromDateWithNewDate:fromDate];
-                            NSArray<MNFFeedItem *> *uniqueItems = [self appendObjects:newItems
-                                                                               toDate:toDate
-                                                                             fromDate:fromDate];
+                            NSArray<MNFFeedItem *> *uniqueItems =
+                                [self appendObjects:[MNFFeedItemsFactory createFeedItemsWithModelFromResponse:response]
+                                             toDate:toDate
+                                           fromDate:fromDate];
 
                             [[self class] p_updateMetaDataInFeed:self withResponse:response];
 
@@ -424,11 +401,11 @@
 
                     if (response.error == nil) {
                         if ([response.result isKindOfClass:[NSDictionary class]]) {
-                            MNFFeedItem *feedItem = [self p_createFeedItemWithModelFromData:response.result];
-
                             [MNFObject executeOnMainThreadWithJob:job
                                                        completion:completion
-                                                        parameter:feedItem
+                                                        parameter:[MNFFeedItemsFactory
+                                                                      createFeedItemsWithModelFromResponse:response]
+                                                                      .firstObject
                                                             error:nil];
 
                         } else {
@@ -476,16 +453,10 @@
 
                     if (response.error == nil) {
                         if ([response.result isKindOfClass:[NSArray class]]) {
-                            NSMutableArray *array = [NSMutableArray array];
-
-                            for (NSDictionary *dict in response.result) {
-                                MNFFeedItem *feedItem = [self p_createFeedItemWithModelFromData:dict];
-                                [array addObject:feedItem];
-                            }
-
                             [MNFObject executeOnMainThreadWithJob:job
                                                        completion:completion
-                                                        parameter:[array copy]
+                                                        parameter:[MNFFeedItemsFactory
+                                                                      createFeedItemsWithModelFromResponse:response]
                                                          metaData:response.metaData
                                                             error:response.error];
                         } else {
@@ -683,6 +654,7 @@
             date = feedItem.date;
         }
     }
+
     MNFFeedItemGroup *feedItemGroup = [MNFFeedItemGroup groupBy:MNFGroupedByDate withFeedItems:[dateArray copy]];
     [groupArray addObject:feedItemGroup];
     self.feedItems = [groupArray copy];
@@ -708,39 +680,11 @@
 
 #pragma mark - helpers
 
-+ (MNFFeedItem *)p_createFeedItemWithModelFromData:(NSDictionary *)dict {
-    MNFFeedItem *feedItem = [MNFFeedItem initWithServerResult:dict];
-
-    if ([feedItem.typeName isEqualToString:@"TransactionFeedItemModel"] == YES) {
-        MNFTransaction *transaction = [MNFTransaction initWithServerResult:dict];
-        for (MNFComment *comment in transaction.comments) {
-            comment.transactionId = transaction.identifier;
-        }
-        feedItem.model = transaction;
-
-    } else if ([feedItem.typeName isEqualToString:@"UserEventFeedItemModel"] == YES) {
-        MNFUserEvent *userEvent = [MNFUserEvent initWithServerResult:dict];
-        feedItem.model = userEvent;
-
-    } else if ([feedItem.typeName isEqualToString:@"ScheduledFeedItemModel"] == YES) {
-        MNFScheduledEvent *scheduledEvent = [MNFScheduledEvent initWithServerResult:dict];
-        feedItem.model = scheduledEvent;
-
-    } else if ([feedItem.typeName isEqualToString:@"OfferFeedItem"] == YES) {
-        NSMutableDictionary *mutableDict = [dict mutableCopy];
-        [mutableDict setObject:feedItem.topicId forKey:@"id"];
-        MNFOffer *offer = [MNFOffer initWithServerResult:mutableDict];
-        feedItem.model = offer;
-    }
-
-    return feedItem;
-}
-
 + (void)p_updateMetaDataInFeed:(MNFFeed *)feed withResponse:(MNFResponse *)response {
     if (response.metaData != nil) {
-        MNFBasicDateValueTransformer *baseDateFormatte = [MNFBasicDateValueTransformer transformer];
+        MNFBasicDateValueTransformer *baseDateFormatter = [MNFBasicDateValueTransformer transformer];
 
-        feed.actualEndDate = [baseDateFormatte transformedValue:[response.metaData objectForKey:@"actualEndDate"]];
+        feed.actualEndDate = [baseDateFormatter transformedValue:[response.metaData objectForKey:@"actualEndDate"]];
         feed.hasMorePages = feed.actualEndDate != nil;
         if ([response.metaData objectForKey:@"hasMoreData"] != nil) {
             feed.hasMoreData = [[response.metaData objectForKey:@"hasMoreData"] boolValue];
