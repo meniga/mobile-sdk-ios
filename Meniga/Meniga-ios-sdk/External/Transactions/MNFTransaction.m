@@ -760,13 +760,16 @@
                       completion:(MNFErrorOnlyCompletionHandler)completion {
     [completion copy];
 
+    NSValueTransformer *transformer = [MNFBasicDateValueTransformer transformer];
+    NSString *stringDate = [transformer reverseTransformedValue:date];
+
     NSMutableDictionary *jsonBody = [NSMutableDictionary new];
     jsonBody[@"amount"] = amount;
     jsonBody[@"categoryId"] = categoryId;
     jsonBody[@"hasUncertainCategorization"] = @(uncertainCategorization);
     jsonBody[@"useSubTextInRecat"] = @(useSubText);
     jsonBody[@"text"] = text;
-    jsonBody[@"date"] = date;
+    jsonBody[@"date"] = stringDate;
     jsonBody[@"isRead"] = @(isRead);
     jsonBody[@"isFlagged"] = @(isFlagged);
     jsonBody[@"userData"] = userData;
