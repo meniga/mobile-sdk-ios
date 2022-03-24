@@ -759,7 +759,7 @@
                         userData:(NSString *)userData
                       completion:(MNFErrorOnlyCompletionHandler)completion {
     [completion copy];
-    
+
     NSValueTransformer *transformer = [MNFBasicDateValueTransformer transformer];
     NSString *stringDate = [transformer reverseTransformedValue:date];
 
