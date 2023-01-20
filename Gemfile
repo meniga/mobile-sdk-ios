@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'cocoapods'
+gem 'cocoapods', '>= 1.11.0'
 gem 'fastlane'
 gem 'jazzy'
 
