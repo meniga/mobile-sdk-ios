@@ -15,29 +15,40 @@
 
 + (NSArray *)createFeedItemsWithModelFromResponse:(MNFResponse *)response {
     NSMutableArray *feedItems = [NSMutableArray array];
-    for (NSDictionary *result in response.result) {
-        MNFFeedItem *feedItem = [MNFFeedItem initWithServerResult:result];
-        if ([feedItem.typeName isEqualToString:@"TransactionFeedItemModel"] == YES) {
-            feedItem.model = [self createTransactionWithResponse:response andResultDictionary:result];
-
-        } else if ([feedItem.typeName isEqualToString:@"UserEventFeedItemModel"] == YES) {
-            MNFUserEvent *userEvent = [MNFUserEvent initWithServerResult:result];
-            feedItem.model = userEvent;
-
-        } else if ([feedItem.typeName isEqualToString:@"ScheduledFeedItemModel"] == YES) {
-            MNFScheduledEvent *scheduledEvent = [MNFScheduledEvent initWithServerResult:result];
-            feedItem.model = scheduledEvent;
-
-        } else if ([feedItem.typeName isEqualToString:@"OfferFeedItem"] == YES) {
-            NSMutableDictionary *mutableDict = [result mutableCopy];
-            [mutableDict setObject:feedItem.topicId forKey:@"id"];
-            MNFOffer *offer = [MNFOffer initWithServerResult:mutableDict];
-            feedItem.model = offer;
+    
+    if([response.result isKindOfClass:[NSArray class]] == NO) {
+        [feedItems addObject:[self createFeedItemModelFrom:response andResult:response.result]];
+    } else {
+        for (NSDictionary *result in response.result) {
+            [feedItems addObject:[self createFeedItemModelFrom:response andResult:result]];
         }
-
-        [feedItems addObject:feedItem];
     }
     return feedItems;
+}
+
++ (MNFFeedItem *)createFeedItemModelFrom:(MNFResponse *)response andResult:(id)result{
+    
+    MNFFeedItem *feedItem = [MNFFeedItem initWithServerResult:result];
+    
+    if ([feedItem.typeName isEqualToString:@"TransactionFeedItemModel"] == YES) {
+        feedItem.model = [self createTransactionWithResponse:response andResultDictionary:result];
+
+    } else if ([feedItem.typeName isEqualToString:@"UserEventFeedItemModel"] == YES) {
+        MNFUserEvent *userEvent = [MNFUserEvent initWithServerResult:result];
+        feedItem.model = userEvent;
+
+    } else if ([feedItem.typeName isEqualToString:@"ScheduledFeedItemModel"] == YES) {
+        MNFScheduledEvent *scheduledEvent = [MNFScheduledEvent initWithServerResult:result];
+        feedItem.model = scheduledEvent;
+
+    } else if ([feedItem.typeName isEqualToString:@"OfferFeedItem"] == YES) {
+        NSMutableDictionary *mutableDict = [result mutableCopy];
+        [mutableDict setObject:feedItem.topicId forKey:@"id"];
+        MNFOffer *offer = [MNFOffer initWithServerResult:mutableDict];
+        feedItem.model = offer;
+    }
+    
+    return feedItem;
 }
 
 + (MNFTransaction *)createTransactionWithResponse:(MNFResponse *)response andResultDictionary:(NSDictionary *)result {
