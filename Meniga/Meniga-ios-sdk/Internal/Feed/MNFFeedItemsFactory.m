@@ -15,8 +15,8 @@
 
 + (NSArray *)createFeedItemsWithModelFromResponse:(MNFResponse *)response {
     NSMutableArray *feedItems = [NSMutableArray array];
-    
-    if([response.result isKindOfClass:[NSArray class]] == NO) {
+
+    if ([response.result isKindOfClass:[NSArray class]] == NO) {
         [feedItems addObject:[self createFeedItemModelFrom:response andResult:response.result]];
     } else {
         for (NSDictionary *result in response.result) {
@@ -26,10 +26,9 @@
     return feedItems;
 }
 
-+ (MNFFeedItem *)createFeedItemModelFrom:(MNFResponse *)response andResult:(id)result{
-    
++ (MNFFeedItem *)createFeedItemModelFrom:(MNFResponse *)response andResult:(id)result {
     MNFFeedItem *feedItem = [MNFFeedItem initWithServerResult:result];
-    
+
     if ([feedItem.typeName isEqualToString:@"TransactionFeedItemModel"] == YES) {
         feedItem.model = [self createTransactionWithResponse:response andResultDictionary:result];
 
@@ -47,7 +46,7 @@
         MNFOffer *offer = [MNFOffer initWithServerResult:mutableDict];
         feedItem.model = offer;
     }
-    
+
     return feedItem;
 }
 
