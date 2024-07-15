@@ -26,7 +26,7 @@
     return feedItems;
 }
 
-+ (MNFFeedItem *) createFeedItemModelFrom:(MNFResponse *)response andResult: (id)result{
++ (MNFFeedItem *)createFeedItemModelFrom:(MNFResponse *)response andResult:(id)result{
     
     MNFFeedItem *feedItem = [MNFFeedItem initWithServerResult:result];
     
