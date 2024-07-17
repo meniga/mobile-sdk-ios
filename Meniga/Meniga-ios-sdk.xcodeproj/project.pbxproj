@@ -113,7 +113,6 @@
 		31DE38A92069099D00B1DC4E /* downloadapispecs.sh in Resources */ = {isa = PBXBuildFile; fileRef = 31DE38642069052D00B1DC4E /* downloadapispecs.sh */; };
 		31DE38AA2069099D00B1DC4E /* cashbackapispec.json in Resources */ = {isa = PBXBuildFile; fileRef = 31DE3866206905CB00B1DC4E /* cashbackapispec.json */; };
 		31DE38AB2069099D00B1DC4E /* jsonSingleAdapterTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 489DD351C02C6BFD61AE91366767F7C7 /* jsonSingleAdapterTest.json */; };
-		31DE38B2206909EE00B1DC4E /* MNFNetworkProtocolForTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E0B394F5E235ADEE64E9ABD18BE3DF /* MNFNetworkProtocolForTesting.m */; };
 		31DE38B320690A0600B1DC4E /* MNFTestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DE920629BB000A16393 /* MNFTestFactory.m */; };
 		31DE38B420690A0B00B1DC4E /* MNFApiValidationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DEB20629CCE00A16393 /* MNFApiValidationTest.m */; };
 		31DE38B520690A0E00B1DC4E /* MNFTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1DEE2062B0A500A16393 /* MNFTestUtils.m */; };
@@ -333,6 +332,12 @@
 		DB2C8B0F98777885C513390CA3835E09 /* MNFAdapterSubPropertyUppercaseOptionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9F966422676CC0AA36F517A7030B17 /* MNFAdapterSubPropertyUppercaseOptionDelegate.m */; };
 		DCCEB7AC25C977D200DD223C /* MNFFeedItemsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCEB7AB25C977D200DD223C /* MNFFeedItemsFactory.m */; };
 		DCCEB84425CABE1000DD223C /* MNFFeedItemsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DCCEB7AA25C975AF00DD223C /* MNFFeedItemsFactory.h */; };
+		DCCF33FA2C47D2EC0037D1B8 /* MNFKeychainTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCF33F92C47D2EC0037D1B8 /* MNFKeychainTest.m */; };
+		DCCF34232C47F6420037D1B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCF34222C47F6420037D1B8 /* AppDelegate.m */; };
+		DCCF342C2C47F6420037D1B8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DCCF342B2C47F6420037D1B8 /* Base */; };
+		DCCF342E2C47F6450037D1B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCCF342D2C47F6450037D1B8 /* Assets.xcassets */; };
+		DCCF34312C47F6450037D1B8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DCCF34302C47F6450037D1B8 /* Base */; };
+		DCCF34342C47F6450037D1B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCF34332C47F6450037D1B8 /* main.m */; };
 		DCEB2898043EAFA7FE445502987A8E57 /* jsonAdapterTestValueTransformer.json in Resources */ = {isa = PBXBuildFile; fileRef = 194C1C08CDD0EFAEA570FBD835B254E0 /* jsonAdapterTestValueTransformer.json */; };
 		DDBCF67292CF87BA283C09D4D6AC2E46 /* MNFJsonAdapterTestObjectsDelegateSpecificProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFDE166B7F197CC5B621FA9166E6A62 /* MNFJsonAdapterTestObjectsDelegateSpecificProperties.m */; };
 		DE41717E264ED7E711C3A622F783E23C /* MNFIntegrationTestSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7DE08DDEEA40B1525EB813826885B /* MNFIntegrationTestSetup.m */; };
@@ -395,6 +400,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8E03D8140795B770CC2DE09029DD4AE3;
 			remoteInfo = "Meniga-ios-sdk";
+		};
+		DCCF34392C47F6530037D1B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9E428DDD98FF79472828772278CC722 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCCF341E2C47F6420037D1B8;
+			remoteInfo = "meniga-ios-sdk-unit-test-target-app";
 		};
 		E77FB78125A653806677006B98B8DC92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -643,7 +655,6 @@
 		82847BC2146A45D9CF78A5F936F4AF6D /* MNFMerchantAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFMerchantAddress.m; sourceTree = "<group>"; };
 		83A703A8E13C3765486D45E4DD930371 /* libPods-Meniga-ios-sdk-tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meniga-ios-sdk-tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D321D42CC06D385772197E1E976AB0 /* MNFAdapterMainFirstUppercaseTestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFAdapterMainFirstUppercaseTestObj.h; sourceTree = "<group>"; };
-		83E0B394F5E235ADEE64E9ABD18BE3DF /* MNFNetworkProtocolForTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFNetworkProtocolForTesting.m; sourceTree = "<group>"; };
 		8457C9851728350A99655927F685A936 /* MNFBudgetFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFBudgetFilter.h; sourceTree = "<group>"; };
 		84B13CEB247FD0580019C895 /* MNFRealmAccountParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNFRealmAccountParameter.h; sourceTree = "<group>"; };
 		84B13CEC247FD0580019C895 /* MNFRealmAccountParameter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFRealmAccountParameter.m; sourceTree = "<group>"; };
@@ -777,6 +788,16 @@
 		DB9B8E11271E6111ED8FAB5490A2F281 /* MNFAuthenticationProviderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFAuthenticationProviderProtocol.h; sourceTree = "<group>"; };
 		DCCEB7AA25C975AF00DD223C /* MNFFeedItemsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFFeedItemsFactory.h; sourceTree = "<group>"; };
 		DCCEB7AB25C977D200DD223C /* MNFFeedItemsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFFeedItemsFactory.m; sourceTree = "<group>"; };
+		DCCF33F92C47D2EC0037D1B8 /* MNFKeychainTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNFKeychainTest.m; sourceTree = "<group>"; };
+		DCCF341F2C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "meniga-ios-sdk-unit-test-target-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCCF34212C47F6420037D1B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DCCF34222C47F6420037D1B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DCCF342B2C47F6420037D1B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DCCF342D2C47F6450037D1B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DCCF34302C47F6450037D1B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DCCF34322C47F6450037D1B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCCF34332C47F6450037D1B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DCCF34382C47F64D0037D1B8 /* meniga-ios-sdk-unit-test-target-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "meniga-ios-sdk-unit-test-target-app.entitlements"; sourceTree = "<group>"; };
 		DF1E67674ABA1C0E804D9CABCBAA09EE /* MNFOfferRelevanceHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFOfferRelevanceHook.h; sourceTree = "<group>"; };
 		E037F37AE51379BF7F8139453192B2CA /* MNFSyncAuthenticationChallenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFSyncAuthenticationChallenge.h; sourceTree = "<group>"; };
 		E1BFD1F33FCC528824E0169F1AB35CDF /* MNFISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFISO8601DateFormatter.m; sourceTree = "<group>"; };
@@ -814,7 +835,6 @@
 		F3F950C8CF30E48D24710938842B4CCB /* Meniga-ios-IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Meniga-ios-IntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42354EEB528F02454670687ED207BB3 /* MNFAdapterSubPropertyMappingDelegateFirstUppercaseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFAdapterSubPropertyMappingDelegateFirstUppercaseDelegate.h; sourceTree = "<group>"; };
 		F488B5715AE68A7B26DD964EFE819EF2 /* MNFTransactionSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFTransactionSeries.h; sourceTree = "<group>"; };
-		F492A37D5675A5DA021803A73152314F /* MNFNetworkProtocolForTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFNetworkProtocolForTesting.h; sourceTree = "<group>"; };
 		F607D49758BA1C0C3C6E43CFA7705BA5 /* MNFJsonAdapterTestUppercaseValueTransformerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFJsonAdapterTestUppercaseValueTransformerDelegate.m; sourceTree = "<group>"; };
 		F6E75984D21921D557C8DC6B79794824 /* MNFComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFComment.h; sourceTree = "<group>"; };
 		F70FF0FF2AC0C34A9D9F5B173824AB8A /* MNFMerchantLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFMerchantLocation.h; sourceTree = "<group>"; };
@@ -860,6 +880,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B35E695986783EA8E400CB5EA75839B /* libMenigaSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCCF341C2C47F6420037D1B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1308,6 +1335,7 @@
 				63A852E40EC6F618C1EF0787A27CD331 /* Meniga-ios-sdk-tests.xctest */,
 				084C7335A5A2434EE74BB0C43E39C59B /* libMenigaSDK.a */,
 				31DE38AF2069099D00B1DC4E /* Api-validation-tests.xctest */,
+				DCCF341F2C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1464,8 +1492,6 @@
 		8CB73718E3DAEC183C7C7FBC06B7785B /* NetworkTest */ = {
 			isa = PBXGroup;
 			children = (
-				F492A37D5675A5DA021803A73152314F /* MNFNetworkProtocolForTesting.h */,
-				83E0B394F5E235ADEE64E9ABD18BE3DF /* MNFNetworkProtocolForTesting.m */,
 				00CEEB98FD78FBCE52556D5B00464343 /* MNFNetworkTest.m */,
 			);
 			path = NetworkTest;
@@ -1806,6 +1832,22 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
+		DCCF34202C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app */ = {
+			isa = PBXGroup;
+			children = (
+				DCCF34382C47F64D0037D1B8 /* meniga-ios-sdk-unit-test-target-app.entitlements */,
+				DCCF34212C47F6420037D1B8 /* AppDelegate.h */,
+				DCCF34222C47F6420037D1B8 /* AppDelegate.m */,
+				DCCF342A2C47F6420037D1B8 /* Main.storyboard */,
+				DCCF342D2C47F6450037D1B8 /* Assets.xcassets */,
+				DCCF342F2C47F6450037D1B8 /* LaunchScreen.storyboard */,
+				DCCF34322C47F6450037D1B8 /* Info.plist */,
+				DCCF34332C47F6450037D1B8 /* main.m */,
+			);
+			name = "meniga-ios-sdk-unit-test-target-app";
+			path = "../meniga-ios-sdk-unit-test-target-app";
+			sourceTree = "<group>";
+		};
 		DE9A9159B9A4ABB409D3445A7C7AEAB5 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -1854,6 +1896,7 @@
 		E5728E556B1F3B7C93FFAB60AE34F45A /* Meniga-ios-sdk-tests */ = {
 			isa = PBXGroup;
 			children = (
+				DCCF34202C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app */,
 				53657863B0B14FF075ABA7AC0780CD8B /* JsonAdapterTest */,
 				53CBCB8765868B36253DF7BEBAD9E3C9 /* ModelObjectTests */,
 				8CB73718E3DAEC183C7C7FBC06B7785B /* NetworkTest */,
@@ -1863,6 +1906,7 @@
 				9F4FF862E13E3084F8F551CBCCF8159A /* MNFRequestTest.m */,
 				971D86F1124EDE03B29A49974850A8C3 /* MNFResponseTest.m */,
 				148779EAB23149FB20A350443ED14309 /* MNFURLConstructorTest.m */,
+				DCCF33F92C47D2EC0037D1B8 /* MNFKeychainTest.m */,
 			);
 			path = "Meniga-ios-sdk-tests";
 			sourceTree = "<group>";
@@ -2135,6 +2179,7 @@
 			);
 			dependencies = (
 				C9D5419E80D62803F3EF66A57BC8ECCC /* PBXTargetDependency */,
+				DCCF343A2C47F6530037D1B8 /* PBXTargetDependency */,
 			);
 			name = "Meniga-ios-sdk-tests";
 			productName = "Meniga-ios-sdk-tests";
@@ -2178,6 +2223,23 @@
 			productReference = F3F950C8CF30E48D24710938842B4CCB /* Meniga-ios-IntegrationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DCCF341E2C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCCF34372C47F6450037D1B8 /* Build configuration list for PBXNativeTarget "meniga-ios-sdk-unit-test-target-app" */;
+			buildPhases = (
+				DCCF341B2C47F6420037D1B8 /* Sources */,
+				DCCF341C2C47F6420037D1B8 /* Frameworks */,
+				DCCF341D2C47F6420037D1B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "meniga-ios-sdk-unit-test-target-app";
+			productName = "meniga-ios-sdk-unit-test-target-app";
+			productReference = DCCF341F2C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2190,12 +2252,18 @@
 				TargetAttributes = {
 					8700D726F8A23F7169AEDA1061796BF7 = {
 						CreatedOnToolsVersion = 7.0;
+						TestTargetID = DCCF341E2C47F6420037D1B8;
 					};
 					8E03D8140795B770CC2DE09029DD4AE3 = {
 						CreatedOnToolsVersion = 7.0;
 					};
 					D878330A5EAE847393CCE5E58EC3530A = {
 						CreatedOnToolsVersion = 7.0.1;
+					};
+					DCCF341E2C47F6420037D1B8 = {
+						CreatedOnToolsVersion = 15.4;
+						DevelopmentTeam = ESFC3VV2RB;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -2206,6 +2274,7 @@
 			knownRegions = (
 				English,
 				en,
+				Base,
 			);
 			mainGroup = 9F7FB9B18DF8AD8445AF68065AE15C39;
 			productRefGroup = 7CEDE8B74E251F32F648E3B10CB0E9FA /* Products */;
@@ -2216,6 +2285,7 @@
 				8700D726F8A23F7169AEDA1061796BF7 /* Meniga-ios-sdk-tests */,
 				D878330A5EAE847393CCE5E58EC3530A /* Meniga-ios-IntegrationTests */,
 				31DE38682069099D00B1DC4E /* Api-validation-tests */,
+				DCCF341E2C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app */,
 			);
 		};
 /* End PBXProject section */
@@ -2269,6 +2339,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCCF341D2C47F6420037D1B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCCF342E2C47F6450037D1B8 /* Assets.xcassets in Resources */,
+				DCCF34312C47F6450037D1B8 /* Base in Resources */,
+				DCCF342C2C47F6420037D1B8 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2366,7 +2446,6 @@
 				94879610455691C49D39EBDCF26B30B4 /* MNFFeed.m in Sources */,
 				B85E46A82A1516AF43893DB68772C415 /* MNFFeedItem.m in Sources */,
 				3101439D205A76EF00F2B52A /* MNFMedia.m in Sources */,
-				31DE38B2206909EE00B1DC4E /* MNFNetworkProtocolForTesting.m in Sources */,
 				F64F7C2323C6862D4D5ED3993CE1519E /* MNFFeedItemGroup.m in Sources */,
 				307058F2D9700D5005092E9968591BF2 /* MNFGlobalChallenge.m in Sources */,
 				D423DC3B1C7D20482CE0440ED66EE1E0 /* MNFISO8601DateFormatter.m in Sources */,
@@ -2515,6 +2594,16 @@
 				79C745D7CF2CAA5961411B4A632B1C22 /* MNFURLConstructorTest.m in Sources */,
 				60D092DFC644B8D9B6059C6CA8DF353C /* MenigaAdapterSubObjectTests.m in Sources */,
 				B6A38797D4F38BD08B6701288CCAA5C5 /* MenigaAdapterTest.m in Sources */,
+				DCCF33FA2C47D2EC0037D1B8 /* MNFKeychainTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCCF341B2C47F6420037D1B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCCF34232C47F6420037D1B8 /* AppDelegate.m in Sources */,
+				DCCF34342C47F6450037D1B8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2531,12 +2620,36 @@
 			target = 8E03D8140795B770CC2DE09029DD4AE3 /* Meniga-ios-sdk */;
 			targetProxy = E77FB78125A653806677006B98B8DC92 /* PBXContainerItemProxy */;
 		};
+		DCCF343A2C47F6530037D1B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCCF341E2C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app */;
+			targetProxy = DCCF34392C47F6530037D1B8 /* PBXContainerItemProxy */;
+		};
 		F6ABCA5D1B23A40C397522BE2374AE63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8E03D8140795B770CC2DE09029DD4AE3 /* Meniga-ios-sdk */;
 			targetProxy = 1C22FFB6DD8D8546FCC6E48530D6D7C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DCCF342A2C47F6420037D1B8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCCF342B2C47F6420037D1B8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DCCF342F2C47F6450037D1B8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCCF34302C47F6450037D1B8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		161CB15738DEB396C882E03828485940 /* Debug */ = {
@@ -2548,6 +2661,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Meniga-ios-sdk-tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
@@ -2557,6 +2671,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/meniga-ios-sdk-unit-test-target-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/meniga-ios-sdk-unit-test-target-app";
 			};
 			name = Debug;
 		};
@@ -2673,6 +2788,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Meniga-ios-sdk-tests copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
@@ -2694,6 +2810,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Meniga-ios-sdk-tests copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
@@ -2715,6 +2832,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Meniga-ios-sdk-tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
@@ -2724,6 +2842,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/meniga-ios-sdk-unit-test-target-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/meniga-ios-sdk-unit-test-target-app";
 			};
 			name = Release;
 		};
@@ -2739,6 +2858,7 @@
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
+				GENERATE_INFOPLIST_FILE = NO;
 				MNF_SDK_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
@@ -2757,7 +2877,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "Meniga-ios-IntegrationTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "MENIGA.Meniga-ios-IntegrationTests";
@@ -2771,7 +2891,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "Meniga-ios-IntegrationTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "MENIGA.Meniga-ios-IntegrationTests";
@@ -2794,6 +2914,7 @@
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
+				GENERATE_INFOPLIST_FILE = NO;
 				MNF_SDK_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
@@ -2807,6 +2928,83 @@
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Debug;
+		};
+		DCCF34352C47F6450037D1B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "meniga-ios-sdk-unit-test-target-app/meniga-ios-sdk-unit-test-target-app.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ESFC3VV2RB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "meniga-ios-sdk-unit-test-target-app/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "meniga-ios-sdk-test-host-app.meniga-ios-sdk-unit-test-target-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DCCF34362C47F6450037D1B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "meniga-ios-sdk-unit-test-target-app/meniga-ios-sdk-unit-test-target-app.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ESFC3VV2RB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "meniga-ios-sdk-unit-test-target-app/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "meniga-ios-sdk-test-host-app.meniga-ios-sdk-unit-test-target-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -2852,6 +3050,15 @@
 			buildConfigurations = (
 				C109E0E9B9CAF898DD51D2DDDD5496B3 /* Debug */,
 				438C5D395204E1ED7E6F7E132DBBFB06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCCF34372C47F6450037D1B8 /* Build configuration list for PBXNativeTarget "meniga-ios-sdk-unit-test-target-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCCF34352C47F6450037D1B8 /* Debug */,
+				DCCF34362C47F6450037D1B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
