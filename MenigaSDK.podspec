@@ -17,7 +17,7 @@ The Meniga mobile sdk for Objective-C provides a convenient way to interact with
     # Uncomment after this issue fix https://github.com/CocoaPods/CocoaPods/issues/10291
     # s.social_media_url  = 'https://twitter.com/meniga'
 
-    s.ios.deployment_target = '8.0'
+    s.ios.deployment_target = '12.0'
 
     s.source_files      = 'Meniga/Meniga-ios-sdk/**/*'
 
