@@ -1835,17 +1835,17 @@
 		DCCF34202C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app */ = {
 			isa = PBXGroup;
 			children = (
-				DCCF34382C47F64D0037D1B8 /* meniga-ios-sdk-unit-test-target-app.entitlements */,
 				DCCF34212C47F6420037D1B8 /* AppDelegate.h */,
 				DCCF34222C47F6420037D1B8 /* AppDelegate.m */,
-				DCCF342A2C47F6420037D1B8 /* Main.storyboard */,
 				DCCF342D2C47F6450037D1B8 /* Assets.xcassets */,
-				DCCF342F2C47F6450037D1B8 /* LaunchScreen.storyboard */,
 				DCCF34322C47F6450037D1B8 /* Info.plist */,
+				DCCF342F2C47F6450037D1B8 /* LaunchScreen.storyboard */,
+				DCCF342A2C47F6420037D1B8 /* Main.storyboard */,
 				DCCF34332C47F6450037D1B8 /* main.m */,
+				DCCF34382C47F64D0037D1B8 /* meniga-ios-sdk-unit-test-target-app.entitlements */,
 			);
 			name = "meniga-ios-sdk-unit-test-target-app";
-			path = "../meniga-ios-sdk-unit-test-target-app";
+			path = "meniga-ios-sdk-unit-test-target-app";
 			sourceTree = "<group>";
 		};
 		DE9A9159B9A4ABB409D3445A7C7AEAB5 /* Logger */ = {
@@ -1896,17 +1896,17 @@
 		E5728E556B1F3B7C93FFAB60AE34F45A /* Meniga-ios-sdk-tests */ = {
 			isa = PBXGroup;
 			children = (
-				DCCF34202C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app */,
 				53657863B0B14FF075ABA7AC0780CD8B /* JsonAdapterTest */,
 				53CBCB8765868B36253DF7BEBAD9E3C9 /* ModelObjectTests */,
 				8CB73718E3DAEC183C7C7FBC06B7785B /* NetworkTest */,
 				F0AEB146946D5682A97D3EB5EC3998B3 /* ValueTransformerTests */,
+				DCCF34202C47F6420037D1B8 /* meniga-ios-sdk-unit-test-target-app */,
 				3CC4460C8080D981076181281192E1CB /* Info.plist */,
 				CAA416405A2F9D55808D2B6D66A83C86 /* MNFJobTest.m */,
+				DCCF33F92C47D2EC0037D1B8 /* MNFKeychainTest.m */,
 				9F4FF862E13E3084F8F551CBCCF8159A /* MNFRequestTest.m */,
 				971D86F1124EDE03B29A49974850A8C3 /* MNFResponseTest.m */,
 				148779EAB23149FB20A350443ED14309 /* MNFURLConstructorTest.m */,
-				DCCF33F92C47D2EC0037D1B8 /* MNFKeychainTest.m */,
 			);
 			path = "Meniga-ios-sdk-tests";
 			sourceTree = "<group>";
@@ -2639,6 +2639,7 @@
 				DCCF342B2C47F6420037D1B8 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		DCCF342F2C47F6450037D1B8 /* LaunchScreen.storyboard */ = {
@@ -2647,6 +2648,7 @@
 				DCCF34302C47F6450037D1B8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2949,7 +2951,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "meniga-ios-sdk-unit-test-target-app/Info.plist";
+				INFOPLIST_FILE = "Meniga-ios-sdk-tests/meniga-ios-sdk-unit-test-target-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2988,7 +2990,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "meniga-ios-sdk-unit-test-target-app/Info.plist";
+				INFOPLIST_FILE = "Meniga-ios-sdk-tests/meniga-ios-sdk-unit-test-target-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

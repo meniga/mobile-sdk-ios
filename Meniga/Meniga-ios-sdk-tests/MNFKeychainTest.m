@@ -29,7 +29,6 @@
     [super tearDown];
 }
 
-
 - (void)testSaveAndLoadDataForKey {
     NSString *key = @"testKey";
     NSData *data = [@"testData" dataUsingEncoding:NSUTF8StringEncoding];
@@ -47,22 +46,20 @@
     XCTAssertNil(loadedData, @"Data should be nil for nonexistent key");
 }
 
-
 - (void)testDeleteData {
     NSString *key = @"testKey";
     NSData *data = [@"testData" dataUsingEncoding:NSUTF8StringEncoding];
-    
+
     [MNFKeychain saveData:data forKey:key];
-    
+
     NSData *retrievedData = [MNFKeychain loadDataForKey:key];
     XCTAssertEqualObjects(data, retrievedData, @"Retrieved data should be equal to saved data");
-    
+
     [MNFKeychain deleteDataForKey:key];
-    
+
     NSData *loadedData = [MNFKeychain loadDataForKey:key];
     XCTAssertNil(loadedData, @"Data should be nil after deletion");
 }
-
 
 - (void)testSaveAndLoadPassword {
     NSString *password = @"testPassword";
@@ -71,7 +68,8 @@
 
     NSString *retrievedPassword = [MNFKeychain loadPassword];
     XCTAssertNotNil(retrievedPassword, @"Data should not be nil");
-    XCTAssertTrue([password isEqualToString:retrievedPassword],  @"Retrieved password should be equal to saved password");
+    XCTAssertTrue([password isEqualToString:retrievedPassword],
+                  @"Retrieved password should be equal to saved password");
 }
 
 - (void)testLoadNonExistingPassword {
@@ -87,13 +85,13 @@
 
     NSString *retrievedPassword = [MNFKeychain loadPassword];
     XCTAssertNotNil(retrievedPassword, @"Password should not be nil");
-    XCTAssertTrue([password isEqualToString:retrievedPassword],  @"Retrieved password should be equal to saved password");
-    
+    XCTAssertTrue([password isEqualToString:retrievedPassword],
+                  @"Retrieved password should be equal to saved password");
+
     [MNFKeychain deletePassword];
     NSString *loadedPassword = [MNFKeychain loadPassword];
     XCTAssertNil(loadedPassword, @"Password should be nil for nonexistent key");
 }
-
 
 - (void)testSaveAndLoadToken {
     NSDictionary *tokenDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"value1", @"key1", nil];
@@ -102,13 +100,12 @@
 
     NSDictionary *retrievedToken = [MNFKeychain loadToken];
     XCTAssertNotNil(retrievedToken, @"Data should not be nil");
-    
-    XCTAssertTrue([[tokenDictionary objectForKey:@"key1"]
-                   isEqualToString:[retrievedToken objectForKey: @"key1"]],
+
+    XCTAssertTrue([[tokenDictionary objectForKey:@"key1"] isEqualToString:[retrievedToken objectForKey:@"key1"]],
                   @"Retrieved token should be equal to saved token");
 }
 
-- (void)testLoadNonExistingToken{
+- (void)testLoadNonExistingToken {
     [MNFKeychain deleteToken];
     NSDictionary *loadedPassword = [MNFKeychain loadToken];
     XCTAssertNil(loadedPassword, @"Data should be nil for nonexistent key");
@@ -121,16 +118,12 @@
 
     NSDictionary *retrievedToken = [MNFKeychain loadToken];
     XCTAssertNotNil(retrievedToken, @"Data should not be nil");
-    XCTAssertTrue([[tokenDictionary objectForKey:@"key1"]
-                   isEqualToString:[retrievedToken objectForKey: @"key1"]],
+    XCTAssertTrue([[tokenDictionary objectForKey:@"key1"] isEqualToString:[retrievedToken objectForKey:@"key1"]],
                   @"Retrieved token should be equal to saved token");
-    
+
     [MNFKeychain deleteToken];
     NSDictionary *loadedPassword = [MNFKeychain loadToken];
     XCTAssertNil(loadedPassword, @"Data should be nil for nonexistent key");
 }
-
-
-
 
 @end

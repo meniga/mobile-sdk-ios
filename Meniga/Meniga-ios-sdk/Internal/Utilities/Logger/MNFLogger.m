@@ -28,12 +28,12 @@ void MNFLog(int logLevel, NSString *format, ...) {
         va_end(args);
 
         if (defaultClient == nil) {
-        NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
-        defaultClient = os_log_create([bundleIdentifier UTF8String] , "");
+            NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+            defaultClient = os_log_create([bundleIdentifier UTF8String], "");
         }
-     
+
         int osLogLevel = [MNFLogger appleLogLevelFromLogLevel:logLevel];
-        
+
         os_log_with_type(defaultClient, osLogLevel, "%@", string);
     }
 }
