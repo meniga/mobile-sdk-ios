@@ -1844,7 +1844,6 @@
 				DCCF34332C47F6450037D1B8 /* main.m */,
 				DCCF34382C47F64D0037D1B8 /* meniga-ios-sdk-unit-test-target-app.entitlements */,
 			);
-			name = "meniga-ios-sdk-unit-test-target-app";
 			path = "meniga-ios-sdk-unit-test-target-app";
 			sourceTree = "<group>";
 		};
@@ -2673,7 +2672,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/meniga-ios-sdk-unit-test-target-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/meniga-ios-sdk-unit-test-target-app";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/meniga-ios-sdk-unit-test-target-app.app$(BUNDLE_EXECUTABLE_FOLDER_PATH)/meniga-ios-sdk-unit-test-target-app";
 			};
 			name = Debug;
 		};
@@ -2844,7 +2843,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/meniga-ios-sdk-unit-test-target-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/meniga-ios-sdk-unit-test-target-app";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/meniga-ios-sdk-unit-test-target-app.app$(BUNDLE_EXECUTABLE_FOLDER_PATH)/meniga-ios-sdk-unit-test-target-app";
 			};
 			name = Release;
 		};
@@ -2944,7 +2943,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "meniga-ios-sdk-unit-test-target-app/meniga-ios-sdk-unit-test-target-app.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Meniga-ios-sdk-tests/meniga-ios-sdk-unit-test-target-app/meniga-ios-sdk-unit-test-target-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ESFC3VV2RB;
@@ -2983,7 +2982,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "meniga-ios-sdk-unit-test-target-app/meniga-ios-sdk-unit-test-target-app.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Meniga-ios-sdk-tests/meniga-ios-sdk-unit-test-target-app/meniga-ios-sdk-unit-test-target-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ESFC3VV2RB;
