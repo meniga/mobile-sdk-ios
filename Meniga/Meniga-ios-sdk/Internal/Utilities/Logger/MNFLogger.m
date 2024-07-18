@@ -7,10 +7,10 @@
 //
 
 #import "MNFLogger.h"
-#include <asl.h>
+#import "OSLog/OSLog.h"
 
 static int classLogLevel = kMNFLogLevelInfo;
-static aslclient defaultClient = nil;
+static os_log_t defaultClient = nil;
 
 @interface MNFLogger () {
 }
@@ -28,13 +28,13 @@ void MNFLog(int logLevel, NSString *format, ...) {
         va_end(args);
 
         if (defaultClient == nil) {
-            defaultClient = asl_open(NULL, "com.apple.console", ASL_OPT_STDERR);
+            NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+            defaultClient = os_log_create([bundleIdentifier UTF8String], "");
         }
 
-        const char *logString = [string UTF8String];
-        int aslLogLevel = [MNFLogger appleLogLevelFromLogLevel:logLevel];
+        int osLogLevel = [MNFLogger appleLogLevelFromLogLevel:logLevel];
 
-        asl_log(defaultClient, NULL, aslLogLevel, "%s", logString);
+        os_log_with_type(defaultClient, osLogLevel, "%@", string);
     }
 }
 
@@ -46,18 +46,18 @@ void MNFLog(int logLevel, NSString *format, ...) {
 
 + (int)appleLogLevelFromLogLevel:(MNFLogLevel)theLogLevel {
     if (theLogLevel == kMNFLogLevelError) {
-        return ASL_LEVEL_ERR;
+        return OS_LOG_TYPE_ERROR;
     } else if (theLogLevel == kMNFLogLevelInfo) {
-        return ASL_LEVEL_INFO;
+        return OS_LOG_TYPE_INFO;
     } else if (theLogLevel == kMNFLogLevelDebug) {
-        return ASL_LEVEL_DEBUG;
+        return OS_LOG_TYPE_DEBUG;
     } else if (theLogLevel == kMNFLogLevelWarning) {
-        return ASL_LEVEL_WARNING;
+        return OS_LOG_TYPE_FAULT;
     } else if (theLogLevel == kMNFLogLevelVerbose) {
-        return ASL_LEVEL_DEBUG;
+        return OS_LOG_TYPE_DEFAULT;
     }
 
-    return ASL_LEVEL_INFO;
+    return OS_LOG_TYPE_DEFAULT;
 }
 
 @end
